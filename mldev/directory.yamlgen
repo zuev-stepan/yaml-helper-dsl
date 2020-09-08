@@ -1,33 +1,29 @@
 BaseDirectory {
     field mandatory {
-        name: path
+        name: "path"
         hint: "Path to directory"
         default: "./data"
     }
 
     // Set this to "true" if you need to pass specified directory and files as a parameter for your script
     field mandatory {
-        name: needsToBePassedAsArg
+        name: "needsToBePassedAsArg"
         hint: "Do you need to pass specified directory and files as a parameter for your script?"
         values: ["true", "false"]
     }
 }
 
-/**
-The directory from which the data (or model) are obtained on this particular stage
-**/
+//The directory from which the data (or model) are obtained on this particular stage
 InputDirectory extends BaseDirectory {
-    name: inputDir
+    name: "inputDir"
 
-    extend path {
+    extend "path" {
         default: "./data"
     }
 
-    /**
-    Files from which you need to take data or model located in the input directory
-    **/
+    //Files from which you need to take data or model located in the input directory
     field mandatory {
-        name: inputFiles
+        name: "inputFiles"
         default: [
             "X_train.pickle",
             "X_dev.pickle",
@@ -40,21 +36,17 @@ InputDirectory extends BaseDirectory {
     }
 }
 
-/**
-The directory where you would like to put your results
-**/
+//The directory where you would like to put your results
 OutputDirectory extends BaseDirectory {
-    name: outputDir
+    name: "outputDir"
 
-    extend path {
+    extend "path" {
         default: "./result"
     }
 
-    /**
-    Files from which you need to take data or model located in the input directory
-    **/
+    //Files from which you need to take data or model located in the input directory
     field mandatory {
-        name: outputFiles
+        name: "outputFiles"
         default: [
             "model.pickle",
             "report.csv"         

@@ -1,0 +1,82 @@
+grammar yaml.helper.dsl.YamlGenDsl with org.eclipse.xtext.common.Terminals
+
+generate yamlGenDsl "http://www.helper.yaml/dsl/YamlGenDsl"
+
+Source:
+	(entries+=SourceElement)*
+;
+
+SourceElement:
+	Field
+|
+	Import
+;
+	
+Import:
+	'import' path=STRING
+;
+
+Field:
+	(help+=SL_COMMENT)*
+	(root?='root')? name=ID ('extends' superField=[Field])? body=Body
+;
+	
+Body:
+	{Body} '{' (elements+=BodyElement)* '}'
+;
+	
+BodyElement:
+	Extend
+|
+	NestedField
+|
+	NestedFields
+|
+	Property
+;
+	
+Extend:
+	'extend' STRING Body
+;
+	
+NestedField:
+	(help+=SL_COMMENT)*
+	'field' (mandatory?='mandatory')? ('extends' field=[Field])? body=Body
+;
+
+NestedFields:
+	(help+=SL_COMMENT)*
+	'fields' (mandatory?='mandatory')? ('extends' field=[Field])? body=Body
+;
+
+Property:
+	Name
+|
+	Default
+|
+	Hint
+|
+	PermittedValues
+;
+
+Name:
+	'name:' value=STRING
+;
+	
+Default:
+	'default:' value=Values
+;
+	
+Hint:
+	'hint:' value=STRING
+;
+	
+PermittedValues:
+	'values:' value=Values
+;
+
+Values:
+	'[' (values+=STRING)+ ']'
+|
+	values+=STRING
+;
