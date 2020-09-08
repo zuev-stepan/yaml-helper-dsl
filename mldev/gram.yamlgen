@@ -1,0 +1,41 @@
+import "monitoring_services.yamlgen"
+import "directory.yamlgen"
+
+Stage {
+    field mandatory {
+        name: requirements_file_path
+        default: "./Requirements/requiremets.txt"
+        hint: "Path to requirements.txt"
+    }
+
+    field mandatory extends InputDirectory {
+    }
+
+    field mandatory extends OutputDirectory {
+    }
+
+    field mandatory {
+        name: scriptPath
+        default: @@name + ".sh"
+        hint: "Path to script that will be used in this particular stage"
+    }
+
+    // This parameter is responsible for number for iterations and is used when you need to run exact stage more than one time
+    field mandatory {
+        name: numberOfIterations
+        default: 1
+        hint: "How many times do you want to run this stage?"
+    }
+
+    field extends MonitoringServices {
+    }
+}
+
+Config {
+    fields extend Stage {
+        default: ["prepare", "train", "demo"]    
+    }
+}
+
+generate Config
+    

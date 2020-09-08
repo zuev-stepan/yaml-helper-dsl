@@ -1,0 +1,80 @@
+/**
+TensorBoard provides the visualization and tooling needed for machine learning experimentation:
+Tracking and visualizing metrics such as loss and accuracy
+Visualizing the model graph (ops and layers)
+Viewing histograms of weights, biases, or other tensors as they change over time
+Projecting embeddings to a lower dimensional space
+Displaying images, text, and audio data
+Profiling TensorFlow programs
+And much more
+
+Note that you need to configure Ngrok too in order to use TensorBoard
+**/
+Tensorboard {
+    name: tensorboard
+    hint: "Do you want to use tensorboard?"
+
+    field mandatory {
+        name: logdir
+        default: "log_tb"
+        hint: "Where do you want to keep tensorboard logs?"
+    }
+
+    field mandatory {
+        name: port
+        default: "6006"
+        hint: "Which port do you want to use for tensorboard?"
+    }
+}
+
+/**
+Ngrok allows you to expose a web server running on your local machine to the internet.
+If your tunnel is not found at your ngrok dashboard, run ngrok_urls to see your public urls.
+If you don't know how to get your token check https://gitlab.com/mlrep/mldev/-/wikis/instructions-for-tokens-obtaining-for-monitoring-services
+**/
+Ngrok {
+    name: ngrok
+    hint: "Do you want to use ngrok?"
+
+    // Your personal ngrok token which you can get at https://ngrok.com
+    field mandatory {
+        name: token
+        hint: "Your ngrok token"
+    }
+
+    field mandatory {
+        name: port
+        default: "6006"
+        hint: "Which ports do you want to expose?"
+    }
+}
+
+/**
+You can receive notifications with recent information about your project in telegram
+For more information check bot instruction in documentation
+If you don't know how to get your token check https://gitlab.com/mlrep/mldev/-/wikis/instructions-for-tokens-obtaining-for-monitoring-services
+**/
+NotificationBot {
+    name: notificationBot
+    hint: "Do you want to use notification bot?"
+
+    // Your personal bot token which you can obtain from @BotFather on telegram
+    field mandatory {
+        name: token
+        hint: "Your telegram bot token"
+    }
+
+    field mandatory {
+        name: warnings
+        default: "False"
+        hint: "Do you want to receive warnings?"
+        values: ["True", "False"]
+    }
+}
+
+/**
+You can specify what services will be working during execution of your stage
+**/
+MonitoringServices {
+    name: monitoringServices
+}
