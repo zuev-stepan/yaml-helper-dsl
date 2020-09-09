@@ -41,22 +41,28 @@ Extend:
 	
 NestedField:
 	(help+=SL_COMMENT)*
-	'field' (mandatory?='mandatory')? ('extends' field=[Field])? body=Body
+	'field' (mandatory?='mandatory')? (default?='default')? ('extends' field=[Field])? body=Body
 ;
 
 NestedFields:
 	(help+=SL_COMMENT)*
-	'fields' (mandatory?='mandatory')? ('extends' field=[Field])? body=Body
+	'fields' ('extends' field=[Field])? body=Body
 ;
 
 Property:
 	Name
+|
+	Key
 |
 	Default
 |
 	Hint
 |
 	PermittedValues
+;
+
+Key:
+	'key:' value=STRING
 ;
 
 Name:

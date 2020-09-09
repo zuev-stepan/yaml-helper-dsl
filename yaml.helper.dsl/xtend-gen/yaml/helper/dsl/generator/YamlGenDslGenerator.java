@@ -3,10 +3,14 @@
  */
 package yaml.helper.dsl.generator;
 
+import com.google.common.collect.Iterators;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import yaml.helper.dsl.yamlGenDsl.Field;
 
 /**
  * Generates code from your model files on save.
@@ -17,5 +21,23 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 public class YamlGenDslGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      Iterable<Field> _iterable = IteratorExtensions.<Field>toIterable(Iterators.<Field>filter(resource.getAllContents(), Field.class));
+      for(final Field field : _iterable) {
+        _builder.append("Field ");
+        String _name = field.getName();
+        _builder.append(_name);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    fsa.generateFile("text.txt", _builder);
+  }
+  
+  private CharSequence compile(final Field field, final IFileSystemAccess2 fsa) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("PIDOR");
+    _builder.newLine();
+    return _builder;
   }
 }

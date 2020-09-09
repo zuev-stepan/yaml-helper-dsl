@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import yaml.helper.dsl.yamlGenDsl.Field
 
 /**
  * Generates code from your model files on save.
@@ -16,10 +17,14 @@ import org.eclipse.xtext.generator.IGeneratorContext
 class YamlGenDslGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Greeting)
-//				.map[name]
-//				.join(', '))
+		fsa.generateFile("text.txt", '''
+			«FOR field : resource.allContents.filter(Field).toIterable»
+                Field «field.name»
+            «ENDFOR»
+		''')
 	}
+	
+	private def compile(Field field, IFileSystemAccess2 fsa) '''
+		PIDOR
+	'''
 }

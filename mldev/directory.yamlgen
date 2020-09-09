@@ -1,21 +1,20 @@
 BaseDirectory {
     field mandatory {
-        name: "path"
+        key: "path"
         hint: "Path to directory"
         default: "./data"
     }
 
-    // Set this to "true" if you need to pass specified directory and files as a parameter for your script
     field mandatory {
-        name: "needsToBePassedAsArg"
-        hint: "Do you need to pass specified directory and files as a parameter for your script?"
+        key: "needsToBePassedAsArg"
+        hint: 'Set this to "true" if you need to pass specified directory and files as a parameter for your script'
         values: ["true", "false"]
     }
 }
 
 //The directory from which the data (or model) are obtained on this particular stage
 InputDirectory extends BaseDirectory {
-    name: "inputDir"
+    key: "inputDir"
 
     extend "path" {
         default: "./data"
@@ -23,14 +22,14 @@ InputDirectory extends BaseDirectory {
 
     //Files from which you need to take data or model located in the input directory
     field mandatory {
-        name: "inputFiles"
+        key: "inputFiles"
         default: [
-            "X_train.pickle",
-            "X_dev.pickle",
-            "X_test.pickle",
-            "y_train.pickle",
-            "y_dev.pickle",
-            "y_test.pickle",          
+            "X_train.pickle"
+            "X_dev.pickle"
+            "X_test.pickle"
+            "y_train.pickle"
+            "y_dev.pickle"
+            "y_test.pickle"       
         ]
         hint: "Input files"
     }
@@ -38,7 +37,7 @@ InputDirectory extends BaseDirectory {
 
 //The directory where you would like to put your results
 OutputDirectory extends BaseDirectory {
-    name: "outputDir"
+    key: "outputDir"
 
     extend "path" {
         default: "./result"
@@ -46,9 +45,9 @@ OutputDirectory extends BaseDirectory {
 
     //Files from which you need to take data or model located in the input directory
     field mandatory {
-        name: "outputFiles"
+        key: "outputFiles"
         default: [
-            "model.pickle",
+            "model.pickle"
             "report.csv"         
         ]
         hint: "Output files"

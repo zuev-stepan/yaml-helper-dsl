@@ -68,7 +68,6 @@ import org.eclipse.xtext.ui.refactoring.ui.IRenameSupport;
 import org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferences;
 import org.eclipse.xtext.ui.resource.ResourceServiceDescriptionLabelProvider;
 import org.eclipse.xtext.ui.shared.Access;
-import org.eclipse.xtext.ui.validation.AbstractValidatorConfigurationBlock;
 import yaml.helper.dsl.ide.contentassist.antlr.PartialYamlGenDslContentAssistParser;
 import yaml.helper.dsl.ide.contentassist.antlr.YamlGenDslParser;
 import yaml.helper.dsl.ide.contentassist.antlr.internal.InternalYamlGenDslLexer;
@@ -77,7 +76,6 @@ import yaml.helper.dsl.ui.labeling.YamlGenDslDescriptionLabelProvider;
 import yaml.helper.dsl.ui.labeling.YamlGenDslLabelProvider;
 import yaml.helper.dsl.ui.outline.YamlGenDslOutlineTreeProvider;
 import yaml.helper.dsl.ui.quickfix.YamlGenDslQuickfixProvider;
-import yaml.helper.dsl.validation.YamlGenDslValidatorConfigurationBlock;
 
 /**
  * Manual modifications go to {@link YamlGenDslUiModule}.
@@ -133,11 +131,6 @@ public abstract class AbstractYamlGenDslUiModule extends DefaultUiModule {
 	// contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2
 	public void configureContentAssistLexerProvider(Binder binder) {
 		binder.bind(InternalYamlGenDslLexer.class).toProvider(LexerProvider.create(InternalYamlGenDslLexer.class));
-	}
-	
-	// contributed by org.eclipse.xtext.xtext.generator.validation.ValidatorFragment2
-	public Class<? extends AbstractValidatorConfigurationBlock> bindAbstractValidatorConfigurationBlock() {
-		return YamlGenDslValidatorConfigurationBlock.class;
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.exporting.QualifiedNamesFragment2

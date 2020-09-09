@@ -40,7 +40,6 @@ import org.eclipse.xtext.serializer.sequencer.ISemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ISyntacticSequencer;
 import org.eclipse.xtext.service.DefaultRuntimeModule;
 import org.eclipse.xtext.service.SingletonBinding;
-import org.eclipse.xtext.validation.ConfigurableIssueCodesProvider;
 import yaml.helper.dsl.generator.YamlGenDslGenerator;
 import yaml.helper.dsl.parser.antlr.YamlGenDslAntlrTokenFileProvider;
 import yaml.helper.dsl.parser.antlr.YamlGenDslParser;
@@ -49,7 +48,6 @@ import yaml.helper.dsl.scoping.YamlGenDslScopeProvider;
 import yaml.helper.dsl.serializer.YamlGenDslSemanticSequencer;
 import yaml.helper.dsl.serializer.YamlGenDslSyntacticSequencer;
 import yaml.helper.dsl.services.YamlGenDslGrammarAccess;
-import yaml.helper.dsl.validation.YamlGenDslConfigurableIssueCodesProvider;
 import yaml.helper.dsl.validation.YamlGenDslValidator;
 
 /**
@@ -141,11 +139,6 @@ public abstract class AbstractYamlGenDslRuntimeModule extends DefaultRuntimeModu
 	@SingletonBinding(eager=true)
 	public Class<? extends YamlGenDslValidator> bindYamlGenDslValidator() {
 		return YamlGenDslValidator.class;
-	}
-	
-	// contributed by org.eclipse.xtext.xtext.generator.validation.ValidatorFragment2
-	public Class<? extends ConfigurableIssueCodesProvider> bindConfigurableIssueCodesProvider() {
-		return YamlGenDslConfigurableIssueCodesProvider.class;
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.scoping.ImportNamespacesScopingFragment2

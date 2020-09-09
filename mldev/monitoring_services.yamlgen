@@ -9,19 +9,19 @@
 // 
 // Note that you need to configure Ngrok too in order to use TensorBoard
 Tensorboard {
-    name: "tensorboard"
-    hint: "Do you want to use tensorboard?"
+    key: "tensorboard"
+    hint: "TensorBoard provides the visualization and tooling needed for machine learning experimentation"
 
     field mandatory {
-        name: "logdir"
+        key: "logdir"
         default: "log_tb"
-        hint: "Where do you want to keep tensorboard logs?"
+        hint: "A directory to keep tensorboard logs in"
     }
 
     field mandatory {
-        name: "port"
+        key: "port"
         default: "6006"
-        hint: "Which port do you want to use for tensorboard?"
+        hint: "Port for tensorboard"
     }
 }
 
@@ -29,19 +29,19 @@ Tensorboard {
 // If your tunnel is not found at your ngrok dashboard, run ngrok_urls to see your public urls.
 // If you don't know how to get your token check https://gitlab.com/mlrep/mldev/-/wikis/instructions-for-tokens-obtaining-for-monitoring-services
 Ngrok {
-    name: "ngrok"
-    hint: "Do you want to use ngrok?"
+    key: "ngrok"
+    hint: "Ngrok allows you to expose a web server running on your local machine to the internet, you need it to use tensorboard"
 
     // Your personal ngrok token which you can get at https://ngrok.com
     field mandatory {
-        name: "token"
+        key: "token"
         hint: "Your ngrok token"
     }
 
     field mandatory {
-        name: "port"
+        key: "ports"
         default: "6006"
-        hint: "Which ports do you want to expose?"
+        hint: "Ports to expose (your tensorboard port should be here)"
     }
 }
 
@@ -49,30 +49,34 @@ Ngrok {
 // For more information check bot instruction in documentation
 // If you don't know how to get your token check https://gitlab.com/mlrep/mldev/-/wikis/instructions-for-tokens-obtaining-for-monitoring-services
 NotificationBot {
-    name: "notificationBot"
-    hint: "Do you want to use notification bot?"
+    key: "notificationBot"
+    hint: "Notification bot sends you recent information about your project in telegram"
 
     // Your personal bot token which you can obtain from @BotFather on telegram
     field mandatory {
-        name: "token"
+        key: "token"
         hint: "Your telegram bot token"
     }
 
     field mandatory {
-        name: "warnings"
+        key: "warnings"
         default: "False"
-        hint: "Do you want to receive warnings?"
         values: ["True", "False"]
+        hint: "Do you want to receive warnings?"
     }
 }
 
 // You can specify what services will be working during execution of your stage
+// Supported services:
+// Tensorboard
+// Ngrok
+// Notification bot
 MonitoringServices {
-    name: "monitoringServices"
-    field extends Tensorboard {
+    key: "monitoringServices"
+    field default extends Tensorboard {
     }
-    field extends Ngrok {
+    field default extends Ngrok {
     }
-    field extends MonitoringServices {
+    field default extends MonitoringServices {
     }
 }
