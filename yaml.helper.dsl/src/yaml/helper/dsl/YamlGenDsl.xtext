@@ -7,9 +7,7 @@ Source:
 ;
 
 SourceElement:
-	Field
-|
-	Import
+	Field | Import
 ;
 	
 Import:
@@ -26,39 +24,25 @@ Body:
 ;
 	
 BodyElement:
-	Extend
-|
-	NestedField
-|
-	NestedFields
-|
-	Property
+	Extend | NestedField | NestedFields | Property
 ;
 	
 Extend:
-	'extend' STRING Body
+	'extend' name_property=STRING body=Body
 ;
 	
 NestedField:
 	(help+=SL_COMMENT)*
-	'field' (mandatory?='mandatory')? (default?='default')? ('extends' field=[Field])? body=Body
+	'field' (mandatory?='mandatory')? (default?='default')? ('extends' superField=[Field])? body=Body
 ;
 
 NestedFields:
 	(help+=SL_COMMENT)*
-	'fields' ('extends' field=[Field])? body=Body
+	'fields' ('extend' superField=[Field])? body=Body
 ;
 
 Property:
-	Name
-|
-	Key
-|
-	Default
-|
-	Hint
-|
-	PermittedValues
+	Name | Key | Default | Hint | PermittedValues
 ;
 
 Key:
@@ -82,7 +66,7 @@ PermittedValues:
 ;
 
 Values:
-	'[' (values+=STRING)+ ']'
+	'[' (values+=Values)+ ']'
 |
-	values+=STRING
+	string=STRING
 ;

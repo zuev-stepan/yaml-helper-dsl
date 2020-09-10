@@ -32,7 +32,8 @@ import yaml.helper.dsl.yamlGenDsl.YamlGenDslPackage;
  * <ul>
  *   <li>{@link yaml.helper.dsl.yamlGenDsl.impl.NestedFieldImpl#getHelp <em>Help</em>}</li>
  *   <li>{@link yaml.helper.dsl.yamlGenDsl.impl.NestedFieldImpl#isMandatory <em>Mandatory</em>}</li>
- *   <li>{@link yaml.helper.dsl.yamlGenDsl.impl.NestedFieldImpl#getField <em>Field</em>}</li>
+ *   <li>{@link yaml.helper.dsl.yamlGenDsl.impl.NestedFieldImpl#isDefault <em>Default</em>}</li>
+ *   <li>{@link yaml.helper.dsl.yamlGenDsl.impl.NestedFieldImpl#getSuperField <em>Super Field</em>}</li>
  *   <li>{@link yaml.helper.dsl.yamlGenDsl.impl.NestedFieldImpl#getBody <em>Body</em>}</li>
  * </ul>
  *
@@ -71,14 +72,34 @@ public class NestedFieldImpl extends BodyElementImpl implements NestedField
   protected boolean mandatory = MANDATORY_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getField() <em>Field</em>}' reference.
+   * The default value of the '{@link #isDefault() <em>Default</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getField()
+   * @see #isDefault()
    * @generated
    * @ordered
    */
-  protected Field field;
+  protected static final boolean DEFAULT_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isDefault() <em>Default</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isDefault()
+   * @generated
+   * @ordered
+   */
+  protected boolean default_ = DEFAULT_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getSuperField() <em>Super Field</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSuperField()
+   * @generated
+   * @ordered
+   */
+  protected Field superField;
 
   /**
    * The cached value of the '{@link #getBody() <em>Body</em>}' containment reference.
@@ -157,29 +178,9 @@ public class NestedFieldImpl extends BodyElementImpl implements NestedField
    * @generated
    */
   @Override
-  public Field getField()
+  public boolean isDefault()
   {
-    if (field != null && field.eIsProxy())
-    {
-      InternalEObject oldField = (InternalEObject)field;
-      field = (Field)eResolveProxy(oldField);
-      if (field != oldField)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, YamlGenDslPackage.NESTED_FIELD__FIELD, oldField, field));
-      }
-    }
-    return field;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Field basicGetField()
-  {
-    return field;
+    return default_;
   }
 
   /**
@@ -188,12 +189,57 @@ public class NestedFieldImpl extends BodyElementImpl implements NestedField
    * @generated
    */
   @Override
-  public void setField(Field newField)
+  public void setDefault(boolean newDefault)
   {
-    Field oldField = field;
-    field = newField;
+    boolean oldDefault = default_;
+    default_ = newDefault;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, YamlGenDslPackage.NESTED_FIELD__FIELD, oldField, field));
+      eNotify(new ENotificationImpl(this, Notification.SET, YamlGenDslPackage.NESTED_FIELD__DEFAULT, oldDefault, default_));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Field getSuperField()
+  {
+    if (superField != null && superField.eIsProxy())
+    {
+      InternalEObject oldSuperField = (InternalEObject)superField;
+      superField = (Field)eResolveProxy(oldSuperField);
+      if (superField != oldSuperField)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, YamlGenDslPackage.NESTED_FIELD__SUPER_FIELD, oldSuperField, superField));
+      }
+    }
+    return superField;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Field basicGetSuperField()
+  {
+    return superField;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setSuperField(Field newSuperField)
+  {
+    Field oldSuperField = superField;
+    superField = newSuperField;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, YamlGenDslPackage.NESTED_FIELD__SUPER_FIELD, oldSuperField, superField));
   }
 
   /**
@@ -276,9 +322,11 @@ public class NestedFieldImpl extends BodyElementImpl implements NestedField
         return getHelp();
       case YamlGenDslPackage.NESTED_FIELD__MANDATORY:
         return isMandatory();
-      case YamlGenDslPackage.NESTED_FIELD__FIELD:
-        if (resolve) return getField();
-        return basicGetField();
+      case YamlGenDslPackage.NESTED_FIELD__DEFAULT:
+        return isDefault();
+      case YamlGenDslPackage.NESTED_FIELD__SUPER_FIELD:
+        if (resolve) return getSuperField();
+        return basicGetSuperField();
       case YamlGenDslPackage.NESTED_FIELD__BODY:
         return getBody();
     }
@@ -303,8 +351,11 @@ public class NestedFieldImpl extends BodyElementImpl implements NestedField
       case YamlGenDslPackage.NESTED_FIELD__MANDATORY:
         setMandatory((Boolean)newValue);
         return;
-      case YamlGenDslPackage.NESTED_FIELD__FIELD:
-        setField((Field)newValue);
+      case YamlGenDslPackage.NESTED_FIELD__DEFAULT:
+        setDefault((Boolean)newValue);
+        return;
+      case YamlGenDslPackage.NESTED_FIELD__SUPER_FIELD:
+        setSuperField((Field)newValue);
         return;
       case YamlGenDslPackage.NESTED_FIELD__BODY:
         setBody((Body)newValue);
@@ -329,8 +380,11 @@ public class NestedFieldImpl extends BodyElementImpl implements NestedField
       case YamlGenDslPackage.NESTED_FIELD__MANDATORY:
         setMandatory(MANDATORY_EDEFAULT);
         return;
-      case YamlGenDslPackage.NESTED_FIELD__FIELD:
-        setField((Field)null);
+      case YamlGenDslPackage.NESTED_FIELD__DEFAULT:
+        setDefault(DEFAULT_EDEFAULT);
+        return;
+      case YamlGenDslPackage.NESTED_FIELD__SUPER_FIELD:
+        setSuperField((Field)null);
         return;
       case YamlGenDslPackage.NESTED_FIELD__BODY:
         setBody((Body)null);
@@ -353,8 +407,10 @@ public class NestedFieldImpl extends BodyElementImpl implements NestedField
         return help != null && !help.isEmpty();
       case YamlGenDslPackage.NESTED_FIELD__MANDATORY:
         return mandatory != MANDATORY_EDEFAULT;
-      case YamlGenDslPackage.NESTED_FIELD__FIELD:
-        return field != null;
+      case YamlGenDslPackage.NESTED_FIELD__DEFAULT:
+        return default_ != DEFAULT_EDEFAULT;
+      case YamlGenDslPackage.NESTED_FIELD__SUPER_FIELD:
+        return superField != null;
       case YamlGenDslPackage.NESTED_FIELD__BODY:
         return body != null;
     }
@@ -376,6 +432,8 @@ public class NestedFieldImpl extends BodyElementImpl implements NestedField
     result.append(help);
     result.append(", mandatory: ");
     result.append(mandatory);
+    result.append(", default: ");
+    result.append(default_);
     result.append(')');
     return result.toString();
   }

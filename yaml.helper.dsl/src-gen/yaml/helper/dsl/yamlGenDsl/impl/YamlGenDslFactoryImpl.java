@@ -75,6 +75,7 @@ public class YamlGenDslFactoryImpl extends EFactoryImpl implements YamlGenDslFac
       case YamlGenDslPackage.NESTED_FIELD: return createNestedField();
       case YamlGenDslPackage.NESTED_FIELDS: return createNestedFields();
       case YamlGenDslPackage.PROPERTY: return createProperty();
+      case YamlGenDslPackage.KEY: return createKey();
       case YamlGenDslPackage.NAME: return createName();
       case YamlGenDslPackage.DEFAULT: return createDefault();
       case YamlGenDslPackage.HINT: return createHint();
@@ -203,6 +204,18 @@ public class YamlGenDslFactoryImpl extends EFactoryImpl implements YamlGenDslFac
   {
     PropertyImpl property = new PropertyImpl();
     return property;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Key createKey()
+  {
+    KeyImpl key = new KeyImpl();
+    return key;
   }
 
   /**

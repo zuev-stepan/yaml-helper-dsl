@@ -107,8 +107,6 @@ public class YamlGenDslSwitch<T> extends Switch<T>
       {
         Body body = (Body)theEObject;
         T result = caseBody(body);
-        if (result == null) result = caseExtend(body);
-        if (result == null) result = caseBodyElement(body);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -148,6 +146,15 @@ public class YamlGenDslSwitch<T> extends Switch<T>
         Property property = (Property)theEObject;
         T result = caseProperty(property);
         if (result == null) result = caseBodyElement(property);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case YamlGenDslPackage.KEY:
+      {
+        Key key = (Key)theEObject;
+        T result = caseKey(key);
+        if (result == null) result = caseProperty(key);
+        if (result == null) result = caseBodyElement(key);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -354,6 +361,22 @@ public class YamlGenDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseProperty(Property object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Key</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Key</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseKey(Key object)
   {
     return null;
   }

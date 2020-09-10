@@ -407,18 +407,43 @@ ruleExtend returns [EObject current=null]
 		{
 			newLeafNode(otherlv_0, grammarAccess.getExtendAccess().getExtendKeyword_0());
 		}
-		this_STRING_1=RULE_STRING
-		{
-			newLeafNode(this_STRING_1, grammarAccess.getExtendAccess().getSTRINGTerminalRuleCall_1());
-		}
-		{
-			newCompositeNode(grammarAccess.getExtendAccess().getBodyParserRuleCall_2());
-		}
-		this_Body_2=ruleBody
-		{
-			$current = $this_Body_2.current;
-			afterParserOrEnumRuleCall();
-		}
+		(
+			(
+				lv_name_property_1_0=RULE_STRING
+				{
+					newLeafNode(lv_name_property_1_0, grammarAccess.getExtendAccess().getName_propertySTRINGTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getExtendRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name_property",
+						lv_name_property_1_0,
+						"org.eclipse.xtext.common.Terminals.STRING");
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getExtendAccess().getBodyBodyParserRuleCall_2_0());
+				}
+				lv_body_2_0=ruleBody
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getExtendRule());
+					}
+					set(
+						$current,
+						"body",
+						lv_body_2_0,
+						"yaml.helper.dsl.YamlGenDsl.Body");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 	)
 ;
 
@@ -475,9 +500,23 @@ ruleNestedField returns [EObject current=null]
 			)
 		)?
 		(
-			otherlv_3='extends'
+			(
+				lv_default_3_0='default'
+				{
+					newLeafNode(lv_default_3_0, grammarAccess.getNestedFieldAccess().getDefaultDefaultKeyword_3_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getNestedFieldRule());
+					}
+					setWithLastConsumed($current, "default", lv_default_3_0 != null, "default");
+				}
+			)
+		)?
+		(
+			otherlv_4='extends'
 			{
-				newLeafNode(otherlv_3, grammarAccess.getNestedFieldAccess().getExtendsKeyword_3_0());
+				newLeafNode(otherlv_4, grammarAccess.getNestedFieldAccess().getExtendsKeyword_4_0());
 			}
 			(
 				(
@@ -486,9 +525,9 @@ ruleNestedField returns [EObject current=null]
 							$current = createModelElement(grammarAccess.getNestedFieldRule());
 						}
 					}
-					otherlv_4=RULE_ID
+					otherlv_5=RULE_ID
 					{
-						newLeafNode(otherlv_4, grammarAccess.getNestedFieldAccess().getFieldFieldCrossReference_3_1_0());
+						newLeafNode(otherlv_5, grammarAccess.getNestedFieldAccess().getSuperFieldFieldCrossReference_4_1_0());
 					}
 				)
 			)
@@ -496,9 +535,9 @@ ruleNestedField returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getNestedFieldAccess().getBodyBodyParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getNestedFieldAccess().getBodyBodyParserRuleCall_5_0());
 				}
-				lv_body_5_0=ruleBody
+				lv_body_6_0=ruleBody
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getNestedFieldRule());
@@ -506,7 +545,7 @@ ruleNestedField returns [EObject current=null]
 					set(
 						$current,
 						"body",
-						lv_body_5_0,
+						lv_body_6_0,
 						"yaml.helper.dsl.YamlGenDsl.Body");
 					afterParserOrEnumRuleCall();
 				}
@@ -554,23 +593,9 @@ ruleNestedFields returns [EObject current=null]
 			newLeafNode(otherlv_1, grammarAccess.getNestedFieldsAccess().getFieldsKeyword_1());
 		}
 		(
-			(
-				lv_mandatory_2_0='mandatory'
-				{
-					newLeafNode(lv_mandatory_2_0, grammarAccess.getNestedFieldsAccess().getMandatoryMandatoryKeyword_2_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getNestedFieldsRule());
-					}
-					setWithLastConsumed($current, "mandatory", lv_mandatory_2_0 != null, "mandatory");
-				}
-			)
-		)?
-		(
-			otherlv_3='extends'
+			otherlv_2='extend'
 			{
-				newLeafNode(otherlv_3, grammarAccess.getNestedFieldsAccess().getExtendsKeyword_3_0());
+				newLeafNode(otherlv_2, grammarAccess.getNestedFieldsAccess().getExtendKeyword_2_0());
 			}
 			(
 				(
@@ -579,9 +604,9 @@ ruleNestedFields returns [EObject current=null]
 							$current = createModelElement(grammarAccess.getNestedFieldsRule());
 						}
 					}
-					otherlv_4=RULE_ID
+					otherlv_3=RULE_ID
 					{
-						newLeafNode(otherlv_4, grammarAccess.getNestedFieldsAccess().getFieldFieldCrossReference_3_1_0());
+						newLeafNode(otherlv_3, grammarAccess.getNestedFieldsAccess().getSuperFieldFieldCrossReference_2_1_0());
 					}
 				)
 			)
@@ -589,9 +614,9 @@ ruleNestedFields returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getNestedFieldsAccess().getBodyBodyParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getNestedFieldsAccess().getBodyBodyParserRuleCall_3_0());
 				}
-				lv_body_5_0=ruleBody
+				lv_body_4_0=ruleBody
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getNestedFieldsRule());
@@ -599,7 +624,7 @@ ruleNestedFields returns [EObject current=null]
 					set(
 						$current,
 						"body",
-						lv_body_5_0,
+						lv_body_4_0,
 						"yaml.helper.dsl.YamlGenDsl.Body");
 					afterParserOrEnumRuleCall();
 				}
@@ -634,31 +659,81 @@ ruleProperty returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getPropertyAccess().getDefaultParserRuleCall_1());
+			newCompositeNode(grammarAccess.getPropertyAccess().getKeyParserRuleCall_1());
 		}
-		this_Default_1=ruleDefault
+		this_Key_1=ruleKey
 		{
-			$current = $this_Default_1.current;
+			$current = $this_Key_1.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getPropertyAccess().getHintParserRuleCall_2());
+			newCompositeNode(grammarAccess.getPropertyAccess().getDefaultParserRuleCall_2());
 		}
-		this_Hint_2=ruleHint
+		this_Default_2=ruleDefault
 		{
-			$current = $this_Hint_2.current;
+			$current = $this_Default_2.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getPropertyAccess().getPermittedValuesParserRuleCall_3());
+			newCompositeNode(grammarAccess.getPropertyAccess().getHintParserRuleCall_3());
 		}
-		this_PermittedValues_3=rulePermittedValues
+		this_Hint_3=ruleHint
 		{
-			$current = $this_PermittedValues_3.current;
+			$current = $this_Hint_3.current;
 			afterParserOrEnumRuleCall();
 		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getPropertyAccess().getPermittedValuesParserRuleCall_4());
+		}
+		this_PermittedValues_4=rulePermittedValues
+		{
+			$current = $this_PermittedValues_4.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
+// Entry rule entryRuleKey
+entryRuleKey returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getKeyRule()); }
+	iv_ruleKey=ruleKey
+	{ $current=$iv_ruleKey.current; }
+	EOF;
+
+// Rule Key
+ruleKey returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='key:'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getKeyAccess().getKeyKeyword_0());
+		}
+		(
+			(
+				lv_value_1_0=RULE_STRING
+				{
+					newLeafNode(lv_value_1_0, grammarAccess.getKeyAccess().getValueSTRINGTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getKeyRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"value",
+						lv_value_1_0,
+						"org.eclipse.xtext.common.Terminals.STRING");
+				}
+			)
+		)
 	)
 ;
 
@@ -851,19 +926,20 @@ ruleValues returns [EObject current=null]
 			}
 			(
 				(
-					lv_values_1_0=RULE_STRING
 					{
-						newLeafNode(lv_values_1_0, grammarAccess.getValuesAccess().getValuesSTRINGTerminalRuleCall_0_1_0());
+						newCompositeNode(grammarAccess.getValuesAccess().getValuesValuesParserRuleCall_0_1_0());
 					}
+					lv_values_1_0=ruleValues
 					{
 						if ($current==null) {
-							$current = createModelElement(grammarAccess.getValuesRule());
+							$current = createModelElementForParent(grammarAccess.getValuesRule());
 						}
-						addWithLastConsumed(
+						add(
 							$current,
 							"values",
 							lv_values_1_0,
-							"org.eclipse.xtext.common.Terminals.STRING");
+							"yaml.helper.dsl.YamlGenDsl.Values");
+						afterParserOrEnumRuleCall();
 					}
 				)
 			)+
@@ -875,18 +951,18 @@ ruleValues returns [EObject current=null]
 		    |
 		(
 			(
-				lv_values_3_0=RULE_STRING
+				lv_string_3_0=RULE_STRING
 				{
-					newLeafNode(lv_values_3_0, grammarAccess.getValuesAccess().getValuesSTRINGTerminalRuleCall_1_0());
+					newLeafNode(lv_string_3_0, grammarAccess.getValuesAccess().getStringSTRINGTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
 						$current = createModelElement(grammarAccess.getValuesRule());
 					}
-					addWithLastConsumed(
+					setWithLastConsumed(
 						$current,
-						"values",
-						lv_values_3_0,
+						"string",
+						lv_string_3_0,
 						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)

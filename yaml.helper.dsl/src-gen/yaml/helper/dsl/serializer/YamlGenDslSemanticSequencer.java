@@ -17,9 +17,11 @@ import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransi
 import yaml.helper.dsl.services.YamlGenDslGrammarAccess;
 import yaml.helper.dsl.yamlGenDsl.Body;
 import yaml.helper.dsl.yamlGenDsl.Default;
+import yaml.helper.dsl.yamlGenDsl.Extend;
 import yaml.helper.dsl.yamlGenDsl.Field;
 import yaml.helper.dsl.yamlGenDsl.Hint;
 import yaml.helper.dsl.yamlGenDsl.Import;
+import yaml.helper.dsl.yamlGenDsl.Key;
 import yaml.helper.dsl.yamlGenDsl.Name;
 import yaml.helper.dsl.yamlGenDsl.NestedField;
 import yaml.helper.dsl.yamlGenDsl.NestedFields;
@@ -48,6 +50,9 @@ public class YamlGenDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case YamlGenDslPackage.DEFAULT:
 				sequence_Default(context, (Default) semanticObject); 
 				return; 
+			case YamlGenDslPackage.EXTEND:
+				sequence_Extend(context, (Extend) semanticObject); 
+				return; 
 			case YamlGenDslPackage.FIELD:
 				sequence_Field(context, (Field) semanticObject); 
 				return; 
@@ -56,6 +61,9 @@ public class YamlGenDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 				return; 
 			case YamlGenDslPackage.IMPORT:
 				sequence_Import(context, (Import) semanticObject); 
+				return; 
+			case YamlGenDslPackage.KEY:
+				sequence_Key(context, (Key) semanticObject); 
 				return; 
 			case YamlGenDslPackage.NAME:
 				sequence_Name(context, (Name) semanticObject); 
@@ -83,8 +91,6 @@ public class YamlGenDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 	/**
 	 * Contexts:
 	 *     Body returns Body
-	 *     BodyElement returns Body
-	 *     Extend returns Body
 	 *
 	 * Constraint:
 	 *     elements+=BodyElement*
@@ -110,6 +116,28 @@ public class YamlGenDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getDefaultAccess().getValueValuesParserRuleCall_1_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     BodyElement returns Extend
+	 *     Extend returns Extend
+	 *
+	 * Constraint:
+	 *     (name_property=STRING body=Body)
+	 */
+	protected void sequence_Extend(ISerializationContext context, Extend semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, YamlGenDslPackage.Literals.EXTEND__NAME_PROPERTY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, YamlGenDslPackage.Literals.EXTEND__NAME_PROPERTY));
+			if (transientValues.isValueTransient(semanticObject, YamlGenDslPackage.Literals.EXTEND__BODY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, YamlGenDslPackage.Literals.EXTEND__BODY));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getExtendAccess().getName_propertySTRINGTerminalRuleCall_1_0(), semanticObject.getName_property());
+		feeder.accept(grammarAccess.getExtendAccess().getBodyBodyParserRuleCall_2_0(), semanticObject.getBody());
 		feeder.finish();
 	}
 	
@@ -168,6 +196,26 @@ public class YamlGenDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     BodyElement returns Key
+	 *     Property returns Key
+	 *     Key returns Key
+	 *
+	 * Constraint:
+	 *     value=STRING
+	 */
+	protected void sequence_Key(ISerializationContext context, Key semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, YamlGenDslPackage.Literals.KEY__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, YamlGenDslPackage.Literals.KEY__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getKeyAccess().getValueSTRINGTerminalRuleCall_1_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     BodyElement returns Name
 	 *     Property returns Name
 	 *     Name returns Name
@@ -192,7 +240,7 @@ public class YamlGenDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     NestedField returns NestedField
 	 *
 	 * Constraint:
-	 *     (help+=SL_COMMENT* mandatory?='mandatory'? field=[Field|ID]? body=Body)
+	 *     (help+=SL_COMMENT* mandatory?='mandatory'? default?='default'? superField=[Field|ID]? body=Body)
 	 */
 	protected void sequence_NestedField(ISerializationContext context, NestedField semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -205,7 +253,7 @@ public class YamlGenDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     NestedFields returns NestedFields
 	 *
 	 * Constraint:
-	 *     (help+=SL_COMMENT* mandatory?='mandatory'? field=[Field|ID]? body=Body)
+	 *     (help+=SL_COMMENT* superField=[Field|ID]? body=Body)
 	 */
 	protected void sequence_NestedFields(ISerializationContext context, NestedFields semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -249,7 +297,7 @@ public class YamlGenDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Values returns Values
 	 *
 	 * Constraint:
-	 *     (values+=STRING+ | values+=STRING)
+	 *     (values+=Values+ | string=STRING)
 	 */
 	protected void sequence_Values(ISerializationContext context, Values semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

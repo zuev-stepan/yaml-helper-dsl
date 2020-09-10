@@ -21,7 +21,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_SL_COMMENT", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'import'", "'root'", "'extends'", "'{'", "'}'", "'extend'", "'field'", "'mandatory'", "'fields'", "'name:'", "'default:'", "'hint:'", "'values:'", "'['", "']'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_SL_COMMENT", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'import'", "'root'", "'extends'", "'{'", "'}'", "'extend'", "'field'", "'mandatory'", "'default'", "'fields'", "'key:'", "'name:'", "'default:'", "'hint:'", "'values:'", "'['", "']'"
     };
     public static final int RULE_STRING=4;
     public static final int RULE_SL_COMMENT=5;
@@ -38,6 +38,8 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
     public static final int RULE_ID=6;
     public static final int RULE_WS=9;
     public static final int RULE_ANY_OTHER=10;
+    public static final int T__26=26;
+    public static final int T__27=27;
     public static final int RULE_INT=7;
     public static final int T__22=22;
     public static final int RULE_ML_COMMENT=8;
@@ -773,7 +775,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
                 int alt6=2;
                 int LA6_0 = input.LA(1);
 
-                if ( (LA6_0==RULE_SL_COMMENT||(LA6_0>=16 && LA6_0<=17)||(LA6_0>=19 && LA6_0<=23)) ) {
+                if ( (LA6_0==RULE_SL_COMMENT||(LA6_0>=16 && LA6_0<=17)||(LA6_0>=20 && LA6_0<=25)) ) {
                     alt6=1;
                 }
 
@@ -1034,45 +1036,86 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleExtend"
-    // InternalYamlGenDsl.g:398:1: ruleExtend returns [EObject current=null] : (otherlv_0= 'extend' this_STRING_1= RULE_STRING this_Body_2= ruleBody ) ;
+    // InternalYamlGenDsl.g:398:1: ruleExtend returns [EObject current=null] : (otherlv_0= 'extend' ( (lv_name_property_1_0= RULE_STRING ) ) ( (lv_body_2_0= ruleBody ) ) ) ;
     public final EObject ruleExtend() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
-        Token this_STRING_1=null;
-        EObject this_Body_2 = null;
+        Token lv_name_property_1_0=null;
+        EObject lv_body_2_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalYamlGenDsl.g:404:2: ( (otherlv_0= 'extend' this_STRING_1= RULE_STRING this_Body_2= ruleBody ) )
-            // InternalYamlGenDsl.g:405:2: (otherlv_0= 'extend' this_STRING_1= RULE_STRING this_Body_2= ruleBody )
+            // InternalYamlGenDsl.g:404:2: ( (otherlv_0= 'extend' ( (lv_name_property_1_0= RULE_STRING ) ) ( (lv_body_2_0= ruleBody ) ) ) )
+            // InternalYamlGenDsl.g:405:2: (otherlv_0= 'extend' ( (lv_name_property_1_0= RULE_STRING ) ) ( (lv_body_2_0= ruleBody ) ) )
             {
-            // InternalYamlGenDsl.g:405:2: (otherlv_0= 'extend' this_STRING_1= RULE_STRING this_Body_2= ruleBody )
-            // InternalYamlGenDsl.g:406:3: otherlv_0= 'extend' this_STRING_1= RULE_STRING this_Body_2= ruleBody
+            // InternalYamlGenDsl.g:405:2: (otherlv_0= 'extend' ( (lv_name_property_1_0= RULE_STRING ) ) ( (lv_body_2_0= ruleBody ) ) )
+            // InternalYamlGenDsl.g:406:3: otherlv_0= 'extend' ( (lv_name_property_1_0= RULE_STRING ) ) ( (lv_body_2_0= ruleBody ) )
             {
             otherlv_0=(Token)match(input,16,FOLLOW_4); 
 
             			newLeafNode(otherlv_0, grammarAccess.getExtendAccess().getExtendKeyword_0());
             		
-            this_STRING_1=(Token)match(input,RULE_STRING,FOLLOW_7); 
+            // InternalYamlGenDsl.g:410:3: ( (lv_name_property_1_0= RULE_STRING ) )
+            // InternalYamlGenDsl.g:411:4: (lv_name_property_1_0= RULE_STRING )
+            {
+            // InternalYamlGenDsl.g:411:4: (lv_name_property_1_0= RULE_STRING )
+            // InternalYamlGenDsl.g:412:5: lv_name_property_1_0= RULE_STRING
+            {
+            lv_name_property_1_0=(Token)match(input,RULE_STRING,FOLLOW_7); 
 
-            			newLeafNode(this_STRING_1, grammarAccess.getExtendAccess().getSTRINGTerminalRuleCall_1());
-            		
+            					newLeafNode(lv_name_property_1_0, grammarAccess.getExtendAccess().getName_propertySTRINGTerminalRuleCall_1_0());
+            				
 
-            			newCompositeNode(grammarAccess.getExtendAccess().getBodyParserRuleCall_2());
-            		
+            					if (current==null) {
+            						current = createModelElement(grammarAccess.getExtendRule());
+            					}
+            					setWithLastConsumed(
+            						current,
+            						"name_property",
+            						lv_name_property_1_0,
+            						"org.eclipse.xtext.common.Terminals.STRING");
+            				
+
+            }
+
+
+            }
+
+            // InternalYamlGenDsl.g:428:3: ( (lv_body_2_0= ruleBody ) )
+            // InternalYamlGenDsl.g:429:4: (lv_body_2_0= ruleBody )
+            {
+            // InternalYamlGenDsl.g:429:4: (lv_body_2_0= ruleBody )
+            // InternalYamlGenDsl.g:430:5: lv_body_2_0= ruleBody
+            {
+
+            					newCompositeNode(grammarAccess.getExtendAccess().getBodyBodyParserRuleCall_2_0());
+            				
             pushFollow(FOLLOW_2);
-            this_Body_2=ruleBody();
+            lv_body_2_0=ruleBody();
 
             state._fsp--;
 
 
-            			current = this_Body_2;
-            			afterParserOrEnumRuleCall();
-            		
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getExtendRule());
+            					}
+            					set(
+            						current,
+            						"body",
+            						lv_body_2_0,
+            						"yaml.helper.dsl.YamlGenDsl.Body");
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
 
             }
 
@@ -1096,7 +1139,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleNestedField"
-    // InternalYamlGenDsl.g:426:1: entryRuleNestedField returns [EObject current=null] : iv_ruleNestedField= ruleNestedField EOF ;
+    // InternalYamlGenDsl.g:451:1: entryRuleNestedField returns [EObject current=null] : iv_ruleNestedField= ruleNestedField EOF ;
     public final EObject entryRuleNestedField() throws RecognitionException {
         EObject current = null;
 
@@ -1104,8 +1147,8 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalYamlGenDsl.g:426:52: (iv_ruleNestedField= ruleNestedField EOF )
-            // InternalYamlGenDsl.g:427:2: iv_ruleNestedField= ruleNestedField EOF
+            // InternalYamlGenDsl.g:451:52: (iv_ruleNestedField= ruleNestedField EOF )
+            // InternalYamlGenDsl.g:452:2: iv_ruleNestedField= ruleNestedField EOF
             {
              newCompositeNode(grammarAccess.getNestedFieldRule()); 
             pushFollow(FOLLOW_1);
@@ -1132,29 +1175,30 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNestedField"
-    // InternalYamlGenDsl.g:433:1: ruleNestedField returns [EObject current=null] : ( ( (lv_help_0_0= RULE_SL_COMMENT ) )* otherlv_1= 'field' ( (lv_mandatory_2_0= 'mandatory' ) )? (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )? ( (lv_body_5_0= ruleBody ) ) ) ;
+    // InternalYamlGenDsl.g:458:1: ruleNestedField returns [EObject current=null] : ( ( (lv_help_0_0= RULE_SL_COMMENT ) )* otherlv_1= 'field' ( (lv_mandatory_2_0= 'mandatory' ) )? ( (lv_default_3_0= 'default' ) )? (otherlv_4= 'extends' ( (otherlv_5= RULE_ID ) ) )? ( (lv_body_6_0= ruleBody ) ) ) ;
     public final EObject ruleNestedField() throws RecognitionException {
         EObject current = null;
 
         Token lv_help_0_0=null;
         Token otherlv_1=null;
         Token lv_mandatory_2_0=null;
-        Token otherlv_3=null;
+        Token lv_default_3_0=null;
         Token otherlv_4=null;
-        EObject lv_body_5_0 = null;
+        Token otherlv_5=null;
+        EObject lv_body_6_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalYamlGenDsl.g:439:2: ( ( ( (lv_help_0_0= RULE_SL_COMMENT ) )* otherlv_1= 'field' ( (lv_mandatory_2_0= 'mandatory' ) )? (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )? ( (lv_body_5_0= ruleBody ) ) ) )
-            // InternalYamlGenDsl.g:440:2: ( ( (lv_help_0_0= RULE_SL_COMMENT ) )* otherlv_1= 'field' ( (lv_mandatory_2_0= 'mandatory' ) )? (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )? ( (lv_body_5_0= ruleBody ) ) )
+            // InternalYamlGenDsl.g:464:2: ( ( ( (lv_help_0_0= RULE_SL_COMMENT ) )* otherlv_1= 'field' ( (lv_mandatory_2_0= 'mandatory' ) )? ( (lv_default_3_0= 'default' ) )? (otherlv_4= 'extends' ( (otherlv_5= RULE_ID ) ) )? ( (lv_body_6_0= ruleBody ) ) ) )
+            // InternalYamlGenDsl.g:465:2: ( ( (lv_help_0_0= RULE_SL_COMMENT ) )* otherlv_1= 'field' ( (lv_mandatory_2_0= 'mandatory' ) )? ( (lv_default_3_0= 'default' ) )? (otherlv_4= 'extends' ( (otherlv_5= RULE_ID ) ) )? ( (lv_body_6_0= ruleBody ) ) )
             {
-            // InternalYamlGenDsl.g:440:2: ( ( (lv_help_0_0= RULE_SL_COMMENT ) )* otherlv_1= 'field' ( (lv_mandatory_2_0= 'mandatory' ) )? (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )? ( (lv_body_5_0= ruleBody ) ) )
-            // InternalYamlGenDsl.g:441:3: ( (lv_help_0_0= RULE_SL_COMMENT ) )* otherlv_1= 'field' ( (lv_mandatory_2_0= 'mandatory' ) )? (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )? ( (lv_body_5_0= ruleBody ) )
+            // InternalYamlGenDsl.g:465:2: ( ( (lv_help_0_0= RULE_SL_COMMENT ) )* otherlv_1= 'field' ( (lv_mandatory_2_0= 'mandatory' ) )? ( (lv_default_3_0= 'default' ) )? (otherlv_4= 'extends' ( (otherlv_5= RULE_ID ) ) )? ( (lv_body_6_0= ruleBody ) ) )
+            // InternalYamlGenDsl.g:466:3: ( (lv_help_0_0= RULE_SL_COMMENT ) )* otherlv_1= 'field' ( (lv_mandatory_2_0= 'mandatory' ) )? ( (lv_default_3_0= 'default' ) )? (otherlv_4= 'extends' ( (otherlv_5= RULE_ID ) ) )? ( (lv_body_6_0= ruleBody ) )
             {
-            // InternalYamlGenDsl.g:441:3: ( (lv_help_0_0= RULE_SL_COMMENT ) )*
+            // InternalYamlGenDsl.g:466:3: ( (lv_help_0_0= RULE_SL_COMMENT ) )*
             loop8:
             do {
                 int alt8=2;
@@ -1167,10 +1211,10 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalYamlGenDsl.g:442:4: (lv_help_0_0= RULE_SL_COMMENT )
+            	    // InternalYamlGenDsl.g:467:4: (lv_help_0_0= RULE_SL_COMMENT )
             	    {
-            	    // InternalYamlGenDsl.g:442:4: (lv_help_0_0= RULE_SL_COMMENT )
-            	    // InternalYamlGenDsl.g:443:5: lv_help_0_0= RULE_SL_COMMENT
+            	    // InternalYamlGenDsl.g:467:4: (lv_help_0_0= RULE_SL_COMMENT )
+            	    // InternalYamlGenDsl.g:468:5: lv_help_0_0= RULE_SL_COMMENT
             	    {
             	    lv_help_0_0=(Token)match(input,RULE_SL_COMMENT,FOLLOW_9); 
 
@@ -1202,7 +1246,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_1, grammarAccess.getNestedFieldAccess().getFieldKeyword_1());
             		
-            // InternalYamlGenDsl.g:463:3: ( (lv_mandatory_2_0= 'mandatory' ) )?
+            // InternalYamlGenDsl.g:488:3: ( (lv_mandatory_2_0= 'mandatory' ) )?
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -1211,12 +1255,12 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
             }
             switch (alt9) {
                 case 1 :
-                    // InternalYamlGenDsl.g:464:4: (lv_mandatory_2_0= 'mandatory' )
+                    // InternalYamlGenDsl.g:489:4: (lv_mandatory_2_0= 'mandatory' )
                     {
-                    // InternalYamlGenDsl.g:464:4: (lv_mandatory_2_0= 'mandatory' )
-                    // InternalYamlGenDsl.g:465:5: lv_mandatory_2_0= 'mandatory'
+                    // InternalYamlGenDsl.g:489:4: (lv_mandatory_2_0= 'mandatory' )
+                    // InternalYamlGenDsl.g:490:5: lv_mandatory_2_0= 'mandatory'
                     {
-                    lv_mandatory_2_0=(Token)match(input,18,FOLLOW_7); 
+                    lv_mandatory_2_0=(Token)match(input,18,FOLLOW_11); 
 
                     					newLeafNode(lv_mandatory_2_0, grammarAccess.getNestedFieldAccess().getMandatoryMandatoryKeyword_2_0());
                     				
@@ -1235,35 +1279,68 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalYamlGenDsl.g:477:3: (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )?
+            // InternalYamlGenDsl.g:502:3: ( (lv_default_3_0= 'default' ) )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
-            if ( (LA10_0==13) ) {
+            if ( (LA10_0==19) ) {
                 alt10=1;
             }
             switch (alt10) {
                 case 1 :
-                    // InternalYamlGenDsl.g:478:4: otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) )
+                    // InternalYamlGenDsl.g:503:4: (lv_default_3_0= 'default' )
                     {
-                    otherlv_3=(Token)match(input,13,FOLLOW_6); 
+                    // InternalYamlGenDsl.g:503:4: (lv_default_3_0= 'default' )
+                    // InternalYamlGenDsl.g:504:5: lv_default_3_0= 'default'
+                    {
+                    lv_default_3_0=(Token)match(input,19,FOLLOW_7); 
 
-                    				newLeafNode(otherlv_3, grammarAccess.getNestedFieldAccess().getExtendsKeyword_3_0());
-                    			
-                    // InternalYamlGenDsl.g:482:4: ( (otherlv_4= RULE_ID ) )
-                    // InternalYamlGenDsl.g:483:5: (otherlv_4= RULE_ID )
+                    					newLeafNode(lv_default_3_0, grammarAccess.getNestedFieldAccess().getDefaultDefaultKeyword_3_0());
+                    				
+
+                    					if (current==null) {
+                    						current = createModelElement(grammarAccess.getNestedFieldRule());
+                    					}
+                    					setWithLastConsumed(current, "default", lv_default_3_0 != null, "default");
+                    				
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            // InternalYamlGenDsl.g:516:3: (otherlv_4= 'extends' ( (otherlv_5= RULE_ID ) ) )?
+            int alt11=2;
+            int LA11_0 = input.LA(1);
+
+            if ( (LA11_0==13) ) {
+                alt11=1;
+            }
+            switch (alt11) {
+                case 1 :
+                    // InternalYamlGenDsl.g:517:4: otherlv_4= 'extends' ( (otherlv_5= RULE_ID ) )
                     {
-                    // InternalYamlGenDsl.g:483:5: (otherlv_4= RULE_ID )
-                    // InternalYamlGenDsl.g:484:6: otherlv_4= RULE_ID
+                    otherlv_4=(Token)match(input,13,FOLLOW_6); 
+
+                    				newLeafNode(otherlv_4, grammarAccess.getNestedFieldAccess().getExtendsKeyword_4_0());
+                    			
+                    // InternalYamlGenDsl.g:521:4: ( (otherlv_5= RULE_ID ) )
+                    // InternalYamlGenDsl.g:522:5: (otherlv_5= RULE_ID )
+                    {
+                    // InternalYamlGenDsl.g:522:5: (otherlv_5= RULE_ID )
+                    // InternalYamlGenDsl.g:523:6: otherlv_5= RULE_ID
                     {
 
                     						if (current==null) {
                     							current = createModelElement(grammarAccess.getNestedFieldRule());
                     						}
                     					
-                    otherlv_4=(Token)match(input,RULE_ID,FOLLOW_7); 
+                    otherlv_5=(Token)match(input,RULE_ID,FOLLOW_7); 
 
-                    						newLeafNode(otherlv_4, grammarAccess.getNestedFieldAccess().getFieldFieldCrossReference_3_1_0());
+                    						newLeafNode(otherlv_5, grammarAccess.getNestedFieldAccess().getSuperFieldFieldCrossReference_4_1_0());
                     					
 
                     }
@@ -1277,17 +1354,17 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalYamlGenDsl.g:496:3: ( (lv_body_5_0= ruleBody ) )
-            // InternalYamlGenDsl.g:497:4: (lv_body_5_0= ruleBody )
+            // InternalYamlGenDsl.g:535:3: ( (lv_body_6_0= ruleBody ) )
+            // InternalYamlGenDsl.g:536:4: (lv_body_6_0= ruleBody )
             {
-            // InternalYamlGenDsl.g:497:4: (lv_body_5_0= ruleBody )
-            // InternalYamlGenDsl.g:498:5: lv_body_5_0= ruleBody
+            // InternalYamlGenDsl.g:536:4: (lv_body_6_0= ruleBody )
+            // InternalYamlGenDsl.g:537:5: lv_body_6_0= ruleBody
             {
 
-            					newCompositeNode(grammarAccess.getNestedFieldAccess().getBodyBodyParserRuleCall_4_0());
+            					newCompositeNode(grammarAccess.getNestedFieldAccess().getBodyBodyParserRuleCall_5_0());
             				
             pushFollow(FOLLOW_2);
-            lv_body_5_0=ruleBody();
+            lv_body_6_0=ruleBody();
 
             state._fsp--;
 
@@ -1298,7 +1375,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
             					set(
             						current,
             						"body",
-            						lv_body_5_0,
+            						lv_body_6_0,
             						"yaml.helper.dsl.YamlGenDsl.Body");
             					afterParserOrEnumRuleCall();
             				
@@ -1331,7 +1408,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleNestedFields"
-    // InternalYamlGenDsl.g:519:1: entryRuleNestedFields returns [EObject current=null] : iv_ruleNestedFields= ruleNestedFields EOF ;
+    // InternalYamlGenDsl.g:558:1: entryRuleNestedFields returns [EObject current=null] : iv_ruleNestedFields= ruleNestedFields EOF ;
     public final EObject entryRuleNestedFields() throws RecognitionException {
         EObject current = null;
 
@@ -1339,8 +1416,8 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalYamlGenDsl.g:519:53: (iv_ruleNestedFields= ruleNestedFields EOF )
-            // InternalYamlGenDsl.g:520:2: iv_ruleNestedFields= ruleNestedFields EOF
+            // InternalYamlGenDsl.g:558:53: (iv_ruleNestedFields= ruleNestedFields EOF )
+            // InternalYamlGenDsl.g:559:2: iv_ruleNestedFields= ruleNestedFields EOF
             {
              newCompositeNode(grammarAccess.getNestedFieldsRule()); 
             pushFollow(FOLLOW_1);
@@ -1367,47 +1444,46 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNestedFields"
-    // InternalYamlGenDsl.g:526:1: ruleNestedFields returns [EObject current=null] : ( ( (lv_help_0_0= RULE_SL_COMMENT ) )* otherlv_1= 'fields' ( (lv_mandatory_2_0= 'mandatory' ) )? (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )? ( (lv_body_5_0= ruleBody ) ) ) ;
+    // InternalYamlGenDsl.g:565:1: ruleNestedFields returns [EObject current=null] : ( ( (lv_help_0_0= RULE_SL_COMMENT ) )* otherlv_1= 'fields' (otherlv_2= 'extend' ( (otherlv_3= RULE_ID ) ) )? ( (lv_body_4_0= ruleBody ) ) ) ;
     public final EObject ruleNestedFields() throws RecognitionException {
         EObject current = null;
 
         Token lv_help_0_0=null;
         Token otherlv_1=null;
-        Token lv_mandatory_2_0=null;
+        Token otherlv_2=null;
         Token otherlv_3=null;
-        Token otherlv_4=null;
-        EObject lv_body_5_0 = null;
+        EObject lv_body_4_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalYamlGenDsl.g:532:2: ( ( ( (lv_help_0_0= RULE_SL_COMMENT ) )* otherlv_1= 'fields' ( (lv_mandatory_2_0= 'mandatory' ) )? (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )? ( (lv_body_5_0= ruleBody ) ) ) )
-            // InternalYamlGenDsl.g:533:2: ( ( (lv_help_0_0= RULE_SL_COMMENT ) )* otherlv_1= 'fields' ( (lv_mandatory_2_0= 'mandatory' ) )? (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )? ( (lv_body_5_0= ruleBody ) ) )
+            // InternalYamlGenDsl.g:571:2: ( ( ( (lv_help_0_0= RULE_SL_COMMENT ) )* otherlv_1= 'fields' (otherlv_2= 'extend' ( (otherlv_3= RULE_ID ) ) )? ( (lv_body_4_0= ruleBody ) ) ) )
+            // InternalYamlGenDsl.g:572:2: ( ( (lv_help_0_0= RULE_SL_COMMENT ) )* otherlv_1= 'fields' (otherlv_2= 'extend' ( (otherlv_3= RULE_ID ) ) )? ( (lv_body_4_0= ruleBody ) ) )
             {
-            // InternalYamlGenDsl.g:533:2: ( ( (lv_help_0_0= RULE_SL_COMMENT ) )* otherlv_1= 'fields' ( (lv_mandatory_2_0= 'mandatory' ) )? (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )? ( (lv_body_5_0= ruleBody ) ) )
-            // InternalYamlGenDsl.g:534:3: ( (lv_help_0_0= RULE_SL_COMMENT ) )* otherlv_1= 'fields' ( (lv_mandatory_2_0= 'mandatory' ) )? (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )? ( (lv_body_5_0= ruleBody ) )
+            // InternalYamlGenDsl.g:572:2: ( ( (lv_help_0_0= RULE_SL_COMMENT ) )* otherlv_1= 'fields' (otherlv_2= 'extend' ( (otherlv_3= RULE_ID ) ) )? ( (lv_body_4_0= ruleBody ) ) )
+            // InternalYamlGenDsl.g:573:3: ( (lv_help_0_0= RULE_SL_COMMENT ) )* otherlv_1= 'fields' (otherlv_2= 'extend' ( (otherlv_3= RULE_ID ) ) )? ( (lv_body_4_0= ruleBody ) )
             {
-            // InternalYamlGenDsl.g:534:3: ( (lv_help_0_0= RULE_SL_COMMENT ) )*
-            loop11:
+            // InternalYamlGenDsl.g:573:3: ( (lv_help_0_0= RULE_SL_COMMENT ) )*
+            loop12:
             do {
-                int alt11=2;
-                int LA11_0 = input.LA(1);
+                int alt12=2;
+                int LA12_0 = input.LA(1);
 
-                if ( (LA11_0==RULE_SL_COMMENT) ) {
-                    alt11=1;
+                if ( (LA12_0==RULE_SL_COMMENT) ) {
+                    alt12=1;
                 }
 
 
-                switch (alt11) {
+                switch (alt12) {
             	case 1 :
-            	    // InternalYamlGenDsl.g:535:4: (lv_help_0_0= RULE_SL_COMMENT )
+            	    // InternalYamlGenDsl.g:574:4: (lv_help_0_0= RULE_SL_COMMENT )
             	    {
-            	    // InternalYamlGenDsl.g:535:4: (lv_help_0_0= RULE_SL_COMMENT )
-            	    // InternalYamlGenDsl.g:536:5: lv_help_0_0= RULE_SL_COMMENT
+            	    // InternalYamlGenDsl.g:574:4: (lv_help_0_0= RULE_SL_COMMENT )
+            	    // InternalYamlGenDsl.g:575:5: lv_help_0_0= RULE_SL_COMMENT
             	    {
-            	    lv_help_0_0=(Token)match(input,RULE_SL_COMMENT,FOLLOW_11); 
+            	    lv_help_0_0=(Token)match(input,RULE_SL_COMMENT,FOLLOW_12); 
 
             	    					newLeafNode(lv_help_0_0, grammarAccess.getNestedFieldsAccess().getHelpSL_COMMENTTerminalRuleCall_0_0());
             	    				
@@ -1429,76 +1505,43 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop11;
+            	    break loop12;
                 }
             } while (true);
 
-            otherlv_1=(Token)match(input,19,FOLLOW_10); 
+            otherlv_1=(Token)match(input,20,FOLLOW_13); 
 
             			newLeafNode(otherlv_1, grammarAccess.getNestedFieldsAccess().getFieldsKeyword_1());
             		
-            // InternalYamlGenDsl.g:556:3: ( (lv_mandatory_2_0= 'mandatory' ) )?
-            int alt12=2;
-            int LA12_0 = input.LA(1);
-
-            if ( (LA12_0==18) ) {
-                alt12=1;
-            }
-            switch (alt12) {
-                case 1 :
-                    // InternalYamlGenDsl.g:557:4: (lv_mandatory_2_0= 'mandatory' )
-                    {
-                    // InternalYamlGenDsl.g:557:4: (lv_mandatory_2_0= 'mandatory' )
-                    // InternalYamlGenDsl.g:558:5: lv_mandatory_2_0= 'mandatory'
-                    {
-                    lv_mandatory_2_0=(Token)match(input,18,FOLLOW_7); 
-
-                    					newLeafNode(lv_mandatory_2_0, grammarAccess.getNestedFieldsAccess().getMandatoryMandatoryKeyword_2_0());
-                    				
-
-                    					if (current==null) {
-                    						current = createModelElement(grammarAccess.getNestedFieldsRule());
-                    					}
-                    					setWithLastConsumed(current, "mandatory", lv_mandatory_2_0 != null, "mandatory");
-                    				
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-            // InternalYamlGenDsl.g:570:3: (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )?
+            // InternalYamlGenDsl.g:595:3: (otherlv_2= 'extend' ( (otherlv_3= RULE_ID ) ) )?
             int alt13=2;
             int LA13_0 = input.LA(1);
 
-            if ( (LA13_0==13) ) {
+            if ( (LA13_0==16) ) {
                 alt13=1;
             }
             switch (alt13) {
                 case 1 :
-                    // InternalYamlGenDsl.g:571:4: otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) )
+                    // InternalYamlGenDsl.g:596:4: otherlv_2= 'extend' ( (otherlv_3= RULE_ID ) )
                     {
-                    otherlv_3=(Token)match(input,13,FOLLOW_6); 
+                    otherlv_2=(Token)match(input,16,FOLLOW_6); 
 
-                    				newLeafNode(otherlv_3, grammarAccess.getNestedFieldsAccess().getExtendsKeyword_3_0());
+                    				newLeafNode(otherlv_2, grammarAccess.getNestedFieldsAccess().getExtendKeyword_2_0());
                     			
-                    // InternalYamlGenDsl.g:575:4: ( (otherlv_4= RULE_ID ) )
-                    // InternalYamlGenDsl.g:576:5: (otherlv_4= RULE_ID )
+                    // InternalYamlGenDsl.g:600:4: ( (otherlv_3= RULE_ID ) )
+                    // InternalYamlGenDsl.g:601:5: (otherlv_3= RULE_ID )
                     {
-                    // InternalYamlGenDsl.g:576:5: (otherlv_4= RULE_ID )
-                    // InternalYamlGenDsl.g:577:6: otherlv_4= RULE_ID
+                    // InternalYamlGenDsl.g:601:5: (otherlv_3= RULE_ID )
+                    // InternalYamlGenDsl.g:602:6: otherlv_3= RULE_ID
                     {
 
                     						if (current==null) {
                     							current = createModelElement(grammarAccess.getNestedFieldsRule());
                     						}
                     					
-                    otherlv_4=(Token)match(input,RULE_ID,FOLLOW_7); 
+                    otherlv_3=(Token)match(input,RULE_ID,FOLLOW_7); 
 
-                    						newLeafNode(otherlv_4, grammarAccess.getNestedFieldsAccess().getFieldFieldCrossReference_3_1_0());
+                    						newLeafNode(otherlv_3, grammarAccess.getNestedFieldsAccess().getSuperFieldFieldCrossReference_2_1_0());
                     					
 
                     }
@@ -1512,17 +1555,17 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalYamlGenDsl.g:589:3: ( (lv_body_5_0= ruleBody ) )
-            // InternalYamlGenDsl.g:590:4: (lv_body_5_0= ruleBody )
+            // InternalYamlGenDsl.g:614:3: ( (lv_body_4_0= ruleBody ) )
+            // InternalYamlGenDsl.g:615:4: (lv_body_4_0= ruleBody )
             {
-            // InternalYamlGenDsl.g:590:4: (lv_body_5_0= ruleBody )
-            // InternalYamlGenDsl.g:591:5: lv_body_5_0= ruleBody
+            // InternalYamlGenDsl.g:615:4: (lv_body_4_0= ruleBody )
+            // InternalYamlGenDsl.g:616:5: lv_body_4_0= ruleBody
             {
 
-            					newCompositeNode(grammarAccess.getNestedFieldsAccess().getBodyBodyParserRuleCall_4_0());
+            					newCompositeNode(grammarAccess.getNestedFieldsAccess().getBodyBodyParserRuleCall_3_0());
             				
             pushFollow(FOLLOW_2);
-            lv_body_5_0=ruleBody();
+            lv_body_4_0=ruleBody();
 
             state._fsp--;
 
@@ -1533,7 +1576,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
             					set(
             						current,
             						"body",
-            						lv_body_5_0,
+            						lv_body_4_0,
             						"yaml.helper.dsl.YamlGenDsl.Body");
             					afterParserOrEnumRuleCall();
             				
@@ -1566,7 +1609,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleProperty"
-    // InternalYamlGenDsl.g:612:1: entryRuleProperty returns [EObject current=null] : iv_ruleProperty= ruleProperty EOF ;
+    // InternalYamlGenDsl.g:637:1: entryRuleProperty returns [EObject current=null] : iv_ruleProperty= ruleProperty EOF ;
     public final EObject entryRuleProperty() throws RecognitionException {
         EObject current = null;
 
@@ -1574,8 +1617,8 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalYamlGenDsl.g:612:49: (iv_ruleProperty= ruleProperty EOF )
-            // InternalYamlGenDsl.g:613:2: iv_ruleProperty= ruleProperty EOF
+            // InternalYamlGenDsl.g:637:49: (iv_ruleProperty= ruleProperty EOF )
+            // InternalYamlGenDsl.g:638:2: iv_ruleProperty= ruleProperty EOF
             {
              newCompositeNode(grammarAccess.getPropertyRule()); 
             pushFollow(FOLLOW_1);
@@ -1602,30 +1645,32 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleProperty"
-    // InternalYamlGenDsl.g:619:1: ruleProperty returns [EObject current=null] : (this_Name_0= ruleName | this_Default_1= ruleDefault | this_Hint_2= ruleHint | this_PermittedValues_3= rulePermittedValues ) ;
+    // InternalYamlGenDsl.g:644:1: ruleProperty returns [EObject current=null] : (this_Name_0= ruleName | this_Key_1= ruleKey | this_Default_2= ruleDefault | this_Hint_3= ruleHint | this_PermittedValues_4= rulePermittedValues ) ;
     public final EObject ruleProperty() throws RecognitionException {
         EObject current = null;
 
         EObject this_Name_0 = null;
 
-        EObject this_Default_1 = null;
+        EObject this_Key_1 = null;
 
-        EObject this_Hint_2 = null;
+        EObject this_Default_2 = null;
 
-        EObject this_PermittedValues_3 = null;
+        EObject this_Hint_3 = null;
+
+        EObject this_PermittedValues_4 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalYamlGenDsl.g:625:2: ( (this_Name_0= ruleName | this_Default_1= ruleDefault | this_Hint_2= ruleHint | this_PermittedValues_3= rulePermittedValues ) )
-            // InternalYamlGenDsl.g:626:2: (this_Name_0= ruleName | this_Default_1= ruleDefault | this_Hint_2= ruleHint | this_PermittedValues_3= rulePermittedValues )
+            // InternalYamlGenDsl.g:650:2: ( (this_Name_0= ruleName | this_Key_1= ruleKey | this_Default_2= ruleDefault | this_Hint_3= ruleHint | this_PermittedValues_4= rulePermittedValues ) )
+            // InternalYamlGenDsl.g:651:2: (this_Name_0= ruleName | this_Key_1= ruleKey | this_Default_2= ruleDefault | this_Hint_3= ruleHint | this_PermittedValues_4= rulePermittedValues )
             {
-            // InternalYamlGenDsl.g:626:2: (this_Name_0= ruleName | this_Default_1= ruleDefault | this_Hint_2= ruleHint | this_PermittedValues_3= rulePermittedValues )
-            int alt14=4;
+            // InternalYamlGenDsl.g:651:2: (this_Name_0= ruleName | this_Key_1= ruleKey | this_Default_2= ruleDefault | this_Hint_3= ruleHint | this_PermittedValues_4= rulePermittedValues )
+            int alt14=5;
             switch ( input.LA(1) ) {
-            case 20:
+            case 22:
                 {
                 alt14=1;
                 }
@@ -1635,14 +1680,19 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
                 alt14=2;
                 }
                 break;
-            case 22:
+            case 23:
                 {
                 alt14=3;
                 }
                 break;
-            case 23:
+            case 24:
                 {
                 alt14=4;
+                }
+                break;
+            case 25:
+                {
+                alt14=5;
                 }
                 break;
             default:
@@ -1654,7 +1704,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
 
             switch (alt14) {
                 case 1 :
-                    // InternalYamlGenDsl.g:627:3: this_Name_0= ruleName
+                    // InternalYamlGenDsl.g:652:3: this_Name_0= ruleName
                     {
 
                     			newCompositeNode(grammarAccess.getPropertyAccess().getNameParserRuleCall_0());
@@ -1672,54 +1722,72 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalYamlGenDsl.g:636:3: this_Default_1= ruleDefault
+                    // InternalYamlGenDsl.g:661:3: this_Key_1= ruleKey
                     {
 
-                    			newCompositeNode(grammarAccess.getPropertyAccess().getDefaultParserRuleCall_1());
+                    			newCompositeNode(grammarAccess.getPropertyAccess().getKeyParserRuleCall_1());
                     		
                     pushFollow(FOLLOW_2);
-                    this_Default_1=ruleDefault();
+                    this_Key_1=ruleKey();
 
                     state._fsp--;
 
 
-                    			current = this_Default_1;
+                    			current = this_Key_1;
                     			afterParserOrEnumRuleCall();
                     		
 
                     }
                     break;
                 case 3 :
-                    // InternalYamlGenDsl.g:645:3: this_Hint_2= ruleHint
+                    // InternalYamlGenDsl.g:670:3: this_Default_2= ruleDefault
                     {
 
-                    			newCompositeNode(grammarAccess.getPropertyAccess().getHintParserRuleCall_2());
+                    			newCompositeNode(grammarAccess.getPropertyAccess().getDefaultParserRuleCall_2());
                     		
                     pushFollow(FOLLOW_2);
-                    this_Hint_2=ruleHint();
+                    this_Default_2=ruleDefault();
 
                     state._fsp--;
 
 
-                    			current = this_Hint_2;
+                    			current = this_Default_2;
                     			afterParserOrEnumRuleCall();
                     		
 
                     }
                     break;
                 case 4 :
-                    // InternalYamlGenDsl.g:654:3: this_PermittedValues_3= rulePermittedValues
+                    // InternalYamlGenDsl.g:679:3: this_Hint_3= ruleHint
                     {
 
-                    			newCompositeNode(grammarAccess.getPropertyAccess().getPermittedValuesParserRuleCall_3());
+                    			newCompositeNode(grammarAccess.getPropertyAccess().getHintParserRuleCall_3());
                     		
                     pushFollow(FOLLOW_2);
-                    this_PermittedValues_3=rulePermittedValues();
+                    this_Hint_3=ruleHint();
 
                     state._fsp--;
 
 
-                    			current = this_PermittedValues_3;
+                    			current = this_Hint_3;
+                    			afterParserOrEnumRuleCall();
+                    		
+
+                    }
+                    break;
+                case 5 :
+                    // InternalYamlGenDsl.g:688:3: this_PermittedValues_4= rulePermittedValues
+                    {
+
+                    			newCompositeNode(grammarAccess.getPropertyAccess().getPermittedValuesParserRuleCall_4());
+                    		
+                    pushFollow(FOLLOW_2);
+                    this_PermittedValues_4=rulePermittedValues();
+
+                    state._fsp--;
+
+
+                    			current = this_PermittedValues_4;
                     			afterParserOrEnumRuleCall();
                     		
 
@@ -1747,8 +1815,114 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleProperty"
 
 
+    // $ANTLR start "entryRuleKey"
+    // InternalYamlGenDsl.g:700:1: entryRuleKey returns [EObject current=null] : iv_ruleKey= ruleKey EOF ;
+    public final EObject entryRuleKey() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleKey = null;
+
+
+        try {
+            // InternalYamlGenDsl.g:700:44: (iv_ruleKey= ruleKey EOF )
+            // InternalYamlGenDsl.g:701:2: iv_ruleKey= ruleKey EOF
+            {
+             newCompositeNode(grammarAccess.getKeyRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleKey=ruleKey();
+
+            state._fsp--;
+
+             current =iv_ruleKey; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleKey"
+
+
+    // $ANTLR start "ruleKey"
+    // InternalYamlGenDsl.g:707:1: ruleKey returns [EObject current=null] : (otherlv_0= 'key:' ( (lv_value_1_0= RULE_STRING ) ) ) ;
+    public final EObject ruleKey() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_0=null;
+        Token lv_value_1_0=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalYamlGenDsl.g:713:2: ( (otherlv_0= 'key:' ( (lv_value_1_0= RULE_STRING ) ) ) )
+            // InternalYamlGenDsl.g:714:2: (otherlv_0= 'key:' ( (lv_value_1_0= RULE_STRING ) ) )
+            {
+            // InternalYamlGenDsl.g:714:2: (otherlv_0= 'key:' ( (lv_value_1_0= RULE_STRING ) ) )
+            // InternalYamlGenDsl.g:715:3: otherlv_0= 'key:' ( (lv_value_1_0= RULE_STRING ) )
+            {
+            otherlv_0=(Token)match(input,21,FOLLOW_4); 
+
+            			newLeafNode(otherlv_0, grammarAccess.getKeyAccess().getKeyKeyword_0());
+            		
+            // InternalYamlGenDsl.g:719:3: ( (lv_value_1_0= RULE_STRING ) )
+            // InternalYamlGenDsl.g:720:4: (lv_value_1_0= RULE_STRING )
+            {
+            // InternalYamlGenDsl.g:720:4: (lv_value_1_0= RULE_STRING )
+            // InternalYamlGenDsl.g:721:5: lv_value_1_0= RULE_STRING
+            {
+            lv_value_1_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
+
+            					newLeafNode(lv_value_1_0, grammarAccess.getKeyAccess().getValueSTRINGTerminalRuleCall_1_0());
+            				
+
+            					if (current==null) {
+            						current = createModelElement(grammarAccess.getKeyRule());
+            					}
+            					setWithLastConsumed(
+            						current,
+            						"value",
+            						lv_value_1_0,
+            						"org.eclipse.xtext.common.Terminals.STRING");
+            				
+
+            }
+
+
+            }
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleKey"
+
+
     // $ANTLR start "entryRuleName"
-    // InternalYamlGenDsl.g:666:1: entryRuleName returns [EObject current=null] : iv_ruleName= ruleName EOF ;
+    // InternalYamlGenDsl.g:741:1: entryRuleName returns [EObject current=null] : iv_ruleName= ruleName EOF ;
     public final EObject entryRuleName() throws RecognitionException {
         EObject current = null;
 
@@ -1756,8 +1930,8 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalYamlGenDsl.g:666:45: (iv_ruleName= ruleName EOF )
-            // InternalYamlGenDsl.g:667:2: iv_ruleName= ruleName EOF
+            // InternalYamlGenDsl.g:741:45: (iv_ruleName= ruleName EOF )
+            // InternalYamlGenDsl.g:742:2: iv_ruleName= ruleName EOF
             {
              newCompositeNode(grammarAccess.getNameRule()); 
             pushFollow(FOLLOW_1);
@@ -1784,7 +1958,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleName"
-    // InternalYamlGenDsl.g:673:1: ruleName returns [EObject current=null] : (otherlv_0= 'name:' ( (lv_value_1_0= RULE_STRING ) ) ) ;
+    // InternalYamlGenDsl.g:748:1: ruleName returns [EObject current=null] : (otherlv_0= 'name:' ( (lv_value_1_0= RULE_STRING ) ) ) ;
     public final EObject ruleName() throws RecognitionException {
         EObject current = null;
 
@@ -1795,21 +1969,21 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalYamlGenDsl.g:679:2: ( (otherlv_0= 'name:' ( (lv_value_1_0= RULE_STRING ) ) ) )
-            // InternalYamlGenDsl.g:680:2: (otherlv_0= 'name:' ( (lv_value_1_0= RULE_STRING ) ) )
+            // InternalYamlGenDsl.g:754:2: ( (otherlv_0= 'name:' ( (lv_value_1_0= RULE_STRING ) ) ) )
+            // InternalYamlGenDsl.g:755:2: (otherlv_0= 'name:' ( (lv_value_1_0= RULE_STRING ) ) )
             {
-            // InternalYamlGenDsl.g:680:2: (otherlv_0= 'name:' ( (lv_value_1_0= RULE_STRING ) ) )
-            // InternalYamlGenDsl.g:681:3: otherlv_0= 'name:' ( (lv_value_1_0= RULE_STRING ) )
+            // InternalYamlGenDsl.g:755:2: (otherlv_0= 'name:' ( (lv_value_1_0= RULE_STRING ) ) )
+            // InternalYamlGenDsl.g:756:3: otherlv_0= 'name:' ( (lv_value_1_0= RULE_STRING ) )
             {
-            otherlv_0=(Token)match(input,20,FOLLOW_4); 
+            otherlv_0=(Token)match(input,22,FOLLOW_4); 
 
             			newLeafNode(otherlv_0, grammarAccess.getNameAccess().getNameKeyword_0());
             		
-            // InternalYamlGenDsl.g:685:3: ( (lv_value_1_0= RULE_STRING ) )
-            // InternalYamlGenDsl.g:686:4: (lv_value_1_0= RULE_STRING )
+            // InternalYamlGenDsl.g:760:3: ( (lv_value_1_0= RULE_STRING ) )
+            // InternalYamlGenDsl.g:761:4: (lv_value_1_0= RULE_STRING )
             {
-            // InternalYamlGenDsl.g:686:4: (lv_value_1_0= RULE_STRING )
-            // InternalYamlGenDsl.g:687:5: lv_value_1_0= RULE_STRING
+            // InternalYamlGenDsl.g:761:4: (lv_value_1_0= RULE_STRING )
+            // InternalYamlGenDsl.g:762:5: lv_value_1_0= RULE_STRING
             {
             lv_value_1_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
@@ -1854,7 +2028,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDefault"
-    // InternalYamlGenDsl.g:707:1: entryRuleDefault returns [EObject current=null] : iv_ruleDefault= ruleDefault EOF ;
+    // InternalYamlGenDsl.g:782:1: entryRuleDefault returns [EObject current=null] : iv_ruleDefault= ruleDefault EOF ;
     public final EObject entryRuleDefault() throws RecognitionException {
         EObject current = null;
 
@@ -1862,8 +2036,8 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalYamlGenDsl.g:707:48: (iv_ruleDefault= ruleDefault EOF )
-            // InternalYamlGenDsl.g:708:2: iv_ruleDefault= ruleDefault EOF
+            // InternalYamlGenDsl.g:782:48: (iv_ruleDefault= ruleDefault EOF )
+            // InternalYamlGenDsl.g:783:2: iv_ruleDefault= ruleDefault EOF
             {
              newCompositeNode(grammarAccess.getDefaultRule()); 
             pushFollow(FOLLOW_1);
@@ -1890,7 +2064,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDefault"
-    // InternalYamlGenDsl.g:714:1: ruleDefault returns [EObject current=null] : (otherlv_0= 'default:' ( (lv_value_1_0= ruleValues ) ) ) ;
+    // InternalYamlGenDsl.g:789:1: ruleDefault returns [EObject current=null] : (otherlv_0= 'default:' ( (lv_value_1_0= ruleValues ) ) ) ;
     public final EObject ruleDefault() throws RecognitionException {
         EObject current = null;
 
@@ -1902,21 +2076,21 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalYamlGenDsl.g:720:2: ( (otherlv_0= 'default:' ( (lv_value_1_0= ruleValues ) ) ) )
-            // InternalYamlGenDsl.g:721:2: (otherlv_0= 'default:' ( (lv_value_1_0= ruleValues ) ) )
+            // InternalYamlGenDsl.g:795:2: ( (otherlv_0= 'default:' ( (lv_value_1_0= ruleValues ) ) ) )
+            // InternalYamlGenDsl.g:796:2: (otherlv_0= 'default:' ( (lv_value_1_0= ruleValues ) ) )
             {
-            // InternalYamlGenDsl.g:721:2: (otherlv_0= 'default:' ( (lv_value_1_0= ruleValues ) ) )
-            // InternalYamlGenDsl.g:722:3: otherlv_0= 'default:' ( (lv_value_1_0= ruleValues ) )
+            // InternalYamlGenDsl.g:796:2: (otherlv_0= 'default:' ( (lv_value_1_0= ruleValues ) ) )
+            // InternalYamlGenDsl.g:797:3: otherlv_0= 'default:' ( (lv_value_1_0= ruleValues ) )
             {
-            otherlv_0=(Token)match(input,21,FOLLOW_12); 
+            otherlv_0=(Token)match(input,23,FOLLOW_14); 
 
             			newLeafNode(otherlv_0, grammarAccess.getDefaultAccess().getDefaultKeyword_0());
             		
-            // InternalYamlGenDsl.g:726:3: ( (lv_value_1_0= ruleValues ) )
-            // InternalYamlGenDsl.g:727:4: (lv_value_1_0= ruleValues )
+            // InternalYamlGenDsl.g:801:3: ( (lv_value_1_0= ruleValues ) )
+            // InternalYamlGenDsl.g:802:4: (lv_value_1_0= ruleValues )
             {
-            // InternalYamlGenDsl.g:727:4: (lv_value_1_0= ruleValues )
-            // InternalYamlGenDsl.g:728:5: lv_value_1_0= ruleValues
+            // InternalYamlGenDsl.g:802:4: (lv_value_1_0= ruleValues )
+            // InternalYamlGenDsl.g:803:5: lv_value_1_0= ruleValues
             {
 
             					newCompositeNode(grammarAccess.getDefaultAccess().getValueValuesParserRuleCall_1_0());
@@ -1966,7 +2140,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleHint"
-    // InternalYamlGenDsl.g:749:1: entryRuleHint returns [EObject current=null] : iv_ruleHint= ruleHint EOF ;
+    // InternalYamlGenDsl.g:824:1: entryRuleHint returns [EObject current=null] : iv_ruleHint= ruleHint EOF ;
     public final EObject entryRuleHint() throws RecognitionException {
         EObject current = null;
 
@@ -1974,8 +2148,8 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalYamlGenDsl.g:749:45: (iv_ruleHint= ruleHint EOF )
-            // InternalYamlGenDsl.g:750:2: iv_ruleHint= ruleHint EOF
+            // InternalYamlGenDsl.g:824:45: (iv_ruleHint= ruleHint EOF )
+            // InternalYamlGenDsl.g:825:2: iv_ruleHint= ruleHint EOF
             {
              newCompositeNode(grammarAccess.getHintRule()); 
             pushFollow(FOLLOW_1);
@@ -2002,7 +2176,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleHint"
-    // InternalYamlGenDsl.g:756:1: ruleHint returns [EObject current=null] : (otherlv_0= 'hint:' ( (lv_value_1_0= RULE_STRING ) ) ) ;
+    // InternalYamlGenDsl.g:831:1: ruleHint returns [EObject current=null] : (otherlv_0= 'hint:' ( (lv_value_1_0= RULE_STRING ) ) ) ;
     public final EObject ruleHint() throws RecognitionException {
         EObject current = null;
 
@@ -2013,21 +2187,21 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalYamlGenDsl.g:762:2: ( (otherlv_0= 'hint:' ( (lv_value_1_0= RULE_STRING ) ) ) )
-            // InternalYamlGenDsl.g:763:2: (otherlv_0= 'hint:' ( (lv_value_1_0= RULE_STRING ) ) )
+            // InternalYamlGenDsl.g:837:2: ( (otherlv_0= 'hint:' ( (lv_value_1_0= RULE_STRING ) ) ) )
+            // InternalYamlGenDsl.g:838:2: (otherlv_0= 'hint:' ( (lv_value_1_0= RULE_STRING ) ) )
             {
-            // InternalYamlGenDsl.g:763:2: (otherlv_0= 'hint:' ( (lv_value_1_0= RULE_STRING ) ) )
-            // InternalYamlGenDsl.g:764:3: otherlv_0= 'hint:' ( (lv_value_1_0= RULE_STRING ) )
+            // InternalYamlGenDsl.g:838:2: (otherlv_0= 'hint:' ( (lv_value_1_0= RULE_STRING ) ) )
+            // InternalYamlGenDsl.g:839:3: otherlv_0= 'hint:' ( (lv_value_1_0= RULE_STRING ) )
             {
-            otherlv_0=(Token)match(input,22,FOLLOW_4); 
+            otherlv_0=(Token)match(input,24,FOLLOW_4); 
 
             			newLeafNode(otherlv_0, grammarAccess.getHintAccess().getHintKeyword_0());
             		
-            // InternalYamlGenDsl.g:768:3: ( (lv_value_1_0= RULE_STRING ) )
-            // InternalYamlGenDsl.g:769:4: (lv_value_1_0= RULE_STRING )
+            // InternalYamlGenDsl.g:843:3: ( (lv_value_1_0= RULE_STRING ) )
+            // InternalYamlGenDsl.g:844:4: (lv_value_1_0= RULE_STRING )
             {
-            // InternalYamlGenDsl.g:769:4: (lv_value_1_0= RULE_STRING )
-            // InternalYamlGenDsl.g:770:5: lv_value_1_0= RULE_STRING
+            // InternalYamlGenDsl.g:844:4: (lv_value_1_0= RULE_STRING )
+            // InternalYamlGenDsl.g:845:5: lv_value_1_0= RULE_STRING
             {
             lv_value_1_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
@@ -2072,7 +2246,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePermittedValues"
-    // InternalYamlGenDsl.g:790:1: entryRulePermittedValues returns [EObject current=null] : iv_rulePermittedValues= rulePermittedValues EOF ;
+    // InternalYamlGenDsl.g:865:1: entryRulePermittedValues returns [EObject current=null] : iv_rulePermittedValues= rulePermittedValues EOF ;
     public final EObject entryRulePermittedValues() throws RecognitionException {
         EObject current = null;
 
@@ -2080,8 +2254,8 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalYamlGenDsl.g:790:56: (iv_rulePermittedValues= rulePermittedValues EOF )
-            // InternalYamlGenDsl.g:791:2: iv_rulePermittedValues= rulePermittedValues EOF
+            // InternalYamlGenDsl.g:865:56: (iv_rulePermittedValues= rulePermittedValues EOF )
+            // InternalYamlGenDsl.g:866:2: iv_rulePermittedValues= rulePermittedValues EOF
             {
              newCompositeNode(grammarAccess.getPermittedValuesRule()); 
             pushFollow(FOLLOW_1);
@@ -2108,7 +2282,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePermittedValues"
-    // InternalYamlGenDsl.g:797:1: rulePermittedValues returns [EObject current=null] : (otherlv_0= 'values:' ( (lv_value_1_0= ruleValues ) ) ) ;
+    // InternalYamlGenDsl.g:872:1: rulePermittedValues returns [EObject current=null] : (otherlv_0= 'values:' ( (lv_value_1_0= ruleValues ) ) ) ;
     public final EObject rulePermittedValues() throws RecognitionException {
         EObject current = null;
 
@@ -2120,21 +2294,21 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalYamlGenDsl.g:803:2: ( (otherlv_0= 'values:' ( (lv_value_1_0= ruleValues ) ) ) )
-            // InternalYamlGenDsl.g:804:2: (otherlv_0= 'values:' ( (lv_value_1_0= ruleValues ) ) )
+            // InternalYamlGenDsl.g:878:2: ( (otherlv_0= 'values:' ( (lv_value_1_0= ruleValues ) ) ) )
+            // InternalYamlGenDsl.g:879:2: (otherlv_0= 'values:' ( (lv_value_1_0= ruleValues ) ) )
             {
-            // InternalYamlGenDsl.g:804:2: (otherlv_0= 'values:' ( (lv_value_1_0= ruleValues ) ) )
-            // InternalYamlGenDsl.g:805:3: otherlv_0= 'values:' ( (lv_value_1_0= ruleValues ) )
+            // InternalYamlGenDsl.g:879:2: (otherlv_0= 'values:' ( (lv_value_1_0= ruleValues ) ) )
+            // InternalYamlGenDsl.g:880:3: otherlv_0= 'values:' ( (lv_value_1_0= ruleValues ) )
             {
-            otherlv_0=(Token)match(input,23,FOLLOW_12); 
+            otherlv_0=(Token)match(input,25,FOLLOW_14); 
 
             			newLeafNode(otherlv_0, grammarAccess.getPermittedValuesAccess().getValuesKeyword_0());
             		
-            // InternalYamlGenDsl.g:809:3: ( (lv_value_1_0= ruleValues ) )
-            // InternalYamlGenDsl.g:810:4: (lv_value_1_0= ruleValues )
+            // InternalYamlGenDsl.g:884:3: ( (lv_value_1_0= ruleValues ) )
+            // InternalYamlGenDsl.g:885:4: (lv_value_1_0= ruleValues )
             {
-            // InternalYamlGenDsl.g:810:4: (lv_value_1_0= ruleValues )
-            // InternalYamlGenDsl.g:811:5: lv_value_1_0= ruleValues
+            // InternalYamlGenDsl.g:885:4: (lv_value_1_0= ruleValues )
+            // InternalYamlGenDsl.g:886:5: lv_value_1_0= ruleValues
             {
 
             					newCompositeNode(grammarAccess.getPermittedValuesAccess().getValueValuesParserRuleCall_1_0());
@@ -2184,7 +2358,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleValues"
-    // InternalYamlGenDsl.g:832:1: entryRuleValues returns [EObject current=null] : iv_ruleValues= ruleValues EOF ;
+    // InternalYamlGenDsl.g:907:1: entryRuleValues returns [EObject current=null] : iv_ruleValues= ruleValues EOF ;
     public final EObject entryRuleValues() throws RecognitionException {
         EObject current = null;
 
@@ -2192,8 +2366,8 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalYamlGenDsl.g:832:47: (iv_ruleValues= ruleValues EOF )
-            // InternalYamlGenDsl.g:833:2: iv_ruleValues= ruleValues EOF
+            // InternalYamlGenDsl.g:907:47: (iv_ruleValues= ruleValues EOF )
+            // InternalYamlGenDsl.g:908:2: iv_ruleValues= ruleValues EOF
             {
              newCompositeNode(grammarAccess.getValuesRule()); 
             pushFollow(FOLLOW_1);
@@ -2220,27 +2394,28 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleValues"
-    // InternalYamlGenDsl.g:839:1: ruleValues returns [EObject current=null] : ( (otherlv_0= '[' ( (lv_values_1_0= RULE_STRING ) )+ otherlv_2= ']' ) | ( (lv_values_3_0= RULE_STRING ) ) ) ;
+    // InternalYamlGenDsl.g:914:1: ruleValues returns [EObject current=null] : ( (otherlv_0= '[' ( (lv_values_1_0= ruleValues ) )+ otherlv_2= ']' ) | ( (lv_string_3_0= RULE_STRING ) ) ) ;
     public final EObject ruleValues() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
-        Token lv_values_1_0=null;
         Token otherlv_2=null;
-        Token lv_values_3_0=null;
+        Token lv_string_3_0=null;
+        EObject lv_values_1_0 = null;
+
 
 
         	enterRule();
 
         try {
-            // InternalYamlGenDsl.g:845:2: ( ( (otherlv_0= '[' ( (lv_values_1_0= RULE_STRING ) )+ otherlv_2= ']' ) | ( (lv_values_3_0= RULE_STRING ) ) ) )
-            // InternalYamlGenDsl.g:846:2: ( (otherlv_0= '[' ( (lv_values_1_0= RULE_STRING ) )+ otherlv_2= ']' ) | ( (lv_values_3_0= RULE_STRING ) ) )
+            // InternalYamlGenDsl.g:920:2: ( ( (otherlv_0= '[' ( (lv_values_1_0= ruleValues ) )+ otherlv_2= ']' ) | ( (lv_string_3_0= RULE_STRING ) ) ) )
+            // InternalYamlGenDsl.g:921:2: ( (otherlv_0= '[' ( (lv_values_1_0= ruleValues ) )+ otherlv_2= ']' ) | ( (lv_string_3_0= RULE_STRING ) ) )
             {
-            // InternalYamlGenDsl.g:846:2: ( (otherlv_0= '[' ( (lv_values_1_0= RULE_STRING ) )+ otherlv_2= ']' ) | ( (lv_values_3_0= RULE_STRING ) ) )
+            // InternalYamlGenDsl.g:921:2: ( (otherlv_0= '[' ( (lv_values_1_0= ruleValues ) )+ otherlv_2= ']' ) | ( (lv_string_3_0= RULE_STRING ) ) )
             int alt16=2;
             int LA16_0 = input.LA(1);
 
-            if ( (LA16_0==24) ) {
+            if ( (LA16_0==26) ) {
                 alt16=1;
             }
             else if ( (LA16_0==RULE_STRING) ) {
@@ -2254,47 +2429,52 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
             }
             switch (alt16) {
                 case 1 :
-                    // InternalYamlGenDsl.g:847:3: (otherlv_0= '[' ( (lv_values_1_0= RULE_STRING ) )+ otherlv_2= ']' )
+                    // InternalYamlGenDsl.g:922:3: (otherlv_0= '[' ( (lv_values_1_0= ruleValues ) )+ otherlv_2= ']' )
                     {
-                    // InternalYamlGenDsl.g:847:3: (otherlv_0= '[' ( (lv_values_1_0= RULE_STRING ) )+ otherlv_2= ']' )
-                    // InternalYamlGenDsl.g:848:4: otherlv_0= '[' ( (lv_values_1_0= RULE_STRING ) )+ otherlv_2= ']'
+                    // InternalYamlGenDsl.g:922:3: (otherlv_0= '[' ( (lv_values_1_0= ruleValues ) )+ otherlv_2= ']' )
+                    // InternalYamlGenDsl.g:923:4: otherlv_0= '[' ( (lv_values_1_0= ruleValues ) )+ otherlv_2= ']'
                     {
-                    otherlv_0=(Token)match(input,24,FOLLOW_4); 
+                    otherlv_0=(Token)match(input,26,FOLLOW_14); 
 
                     				newLeafNode(otherlv_0, grammarAccess.getValuesAccess().getLeftSquareBracketKeyword_0_0());
                     			
-                    // InternalYamlGenDsl.g:852:4: ( (lv_values_1_0= RULE_STRING ) )+
+                    // InternalYamlGenDsl.g:927:4: ( (lv_values_1_0= ruleValues ) )+
                     int cnt15=0;
                     loop15:
                     do {
                         int alt15=2;
                         int LA15_0 = input.LA(1);
 
-                        if ( (LA15_0==RULE_STRING) ) {
+                        if ( (LA15_0==RULE_STRING||LA15_0==26) ) {
                             alt15=1;
                         }
 
 
                         switch (alt15) {
                     	case 1 :
-                    	    // InternalYamlGenDsl.g:853:5: (lv_values_1_0= RULE_STRING )
+                    	    // InternalYamlGenDsl.g:928:5: (lv_values_1_0= ruleValues )
                     	    {
-                    	    // InternalYamlGenDsl.g:853:5: (lv_values_1_0= RULE_STRING )
-                    	    // InternalYamlGenDsl.g:854:6: lv_values_1_0= RULE_STRING
+                    	    // InternalYamlGenDsl.g:928:5: (lv_values_1_0= ruleValues )
+                    	    // InternalYamlGenDsl.g:929:6: lv_values_1_0= ruleValues
                     	    {
-                    	    lv_values_1_0=(Token)match(input,RULE_STRING,FOLLOW_13); 
 
-                    	    						newLeafNode(lv_values_1_0, grammarAccess.getValuesAccess().getValuesSTRINGTerminalRuleCall_0_1_0());
+                    	    						newCompositeNode(grammarAccess.getValuesAccess().getValuesValuesParserRuleCall_0_1_0());
                     	    					
+                    	    pushFollow(FOLLOW_15);
+                    	    lv_values_1_0=ruleValues();
+
+                    	    state._fsp--;
+
 
                     	    						if (current==null) {
-                    	    							current = createModelElement(grammarAccess.getValuesRule());
+                    	    							current = createModelElementForParent(grammarAccess.getValuesRule());
                     	    						}
-                    	    						addWithLastConsumed(
+                    	    						add(
                     	    							current,
                     	    							"values",
                     	    							lv_values_1_0,
-                    	    							"org.eclipse.xtext.common.Terminals.STRING");
+                    	    							"yaml.helper.dsl.YamlGenDsl.Values");
+                    	    						afterParserOrEnumRuleCall();
                     	    					
 
                     	    }
@@ -2312,7 +2492,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
                         cnt15++;
                     } while (true);
 
-                    otherlv_2=(Token)match(input,25,FOLLOW_2); 
+                    otherlv_2=(Token)match(input,27,FOLLOW_2); 
 
                     				newLeafNode(otherlv_2, grammarAccess.getValuesAccess().getRightSquareBracketKeyword_0_2());
                     			
@@ -2323,26 +2503,26 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalYamlGenDsl.g:876:3: ( (lv_values_3_0= RULE_STRING ) )
+                    // InternalYamlGenDsl.g:952:3: ( (lv_string_3_0= RULE_STRING ) )
                     {
-                    // InternalYamlGenDsl.g:876:3: ( (lv_values_3_0= RULE_STRING ) )
-                    // InternalYamlGenDsl.g:877:4: (lv_values_3_0= RULE_STRING )
+                    // InternalYamlGenDsl.g:952:3: ( (lv_string_3_0= RULE_STRING ) )
+                    // InternalYamlGenDsl.g:953:4: (lv_string_3_0= RULE_STRING )
                     {
-                    // InternalYamlGenDsl.g:877:4: (lv_values_3_0= RULE_STRING )
-                    // InternalYamlGenDsl.g:878:5: lv_values_3_0= RULE_STRING
+                    // InternalYamlGenDsl.g:953:4: (lv_string_3_0= RULE_STRING )
+                    // InternalYamlGenDsl.g:954:5: lv_string_3_0= RULE_STRING
                     {
-                    lv_values_3_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
+                    lv_string_3_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
-                    					newLeafNode(lv_values_3_0, grammarAccess.getValuesAccess().getValuesSTRINGTerminalRuleCall_1_0());
+                    					newLeafNode(lv_string_3_0, grammarAccess.getValuesAccess().getStringSTRINGTerminalRuleCall_1_0());
                     				
 
                     					if (current==null) {
                     						current = createModelElement(grammarAccess.getValuesRule());
                     					}
-                    					addWithLastConsumed(
+                    					setWithLastConsumed(
                     						current,
-                    						"values",
-                    						lv_values_3_0,
+                    						"string",
+                    						lv_string_3_0,
                     						"org.eclipse.xtext.common.Terminals.STRING");
                     				
 
@@ -2381,13 +2561,13 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
     protected DFA7 dfa7 = new DFA7(this);
     static final String dfa_1s = "\6\uffff";
     static final String dfa_2s = "\1\5\1\uffff\1\5\3\uffff";
-    static final String dfa_3s = "\1\27\1\uffff\1\23\3\uffff";
+    static final String dfa_3s = "\1\31\1\uffff\1\24\3\uffff";
     static final String dfa_4s = "\1\uffff\1\1\1\uffff\1\2\1\3\1\4";
     static final String dfa_5s = "\6\uffff}>";
     static final String[] dfa_6s = {
-            "\1\2\12\uffff\1\1\1\3\1\uffff\1\4\4\5",
+            "\1\2\12\uffff\1\1\1\3\2\uffff\1\4\5\5",
             "",
-            "\1\2\13\uffff\1\3\1\uffff\1\4",
+            "\1\2\13\uffff\1\3\2\uffff\1\4",
             "",
             "",
             ""
@@ -2426,11 +2606,13 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000001060L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000000040L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000006000L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000FB8020L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000003F38020L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000020020L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000046000L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000080020L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000001000010L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000002000010L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x00000000000C6000L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000086000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000100020L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000016000L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000004000010L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x000000000C000010L});
 
 }

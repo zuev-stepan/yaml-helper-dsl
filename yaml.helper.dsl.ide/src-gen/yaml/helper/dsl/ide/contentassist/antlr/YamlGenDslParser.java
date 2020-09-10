@@ -41,9 +41,10 @@ public class YamlGenDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getBodyAccess().getGroup(), "rule__Body__Group__0");
 			builder.put(grammarAccess.getExtendAccess().getGroup(), "rule__Extend__Group__0");
 			builder.put(grammarAccess.getNestedFieldAccess().getGroup(), "rule__NestedField__Group__0");
-			builder.put(grammarAccess.getNestedFieldAccess().getGroup_3(), "rule__NestedField__Group_3__0");
+			builder.put(grammarAccess.getNestedFieldAccess().getGroup_4(), "rule__NestedField__Group_4__0");
 			builder.put(grammarAccess.getNestedFieldsAccess().getGroup(), "rule__NestedFields__Group__0");
-			builder.put(grammarAccess.getNestedFieldsAccess().getGroup_3(), "rule__NestedFields__Group_3__0");
+			builder.put(grammarAccess.getNestedFieldsAccess().getGroup_2(), "rule__NestedFields__Group_2__0");
+			builder.put(grammarAccess.getKeyAccess().getGroup(), "rule__Key__Group__0");
 			builder.put(grammarAccess.getNameAccess().getGroup(), "rule__Name__Group__0");
 			builder.put(grammarAccess.getDefaultAccess().getGroup(), "rule__Default__Group__0");
 			builder.put(grammarAccess.getHintAccess().getGroup(), "rule__Hint__Group__0");
@@ -57,20 +58,23 @@ public class YamlGenDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getFieldAccess().getSuperFieldAssignment_3_1(), "rule__Field__SuperFieldAssignment_3_1");
 			builder.put(grammarAccess.getFieldAccess().getBodyAssignment_4(), "rule__Field__BodyAssignment_4");
 			builder.put(grammarAccess.getBodyAccess().getElementsAssignment_2(), "rule__Body__ElementsAssignment_2");
+			builder.put(grammarAccess.getExtendAccess().getName_propertyAssignment_1(), "rule__Extend__Name_propertyAssignment_1");
+			builder.put(grammarAccess.getExtendAccess().getBodyAssignment_2(), "rule__Extend__BodyAssignment_2");
 			builder.put(grammarAccess.getNestedFieldAccess().getHelpAssignment_0(), "rule__NestedField__HelpAssignment_0");
 			builder.put(grammarAccess.getNestedFieldAccess().getMandatoryAssignment_2(), "rule__NestedField__MandatoryAssignment_2");
-			builder.put(grammarAccess.getNestedFieldAccess().getFieldAssignment_3_1(), "rule__NestedField__FieldAssignment_3_1");
-			builder.put(grammarAccess.getNestedFieldAccess().getBodyAssignment_4(), "rule__NestedField__BodyAssignment_4");
+			builder.put(grammarAccess.getNestedFieldAccess().getDefaultAssignment_3(), "rule__NestedField__DefaultAssignment_3");
+			builder.put(grammarAccess.getNestedFieldAccess().getSuperFieldAssignment_4_1(), "rule__NestedField__SuperFieldAssignment_4_1");
+			builder.put(grammarAccess.getNestedFieldAccess().getBodyAssignment_5(), "rule__NestedField__BodyAssignment_5");
 			builder.put(grammarAccess.getNestedFieldsAccess().getHelpAssignment_0(), "rule__NestedFields__HelpAssignment_0");
-			builder.put(grammarAccess.getNestedFieldsAccess().getMandatoryAssignment_2(), "rule__NestedFields__MandatoryAssignment_2");
-			builder.put(grammarAccess.getNestedFieldsAccess().getFieldAssignment_3_1(), "rule__NestedFields__FieldAssignment_3_1");
-			builder.put(grammarAccess.getNestedFieldsAccess().getBodyAssignment_4(), "rule__NestedFields__BodyAssignment_4");
+			builder.put(grammarAccess.getNestedFieldsAccess().getSuperFieldAssignment_2_1(), "rule__NestedFields__SuperFieldAssignment_2_1");
+			builder.put(grammarAccess.getNestedFieldsAccess().getBodyAssignment_3(), "rule__NestedFields__BodyAssignment_3");
+			builder.put(grammarAccess.getKeyAccess().getValueAssignment_1(), "rule__Key__ValueAssignment_1");
 			builder.put(grammarAccess.getNameAccess().getValueAssignment_1(), "rule__Name__ValueAssignment_1");
 			builder.put(grammarAccess.getDefaultAccess().getValueAssignment_1(), "rule__Default__ValueAssignment_1");
 			builder.put(grammarAccess.getHintAccess().getValueAssignment_1(), "rule__Hint__ValueAssignment_1");
 			builder.put(grammarAccess.getPermittedValuesAccess().getValueAssignment_1(), "rule__PermittedValues__ValueAssignment_1");
 			builder.put(grammarAccess.getValuesAccess().getValuesAssignment_0_1(), "rule__Values__ValuesAssignment_0_1");
-			builder.put(grammarAccess.getValuesAccess().getValuesAssignment_1(), "rule__Values__ValuesAssignment_1");
+			builder.put(grammarAccess.getValuesAccess().getStringAssignment_1(), "rule__Values__StringAssignment_1");
 		}
 	}
 	

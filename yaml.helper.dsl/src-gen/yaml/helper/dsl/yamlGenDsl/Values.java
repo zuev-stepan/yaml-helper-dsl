@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link yaml.helper.dsl.yamlGenDsl.Values#getValues <em>Values</em>}</li>
+ *   <li>{@link yaml.helper.dsl.yamlGenDsl.Values#getString <em>String</em>}</li>
  * </ul>
  *
  * @see yaml.helper.dsl.yamlGenDsl.YamlGenDslPackage#getValues()
@@ -26,15 +27,37 @@ import org.eclipse.emf.ecore.EObject;
 public interface Values extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Values</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
+   * Returns the value of the '<em><b>Values</b></em>' containment reference list.
+   * The list contents are of type {@link yaml.helper.dsl.yamlGenDsl.Values}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Values</em>' attribute list.
+   * @return the value of the '<em>Values</em>' containment reference list.
    * @see yaml.helper.dsl.yamlGenDsl.YamlGenDslPackage#getValues_Values()
-   * @model unique="false"
+   * @model containment="true"
    * @generated
    */
-  EList<String> getValues();
+  EList<Values> getValues();
+
+  /**
+   * Returns the value of the '<em><b>String</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>String</em>' attribute.
+   * @see #setString(String)
+   * @see yaml.helper.dsl.yamlGenDsl.YamlGenDslPackage#getValues_String()
+   * @model
+   * @generated
+   */
+  String getString();
+
+  /**
+   * Sets the value of the '{@link yaml.helper.dsl.yamlGenDsl.Values#getString <em>String</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>String</em>' attribute.
+   * @see #getString()
+   * @generated
+   */
+  void setString(String value);
 
 } // Values

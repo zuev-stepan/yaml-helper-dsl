@@ -126,6 +126,11 @@ public class YamlGenDslAdapterFactory extends AdapterFactoryImpl
         return createPropertyAdapter();
       }
       @Override
+      public Adapter caseKey(Key object)
+      {
+        return createKeyAdapter();
+      }
+      @Override
       public Adapter caseName(Name object)
       {
         return createNameAdapter();
@@ -318,6 +323,21 @@ public class YamlGenDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createPropertyAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link yaml.helper.dsl.yamlGenDsl.Key <em>Key</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see yaml.helper.dsl.yamlGenDsl.Key
+   * @generated
+   */
+  public Adapter createKeyAdapter()
   {
     return null;
   }

@@ -5,13 +5,19 @@ package yaml.helper.dsl.yamlGenDsl.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import yaml.helper.dsl.yamlGenDsl.Values;
 import yaml.helper.dsl.yamlGenDsl.YamlGenDslPackage;
@@ -25,6 +31,7 @@ import yaml.helper.dsl.yamlGenDsl.YamlGenDslPackage;
  * </p>
  * <ul>
  *   <li>{@link yaml.helper.dsl.yamlGenDsl.impl.ValuesImpl#getValues <em>Values</em>}</li>
+ *   <li>{@link yaml.helper.dsl.yamlGenDsl.impl.ValuesImpl#getString <em>String</em>}</li>
  * </ul>
  *
  * @generated
@@ -32,14 +39,34 @@ import yaml.helper.dsl.yamlGenDsl.YamlGenDslPackage;
 public class ValuesImpl extends MinimalEObjectImpl.Container implements Values
 {
   /**
-   * The cached value of the '{@link #getValues() <em>Values</em>}' attribute list.
+   * The cached value of the '{@link #getValues() <em>Values</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getValues()
    * @generated
    * @ordered
    */
-  protected EList<String> values;
+  protected EList<Values> values;
+
+  /**
+   * The default value of the '{@link #getString() <em>String</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getString()
+   * @generated
+   * @ordered
+   */
+  protected static final String STRING_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getString() <em>String</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getString()
+   * @generated
+   * @ordered
+   */
+  protected String string = STRING_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -68,13 +95,54 @@ public class ValuesImpl extends MinimalEObjectImpl.Container implements Values
    * @generated
    */
   @Override
-  public EList<String> getValues()
+  public EList<Values> getValues()
   {
     if (values == null)
     {
-      values = new EDataTypeEList<String>(String.class, this, YamlGenDslPackage.VALUES__VALUES);
+      values = new EObjectContainmentEList<Values>(Values.class, this, YamlGenDslPackage.VALUES__VALUES);
     }
     return values;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getString()
+  {
+    return string;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setString(String newString)
+  {
+    String oldString = string;
+    string = newString;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, YamlGenDslPackage.VALUES__STRING, oldString, string));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case YamlGenDslPackage.VALUES__VALUES:
+        return ((InternalEList<?>)getValues()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -89,6 +157,8 @@ public class ValuesImpl extends MinimalEObjectImpl.Container implements Values
     {
       case YamlGenDslPackage.VALUES__VALUES:
         return getValues();
+      case YamlGenDslPackage.VALUES__STRING:
+        return getString();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -106,7 +176,10 @@ public class ValuesImpl extends MinimalEObjectImpl.Container implements Values
     {
       case YamlGenDslPackage.VALUES__VALUES:
         getValues().clear();
-        getValues().addAll((Collection<? extends String>)newValue);
+        getValues().addAll((Collection<? extends Values>)newValue);
+        return;
+      case YamlGenDslPackage.VALUES__STRING:
+        setString((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -125,6 +198,9 @@ public class ValuesImpl extends MinimalEObjectImpl.Container implements Values
       case YamlGenDslPackage.VALUES__VALUES:
         getValues().clear();
         return;
+      case YamlGenDslPackage.VALUES__STRING:
+        setString(STRING_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -141,6 +217,8 @@ public class ValuesImpl extends MinimalEObjectImpl.Container implements Values
     {
       case YamlGenDslPackage.VALUES__VALUES:
         return values != null && !values.isEmpty();
+      case YamlGenDslPackage.VALUES__STRING:
+        return STRING_EDEFAULT == null ? string != null : !STRING_EDEFAULT.equals(string);
     }
     return super.eIsSet(featureID);
   }
@@ -156,8 +234,8 @@ public class ValuesImpl extends MinimalEObjectImpl.Container implements Values
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (values: ");
-    result.append(values);
+    result.append(" (string: ");
+    result.append(string);
     result.append(')');
     return result.toString();
   }

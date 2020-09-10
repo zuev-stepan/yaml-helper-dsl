@@ -12,6 +12,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -32,7 +34,7 @@ import yaml.helper.dsl.yamlGenDsl.YamlGenDslPackage;
  *
  * @generated
  */
-public class BodyImpl extends ExtendImpl implements Body
+public class BodyImpl extends MinimalEObjectImpl.Container implements Body
 {
   /**
    * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.

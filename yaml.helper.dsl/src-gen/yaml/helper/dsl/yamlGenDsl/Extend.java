@@ -9,6 +9,13 @@ package yaml.helper.dsl.yamlGenDsl;
  * A representation of the model object '<em><b>Extend</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link yaml.helper.dsl.yamlGenDsl.Extend#getName_property <em>Name property</em>}</li>
+ *   <li>{@link yaml.helper.dsl.yamlGenDsl.Extend#getBody <em>Body</em>}</li>
+ * </ul>
  *
  * @see yaml.helper.dsl.yamlGenDsl.YamlGenDslPackage#getExtend()
  * @model
@@ -16,4 +23,48 @@ package yaml.helper.dsl.yamlGenDsl;
  */
 public interface Extend extends BodyElement
 {
+  /**
+   * Returns the value of the '<em><b>Name property</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Name property</em>' attribute.
+   * @see #setName_property(String)
+   * @see yaml.helper.dsl.yamlGenDsl.YamlGenDslPackage#getExtend_Name_property()
+   * @model
+   * @generated
+   */
+  String getName_property();
+
+  /**
+   * Sets the value of the '{@link yaml.helper.dsl.yamlGenDsl.Extend#getName_property <em>Name property</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Name property</em>' attribute.
+   * @see #getName_property()
+   * @generated
+   */
+  void setName_property(String value);
+
+  /**
+   * Returns the value of the '<em><b>Body</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Body</em>' containment reference.
+   * @see #setBody(Body)
+   * @see yaml.helper.dsl.yamlGenDsl.YamlGenDslPackage#getExtend_Body()
+   * @model containment="true"
+   * @generated
+   */
+  Body getBody();
+
+  /**
+   * Sets the value of the '{@link yaml.helper.dsl.yamlGenDsl.Extend#getBody <em>Body</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Body</em>' containment reference.
+   * @see #getBody()
+   * @generated
+   */
+  void setBody(Body value);
+
 } // Extend

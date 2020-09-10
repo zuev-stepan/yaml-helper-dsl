@@ -3,8 +3,15 @@
  */
 package yaml.helper.dsl.yamlGenDsl.impl;
 
-import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import yaml.helper.dsl.yamlGenDsl.Body;
 import yaml.helper.dsl.yamlGenDsl.Extend;
 import yaml.helper.dsl.yamlGenDsl.YamlGenDslPackage;
 
@@ -12,11 +19,48 @@ import yaml.helper.dsl.yamlGenDsl.YamlGenDslPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Extend</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link yaml.helper.dsl.yamlGenDsl.impl.ExtendImpl#getName_property <em>Name property</em>}</li>
+ *   <li>{@link yaml.helper.dsl.yamlGenDsl.impl.ExtendImpl#getBody <em>Body</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class ExtendImpl extends BodyElementImpl implements Extend
 {
+  /**
+   * The default value of the '{@link #getName_property() <em>Name property</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName_property()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_PROPERTY_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName_property() <em>Name property</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName_property()
+   * @generated
+   * @ordered
+   */
+  protected String name_property = NAME_PROPERTY_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getBody() <em>Body</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBody()
+   * @generated
+   * @ordered
+   */
+  protected Body body;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -36,6 +80,190 @@ public class ExtendImpl extends BodyElementImpl implements Extend
   protected EClass eStaticClass()
   {
     return YamlGenDslPackage.Literals.EXTEND;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getName_property()
+  {
+    return name_property;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setName_property(String newName_property)
+  {
+    String oldName_property = name_property;
+    name_property = newName_property;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, YamlGenDslPackage.EXTEND__NAME_PROPERTY, oldName_property, name_property));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Body getBody()
+  {
+    return body;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetBody(Body newBody, NotificationChain msgs)
+  {
+    Body oldBody = body;
+    body = newBody;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, YamlGenDslPackage.EXTEND__BODY, oldBody, newBody);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setBody(Body newBody)
+  {
+    if (newBody != body)
+    {
+      NotificationChain msgs = null;
+      if (body != null)
+        msgs = ((InternalEObject)body).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - YamlGenDslPackage.EXTEND__BODY, null, msgs);
+      if (newBody != null)
+        msgs = ((InternalEObject)newBody).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - YamlGenDslPackage.EXTEND__BODY, null, msgs);
+      msgs = basicSetBody(newBody, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, YamlGenDslPackage.EXTEND__BODY, newBody, newBody));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case YamlGenDslPackage.EXTEND__BODY:
+        return basicSetBody(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case YamlGenDslPackage.EXTEND__NAME_PROPERTY:
+        return getName_property();
+      case YamlGenDslPackage.EXTEND__BODY:
+        return getBody();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case YamlGenDslPackage.EXTEND__NAME_PROPERTY:
+        setName_property((String)newValue);
+        return;
+      case YamlGenDslPackage.EXTEND__BODY:
+        setBody((Body)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case YamlGenDslPackage.EXTEND__NAME_PROPERTY:
+        setName_property(NAME_PROPERTY_EDEFAULT);
+        return;
+      case YamlGenDslPackage.EXTEND__BODY:
+        setBody((Body)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case YamlGenDslPackage.EXTEND__NAME_PROPERTY:
+        return NAME_PROPERTY_EDEFAULT == null ? name_property != null : !NAME_PROPERTY_EDEFAULT.equals(name_property);
+      case YamlGenDslPackage.EXTEND__BODY:
+        return body != null;
+    }
+    return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (name_property: ");
+    result.append(name_property);
+    result.append(')');
+    return result.toString();
   }
 
 } //ExtendImpl

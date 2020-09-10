@@ -16,7 +16,8 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link yaml.helper.dsl.yamlGenDsl.NestedField#getHelp <em>Help</em>}</li>
  *   <li>{@link yaml.helper.dsl.yamlGenDsl.NestedField#isMandatory <em>Mandatory</em>}</li>
- *   <li>{@link yaml.helper.dsl.yamlGenDsl.NestedField#getField <em>Field</em>}</li>
+ *   <li>{@link yaml.helper.dsl.yamlGenDsl.NestedField#isDefault <em>Default</em>}</li>
+ *   <li>{@link yaml.helper.dsl.yamlGenDsl.NestedField#getSuperField <em>Super Field</em>}</li>
  *   <li>{@link yaml.helper.dsl.yamlGenDsl.NestedField#getBody <em>Body</em>}</li>
  * </ul>
  *
@@ -61,26 +62,48 @@ public interface NestedField extends BodyElement
   void setMandatory(boolean value);
 
   /**
-   * Returns the value of the '<em><b>Field</b></em>' reference.
+   * Returns the value of the '<em><b>Default</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Field</em>' reference.
-   * @see #setField(Field)
-   * @see yaml.helper.dsl.yamlGenDsl.YamlGenDslPackage#getNestedField_Field()
+   * @return the value of the '<em>Default</em>' attribute.
+   * @see #setDefault(boolean)
+   * @see yaml.helper.dsl.yamlGenDsl.YamlGenDslPackage#getNestedField_Default()
    * @model
    * @generated
    */
-  Field getField();
+  boolean isDefault();
 
   /**
-   * Sets the value of the '{@link yaml.helper.dsl.yamlGenDsl.NestedField#getField <em>Field</em>}' reference.
+   * Sets the value of the '{@link yaml.helper.dsl.yamlGenDsl.NestedField#isDefault <em>Default</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Field</em>' reference.
-   * @see #getField()
+   * @param value the new value of the '<em>Default</em>' attribute.
+   * @see #isDefault()
    * @generated
    */
-  void setField(Field value);
+  void setDefault(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Super Field</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Super Field</em>' reference.
+   * @see #setSuperField(Field)
+   * @see yaml.helper.dsl.yamlGenDsl.YamlGenDslPackage#getNestedField_SuperField()
+   * @model
+   * @generated
+   */
+  Field getSuperField();
+
+  /**
+   * Sets the value of the '{@link yaml.helper.dsl.yamlGenDsl.NestedField#getSuperField <em>Super Field</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Super Field</em>' reference.
+   * @see #getSuperField()
+   * @generated
+   */
+  void setSuperField(Field value);
 
   /**
    * Returns the value of the '<em><b>Body</b></em>' containment reference.

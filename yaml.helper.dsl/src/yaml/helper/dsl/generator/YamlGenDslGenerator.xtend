@@ -7,7 +7,20 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+
+//import static extension org.eclipse.xtext.EcoreUtil2.*
+import yaml.helper.dsl.yamlGenDsl.Import
 import yaml.helper.dsl.yamlGenDsl.Field
+import yaml.helper.dsl.yamlGenDsl.Body
+import yaml.helper.dsl.yamlGenDsl.Extend
+import yaml.helper.dsl.yamlGenDsl.NestedField
+import yaml.helper.dsl.yamlGenDsl.NestedFields
+import yaml.helper.dsl.yamlGenDsl.Key
+import yaml.helper.dsl.yamlGenDsl.Name
+import yaml.helper.dsl.yamlGenDsl.Default
+import yaml.helper.dsl.yamlGenDsl.Hint
+import yaml.helper.dsl.yamlGenDsl.PermittedValues
+import yaml.helper.dsl.yamlGenDsl.Values
 
 /**
  * Generates code from your model files on save.
@@ -15,16 +28,146 @@ import yaml.helper.dsl.yamlGenDsl.Field
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class YamlGenDslGenerator extends AbstractGenerator {
+	private def fix_path(String path) {
+		var res = path.substring(0, path.length - ".yamlgen".length)
+		res = res.replace('dot', 'ddot')
+		res = res.replace('.', 'dot')
+		return "yamlgen_" + res
+	}
+	
+	private def python_bool(boolean value) {
+		return value ? "True" : "False"
+	}
+	
+	private def python_string(String value) {
+		var res = value.replace("\\", "\\\\")
+		res = res.replace("\b", "\\b")
+		res = res.replace("\t", "\\t")
+		res = res.replace("\n", "\\n")
+		res = res.replace("\f", "\\f")
+		res = res.replace("\r", "\\r")
+		res = res.replace("\"", "\\\"")
+		res = res.replace("\'", "\\'")
+		
+		return '"' + res + '"'
+	}
+	
+	private def python_values(Values values) {
+		if (values.string !== null) {
+			return values.string.python_string			
+		}
+		else {
+			var res = "["
+			for (nestedValues : values.values) {
+				res+=nestedValues.python_values + ","
+			}
+			return res + "]"
+		}
+	}
+	
+	private def field_name(Field field) {
+		return field.root ? "root" : field.name
+	}
+	
+	private def field_create(Field field) {
+		if (field.superField !== null)
+			return "extend_field(" + field.superField.name + ", False, False)"
+		else
+			return "new_field(False, False)"
+	}
+	
+	private def field_create(NestedField nestedField) {
+		var res = ""
+		if (nestedField.superField !== null)
+			res += "extend_field(" + nestedField.superField.name + ", "
+		else
+			res += "new_field("
+		res += nestedField.mandatory.python_bool + ", " + nestedField.^default.python_bool + ")"
+	}
+	
+	private def fields_create(NestedFields nestedFields) {
+		var res = ""
+		if (nestedFields.superField !== null)
+			return "extend_field(" + nestedFields.superField.name + ", False, False)"
+		else
+			return "new_field(False, False)"
+	}
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		fsa.generateFile("text.txt", '''
+		var filePath = resource.URI.segments.subList(3, resource.URI.segments.size).join('/')
+		var file = filePath.fix_path + ".py"
+		fsa.generateFile(file, '''
+			«FOR importStatement : resource.allContents.filter(Import).toIterable»
+				«"from " + importStatement.path.fix_path.replace('/', '.') + " import *"»
+			«ENDFOR»
+
 			«FOR field : resource.allContents.filter(Field).toIterable»
-                Field «field.name»
-            «ENDFOR»
+				«field.compile»
+
+			«ENDFOR»
 		''')
 	}
 	
-	private def compile(Field field, IFileSystemAccess2 fsa) '''
-		PIDOR
+	private def compile(Field field) '''
+		«field.field_name» = wrap(
+			«field.field_create»
+			«FOR help : field.help»
+				.add_help(«help»)
+			«ENDFOR»
+			«field.body.compile»
+		)
+	'''
+	
+	private def compile(NestedField nestedField) '''
+		«nestedField.field_create»
+		«FOR help : nestedField.help»
+			.add_help(«help»)
+		«ENDFOR»
+		«nestedField.body.compile»
+	'''
+	
+	private def compile(NestedFields nestedFields) '''
+		«nestedFields.fields_create»
+		«FOR help : nestedFields.help»
+			.add_help(«help»)
+		«ENDFOR»
+		«nestedFields.body.compile»
+	'''
+	
+	private def compile(Body body) '''
+		«FOR t : body.elements.filter(Key)»
+		.set_property("key", «t.value.python_string»)
+		«ENDFOR»
+		«FOR t : body.elements.filter(Name)»
+		.set_property("name", «t.value.python_string»)
+		«ENDFOR»
+		«FOR t : body.elements.filter(Default)»
+			.set_property("default", «t.value.python_values»)
+		«ENDFOR»
+		«FOR t : body.elements.filter(Hint)»
+			.set_property("hint", «t.value.python_string»)
+		«ENDFOR»
+		«FOR t : body.elements.filter(PermittedValues)»
+			.set_property("values", «t.value.python_values»)
+		«ENDFOR»
+		«FOR t : body.elements.filter(Extend)»
+		«t.compile»
+		«ENDFOR»
+		«FOR t : body.elements.filter(NestedField)»
+			.add_field(
+				«t.compile»
+			)
+		«ENDFOR»
+		«FOR t : body.elements.filter(NestedFields)»
+			.add_field_generator(
+				«t.compile»
+			)
+		«ENDFOR»
+	'''
+	
+	private def compile(Extend extend) '''
+		.extend(«extend.name_property.python_string»)
+			«extend.body.compile»
+		.end_extend()
 	'''
 }

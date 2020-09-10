@@ -114,6 +114,15 @@ public interface YamlGenDslFactory extends EFactory
   Property createProperty();
 
   /**
+   * Returns a new object of class '<em>Key</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Key</em>'.
+   * @generated
+   */
+  Key createKey();
+
+  /**
    * Returns a new object of class '<em>Name</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

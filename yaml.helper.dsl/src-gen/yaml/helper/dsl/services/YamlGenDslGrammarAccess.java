@@ -46,8 +46,7 @@ public class YamlGenDslGrammarAccess extends AbstractElementFinder.AbstractGramm
 		private final RuleCall cImportParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//SourceElement:
-		//	Field
-		//	| Import;
+		//	Field | Import;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//Field | Import
@@ -186,10 +185,7 @@ public class YamlGenDslGrammarAccess extends AbstractElementFinder.AbstractGramm
 		private final RuleCall cPropertyParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
 		//BodyElement:
-		//	Extend
-		//	| NestedField
-		//	| NestedFields
-		//	| Property;
+		//	Extend | NestedField | NestedFields | Property;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//Extend | NestedField | NestedFields | Property
@@ -211,24 +207,32 @@ public class YamlGenDslGrammarAccess extends AbstractElementFinder.AbstractGramm
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "yaml.helper.dsl.YamlGenDsl.Extend");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cExtendKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final RuleCall cSTRINGTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
-		private final RuleCall cBodyParserRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cName_propertyAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cName_propertySTRINGTerminalRuleCall_1_0 = (RuleCall)cName_propertyAssignment_1.eContents().get(0);
+		private final Assignment cBodyAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cBodyBodyParserRuleCall_2_0 = (RuleCall)cBodyAssignment_2.eContents().get(0);
 		
 		//Extend:
-		//	'extend' STRING Body;
+		//	'extend' name_property=STRING body=Body;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'extend' STRING Body
+		//'extend' name_property=STRING body=Body
 		public Group getGroup() { return cGroup; }
 		
 		//'extend'
 		public Keyword getExtendKeyword_0() { return cExtendKeyword_0; }
 		
+		//name_property=STRING
+		public Assignment getName_propertyAssignment_1() { return cName_propertyAssignment_1; }
+		
 		//STRING
-		public RuleCall getSTRINGTerminalRuleCall_1() { return cSTRINGTerminalRuleCall_1; }
+		public RuleCall getName_propertySTRINGTerminalRuleCall_1_0() { return cName_propertySTRINGTerminalRuleCall_1_0; }
+		
+		//body=Body
+		public Assignment getBodyAssignment_2() { return cBodyAssignment_2; }
 		
 		//Body
-		public RuleCall getBodyParserRuleCall_2() { return cBodyParserRuleCall_2; }
+		public RuleCall getBodyBodyParserRuleCall_2_0() { return cBodyBodyParserRuleCall_2_0; }
 	}
 	public class NestedFieldElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "yaml.helper.dsl.YamlGenDsl.NestedField");
@@ -238,20 +242,22 @@ public class YamlGenDslGrammarAccess extends AbstractElementFinder.AbstractGramm
 		private final Keyword cFieldKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cMandatoryAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final Keyword cMandatoryMandatoryKeyword_2_0 = (Keyword)cMandatoryAssignment_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cExtendsKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cFieldAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final CrossReference cFieldFieldCrossReference_3_1_0 = (CrossReference)cFieldAssignment_3_1.eContents().get(0);
-		private final RuleCall cFieldFieldIDTerminalRuleCall_3_1_0_1 = (RuleCall)cFieldFieldCrossReference_3_1_0.eContents().get(1);
-		private final Assignment cBodyAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cBodyBodyParserRuleCall_4_0 = (RuleCall)cBodyAssignment_4.eContents().get(0);
+		private final Assignment cDefaultAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cDefaultDefaultKeyword_3_0 = (Keyword)cDefaultAssignment_3.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cExtendsKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cSuperFieldAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final CrossReference cSuperFieldFieldCrossReference_4_1_0 = (CrossReference)cSuperFieldAssignment_4_1.eContents().get(0);
+		private final RuleCall cSuperFieldFieldIDTerminalRuleCall_4_1_0_1 = (RuleCall)cSuperFieldFieldCrossReference_4_1_0.eContents().get(1);
+		private final Assignment cBodyAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cBodyBodyParserRuleCall_5_0 = (RuleCall)cBodyAssignment_5.eContents().get(0);
 		
 		//NestedField:
 		//	help+=SL_COMMENT*
-		//	'field' mandatory?='mandatory'? ('extends' field=[Field])? body=Body;
+		//	'field' mandatory?='mandatory'? default?='default'? ('extends' superField=[Field])? body=Body;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//help+=SL_COMMENT* 'field' mandatory?='mandatory'? ('extends' field=[Field])? body=Body
+		//help+=SL_COMMENT* 'field' mandatory?='mandatory'? default?='default'? ('extends' superField=[Field])? body=Body
 		public Group getGroup() { return cGroup; }
 		
 		//help+=SL_COMMENT*
@@ -269,26 +275,32 @@ public class YamlGenDslGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//'mandatory'
 		public Keyword getMandatoryMandatoryKeyword_2_0() { return cMandatoryMandatoryKeyword_2_0; }
 		
-		//('extends' field=[Field])?
-		public Group getGroup_3() { return cGroup_3; }
+		//default?='default'?
+		public Assignment getDefaultAssignment_3() { return cDefaultAssignment_3; }
+		
+		//'default'
+		public Keyword getDefaultDefaultKeyword_3_0() { return cDefaultDefaultKeyword_3_0; }
+		
+		//('extends' superField=[Field])?
+		public Group getGroup_4() { return cGroup_4; }
 		
 		//'extends'
-		public Keyword getExtendsKeyword_3_0() { return cExtendsKeyword_3_0; }
+		public Keyword getExtendsKeyword_4_0() { return cExtendsKeyword_4_0; }
 		
-		//field=[Field]
-		public Assignment getFieldAssignment_3_1() { return cFieldAssignment_3_1; }
+		//superField=[Field]
+		public Assignment getSuperFieldAssignment_4_1() { return cSuperFieldAssignment_4_1; }
 		
 		//[Field]
-		public CrossReference getFieldFieldCrossReference_3_1_0() { return cFieldFieldCrossReference_3_1_0; }
+		public CrossReference getSuperFieldFieldCrossReference_4_1_0() { return cSuperFieldFieldCrossReference_4_1_0; }
 		
 		//ID
-		public RuleCall getFieldFieldIDTerminalRuleCall_3_1_0_1() { return cFieldFieldIDTerminalRuleCall_3_1_0_1; }
+		public RuleCall getSuperFieldFieldIDTerminalRuleCall_4_1_0_1() { return cSuperFieldFieldIDTerminalRuleCall_4_1_0_1; }
 		
 		//body=Body
-		public Assignment getBodyAssignment_4() { return cBodyAssignment_4; }
+		public Assignment getBodyAssignment_5() { return cBodyAssignment_5; }
 		
 		//Body
-		public RuleCall getBodyBodyParserRuleCall_4_0() { return cBodyBodyParserRuleCall_4_0; }
+		public RuleCall getBodyBodyParserRuleCall_5_0() { return cBodyBodyParserRuleCall_5_0; }
 	}
 	public class NestedFieldsElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "yaml.helper.dsl.YamlGenDsl.NestedFields");
@@ -296,22 +308,20 @@ public class YamlGenDslGrammarAccess extends AbstractElementFinder.AbstractGramm
 		private final Assignment cHelpAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cHelpSL_COMMENTTerminalRuleCall_0_0 = (RuleCall)cHelpAssignment_0.eContents().get(0);
 		private final Keyword cFieldsKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cMandatoryAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final Keyword cMandatoryMandatoryKeyword_2_0 = (Keyword)cMandatoryAssignment_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cExtendsKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cFieldAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final CrossReference cFieldFieldCrossReference_3_1_0 = (CrossReference)cFieldAssignment_3_1.eContents().get(0);
-		private final RuleCall cFieldFieldIDTerminalRuleCall_3_1_0_1 = (RuleCall)cFieldFieldCrossReference_3_1_0.eContents().get(1);
-		private final Assignment cBodyAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cBodyBodyParserRuleCall_4_0 = (RuleCall)cBodyAssignment_4.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cExtendKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cSuperFieldAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final CrossReference cSuperFieldFieldCrossReference_2_1_0 = (CrossReference)cSuperFieldAssignment_2_1.eContents().get(0);
+		private final RuleCall cSuperFieldFieldIDTerminalRuleCall_2_1_0_1 = (RuleCall)cSuperFieldFieldCrossReference_2_1_0.eContents().get(1);
+		private final Assignment cBodyAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cBodyBodyParserRuleCall_3_0 = (RuleCall)cBodyAssignment_3.eContents().get(0);
 		
 		//NestedFields:
 		//	help+=SL_COMMENT*
-		//	'fields' mandatory?='mandatory'? ('extends' field=[Field])? body=Body;
+		//	'fields' ('extend' superField=[Field])? body=Body;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//help+=SL_COMMENT* 'fields' mandatory?='mandatory'? ('extends' field=[Field])? body=Body
+		//help+=SL_COMMENT* 'fields' ('extend' superField=[Field])? body=Body
 		public Group getGroup() { return cGroup; }
 		
 		//help+=SL_COMMENT*
@@ -323,62 +333,80 @@ public class YamlGenDslGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//'fields'
 		public Keyword getFieldsKeyword_1() { return cFieldsKeyword_1; }
 		
-		//mandatory?='mandatory'?
-		public Assignment getMandatoryAssignment_2() { return cMandatoryAssignment_2; }
+		//('extend' superField=[Field])?
+		public Group getGroup_2() { return cGroup_2; }
 		
-		//'mandatory'
-		public Keyword getMandatoryMandatoryKeyword_2_0() { return cMandatoryMandatoryKeyword_2_0; }
+		//'extend'
+		public Keyword getExtendKeyword_2_0() { return cExtendKeyword_2_0; }
 		
-		//('extends' field=[Field])?
-		public Group getGroup_3() { return cGroup_3; }
-		
-		//'extends'
-		public Keyword getExtendsKeyword_3_0() { return cExtendsKeyword_3_0; }
-		
-		//field=[Field]
-		public Assignment getFieldAssignment_3_1() { return cFieldAssignment_3_1; }
+		//superField=[Field]
+		public Assignment getSuperFieldAssignment_2_1() { return cSuperFieldAssignment_2_1; }
 		
 		//[Field]
-		public CrossReference getFieldFieldCrossReference_3_1_0() { return cFieldFieldCrossReference_3_1_0; }
+		public CrossReference getSuperFieldFieldCrossReference_2_1_0() { return cSuperFieldFieldCrossReference_2_1_0; }
 		
 		//ID
-		public RuleCall getFieldFieldIDTerminalRuleCall_3_1_0_1() { return cFieldFieldIDTerminalRuleCall_3_1_0_1; }
+		public RuleCall getSuperFieldFieldIDTerminalRuleCall_2_1_0_1() { return cSuperFieldFieldIDTerminalRuleCall_2_1_0_1; }
 		
 		//body=Body
-		public Assignment getBodyAssignment_4() { return cBodyAssignment_4; }
+		public Assignment getBodyAssignment_3() { return cBodyAssignment_3; }
 		
 		//Body
-		public RuleCall getBodyBodyParserRuleCall_4_0() { return cBodyBodyParserRuleCall_4_0; }
+		public RuleCall getBodyBodyParserRuleCall_3_0() { return cBodyBodyParserRuleCall_3_0; }
 	}
 	public class PropertyElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "yaml.helper.dsl.YamlGenDsl.Property");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cNameParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cDefaultParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cHintParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cPermittedValuesParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cKeyParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cDefaultParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cHintParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cPermittedValuesParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		
 		//Property:
-		//	Name
-		//	| Default
-		//	| Hint
-		//	| PermittedValues;
+		//	Name | Key | Default | Hint | PermittedValues;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Name | Default | Hint | PermittedValues
+		//Name | Key | Default | Hint | PermittedValues
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Name
 		public RuleCall getNameParserRuleCall_0() { return cNameParserRuleCall_0; }
 		
+		//Key
+		public RuleCall getKeyParserRuleCall_1() { return cKeyParserRuleCall_1; }
+		
 		//Default
-		public RuleCall getDefaultParserRuleCall_1() { return cDefaultParserRuleCall_1; }
+		public RuleCall getDefaultParserRuleCall_2() { return cDefaultParserRuleCall_2; }
 		
 		//Hint
-		public RuleCall getHintParserRuleCall_2() { return cHintParserRuleCall_2; }
+		public RuleCall getHintParserRuleCall_3() { return cHintParserRuleCall_3; }
 		
 		//PermittedValues
-		public RuleCall getPermittedValuesParserRuleCall_3() { return cPermittedValuesParserRuleCall_3; }
+		public RuleCall getPermittedValuesParserRuleCall_4() { return cPermittedValuesParserRuleCall_4; }
+	}
+	public class KeyElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "yaml.helper.dsl.YamlGenDsl.Key");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cKeyKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueSTRINGTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		
+		//Key:
+		//	'key:' value=STRING;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'key:' value=STRING
+		public Group getGroup() { return cGroup; }
+		
+		//'key:'
+		public Keyword getKeyKeyword_0() { return cKeyKeyword_0; }
+		
+		//value=STRING
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+		
+		//STRING
+		public RuleCall getValueSTRINGTerminalRuleCall_1_0() { return cValueSTRINGTerminalRuleCall_1_0; }
 	}
 	public class NameElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "yaml.helper.dsl.YamlGenDsl.Name");
@@ -478,39 +506,39 @@ public class YamlGenDslGrammarAccess extends AbstractElementFinder.AbstractGramm
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
 		private final Keyword cLeftSquareBracketKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
 		private final Assignment cValuesAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
-		private final RuleCall cValuesSTRINGTerminalRuleCall_0_1_0 = (RuleCall)cValuesAssignment_0_1.eContents().get(0);
+		private final RuleCall cValuesValuesParserRuleCall_0_1_0 = (RuleCall)cValuesAssignment_0_1.eContents().get(0);
 		private final Keyword cRightSquareBracketKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
-		private final Assignment cValuesAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
-		private final RuleCall cValuesSTRINGTerminalRuleCall_1_0 = (RuleCall)cValuesAssignment_1.eContents().get(0);
+		private final Assignment cStringAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final RuleCall cStringSTRINGTerminalRuleCall_1_0 = (RuleCall)cStringAssignment_1.eContents().get(0);
 		
 		//Values:
-		//	'[' values+=STRING+ ']'
-		//	| values+=STRING;
+		//	'[' values+=Values+ ']'
+		//	| string=STRING;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'[' values+=STRING+ ']' | values+=STRING
+		//'[' values+=Values+ ']' | string=STRING
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//'[' values+=STRING+ ']'
+		//'[' values+=Values+ ']'
 		public Group getGroup_0() { return cGroup_0; }
 		
 		//'['
 		public Keyword getLeftSquareBracketKeyword_0_0() { return cLeftSquareBracketKeyword_0_0; }
 		
-		//values+=STRING+
+		//values+=Values+
 		public Assignment getValuesAssignment_0_1() { return cValuesAssignment_0_1; }
 		
-		//STRING
-		public RuleCall getValuesSTRINGTerminalRuleCall_0_1_0() { return cValuesSTRINGTerminalRuleCall_0_1_0; }
+		//Values
+		public RuleCall getValuesValuesParserRuleCall_0_1_0() { return cValuesValuesParserRuleCall_0_1_0; }
 		
 		//']'
 		public Keyword getRightSquareBracketKeyword_0_2() { return cRightSquareBracketKeyword_0_2; }
 		
-		//values+=STRING
-		public Assignment getValuesAssignment_1() { return cValuesAssignment_1; }
+		//string=STRING
+		public Assignment getStringAssignment_1() { return cStringAssignment_1; }
 		
 		//STRING
-		public RuleCall getValuesSTRINGTerminalRuleCall_1_0() { return cValuesSTRINGTerminalRuleCall_1_0; }
+		public RuleCall getStringSTRINGTerminalRuleCall_1_0() { return cStringSTRINGTerminalRuleCall_1_0; }
 	}
 	
 	
@@ -524,6 +552,7 @@ public class YamlGenDslGrammarAccess extends AbstractElementFinder.AbstractGramm
 	private final NestedFieldElements pNestedField;
 	private final NestedFieldsElements pNestedFields;
 	private final PropertyElements pProperty;
+	private final KeyElements pKey;
 	private final NameElements pName;
 	private final DefaultElements pDefault;
 	private final HintElements pHint;
@@ -549,6 +578,7 @@ public class YamlGenDslGrammarAccess extends AbstractElementFinder.AbstractGramm
 		this.pNestedField = new NestedFieldElements();
 		this.pNestedFields = new NestedFieldsElements();
 		this.pProperty = new PropertyElements();
+		this.pKey = new KeyElements();
 		this.pName = new NameElements();
 		this.pDefault = new DefaultElements();
 		this.pHint = new HintElements();
@@ -594,8 +624,7 @@ public class YamlGenDslGrammarAccess extends AbstractElementFinder.AbstractGramm
 	}
 	
 	//SourceElement:
-	//	Field
-	//	| Import;
+	//	Field | Import;
 	public SourceElementElements getSourceElementAccess() {
 		return pSourceElement;
 	}
@@ -636,10 +665,7 @@ public class YamlGenDslGrammarAccess extends AbstractElementFinder.AbstractGramm
 	}
 	
 	//BodyElement:
-	//	Extend
-	//	| NestedField
-	//	| NestedFields
-	//	| Property;
+	//	Extend | NestedField | NestedFields | Property;
 	public BodyElementElements getBodyElementAccess() {
 		return pBodyElement;
 	}
@@ -649,7 +675,7 @@ public class YamlGenDslGrammarAccess extends AbstractElementFinder.AbstractGramm
 	}
 	
 	//Extend:
-	//	'extend' STRING Body;
+	//	'extend' name_property=STRING body=Body;
 	public ExtendElements getExtendAccess() {
 		return pExtend;
 	}
@@ -660,7 +686,7 @@ public class YamlGenDslGrammarAccess extends AbstractElementFinder.AbstractGramm
 	
 	//NestedField:
 	//	help+=SL_COMMENT*
-	//	'field' mandatory?='mandatory'? ('extends' field=[Field])? body=Body;
+	//	'field' mandatory?='mandatory'? default?='default'? ('extends' superField=[Field])? body=Body;
 	public NestedFieldElements getNestedFieldAccess() {
 		return pNestedField;
 	}
@@ -671,7 +697,7 @@ public class YamlGenDslGrammarAccess extends AbstractElementFinder.AbstractGramm
 	
 	//NestedFields:
 	//	help+=SL_COMMENT*
-	//	'fields' mandatory?='mandatory'? ('extends' field=[Field])? body=Body;
+	//	'fields' ('extend' superField=[Field])? body=Body;
 	public NestedFieldsElements getNestedFieldsAccess() {
 		return pNestedFields;
 	}
@@ -681,16 +707,23 @@ public class YamlGenDslGrammarAccess extends AbstractElementFinder.AbstractGramm
 	}
 	
 	//Property:
-	//	Name
-	//	| Default
-	//	| Hint
-	//	| PermittedValues;
+	//	Name | Key | Default | Hint | PermittedValues;
 	public PropertyElements getPropertyAccess() {
 		return pProperty;
 	}
 	
 	public ParserRule getPropertyRule() {
 		return getPropertyAccess().getRule();
+	}
+	
+	//Key:
+	//	'key:' value=STRING;
+	public KeyElements getKeyAccess() {
+		return pKey;
+	}
+	
+	public ParserRule getKeyRule() {
+		return getKeyAccess().getRule();
 	}
 	
 	//Name:
@@ -734,8 +767,8 @@ public class YamlGenDslGrammarAccess extends AbstractElementFinder.AbstractGramm
 	}
 	
 	//Values:
-	//	'[' values+=STRING+ ']'
-	//	| values+=STRING;
+	//	'[' values+=Values+ ']'
+	//	| string=STRING;
 	public ValuesElements getValuesAccess() {
 		return pValues;
 	}

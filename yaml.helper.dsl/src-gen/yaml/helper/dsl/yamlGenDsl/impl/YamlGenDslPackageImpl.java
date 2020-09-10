@@ -17,6 +17,7 @@ import yaml.helper.dsl.yamlGenDsl.Extend;
 import yaml.helper.dsl.yamlGenDsl.Field;
 import yaml.helper.dsl.yamlGenDsl.Hint;
 import yaml.helper.dsl.yamlGenDsl.Import;
+import yaml.helper.dsl.yamlGenDsl.Key;
 import yaml.helper.dsl.yamlGenDsl.Name;
 import yaml.helper.dsl.yamlGenDsl.NestedField;
 import yaml.helper.dsl.yamlGenDsl.NestedFields;
@@ -105,6 +106,13 @@ public class YamlGenDslPackageImpl extends EPackageImpl implements YamlGenDslPac
    * @generated
    */
   private EClass propertyEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass keyEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -375,6 +383,28 @@ public class YamlGenDslPackageImpl extends EPackageImpl implements YamlGenDslPac
    * @generated
    */
   @Override
+  public EAttribute getExtend_Name_property()
+  {
+    return (EAttribute)extendEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getExtend_Body()
+  {
+    return (EReference)extendEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getNestedField()
   {
     return nestedFieldEClass;
@@ -408,9 +438,20 @@ public class YamlGenDslPackageImpl extends EPackageImpl implements YamlGenDslPac
    * @generated
    */
   @Override
-  public EReference getNestedField_Field()
+  public EAttribute getNestedField_Default()
   {
-    return (EReference)nestedFieldEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)nestedFieldEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getNestedField_SuperField()
+  {
+    return (EReference)nestedFieldEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -421,7 +462,7 @@ public class YamlGenDslPackageImpl extends EPackageImpl implements YamlGenDslPac
   @Override
   public EReference getNestedField_Body()
   {
-    return (EReference)nestedFieldEClass.getEStructuralFeatures().get(3);
+    return (EReference)nestedFieldEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -452,20 +493,9 @@ public class YamlGenDslPackageImpl extends EPackageImpl implements YamlGenDslPac
    * @generated
    */
   @Override
-  public EAttribute getNestedFields_Mandatory()
+  public EReference getNestedFields_SuperField()
   {
-    return (EAttribute)nestedFieldsEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getNestedFields_Field()
-  {
-    return (EReference)nestedFieldsEClass.getEStructuralFeatures().get(2);
+    return (EReference)nestedFieldsEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -476,7 +506,7 @@ public class YamlGenDslPackageImpl extends EPackageImpl implements YamlGenDslPac
   @Override
   public EReference getNestedFields_Body()
   {
-    return (EReference)nestedFieldsEClass.getEStructuralFeatures().get(3);
+    return (EReference)nestedFieldsEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -488,6 +518,28 @@ public class YamlGenDslPackageImpl extends EPackageImpl implements YamlGenDslPac
   public EClass getProperty()
   {
     return propertyEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getKey()
+  {
+    return keyEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getKey_Value()
+  {
+    return (EAttribute)keyEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -595,9 +647,20 @@ public class YamlGenDslPackageImpl extends EPackageImpl implements YamlGenDslPac
    * @generated
    */
   @Override
-  public EAttribute getValues_Values()
+  public EReference getValues_Values()
   {
-    return (EAttribute)valuesEClass.getEStructuralFeatures().get(0);
+    return (EReference)valuesEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getValues_String()
+  {
+    return (EAttribute)valuesEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -652,20 +715,25 @@ public class YamlGenDslPackageImpl extends EPackageImpl implements YamlGenDslPac
     bodyElementEClass = createEClass(BODY_ELEMENT);
 
     extendEClass = createEClass(EXTEND);
+    createEAttribute(extendEClass, EXTEND__NAME_PROPERTY);
+    createEReference(extendEClass, EXTEND__BODY);
 
     nestedFieldEClass = createEClass(NESTED_FIELD);
     createEAttribute(nestedFieldEClass, NESTED_FIELD__HELP);
     createEAttribute(nestedFieldEClass, NESTED_FIELD__MANDATORY);
-    createEReference(nestedFieldEClass, NESTED_FIELD__FIELD);
+    createEAttribute(nestedFieldEClass, NESTED_FIELD__DEFAULT);
+    createEReference(nestedFieldEClass, NESTED_FIELD__SUPER_FIELD);
     createEReference(nestedFieldEClass, NESTED_FIELD__BODY);
 
     nestedFieldsEClass = createEClass(NESTED_FIELDS);
     createEAttribute(nestedFieldsEClass, NESTED_FIELDS__HELP);
-    createEAttribute(nestedFieldsEClass, NESTED_FIELDS__MANDATORY);
-    createEReference(nestedFieldsEClass, NESTED_FIELDS__FIELD);
+    createEReference(nestedFieldsEClass, NESTED_FIELDS__SUPER_FIELD);
     createEReference(nestedFieldsEClass, NESTED_FIELDS__BODY);
 
     propertyEClass = createEClass(PROPERTY);
+
+    keyEClass = createEClass(KEY);
+    createEAttribute(keyEClass, KEY__VALUE);
 
     nameEClass = createEClass(NAME);
     createEAttribute(nameEClass, NAME__VALUE);
@@ -680,7 +748,8 @@ public class YamlGenDslPackageImpl extends EPackageImpl implements YamlGenDslPac
     createEReference(permittedValuesEClass, PERMITTED_VALUES__VALUE);
 
     valuesEClass = createEClass(VALUES);
-    createEAttribute(valuesEClass, VALUES__VALUES);
+    createEReference(valuesEClass, VALUES__VALUES);
+    createEAttribute(valuesEClass, VALUES__STRING);
   }
 
   /**
@@ -714,11 +783,11 @@ public class YamlGenDslPackageImpl extends EPackageImpl implements YamlGenDslPac
     // Add supertypes to classes
     importEClass.getESuperTypes().add(this.getSourceElement());
     fieldEClass.getESuperTypes().add(this.getSourceElement());
-    bodyEClass.getESuperTypes().add(this.getExtend());
     extendEClass.getESuperTypes().add(this.getBodyElement());
     nestedFieldEClass.getESuperTypes().add(this.getBodyElement());
     nestedFieldsEClass.getESuperTypes().add(this.getBodyElement());
     propertyEClass.getESuperTypes().add(this.getBodyElement());
+    keyEClass.getESuperTypes().add(this.getProperty());
     nameEClass.getESuperTypes().add(this.getProperty());
     defaultEClass.getESuperTypes().add(this.getProperty());
     hintEClass.getESuperTypes().add(this.getProperty());
@@ -746,20 +815,25 @@ public class YamlGenDslPackageImpl extends EPackageImpl implements YamlGenDslPac
     initEClass(bodyElementEClass, BodyElement.class, "BodyElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(extendEClass, Extend.class, "Extend", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getExtend_Name_property(), ecorePackage.getEString(), "name_property", null, 0, 1, Extend.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExtend_Body(), this.getBody(), null, "body", null, 0, 1, Extend.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(nestedFieldEClass, NestedField.class, "NestedField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getNestedField_Help(), ecorePackage.getEString(), "help", null, 0, -1, NestedField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getNestedField_Mandatory(), ecorePackage.getEBoolean(), "mandatory", null, 0, 1, NestedField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getNestedField_Field(), this.getField(), null, "field", null, 0, 1, NestedField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getNestedField_Default(), ecorePackage.getEBoolean(), "default", null, 0, 1, NestedField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getNestedField_SuperField(), this.getField(), null, "superField", null, 0, 1, NestedField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getNestedField_Body(), this.getBody(), null, "body", null, 0, 1, NestedField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(nestedFieldsEClass, NestedFields.class, "NestedFields", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getNestedFields_Help(), ecorePackage.getEString(), "help", null, 0, -1, NestedFields.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getNestedFields_Mandatory(), ecorePackage.getEBoolean(), "mandatory", null, 0, 1, NestedFields.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getNestedFields_Field(), this.getField(), null, "field", null, 0, 1, NestedFields.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getNestedFields_SuperField(), this.getField(), null, "superField", null, 0, 1, NestedFields.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getNestedFields_Body(), this.getBody(), null, "body", null, 0, 1, NestedFields.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(keyEClass, Key.class, "Key", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getKey_Value(), ecorePackage.getEString(), "value", null, 0, 1, Key.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(nameEClass, Name.class, "Name", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getName_Value(), ecorePackage.getEString(), "value", null, 0, 1, Name.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -774,7 +848,8 @@ public class YamlGenDslPackageImpl extends EPackageImpl implements YamlGenDslPac
     initEReference(getPermittedValues_Value(), this.getValues(), null, "value", null, 0, 1, PermittedValues.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(valuesEClass, Values.class, "Values", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getValues_Values(), ecorePackage.getEString(), "values", null, 0, -1, Values.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getValues_Values(), this.getValues(), null, "values", null, 0, -1, Values.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getValues_String(), ecorePackage.getEString(), "string", null, 0, 1, Values.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);
