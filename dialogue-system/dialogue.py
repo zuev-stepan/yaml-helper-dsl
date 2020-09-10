@@ -16,6 +16,7 @@ KEY_ALREADY_USED = 'This key has been used earlier, you should choose another ke
 HELP_AVAILABLE = 'Type \\h for more information'
 HELP_NOT_AVAILABLE = 'Help not available'
 AVAILABLE_VALUES = 'Available values:'
+ENTER_VALUE = 'Enter your value:'
 INCORRECT_VALUE = 'Incorrect value! Available values:'
 DEFAULT_VALUE_AVAILABLE = 'Would you like to use default value? (y/n)'
 

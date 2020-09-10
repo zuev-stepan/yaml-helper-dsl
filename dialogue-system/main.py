@@ -59,12 +59,31 @@ def process_field(field):
     if field.is_leaf():
         if field.has_values():
             print(dialogue.AVAILABLE_VALUES, field.get_values())
+        print(dialogue.ENTER_VALUE)
 
         while True:
-            answer = sys.stdin.readline()[:-1]
-            if answer == '\\h':
-                print(field.get_help() if field.has_help() else dialogue.HELP_NOT_AVAILABLE)
-                continue
+            answers = []
+            while True:
+                answer = sys.stdin.readline()[:-1]
+                if answer == '\\h':
+                    print(field.get_help() if field.has_help() else dialogue.HELP_NOT_AVAILABLE)
+                    continue
+
+                if answer[-1] == '\\':
+                    answer = answer[:-1]
+                    answers.append(answer)
+                    if len(answer) >= 1 and answer[-1] == '\\':
+                        break
+                    else:
+                        continue
+                else:
+                    answers.append(answer)
+                    break
+
+            if len(answers) == 1:
+                answer = answers[0]
+            else:
+                answer = answers
 
             if field.has_values() and answer not in field.get_values():
                 print(dialogue.INCORRECT_VALUE, field.get_values())
