@@ -1767,9 +1767,9 @@ rule__Field__HelpAssignment_0
 	}
 :
 	(
-		{ before(grammarAccess.getFieldAccess().getHelpSL_COMMENTTerminalRuleCall_0_0()); }
-		RULE_SL_COMMENT
-		{ after(grammarAccess.getFieldAccess().getHelpSL_COMMENTTerminalRuleCall_0_0()); }
+		{ before(grammarAccess.getFieldAccess().getHelpHELP_STRINGTerminalRuleCall_0_0()); }
+		RULE_HELP_STRING
+		{ after(grammarAccess.getFieldAccess().getHelpHELP_STRINGTerminalRuleCall_0_0()); }
 	)
 ;
 finally {
@@ -1895,9 +1895,9 @@ rule__NestedField__HelpAssignment_0
 	}
 :
 	(
-		{ before(grammarAccess.getNestedFieldAccess().getHelpSL_COMMENTTerminalRuleCall_0_0()); }
-		RULE_SL_COMMENT
-		{ after(grammarAccess.getNestedFieldAccess().getHelpSL_COMMENTTerminalRuleCall_0_0()); }
+		{ before(grammarAccess.getNestedFieldAccess().getHelpHELP_STRINGTerminalRuleCall_0_0()); }
+		RULE_HELP_STRING
+		{ after(grammarAccess.getNestedFieldAccess().getHelpHELP_STRINGTerminalRuleCall_0_0()); }
 	)
 ;
 finally {
@@ -1982,9 +1982,9 @@ rule__NestedFields__HelpAssignment_0
 	}
 :
 	(
-		{ before(grammarAccess.getNestedFieldsAccess().getHelpSL_COMMENTTerminalRuleCall_0_0()); }
-		RULE_SL_COMMENT
-		{ after(grammarAccess.getNestedFieldsAccess().getHelpSL_COMMENTTerminalRuleCall_0_0()); }
+		{ before(grammarAccess.getNestedFieldsAccess().getHelpHELP_STRINGTerminalRuleCall_0_0()); }
+		RULE_HELP_STRING
+		{ after(grammarAccess.getNestedFieldsAccess().getHelpHELP_STRINGTerminalRuleCall_0_0()); }
 	)
 ;
 finally {
@@ -2129,6 +2129,8 @@ rule__Values__StringAssignment_1
 finally {
 	restoreStackSize(stackSize);
 }
+
+RULE_HELP_STRING : '@' ~(('\n'|'\r'))* ('\r'? '\n')?;
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 

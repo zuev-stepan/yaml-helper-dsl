@@ -8,11 +8,11 @@ BaseDirectory {
     field mandatory {
         key: "needsToBePassedAsArg"
         hint: 'Set this to "true" if you need to pass specified directory and files as a parameter for your script'
-        values: ["true", "false"]
+        values: ["true" "false"]
     }
 }
 
-//The directory from which the data (or model) are obtained on this particular stage
+@ The directory from which the data (or model) are obtained on this particular stage
 InputDirectory extends BaseDirectory {
     key: "inputDir"
 
@@ -20,7 +20,7 @@ InputDirectory extends BaseDirectory {
         default: "./data"
     }
 
-    //Files from which you need to take data or model located in the input directory
+    @ Files from which you need to take data or model located in the input directory
     field mandatory {
         key: "inputFiles"
         default: [
@@ -35,7 +35,7 @@ InputDirectory extends BaseDirectory {
     }
 }
 
-//The directory where you would like to put your results
+@ The directory where you would like to put your results
 OutputDirectory extends BaseDirectory {
     key: "outputDir"
 
@@ -43,7 +43,7 @@ OutputDirectory extends BaseDirectory {
         default: "./result"
     }
 
-    //Files from which you need to take data or model located in the input directory
+    @ Files from which you need to take data or model located in the input directory
     field mandatory {
         key: "outputFiles"
         default: [

@@ -142,4 +142,7 @@ public abstract class AbstractYamlGenDslProposalProvider extends TerminalsPropos
 	public void complete_Values(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		// subclasses may override
 	}
+	public void complete_HELP_STRING(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		// subclasses may override
+	}
 }

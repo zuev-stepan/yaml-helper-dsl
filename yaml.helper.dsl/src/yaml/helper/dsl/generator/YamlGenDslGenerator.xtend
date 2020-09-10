@@ -52,6 +52,10 @@ class YamlGenDslGenerator extends AbstractGenerator {
 		return '"' + res + '"'
 	}
 	
+	private def python_help_string(String help) {
+		return help.substring(1, help.length - 1).python_string
+	}
+	
 	private def python_values(Values values) {
 		if (values.string !== null) {
 			return values.string.python_string			
@@ -112,7 +116,7 @@ class YamlGenDslGenerator extends AbstractGenerator {
 		«field.field_name» = wrap(
 			«field.field_create»
 			«FOR help : field.help»
-				.add_help(«help»)
+				.add_help(«help.python_help_string»)
 			«ENDFOR»
 			«field.body.compile»
 		)
@@ -121,7 +125,7 @@ class YamlGenDslGenerator extends AbstractGenerator {
 	private def compile(NestedField nestedField) '''
 		«nestedField.field_create»
 		«FOR help : nestedField.help»
-			.add_help(«help»)
+			.add_help(«help.python_help_string»)
 		«ENDFOR»
 		«nestedField.body.compile»
 	'''
@@ -129,7 +133,7 @@ class YamlGenDslGenerator extends AbstractGenerator {
 	private def compile(NestedFields nestedFields) '''
 		«nestedFields.fields_create»
 		«FOR help : nestedFields.help»
-			.add_help(«help»)
+			.add_help(«help.python_help_string»)
 		«ENDFOR»
 		«nestedFields.body.compile»
 	'''

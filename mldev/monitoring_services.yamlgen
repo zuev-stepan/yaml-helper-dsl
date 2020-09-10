@@ -1,13 +1,13 @@
-// TensorBoard provides the visualization and tooling needed for machine learning experimentation:
-// Tracking and visualizing metrics such as loss and accuracy
-// Visualizing the model graph (ops and layers)
-// Viewing histograms of weights, biases, or other tensors as they change over time
-// Projecting embeddings to a lower dimensional space
-// Displaying images, text, and audio data
-// Profiling TensorFlow programs
-// And much more
-// 
-// Note that you need to configure Ngrok too in order to use TensorBoard
+@ TensorBoard provides the visualization and tooling needed for machine learning experimentation:
+@ Tracking and visualizing metrics such as loss and accuracy
+@ Visualizing the model graph (ops and layers)
+@ Viewing histograms of weights, biases, or other tensors as they change over time
+@ Projecting embeddings to a lower dimensional space
+@ Displaying images, text, and audio data
+@ Profiling TensorFlow programs
+@ And much more
+@ 
+@ Note that you need to configure Ngrok too in order to use TensorBoard
 Tensorboard {
     key: "tensorboard"
     hint: "TensorBoard provides the visualization and tooling needed for machine learning experimentation"
@@ -25,9 +25,9 @@ Tensorboard {
     }
 }
 
-// Ngrok allows you to expose a web server running on your local machine to the internet.
-// If your tunnel is not found at your ngrok dashboard, run ngrok_urls to see your public urls.
-// If you don't know how to get your token check https://gitlab.com/mlrep/mldev/-/wikis/instructions-for-tokens-obtaining-for-monitoring-services
+@ Ngrok allows you to expose a web server running on your local machine to the internet.
+@ If your tunnel is not found at your ngrok dashboard, run ngrok_urls to see your public urls.
+@ If you don't know how to get your token check https://gitlab.com/mlrep/mldev/-/wikis/instructions-for-tokens-obtaining-for-monitoring-services
 Ngrok {
     key: "ngrok"
     hint: "Ngrok allows you to expose a web server running on your local machine to the internet, you need it to use tensorboard"
@@ -45,9 +45,9 @@ Ngrok {
     }
 }
 
-// You can receive notifications with recent information about your project in telegram
-// For more information check bot instruction in documentation
-// If you don't know how to get your token check https://gitlab.com/mlrep/mldev/-/wikis/instructions-for-tokens-obtaining-for-monitoring-services
+@ You can receive notifications with recent information about your project in telegram
+@ For more information check bot instruction in documentation
+@ If you don't know how to get your token check https://gitlab.com/mlrep/mldev/-/wikis/instructions-for-tokens-obtaining-for-monitoring-services
 NotificationBot {
     key: "notificationBot"
     hint: "Notification bot sends you recent information about your project in telegram"
@@ -61,16 +61,16 @@ NotificationBot {
     field mandatory {
         key: "warnings"
         default: "False"
-        values: ["True", "False"]
+        values: ["True" "False"]
         hint: "Do you want to receive warnings?"
     }
 }
 
-// You can specify what services will be working during execution of your stage
-// Supported services:
-// Tensorboard
-// Ngrok
-// Notification bot
+@ You can specify what services will be working during execution of your stage
+@ Supported services:
+@ Tensorboard
+@ Ngrok
+@ Notification bot
 MonitoringServices {
     key: "monitoringServices"
     field default extends Tensorboard {

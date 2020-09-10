@@ -191,9 +191,9 @@ ruleField returns [EObject current=null]
 	(
 		(
 			(
-				lv_help_0_0=RULE_SL_COMMENT
+				lv_help_0_0=RULE_HELP_STRING
 				{
-					newLeafNode(lv_help_0_0, grammarAccess.getFieldAccess().getHelpSL_COMMENTTerminalRuleCall_0_0());
+					newLeafNode(lv_help_0_0, grammarAccess.getFieldAccess().getHelpHELP_STRINGTerminalRuleCall_0_0());
 				}
 				{
 					if ($current==null) {
@@ -203,7 +203,7 @@ ruleField returns [EObject current=null]
 						$current,
 						"help",
 						lv_help_0_0,
-						"org.eclipse.xtext.common.Terminals.SL_COMMENT");
+						"yaml.helper.dsl.YamlGenDsl.HELP_STRING");
 				}
 			)
 		)*
@@ -465,9 +465,9 @@ ruleNestedField returns [EObject current=null]
 	(
 		(
 			(
-				lv_help_0_0=RULE_SL_COMMENT
+				lv_help_0_0=RULE_HELP_STRING
 				{
-					newLeafNode(lv_help_0_0, grammarAccess.getNestedFieldAccess().getHelpSL_COMMENTTerminalRuleCall_0_0());
+					newLeafNode(lv_help_0_0, grammarAccess.getNestedFieldAccess().getHelpHELP_STRINGTerminalRuleCall_0_0());
 				}
 				{
 					if ($current==null) {
@@ -477,7 +477,7 @@ ruleNestedField returns [EObject current=null]
 						$current,
 						"help",
 						lv_help_0_0,
-						"org.eclipse.xtext.common.Terminals.SL_COMMENT");
+						"yaml.helper.dsl.YamlGenDsl.HELP_STRING");
 				}
 			)
 		)*
@@ -572,9 +572,9 @@ ruleNestedFields returns [EObject current=null]
 	(
 		(
 			(
-				lv_help_0_0=RULE_SL_COMMENT
+				lv_help_0_0=RULE_HELP_STRING
 				{
-					newLeafNode(lv_help_0_0, grammarAccess.getNestedFieldsAccess().getHelpSL_COMMENTTerminalRuleCall_0_0());
+					newLeafNode(lv_help_0_0, grammarAccess.getNestedFieldsAccess().getHelpHELP_STRINGTerminalRuleCall_0_0());
 				}
 				{
 					if ($current==null) {
@@ -584,7 +584,7 @@ ruleNestedFields returns [EObject current=null]
 						$current,
 						"help",
 						lv_help_0_0,
-						"org.eclipse.xtext.common.Terminals.SL_COMMENT");
+						"yaml.helper.dsl.YamlGenDsl.HELP_STRING");
 				}
 			)
 		)*
@@ -969,6 +969,8 @@ ruleValues returns [EObject current=null]
 		)
 	)
 ;
+
+RULE_HELP_STRING : '@' ~(('\n'|'\r'))* ('\r'? '\n')?;
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 

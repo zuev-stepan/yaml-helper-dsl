@@ -148,7 +148,7 @@ public class YamlGenDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Field returns Field
 	 *
 	 * Constraint:
-	 *     (help+=SL_COMMENT* root?='root'? name=ID superField=[Field|ID]? body=Body)
+	 *     (help+=HELP_STRING* root?='root'? name=ID superField=[Field|ID]? body=Body)
 	 */
 	protected void sequence_Field(ISerializationContext context, Field semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -240,7 +240,7 @@ public class YamlGenDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     NestedField returns NestedField
 	 *
 	 * Constraint:
-	 *     (help+=SL_COMMENT* mandatory?='mandatory'? default?='default'? superField=[Field|ID]? body=Body)
+	 *     (help+=HELP_STRING* mandatory?='mandatory'? default?='default'? superField=[Field|ID]? body=Body)
 	 */
 	protected void sequence_NestedField(ISerializationContext context, NestedField semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -253,7 +253,7 @@ public class YamlGenDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     NestedFields returns NestedFields
 	 *
 	 * Constraint:
-	 *     (help+=SL_COMMENT* superField=[Field|ID]? body=Body)
+	 *     (help+=HELP_STRING* superField=[Field|ID]? body=Body)
 	 */
 	protected void sequence_NestedFields(ISerializationContext context, NestedFields semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

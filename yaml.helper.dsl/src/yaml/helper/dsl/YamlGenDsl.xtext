@@ -15,7 +15,7 @@ Import:
 ;
 
 Field:
-	(help+=SL_COMMENT)*
+	(help+=HELP_STRING)*
 	(root?='root')? name=ID ('extends' superField=[Field])? body=Body
 ;
 	
@@ -32,12 +32,12 @@ Extend:
 ;
 	
 NestedField:
-	(help+=SL_COMMENT)*
+	(help+=HELP_STRING)*
 	'field' (mandatory?='mandatory')? (default?='default')? ('extends' superField=[Field])? body=Body
 ;
 
 NestedFields:
-	(help+=SL_COMMENT)*
+	(help+=HELP_STRING)*
 	'fields' ('extend' superField=[Field])? body=Body
 ;
 
@@ -70,3 +70,5 @@ Values:
 |
 	string=STRING
 ;
+
+terminal HELP_STRING : '@' !('\n'|'\r')* ('\r'? '\n')?;

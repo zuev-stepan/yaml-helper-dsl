@@ -67,6 +67,12 @@ public class YamlGenDslGenerator extends AbstractGenerator {
     return (("\"" + res) + "\"");
   }
   
+  private String python_help_string(final String help) {
+    int _length = help.length();
+    int _minus = (_length - 1);
+    return this.python_string(help.substring(1, _minus));
+  }
+  
   private Object python_values(final Values values) {
     String _string = values.getString();
     boolean _tripleNotEquals = (_string != null);
@@ -192,7 +198,8 @@ public class YamlGenDslGenerator extends AbstractGenerator {
       for(final String help : _help) {
         _builder.append("\t");
         _builder.append(".add_help(");
-        _builder.append(help, "\t");
+        String _python_help_string = this.python_help_string(help);
+        _builder.append(_python_help_string, "\t");
         _builder.append(")");
         _builder.newLineIfNotEmpty();
       }
@@ -215,7 +222,8 @@ public class YamlGenDslGenerator extends AbstractGenerator {
       EList<String> _help = nestedField.getHelp();
       for(final String help : _help) {
         _builder.append(".add_help(");
-        _builder.append(help);
+        String _python_help_string = this.python_help_string(help);
+        _builder.append(_python_help_string);
         _builder.append(")");
         _builder.newLineIfNotEmpty();
       }
@@ -235,7 +243,8 @@ public class YamlGenDslGenerator extends AbstractGenerator {
       EList<String> _help = nestedFields.getHelp();
       for(final String help : _help) {
         _builder.append(".add_help(");
-        _builder.append(help);
+        String _python_help_string = this.python_help_string(help);
+        _builder.append(_python_help_string);
         _builder.append(")");
         _builder.newLineIfNotEmpty();
       }

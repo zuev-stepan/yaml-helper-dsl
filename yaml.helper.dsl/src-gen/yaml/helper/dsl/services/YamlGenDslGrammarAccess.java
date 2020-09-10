@@ -85,7 +85,7 @@ public class YamlGenDslGrammarAccess extends AbstractElementFinder.AbstractGramm
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "yaml.helper.dsl.YamlGenDsl.Field");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cHelpAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cHelpSL_COMMENTTerminalRuleCall_0_0 = (RuleCall)cHelpAssignment_0.eContents().get(0);
+		private final RuleCall cHelpHELP_STRINGTerminalRuleCall_0_0 = (RuleCall)cHelpAssignment_0.eContents().get(0);
 		private final Assignment cRootAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final Keyword cRootRootKeyword_1_0 = (Keyword)cRootAssignment_1.eContents().get(0);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
@@ -99,18 +99,18 @@ public class YamlGenDslGrammarAccess extends AbstractElementFinder.AbstractGramm
 		private final RuleCall cBodyBodyParserRuleCall_4_0 = (RuleCall)cBodyAssignment_4.eContents().get(0);
 		
 		//Field:
-		//	help+=SL_COMMENT*
+		//	help+=HELP_STRING*
 		//	root?='root'? name=ID ('extends' superField=[Field])? body=Body;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//help+=SL_COMMENT* root?='root'? name=ID ('extends' superField=[Field])? body=Body
+		//help+=HELP_STRING* root?='root'? name=ID ('extends' superField=[Field])? body=Body
 		public Group getGroup() { return cGroup; }
 		
-		//help+=SL_COMMENT*
+		//help+=HELP_STRING*
 		public Assignment getHelpAssignment_0() { return cHelpAssignment_0; }
 		
-		//SL_COMMENT
-		public RuleCall getHelpSL_COMMENTTerminalRuleCall_0_0() { return cHelpSL_COMMENTTerminalRuleCall_0_0; }
+		//HELP_STRING
+		public RuleCall getHelpHELP_STRINGTerminalRuleCall_0_0() { return cHelpHELP_STRINGTerminalRuleCall_0_0; }
 		
 		//root?='root'?
 		public Assignment getRootAssignment_1() { return cRootAssignment_1; }
@@ -238,7 +238,7 @@ public class YamlGenDslGrammarAccess extends AbstractElementFinder.AbstractGramm
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "yaml.helper.dsl.YamlGenDsl.NestedField");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cHelpAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cHelpSL_COMMENTTerminalRuleCall_0_0 = (RuleCall)cHelpAssignment_0.eContents().get(0);
+		private final RuleCall cHelpHELP_STRINGTerminalRuleCall_0_0 = (RuleCall)cHelpAssignment_0.eContents().get(0);
 		private final Keyword cFieldKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cMandatoryAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final Keyword cMandatoryMandatoryKeyword_2_0 = (Keyword)cMandatoryAssignment_2.eContents().get(0);
@@ -253,18 +253,18 @@ public class YamlGenDslGrammarAccess extends AbstractElementFinder.AbstractGramm
 		private final RuleCall cBodyBodyParserRuleCall_5_0 = (RuleCall)cBodyAssignment_5.eContents().get(0);
 		
 		//NestedField:
-		//	help+=SL_COMMENT*
+		//	help+=HELP_STRING*
 		//	'field' mandatory?='mandatory'? default?='default'? ('extends' superField=[Field])? body=Body;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//help+=SL_COMMENT* 'field' mandatory?='mandatory'? default?='default'? ('extends' superField=[Field])? body=Body
+		//help+=HELP_STRING* 'field' mandatory?='mandatory'? default?='default'? ('extends' superField=[Field])? body=Body
 		public Group getGroup() { return cGroup; }
 		
-		//help+=SL_COMMENT*
+		//help+=HELP_STRING*
 		public Assignment getHelpAssignment_0() { return cHelpAssignment_0; }
 		
-		//SL_COMMENT
-		public RuleCall getHelpSL_COMMENTTerminalRuleCall_0_0() { return cHelpSL_COMMENTTerminalRuleCall_0_0; }
+		//HELP_STRING
+		public RuleCall getHelpHELP_STRINGTerminalRuleCall_0_0() { return cHelpHELP_STRINGTerminalRuleCall_0_0; }
 		
 		//'field'
 		public Keyword getFieldKeyword_1() { return cFieldKeyword_1; }
@@ -306,7 +306,7 @@ public class YamlGenDslGrammarAccess extends AbstractElementFinder.AbstractGramm
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "yaml.helper.dsl.YamlGenDsl.NestedFields");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cHelpAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cHelpSL_COMMENTTerminalRuleCall_0_0 = (RuleCall)cHelpAssignment_0.eContents().get(0);
+		private final RuleCall cHelpHELP_STRINGTerminalRuleCall_0_0 = (RuleCall)cHelpAssignment_0.eContents().get(0);
 		private final Keyword cFieldsKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final Keyword cExtendKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
@@ -317,18 +317,18 @@ public class YamlGenDslGrammarAccess extends AbstractElementFinder.AbstractGramm
 		private final RuleCall cBodyBodyParserRuleCall_3_0 = (RuleCall)cBodyAssignment_3.eContents().get(0);
 		
 		//NestedFields:
-		//	help+=SL_COMMENT*
+		//	help+=HELP_STRING*
 		//	'fields' ('extend' superField=[Field])? body=Body;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//help+=SL_COMMENT* 'fields' ('extend' superField=[Field])? body=Body
+		//help+=HELP_STRING* 'fields' ('extend' superField=[Field])? body=Body
 		public Group getGroup() { return cGroup; }
 		
-		//help+=SL_COMMENT*
+		//help+=HELP_STRING*
 		public Assignment getHelpAssignment_0() { return cHelpAssignment_0; }
 		
-		//SL_COMMENT
-		public RuleCall getHelpSL_COMMENTTerminalRuleCall_0_0() { return cHelpSL_COMMENTTerminalRuleCall_0_0; }
+		//HELP_STRING
+		public RuleCall getHelpHELP_STRINGTerminalRuleCall_0_0() { return cHelpHELP_STRINGTerminalRuleCall_0_0; }
 		
 		//'fields'
 		public Keyword getFieldsKeyword_1() { return cFieldsKeyword_1; }
@@ -558,6 +558,7 @@ public class YamlGenDslGrammarAccess extends AbstractElementFinder.AbstractGramm
 	private final HintElements pHint;
 	private final PermittedValuesElements pPermittedValues;
 	private final ValuesElements pValues;
+	private final TerminalRule tHELP_STRING;
 	
 	private final Grammar grammar;
 	
@@ -584,6 +585,7 @@ public class YamlGenDslGrammarAccess extends AbstractElementFinder.AbstractGramm
 		this.pHint = new HintElements();
 		this.pPermittedValues = new PermittedValuesElements();
 		this.pValues = new ValuesElements();
+		this.tHELP_STRING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "yaml.helper.dsl.YamlGenDsl.HELP_STRING");
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -644,7 +646,7 @@ public class YamlGenDslGrammarAccess extends AbstractElementFinder.AbstractGramm
 	}
 	
 	//Field:
-	//	help+=SL_COMMENT*
+	//	help+=HELP_STRING*
 	//	root?='root'? name=ID ('extends' superField=[Field])? body=Body;
 	public FieldElements getFieldAccess() {
 		return pField;
@@ -685,7 +687,7 @@ public class YamlGenDslGrammarAccess extends AbstractElementFinder.AbstractGramm
 	}
 	
 	//NestedField:
-	//	help+=SL_COMMENT*
+	//	help+=HELP_STRING*
 	//	'field' mandatory?='mandatory'? default?='default'? ('extends' superField=[Field])? body=Body;
 	public NestedFieldElements getNestedFieldAccess() {
 		return pNestedField;
@@ -696,7 +698,7 @@ public class YamlGenDslGrammarAccess extends AbstractElementFinder.AbstractGramm
 	}
 	
 	//NestedFields:
-	//	help+=SL_COMMENT*
+	//	help+=HELP_STRING*
 	//	'fields' ('extend' superField=[Field])? body=Body;
 	public NestedFieldsElements getNestedFieldsAccess() {
 		return pNestedFields;
@@ -775,6 +777,12 @@ public class YamlGenDslGrammarAccess extends AbstractElementFinder.AbstractGramm
 	
 	public ParserRule getValuesRule() {
 		return getValuesAccess().getRule();
+	}
+	
+	//terminal HELP_STRING:
+	//	'@' !('\n' | '\r')* ('\r'? '\n')?;
+	public TerminalRule getHELP_STRINGRule() {
+		return tHELP_STRING;
 	}
 	
 	//terminal ID:

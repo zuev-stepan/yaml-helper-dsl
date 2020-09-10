@@ -21,25 +21,26 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_SL_COMMENT", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'import'", "'root'", "'extends'", "'{'", "'}'", "'extend'", "'field'", "'mandatory'", "'default'", "'fields'", "'key:'", "'name:'", "'default:'", "'hint:'", "'values:'", "'['", "']'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_HELP_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'import'", "'root'", "'extends'", "'{'", "'}'", "'extend'", "'field'", "'mandatory'", "'default'", "'fields'", "'key:'", "'name:'", "'default:'", "'hint:'", "'values:'", "'['", "']'"
     };
+    public static final int RULE_HELP_STRING=5;
     public static final int RULE_STRING=4;
-    public static final int RULE_SL_COMMENT=5;
+    public static final int RULE_SL_COMMENT=9;
     public static final int T__19=19;
     public static final int T__15=15;
     public static final int T__16=16;
     public static final int T__17=17;
     public static final int T__18=18;
-    public static final int T__11=11;
     public static final int T__12=12;
     public static final int T__13=13;
     public static final int T__14=14;
     public static final int EOF=-1;
     public static final int RULE_ID=6;
-    public static final int RULE_WS=9;
-    public static final int RULE_ANY_OTHER=10;
+    public static final int RULE_WS=10;
+    public static final int RULE_ANY_OTHER=11;
     public static final int T__26=26;
     public static final int T__27=27;
+    public static final int T__28=28;
     public static final int RULE_INT=7;
     public static final int T__22=22;
     public static final int RULE_ML_COMMENT=8;
@@ -145,7 +146,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
                 int alt1=2;
                 int LA1_0 = input.LA(1);
 
-                if ( ((LA1_0>=RULE_SL_COMMENT && LA1_0<=RULE_ID)||(LA1_0>=11 && LA1_0<=12)) ) {
+                if ( ((LA1_0>=RULE_HELP_STRING && LA1_0<=RULE_ID)||(LA1_0>=12 && LA1_0<=13)) ) {
                     alt1=1;
                 }
 
@@ -264,10 +265,10 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
             int alt2=2;
             int LA2_0 = input.LA(1);
 
-            if ( ((LA2_0>=RULE_SL_COMMENT && LA2_0<=RULE_ID)||LA2_0==12) ) {
+            if ( ((LA2_0>=RULE_HELP_STRING && LA2_0<=RULE_ID)||LA2_0==13) ) {
                 alt2=1;
             }
-            else if ( (LA2_0==11) ) {
+            else if ( (LA2_0==12) ) {
                 alt2=2;
             }
             else {
@@ -389,7 +390,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
             // InternalYamlGenDsl.g:150:2: (otherlv_0= 'import' ( (lv_path_1_0= RULE_STRING ) ) )
             // InternalYamlGenDsl.g:151:3: otherlv_0= 'import' ( (lv_path_1_0= RULE_STRING ) )
             {
-            otherlv_0=(Token)match(input,11,FOLLOW_4); 
+            otherlv_0=(Token)match(input,12,FOLLOW_4); 
 
             			newLeafNode(otherlv_0, grammarAccess.getImportAccess().getImportKeyword_0());
             		
@@ -478,7 +479,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleField"
-    // InternalYamlGenDsl.g:184:1: ruleField returns [EObject current=null] : ( ( (lv_help_0_0= RULE_SL_COMMENT ) )* ( (lv_root_1_0= 'root' ) )? ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )? ( (lv_body_5_0= ruleBody ) ) ) ;
+    // InternalYamlGenDsl.g:184:1: ruleField returns [EObject current=null] : ( ( (lv_help_0_0= RULE_HELP_STRING ) )* ( (lv_root_1_0= 'root' ) )? ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )? ( (lv_body_5_0= ruleBody ) ) ) ;
     public final EObject ruleField() throws RecognitionException {
         EObject current = null;
 
@@ -494,33 +495,33 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalYamlGenDsl.g:190:2: ( ( ( (lv_help_0_0= RULE_SL_COMMENT ) )* ( (lv_root_1_0= 'root' ) )? ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )? ( (lv_body_5_0= ruleBody ) ) ) )
-            // InternalYamlGenDsl.g:191:2: ( ( (lv_help_0_0= RULE_SL_COMMENT ) )* ( (lv_root_1_0= 'root' ) )? ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )? ( (lv_body_5_0= ruleBody ) ) )
+            // InternalYamlGenDsl.g:190:2: ( ( ( (lv_help_0_0= RULE_HELP_STRING ) )* ( (lv_root_1_0= 'root' ) )? ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )? ( (lv_body_5_0= ruleBody ) ) ) )
+            // InternalYamlGenDsl.g:191:2: ( ( (lv_help_0_0= RULE_HELP_STRING ) )* ( (lv_root_1_0= 'root' ) )? ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )? ( (lv_body_5_0= ruleBody ) ) )
             {
-            // InternalYamlGenDsl.g:191:2: ( ( (lv_help_0_0= RULE_SL_COMMENT ) )* ( (lv_root_1_0= 'root' ) )? ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )? ( (lv_body_5_0= ruleBody ) ) )
-            // InternalYamlGenDsl.g:192:3: ( (lv_help_0_0= RULE_SL_COMMENT ) )* ( (lv_root_1_0= 'root' ) )? ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )? ( (lv_body_5_0= ruleBody ) )
+            // InternalYamlGenDsl.g:191:2: ( ( (lv_help_0_0= RULE_HELP_STRING ) )* ( (lv_root_1_0= 'root' ) )? ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )? ( (lv_body_5_0= ruleBody ) ) )
+            // InternalYamlGenDsl.g:192:3: ( (lv_help_0_0= RULE_HELP_STRING ) )* ( (lv_root_1_0= 'root' ) )? ( (lv_name_2_0= RULE_ID ) ) (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )? ( (lv_body_5_0= ruleBody ) )
             {
-            // InternalYamlGenDsl.g:192:3: ( (lv_help_0_0= RULE_SL_COMMENT ) )*
+            // InternalYamlGenDsl.g:192:3: ( (lv_help_0_0= RULE_HELP_STRING ) )*
             loop3:
             do {
                 int alt3=2;
                 int LA3_0 = input.LA(1);
 
-                if ( (LA3_0==RULE_SL_COMMENT) ) {
+                if ( (LA3_0==RULE_HELP_STRING) ) {
                     alt3=1;
                 }
 
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalYamlGenDsl.g:193:4: (lv_help_0_0= RULE_SL_COMMENT )
+            	    // InternalYamlGenDsl.g:193:4: (lv_help_0_0= RULE_HELP_STRING )
             	    {
-            	    // InternalYamlGenDsl.g:193:4: (lv_help_0_0= RULE_SL_COMMENT )
-            	    // InternalYamlGenDsl.g:194:5: lv_help_0_0= RULE_SL_COMMENT
+            	    // InternalYamlGenDsl.g:193:4: (lv_help_0_0= RULE_HELP_STRING )
+            	    // InternalYamlGenDsl.g:194:5: lv_help_0_0= RULE_HELP_STRING
             	    {
-            	    lv_help_0_0=(Token)match(input,RULE_SL_COMMENT,FOLLOW_5); 
+            	    lv_help_0_0=(Token)match(input,RULE_HELP_STRING,FOLLOW_5); 
 
-            	    					newLeafNode(lv_help_0_0, grammarAccess.getFieldAccess().getHelpSL_COMMENTTerminalRuleCall_0_0());
+            	    					newLeafNode(lv_help_0_0, grammarAccess.getFieldAccess().getHelpHELP_STRINGTerminalRuleCall_0_0());
             	    				
 
             	    					if (current==null) {
@@ -530,7 +531,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
             	    						current,
             	    						"help",
             	    						lv_help_0_0,
-            	    						"org.eclipse.xtext.common.Terminals.SL_COMMENT");
+            	    						"yaml.helper.dsl.YamlGenDsl.HELP_STRING");
             	    				
 
             	    }
@@ -548,7 +549,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
             int alt4=2;
             int LA4_0 = input.LA(1);
 
-            if ( (LA4_0==12) ) {
+            if ( (LA4_0==13) ) {
                 alt4=1;
             }
             switch (alt4) {
@@ -558,7 +559,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
                     // InternalYamlGenDsl.g:211:4: (lv_root_1_0= 'root' )
                     // InternalYamlGenDsl.g:212:5: lv_root_1_0= 'root'
                     {
-                    lv_root_1_0=(Token)match(input,12,FOLLOW_6); 
+                    lv_root_1_0=(Token)match(input,13,FOLLOW_6); 
 
                     					newLeafNode(lv_root_1_0, grammarAccess.getFieldAccess().getRootRootKeyword_1_0());
                     				
@@ -607,14 +608,14 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
             int alt5=2;
             int LA5_0 = input.LA(1);
 
-            if ( (LA5_0==13) ) {
+            if ( (LA5_0==14) ) {
                 alt5=1;
             }
             switch (alt5) {
                 case 1 :
                     // InternalYamlGenDsl.g:243:4: otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) )
                     {
-                    otherlv_3=(Token)match(input,13,FOLLOW_6); 
+                    otherlv_3=(Token)match(input,14,FOLLOW_6); 
 
                     				newLeafNode(otherlv_3, grammarAccess.getFieldAccess().getExtendsKeyword_3_0());
                     			
@@ -765,7 +766,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,14,FOLLOW_8); 
+            otherlv_1=(Token)match(input,15,FOLLOW_8); 
 
             			newLeafNode(otherlv_1, grammarAccess.getBodyAccess().getLeftCurlyBracketKeyword_1());
             		
@@ -775,7 +776,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
                 int alt6=2;
                 int LA6_0 = input.LA(1);
 
-                if ( (LA6_0==RULE_SL_COMMENT||(LA6_0>=16 && LA6_0<=17)||(LA6_0>=20 && LA6_0<=25)) ) {
+                if ( (LA6_0==RULE_HELP_STRING||(LA6_0>=17 && LA6_0<=18)||(LA6_0>=21 && LA6_0<=26)) ) {
                     alt6=1;
                 }
 
@@ -818,7 +819,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_3=(Token)match(input,15,FOLLOW_2); 
+            otherlv_3=(Token)match(input,16,FOLLOW_2); 
 
             			newLeafNode(otherlv_3, grammarAccess.getBodyAccess().getRightCurlyBracketKeyword_3());
             		
@@ -1055,7 +1056,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
             // InternalYamlGenDsl.g:405:2: (otherlv_0= 'extend' ( (lv_name_property_1_0= RULE_STRING ) ) ( (lv_body_2_0= ruleBody ) ) )
             // InternalYamlGenDsl.g:406:3: otherlv_0= 'extend' ( (lv_name_property_1_0= RULE_STRING ) ) ( (lv_body_2_0= ruleBody ) )
             {
-            otherlv_0=(Token)match(input,16,FOLLOW_4); 
+            otherlv_0=(Token)match(input,17,FOLLOW_4); 
 
             			newLeafNode(otherlv_0, grammarAccess.getExtendAccess().getExtendKeyword_0());
             		
@@ -1175,7 +1176,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNestedField"
-    // InternalYamlGenDsl.g:458:1: ruleNestedField returns [EObject current=null] : ( ( (lv_help_0_0= RULE_SL_COMMENT ) )* otherlv_1= 'field' ( (lv_mandatory_2_0= 'mandatory' ) )? ( (lv_default_3_0= 'default' ) )? (otherlv_4= 'extends' ( (otherlv_5= RULE_ID ) ) )? ( (lv_body_6_0= ruleBody ) ) ) ;
+    // InternalYamlGenDsl.g:458:1: ruleNestedField returns [EObject current=null] : ( ( (lv_help_0_0= RULE_HELP_STRING ) )* otherlv_1= 'field' ( (lv_mandatory_2_0= 'mandatory' ) )? ( (lv_default_3_0= 'default' ) )? (otherlv_4= 'extends' ( (otherlv_5= RULE_ID ) ) )? ( (lv_body_6_0= ruleBody ) ) ) ;
     public final EObject ruleNestedField() throws RecognitionException {
         EObject current = null;
 
@@ -1192,33 +1193,33 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalYamlGenDsl.g:464:2: ( ( ( (lv_help_0_0= RULE_SL_COMMENT ) )* otherlv_1= 'field' ( (lv_mandatory_2_0= 'mandatory' ) )? ( (lv_default_3_0= 'default' ) )? (otherlv_4= 'extends' ( (otherlv_5= RULE_ID ) ) )? ( (lv_body_6_0= ruleBody ) ) ) )
-            // InternalYamlGenDsl.g:465:2: ( ( (lv_help_0_0= RULE_SL_COMMENT ) )* otherlv_1= 'field' ( (lv_mandatory_2_0= 'mandatory' ) )? ( (lv_default_3_0= 'default' ) )? (otherlv_4= 'extends' ( (otherlv_5= RULE_ID ) ) )? ( (lv_body_6_0= ruleBody ) ) )
+            // InternalYamlGenDsl.g:464:2: ( ( ( (lv_help_0_0= RULE_HELP_STRING ) )* otherlv_1= 'field' ( (lv_mandatory_2_0= 'mandatory' ) )? ( (lv_default_3_0= 'default' ) )? (otherlv_4= 'extends' ( (otherlv_5= RULE_ID ) ) )? ( (lv_body_6_0= ruleBody ) ) ) )
+            // InternalYamlGenDsl.g:465:2: ( ( (lv_help_0_0= RULE_HELP_STRING ) )* otherlv_1= 'field' ( (lv_mandatory_2_0= 'mandatory' ) )? ( (lv_default_3_0= 'default' ) )? (otherlv_4= 'extends' ( (otherlv_5= RULE_ID ) ) )? ( (lv_body_6_0= ruleBody ) ) )
             {
-            // InternalYamlGenDsl.g:465:2: ( ( (lv_help_0_0= RULE_SL_COMMENT ) )* otherlv_1= 'field' ( (lv_mandatory_2_0= 'mandatory' ) )? ( (lv_default_3_0= 'default' ) )? (otherlv_4= 'extends' ( (otherlv_5= RULE_ID ) ) )? ( (lv_body_6_0= ruleBody ) ) )
-            // InternalYamlGenDsl.g:466:3: ( (lv_help_0_0= RULE_SL_COMMENT ) )* otherlv_1= 'field' ( (lv_mandatory_2_0= 'mandatory' ) )? ( (lv_default_3_0= 'default' ) )? (otherlv_4= 'extends' ( (otherlv_5= RULE_ID ) ) )? ( (lv_body_6_0= ruleBody ) )
+            // InternalYamlGenDsl.g:465:2: ( ( (lv_help_0_0= RULE_HELP_STRING ) )* otherlv_1= 'field' ( (lv_mandatory_2_0= 'mandatory' ) )? ( (lv_default_3_0= 'default' ) )? (otherlv_4= 'extends' ( (otherlv_5= RULE_ID ) ) )? ( (lv_body_6_0= ruleBody ) ) )
+            // InternalYamlGenDsl.g:466:3: ( (lv_help_0_0= RULE_HELP_STRING ) )* otherlv_1= 'field' ( (lv_mandatory_2_0= 'mandatory' ) )? ( (lv_default_3_0= 'default' ) )? (otherlv_4= 'extends' ( (otherlv_5= RULE_ID ) ) )? ( (lv_body_6_0= ruleBody ) )
             {
-            // InternalYamlGenDsl.g:466:3: ( (lv_help_0_0= RULE_SL_COMMENT ) )*
+            // InternalYamlGenDsl.g:466:3: ( (lv_help_0_0= RULE_HELP_STRING ) )*
             loop8:
             do {
                 int alt8=2;
                 int LA8_0 = input.LA(1);
 
-                if ( (LA8_0==RULE_SL_COMMENT) ) {
+                if ( (LA8_0==RULE_HELP_STRING) ) {
                     alt8=1;
                 }
 
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalYamlGenDsl.g:467:4: (lv_help_0_0= RULE_SL_COMMENT )
+            	    // InternalYamlGenDsl.g:467:4: (lv_help_0_0= RULE_HELP_STRING )
             	    {
-            	    // InternalYamlGenDsl.g:467:4: (lv_help_0_0= RULE_SL_COMMENT )
-            	    // InternalYamlGenDsl.g:468:5: lv_help_0_0= RULE_SL_COMMENT
+            	    // InternalYamlGenDsl.g:467:4: (lv_help_0_0= RULE_HELP_STRING )
+            	    // InternalYamlGenDsl.g:468:5: lv_help_0_0= RULE_HELP_STRING
             	    {
-            	    lv_help_0_0=(Token)match(input,RULE_SL_COMMENT,FOLLOW_9); 
+            	    lv_help_0_0=(Token)match(input,RULE_HELP_STRING,FOLLOW_9); 
 
-            	    					newLeafNode(lv_help_0_0, grammarAccess.getNestedFieldAccess().getHelpSL_COMMENTTerminalRuleCall_0_0());
+            	    					newLeafNode(lv_help_0_0, grammarAccess.getNestedFieldAccess().getHelpHELP_STRINGTerminalRuleCall_0_0());
             	    				
 
             	    					if (current==null) {
@@ -1228,7 +1229,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
             	    						current,
             	    						"help",
             	    						lv_help_0_0,
-            	    						"org.eclipse.xtext.common.Terminals.SL_COMMENT");
+            	    						"yaml.helper.dsl.YamlGenDsl.HELP_STRING");
             	    				
 
             	    }
@@ -1242,7 +1243,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_1=(Token)match(input,17,FOLLOW_10); 
+            otherlv_1=(Token)match(input,18,FOLLOW_10); 
 
             			newLeafNode(otherlv_1, grammarAccess.getNestedFieldAccess().getFieldKeyword_1());
             		
@@ -1250,7 +1251,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
             int alt9=2;
             int LA9_0 = input.LA(1);
 
-            if ( (LA9_0==18) ) {
+            if ( (LA9_0==19) ) {
                 alt9=1;
             }
             switch (alt9) {
@@ -1260,7 +1261,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
                     // InternalYamlGenDsl.g:489:4: (lv_mandatory_2_0= 'mandatory' )
                     // InternalYamlGenDsl.g:490:5: lv_mandatory_2_0= 'mandatory'
                     {
-                    lv_mandatory_2_0=(Token)match(input,18,FOLLOW_11); 
+                    lv_mandatory_2_0=(Token)match(input,19,FOLLOW_11); 
 
                     					newLeafNode(lv_mandatory_2_0, grammarAccess.getNestedFieldAccess().getMandatoryMandatoryKeyword_2_0());
                     				
@@ -1283,7 +1284,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
             int alt10=2;
             int LA10_0 = input.LA(1);
 
-            if ( (LA10_0==19) ) {
+            if ( (LA10_0==20) ) {
                 alt10=1;
             }
             switch (alt10) {
@@ -1293,7 +1294,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
                     // InternalYamlGenDsl.g:503:4: (lv_default_3_0= 'default' )
                     // InternalYamlGenDsl.g:504:5: lv_default_3_0= 'default'
                     {
-                    lv_default_3_0=(Token)match(input,19,FOLLOW_7); 
+                    lv_default_3_0=(Token)match(input,20,FOLLOW_7); 
 
                     					newLeafNode(lv_default_3_0, grammarAccess.getNestedFieldAccess().getDefaultDefaultKeyword_3_0());
                     				
@@ -1316,14 +1317,14 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
             int alt11=2;
             int LA11_0 = input.LA(1);
 
-            if ( (LA11_0==13) ) {
+            if ( (LA11_0==14) ) {
                 alt11=1;
             }
             switch (alt11) {
                 case 1 :
                     // InternalYamlGenDsl.g:517:4: otherlv_4= 'extends' ( (otherlv_5= RULE_ID ) )
                     {
-                    otherlv_4=(Token)match(input,13,FOLLOW_6); 
+                    otherlv_4=(Token)match(input,14,FOLLOW_6); 
 
                     				newLeafNode(otherlv_4, grammarAccess.getNestedFieldAccess().getExtendsKeyword_4_0());
                     			
@@ -1444,7 +1445,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNestedFields"
-    // InternalYamlGenDsl.g:565:1: ruleNestedFields returns [EObject current=null] : ( ( (lv_help_0_0= RULE_SL_COMMENT ) )* otherlv_1= 'fields' (otherlv_2= 'extend' ( (otherlv_3= RULE_ID ) ) )? ( (lv_body_4_0= ruleBody ) ) ) ;
+    // InternalYamlGenDsl.g:565:1: ruleNestedFields returns [EObject current=null] : ( ( (lv_help_0_0= RULE_HELP_STRING ) )* otherlv_1= 'fields' (otherlv_2= 'extend' ( (otherlv_3= RULE_ID ) ) )? ( (lv_body_4_0= ruleBody ) ) ) ;
     public final EObject ruleNestedFields() throws RecognitionException {
         EObject current = null;
 
@@ -1459,33 +1460,33 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalYamlGenDsl.g:571:2: ( ( ( (lv_help_0_0= RULE_SL_COMMENT ) )* otherlv_1= 'fields' (otherlv_2= 'extend' ( (otherlv_3= RULE_ID ) ) )? ( (lv_body_4_0= ruleBody ) ) ) )
-            // InternalYamlGenDsl.g:572:2: ( ( (lv_help_0_0= RULE_SL_COMMENT ) )* otherlv_1= 'fields' (otherlv_2= 'extend' ( (otherlv_3= RULE_ID ) ) )? ( (lv_body_4_0= ruleBody ) ) )
+            // InternalYamlGenDsl.g:571:2: ( ( ( (lv_help_0_0= RULE_HELP_STRING ) )* otherlv_1= 'fields' (otherlv_2= 'extend' ( (otherlv_3= RULE_ID ) ) )? ( (lv_body_4_0= ruleBody ) ) ) )
+            // InternalYamlGenDsl.g:572:2: ( ( (lv_help_0_0= RULE_HELP_STRING ) )* otherlv_1= 'fields' (otherlv_2= 'extend' ( (otherlv_3= RULE_ID ) ) )? ( (lv_body_4_0= ruleBody ) ) )
             {
-            // InternalYamlGenDsl.g:572:2: ( ( (lv_help_0_0= RULE_SL_COMMENT ) )* otherlv_1= 'fields' (otherlv_2= 'extend' ( (otherlv_3= RULE_ID ) ) )? ( (lv_body_4_0= ruleBody ) ) )
-            // InternalYamlGenDsl.g:573:3: ( (lv_help_0_0= RULE_SL_COMMENT ) )* otherlv_1= 'fields' (otherlv_2= 'extend' ( (otherlv_3= RULE_ID ) ) )? ( (lv_body_4_0= ruleBody ) )
+            // InternalYamlGenDsl.g:572:2: ( ( (lv_help_0_0= RULE_HELP_STRING ) )* otherlv_1= 'fields' (otherlv_2= 'extend' ( (otherlv_3= RULE_ID ) ) )? ( (lv_body_4_0= ruleBody ) ) )
+            // InternalYamlGenDsl.g:573:3: ( (lv_help_0_0= RULE_HELP_STRING ) )* otherlv_1= 'fields' (otherlv_2= 'extend' ( (otherlv_3= RULE_ID ) ) )? ( (lv_body_4_0= ruleBody ) )
             {
-            // InternalYamlGenDsl.g:573:3: ( (lv_help_0_0= RULE_SL_COMMENT ) )*
+            // InternalYamlGenDsl.g:573:3: ( (lv_help_0_0= RULE_HELP_STRING ) )*
             loop12:
             do {
                 int alt12=2;
                 int LA12_0 = input.LA(1);
 
-                if ( (LA12_0==RULE_SL_COMMENT) ) {
+                if ( (LA12_0==RULE_HELP_STRING) ) {
                     alt12=1;
                 }
 
 
                 switch (alt12) {
             	case 1 :
-            	    // InternalYamlGenDsl.g:574:4: (lv_help_0_0= RULE_SL_COMMENT )
+            	    // InternalYamlGenDsl.g:574:4: (lv_help_0_0= RULE_HELP_STRING )
             	    {
-            	    // InternalYamlGenDsl.g:574:4: (lv_help_0_0= RULE_SL_COMMENT )
-            	    // InternalYamlGenDsl.g:575:5: lv_help_0_0= RULE_SL_COMMENT
+            	    // InternalYamlGenDsl.g:574:4: (lv_help_0_0= RULE_HELP_STRING )
+            	    // InternalYamlGenDsl.g:575:5: lv_help_0_0= RULE_HELP_STRING
             	    {
-            	    lv_help_0_0=(Token)match(input,RULE_SL_COMMENT,FOLLOW_12); 
+            	    lv_help_0_0=(Token)match(input,RULE_HELP_STRING,FOLLOW_12); 
 
-            	    					newLeafNode(lv_help_0_0, grammarAccess.getNestedFieldsAccess().getHelpSL_COMMENTTerminalRuleCall_0_0());
+            	    					newLeafNode(lv_help_0_0, grammarAccess.getNestedFieldsAccess().getHelpHELP_STRINGTerminalRuleCall_0_0());
             	    				
 
             	    					if (current==null) {
@@ -1495,7 +1496,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
             	    						current,
             	    						"help",
             	    						lv_help_0_0,
-            	    						"org.eclipse.xtext.common.Terminals.SL_COMMENT");
+            	    						"yaml.helper.dsl.YamlGenDsl.HELP_STRING");
             	    				
 
             	    }
@@ -1509,7 +1510,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_1=(Token)match(input,20,FOLLOW_13); 
+            otherlv_1=(Token)match(input,21,FOLLOW_13); 
 
             			newLeafNode(otherlv_1, grammarAccess.getNestedFieldsAccess().getFieldsKeyword_1());
             		
@@ -1517,14 +1518,14 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
             int alt13=2;
             int LA13_0 = input.LA(1);
 
-            if ( (LA13_0==16) ) {
+            if ( (LA13_0==17) ) {
                 alt13=1;
             }
             switch (alt13) {
                 case 1 :
                     // InternalYamlGenDsl.g:596:4: otherlv_2= 'extend' ( (otherlv_3= RULE_ID ) )
                     {
-                    otherlv_2=(Token)match(input,16,FOLLOW_6); 
+                    otherlv_2=(Token)match(input,17,FOLLOW_6); 
 
                     				newLeafNode(otherlv_2, grammarAccess.getNestedFieldsAccess().getExtendKeyword_2_0());
                     			
@@ -1670,27 +1671,27 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
             // InternalYamlGenDsl.g:651:2: (this_Name_0= ruleName | this_Key_1= ruleKey | this_Default_2= ruleDefault | this_Hint_3= ruleHint | this_PermittedValues_4= rulePermittedValues )
             int alt14=5;
             switch ( input.LA(1) ) {
-            case 22:
+            case 23:
                 {
                 alt14=1;
                 }
                 break;
-            case 21:
+            case 22:
                 {
                 alt14=2;
                 }
                 break;
-            case 23:
+            case 24:
                 {
                 alt14=3;
                 }
                 break;
-            case 24:
+            case 25:
                 {
                 alt14=4;
                 }
                 break;
-            case 25:
+            case 26:
                 {
                 alt14=5;
                 }
@@ -1869,7 +1870,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
             // InternalYamlGenDsl.g:714:2: (otherlv_0= 'key:' ( (lv_value_1_0= RULE_STRING ) ) )
             // InternalYamlGenDsl.g:715:3: otherlv_0= 'key:' ( (lv_value_1_0= RULE_STRING ) )
             {
-            otherlv_0=(Token)match(input,21,FOLLOW_4); 
+            otherlv_0=(Token)match(input,22,FOLLOW_4); 
 
             			newLeafNode(otherlv_0, grammarAccess.getKeyAccess().getKeyKeyword_0());
             		
@@ -1975,7 +1976,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
             // InternalYamlGenDsl.g:755:2: (otherlv_0= 'name:' ( (lv_value_1_0= RULE_STRING ) ) )
             // InternalYamlGenDsl.g:756:3: otherlv_0= 'name:' ( (lv_value_1_0= RULE_STRING ) )
             {
-            otherlv_0=(Token)match(input,22,FOLLOW_4); 
+            otherlv_0=(Token)match(input,23,FOLLOW_4); 
 
             			newLeafNode(otherlv_0, grammarAccess.getNameAccess().getNameKeyword_0());
             		
@@ -2082,7 +2083,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
             // InternalYamlGenDsl.g:796:2: (otherlv_0= 'default:' ( (lv_value_1_0= ruleValues ) ) )
             // InternalYamlGenDsl.g:797:3: otherlv_0= 'default:' ( (lv_value_1_0= ruleValues ) )
             {
-            otherlv_0=(Token)match(input,23,FOLLOW_14); 
+            otherlv_0=(Token)match(input,24,FOLLOW_14); 
 
             			newLeafNode(otherlv_0, grammarAccess.getDefaultAccess().getDefaultKeyword_0());
             		
@@ -2193,7 +2194,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
             // InternalYamlGenDsl.g:838:2: (otherlv_0= 'hint:' ( (lv_value_1_0= RULE_STRING ) ) )
             // InternalYamlGenDsl.g:839:3: otherlv_0= 'hint:' ( (lv_value_1_0= RULE_STRING ) )
             {
-            otherlv_0=(Token)match(input,24,FOLLOW_4); 
+            otherlv_0=(Token)match(input,25,FOLLOW_4); 
 
             			newLeafNode(otherlv_0, grammarAccess.getHintAccess().getHintKeyword_0());
             		
@@ -2300,7 +2301,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
             // InternalYamlGenDsl.g:879:2: (otherlv_0= 'values:' ( (lv_value_1_0= ruleValues ) ) )
             // InternalYamlGenDsl.g:880:3: otherlv_0= 'values:' ( (lv_value_1_0= ruleValues ) )
             {
-            otherlv_0=(Token)match(input,25,FOLLOW_14); 
+            otherlv_0=(Token)match(input,26,FOLLOW_14); 
 
             			newLeafNode(otherlv_0, grammarAccess.getPermittedValuesAccess().getValuesKeyword_0());
             		
@@ -2415,7 +2416,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
             int alt16=2;
             int LA16_0 = input.LA(1);
 
-            if ( (LA16_0==26) ) {
+            if ( (LA16_0==27) ) {
                 alt16=1;
             }
             else if ( (LA16_0==RULE_STRING) ) {
@@ -2434,7 +2435,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
                     // InternalYamlGenDsl.g:922:3: (otherlv_0= '[' ( (lv_values_1_0= ruleValues ) )+ otherlv_2= ']' )
                     // InternalYamlGenDsl.g:923:4: otherlv_0= '[' ( (lv_values_1_0= ruleValues ) )+ otherlv_2= ']'
                     {
-                    otherlv_0=(Token)match(input,26,FOLLOW_14); 
+                    otherlv_0=(Token)match(input,27,FOLLOW_14); 
 
                     				newLeafNode(otherlv_0, grammarAccess.getValuesAccess().getLeftSquareBracketKeyword_0_0());
                     			
@@ -2445,7 +2446,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
                         int alt15=2;
                         int LA15_0 = input.LA(1);
 
-                        if ( (LA15_0==RULE_STRING||LA15_0==26) ) {
+                        if ( (LA15_0==RULE_STRING||LA15_0==27) ) {
                             alt15=1;
                         }
 
@@ -2492,7 +2493,7 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
                         cnt15++;
                     } while (true);
 
-                    otherlv_2=(Token)match(input,27,FOLLOW_2); 
+                    otherlv_2=(Token)match(input,28,FOLLOW_2); 
 
                     				newLeafNode(otherlv_2, grammarAccess.getValuesAccess().getRightSquareBracketKeyword_0_2());
                     			
@@ -2561,13 +2562,13 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
     protected DFA7 dfa7 = new DFA7(this);
     static final String dfa_1s = "\6\uffff";
     static final String dfa_2s = "\1\5\1\uffff\1\5\3\uffff";
-    static final String dfa_3s = "\1\31\1\uffff\1\24\3\uffff";
+    static final String dfa_3s = "\1\32\1\uffff\1\25\3\uffff";
     static final String dfa_4s = "\1\uffff\1\1\1\uffff\1\2\1\3\1\4";
     static final String dfa_5s = "\6\uffff}>";
     static final String[] dfa_6s = {
-            "\1\2\12\uffff\1\1\1\3\2\uffff\1\4\5\5",
+            "\1\2\13\uffff\1\1\1\3\2\uffff\1\4\5\5",
             "",
-            "\1\2\13\uffff\1\3\2\uffff\1\4",
+            "\1\2\14\uffff\1\3\2\uffff\1\4",
             "",
             "",
             ""
@@ -2601,18 +2602,18 @@ public class InternalYamlGenDslParser extends AbstractInternalAntlrParser {
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000001862L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000003062L});
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000001060L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000002060L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000006000L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000003F38020L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000020020L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x00000000000C6000L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000086000L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000100020L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000016000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000004000010L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x000000000C000010L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x000000000000C000L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000007E70020L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000040020L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x000000000018C000L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x000000000010C000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000200020L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x000000000002C000L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000008000010L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000018000010L});
 
 }
