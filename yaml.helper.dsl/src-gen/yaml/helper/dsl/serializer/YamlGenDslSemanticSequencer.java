@@ -16,18 +16,16 @@ import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequence
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import yaml.helper.dsl.services.YamlGenDslGrammarAccess;
 import yaml.helper.dsl.yamlGenDsl.Body;
-import yaml.helper.dsl.yamlGenDsl.Default;
 import yaml.helper.dsl.yamlGenDsl.Extend;
 import yaml.helper.dsl.yamlGenDsl.Field;
-import yaml.helper.dsl.yamlGenDsl.Hint;
 import yaml.helper.dsl.yamlGenDsl.Import;
-import yaml.helper.dsl.yamlGenDsl.Key;
-import yaml.helper.dsl.yamlGenDsl.Name;
 import yaml.helper.dsl.yamlGenDsl.NestedField;
 import yaml.helper.dsl.yamlGenDsl.NestedFields;
-import yaml.helper.dsl.yamlGenDsl.PermittedValues;
 import yaml.helper.dsl.yamlGenDsl.Source;
+import yaml.helper.dsl.yamlGenDsl.StringProperty;
+import yaml.helper.dsl.yamlGenDsl.TypeProperty;
 import yaml.helper.dsl.yamlGenDsl.Values;
+import yaml.helper.dsl.yamlGenDsl.ValuesProperty;
 import yaml.helper.dsl.yamlGenDsl.YamlGenDslPackage;
 
 @SuppressWarnings("all")
@@ -47,26 +45,14 @@ public class YamlGenDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case YamlGenDslPackage.BODY:
 				sequence_Body(context, (Body) semanticObject); 
 				return; 
-			case YamlGenDslPackage.DEFAULT:
-				sequence_Default(context, (Default) semanticObject); 
-				return; 
 			case YamlGenDslPackage.EXTEND:
 				sequence_Extend(context, (Extend) semanticObject); 
 				return; 
 			case YamlGenDslPackage.FIELD:
 				sequence_Field(context, (Field) semanticObject); 
 				return; 
-			case YamlGenDslPackage.HINT:
-				sequence_Hint(context, (Hint) semanticObject); 
-				return; 
 			case YamlGenDslPackage.IMPORT:
 				sequence_Import(context, (Import) semanticObject); 
-				return; 
-			case YamlGenDslPackage.KEY:
-				sequence_Key(context, (Key) semanticObject); 
-				return; 
-			case YamlGenDslPackage.NAME:
-				sequence_Name(context, (Name) semanticObject); 
 				return; 
 			case YamlGenDslPackage.NESTED_FIELD:
 				sequence_NestedField(context, (NestedField) semanticObject); 
@@ -74,14 +60,20 @@ public class YamlGenDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case YamlGenDslPackage.NESTED_FIELDS:
 				sequence_NestedFields(context, (NestedFields) semanticObject); 
 				return; 
-			case YamlGenDslPackage.PERMITTED_VALUES:
-				sequence_PermittedValues(context, (PermittedValues) semanticObject); 
-				return; 
 			case YamlGenDslPackage.SOURCE:
 				sequence_Source(context, (Source) semanticObject); 
 				return; 
+			case YamlGenDslPackage.STRING_PROPERTY:
+				sequence_StringProperty(context, (StringProperty) semanticObject); 
+				return; 
+			case YamlGenDslPackage.TYPE_PROPERTY:
+				sequence_TypeProperty(context, (TypeProperty) semanticObject); 
+				return; 
 			case YamlGenDslPackage.VALUES:
 				sequence_Values(context, (Values) semanticObject); 
+				return; 
+			case YamlGenDslPackage.VALUES_PROPERTY:
+				sequence_ValuesProperty(context, (ValuesProperty) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -102,41 +94,21 @@ public class YamlGenDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     BodyElement returns Default
-	 *     Property returns Default
-	 *     Default returns Default
-	 *
-	 * Constraint:
-	 *     value=Values
-	 */
-	protected void sequence_Default(ISerializationContext context, Default semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, YamlGenDslPackage.Literals.DEFAULT__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, YamlGenDslPackage.Literals.DEFAULT__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDefaultAccess().getValueValuesParserRuleCall_1_0(), semanticObject.getValue());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     BodyElement returns Extend
 	 *     Extend returns Extend
 	 *
 	 * Constraint:
-	 *     (name_property=STRING body=Body)
+	 *     (parentSubfieldName=STRING body=Body)
 	 */
 	protected void sequence_Extend(ISerializationContext context, Extend semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, YamlGenDslPackage.Literals.EXTEND__NAME_PROPERTY) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, YamlGenDslPackage.Literals.EXTEND__NAME_PROPERTY));
+			if (transientValues.isValueTransient(semanticObject, YamlGenDslPackage.Literals.EXTEND__PARENT_SUBFIELD_NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, YamlGenDslPackage.Literals.EXTEND__PARENT_SUBFIELD_NAME));
 			if (transientValues.isValueTransient(semanticObject, YamlGenDslPackage.Literals.EXTEND__BODY) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, YamlGenDslPackage.Literals.EXTEND__BODY));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getExtendAccess().getName_propertySTRINGTerminalRuleCall_1_0(), semanticObject.getName_property());
+		feeder.accept(grammarAccess.getExtendAccess().getParentSubfieldNameSTRINGTerminalRuleCall_1_0(), semanticObject.getParentSubfieldName());
 		feeder.accept(grammarAccess.getExtendAccess().getBodyBodyParserRuleCall_2_0(), semanticObject.getBody());
 		feeder.finish();
 	}
@@ -145,6 +117,7 @@ public class YamlGenDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 	/**
 	 * Contexts:
 	 *     SourceElement returns Field
+	 *     AnyField returns Field
 	 *     Field returns Field
 	 *
 	 * Constraint:
@@ -152,26 +125,6 @@ public class YamlGenDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_Field(ISerializationContext context, Field semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     BodyElement returns Hint
-	 *     Property returns Hint
-	 *     Hint returns Hint
-	 *
-	 * Constraint:
-	 *     value=STRING
-	 */
-	protected void sequence_Hint(ISerializationContext context, Hint semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, YamlGenDslPackage.Literals.HINT__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, YamlGenDslPackage.Literals.HINT__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getHintAccess().getValueSTRINGTerminalRuleCall_1_0(), semanticObject.getValue());
-		feeder.finish();
 	}
 	
 	
@@ -196,47 +149,9 @@ public class YamlGenDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     BodyElement returns Key
-	 *     Property returns Key
-	 *     Key returns Key
-	 *
-	 * Constraint:
-	 *     value=STRING
-	 */
-	protected void sequence_Key(ISerializationContext context, Key semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, YamlGenDslPackage.Literals.KEY__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, YamlGenDslPackage.Literals.KEY__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getKeyAccess().getValueSTRINGTerminalRuleCall_1_0(), semanticObject.getValue());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     BodyElement returns Name
-	 *     Property returns Name
-	 *     Name returns Name
-	 *
-	 * Constraint:
-	 *     value=STRING
-	 */
-	protected void sequence_Name(ISerializationContext context, Name semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, YamlGenDslPackage.Literals.NAME__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, YamlGenDslPackage.Literals.NAME__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getNameAccess().getValueSTRINGTerminalRuleCall_1_0(), semanticObject.getValue());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
+	 *     AnyField returns NestedField
 	 *     BodyElement returns NestedField
+	 *     AnyNestedField returns NestedField
 	 *     NestedField returns NestedField
 	 *
 	 * Constraint:
@@ -249,7 +164,9 @@ public class YamlGenDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     AnyField returns NestedFields
 	 *     BodyElement returns NestedFields
+	 *     AnyNestedField returns NestedFields
 	 *     NestedFields returns NestedFields
 	 *
 	 * Constraint:
@@ -262,32 +179,65 @@ public class YamlGenDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     BodyElement returns PermittedValues
-	 *     Property returns PermittedValues
-	 *     PermittedValues returns PermittedValues
-	 *
-	 * Constraint:
-	 *     value=Values
-	 */
-	protected void sequence_PermittedValues(ISerializationContext context, PermittedValues semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, YamlGenDslPackage.Literals.PERMITTED_VALUES__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, YamlGenDslPackage.Literals.PERMITTED_VALUES__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPermittedValuesAccess().getValueValuesParserRuleCall_1_0(), semanticObject.getValue());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     Source returns Source
 	 *
 	 * Constraint:
 	 *     entries+=SourceElement+
 	 */
 	protected void sequence_Source(ISerializationContext context, Source semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     BodyElement returns StringProperty
+	 *     Property returns StringProperty
+	 *     StringProperty returns StringProperty
+	 *
+	 * Constraint:
+	 *     ((key='key' | key='name' | key='hint') value=STRING)
+	 */
+	protected void sequence_StringProperty(ISerializationContext context, StringProperty semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     BodyElement returns TypeProperty
+	 *     Property returns TypeProperty
+	 *     TypeProperty returns TypeProperty
+	 *
+	 * Constraint:
+	 *     (
+	 *         key='type' 
+	 *         (
+	 *             value='int' | 
+	 *             value='float' | 
+	 *             value='string' | 
+	 *             value='list' | 
+	 *             value='any' | 
+	 *             value=STRING
+	 *         ) 
+	 *         help=STRING?
+	 *     )
+	 */
+	protected void sequence_TypeProperty(ISerializationContext context, TypeProperty semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     BodyElement returns ValuesProperty
+	 *     Property returns ValuesProperty
+	 *     ValuesProperty returns ValuesProperty
+	 *
+	 * Constraint:
+	 *     ((key='default' | key='values') value=Values)
+	 */
+	protected void sequence_ValuesProperty(ISerializationContext context, ValuesProperty semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

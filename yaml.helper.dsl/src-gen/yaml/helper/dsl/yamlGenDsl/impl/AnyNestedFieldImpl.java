@@ -5,24 +5,24 @@ package yaml.helper.dsl.yamlGenDsl.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import yaml.helper.dsl.yamlGenDsl.NestedFields;
+import yaml.helper.dsl.yamlGenDsl.AnyNestedField;
 import yaml.helper.dsl.yamlGenDsl.YamlGenDslPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Nested Fields</b></em>'.
+ * An implementation of the model object '<em><b>Any Nested Field</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class NestedFieldsImpl extends AnyNestedFieldImpl implements NestedFields
+public class AnyNestedFieldImpl extends AnyFieldImpl implements AnyNestedField
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected NestedFieldsImpl()
+  protected AnyNestedFieldImpl()
   {
     super();
   }
@@ -35,7 +35,7 @@ public class NestedFieldsImpl extends AnyNestedFieldImpl implements NestedFields
   @Override
   protected EClass eStaticClass()
   {
-    return YamlGenDslPackage.Literals.NESTED_FIELDS;
+    return YamlGenDslPackage.Literals.ANY_NESTED_FIELD;
   }
 
-} //NestedFieldsImpl
+} //AnyNestedFieldImpl

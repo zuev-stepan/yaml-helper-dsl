@@ -13,7 +13,7 @@ package yaml.helper.dsl.yamlGenDsl;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link yaml.helper.dsl.yamlGenDsl.Extend#getName_property <em>Name property</em>}</li>
+ *   <li>{@link yaml.helper.dsl.yamlGenDsl.Extend#getParentSubfieldName <em>Parent Subfield Name</em>}</li>
  *   <li>{@link yaml.helper.dsl.yamlGenDsl.Extend#getBody <em>Body</em>}</li>
  * </ul>
  *
@@ -24,26 +24,26 @@ package yaml.helper.dsl.yamlGenDsl;
 public interface Extend extends BodyElement
 {
   /**
-   * Returns the value of the '<em><b>Name property</b></em>' attribute.
+   * Returns the value of the '<em><b>Parent Subfield Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name property</em>' attribute.
-   * @see #setName_property(String)
-   * @see yaml.helper.dsl.yamlGenDsl.YamlGenDslPackage#getExtend_Name_property()
+   * @return the value of the '<em>Parent Subfield Name</em>' attribute.
+   * @see #setParentSubfieldName(String)
+   * @see yaml.helper.dsl.yamlGenDsl.YamlGenDslPackage#getExtend_ParentSubfieldName()
    * @model
    * @generated
    */
-  String getName_property();
+  String getParentSubfieldName();
 
   /**
-   * Sets the value of the '{@link yaml.helper.dsl.yamlGenDsl.Extend#getName_property <em>Name property</em>}' attribute.
+   * Sets the value of the '{@link yaml.helper.dsl.yamlGenDsl.Extend#getParentSubfieldName <em>Parent Subfield Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name property</em>' attribute.
-   * @see #getName_property()
+   * @param value the new value of the '<em>Parent Subfield Name</em>' attribute.
+   * @see #getParentSubfieldName()
    * @generated
    */
-  void setName_property(String value);
+  void setParentSubfieldName(String value);
 
   /**
    * Returns the value of the '<em><b>Body</b></em>' containment reference.

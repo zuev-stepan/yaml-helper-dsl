@@ -13,13 +13,12 @@ import yaml.helper.dsl.yamlGenDsl.Import
 import yaml.helper.dsl.yamlGenDsl.Field
 import yaml.helper.dsl.yamlGenDsl.Body
 import yaml.helper.dsl.yamlGenDsl.Extend
+import yaml.helper.dsl.yamlGenDsl.AnyField
 import yaml.helper.dsl.yamlGenDsl.NestedField
 import yaml.helper.dsl.yamlGenDsl.NestedFields
-import yaml.helper.dsl.yamlGenDsl.Key
-import yaml.helper.dsl.yamlGenDsl.Name
-import yaml.helper.dsl.yamlGenDsl.Default
-import yaml.helper.dsl.yamlGenDsl.Hint
-import yaml.helper.dsl.yamlGenDsl.PermittedValues
+import yaml.helper.dsl.yamlGenDsl.StringProperty
+import yaml.helper.dsl.yamlGenDsl.ValuesProperty
+import yaml.helper.dsl.yamlGenDsl.TypeProperty
 import yaml.helper.dsl.yamlGenDsl.Values
 
 /**
@@ -73,34 +72,32 @@ class YamlGenDslGenerator extends AbstractGenerator {
 		return field.root ? "root" : field.name
 	}
 	
-	private def field_create(Field field) {
+	private def field_create_start(AnyField field) {
 		if (field.superField !== null)
-			return "extend_field(" + field.superField.name + ", False, False)"
+			return "extend_field(" + field.superField.name + ", "
 		else
-			return "new_field(False, False)"
+			return "new_field("
+	}
+	
+	private def field_create(Field field) {
+		return field_create_start(field) + field.root.python_bool + ", True)"
 	}
 	
 	private def field_create(NestedField nestedField) {
-		var res = ""
-		if (nestedField.superField !== null)
-			res += "extend_field(" + nestedField.superField.name + ", "
-		else
-			res += "new_field("
-		res += nestedField.mandatory.python_bool + ", " + nestedField.^default.python_bool + ")"
+		return field_create_start(nestedField) 
+		       + nestedField.mandatory.python_bool + ", " 
+		       + nestedField.^default.python_bool + ")"
 	}
 	
 	private def fields_create(NestedFields nestedFields) {
-		var res = ""
-		if (nestedFields.superField !== null)
-			return "extend_field(" + nestedFields.superField.name + ", False, False)"
-		else
-			return "new_field(False, False)"
+		return field_create_start(nestedFields) + "False, False)"
 	}
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		var filePath = resource.URI.segments.subList(3, resource.URI.segments.size).join('/')
 		var file = filePath.fix_path + ".py"
 		fsa.generateFile(file, '''
+			from field import new_field, extend_field, wrap
 			«FOR importStatement : resource.allContents.filter(Import).toIterable»
 				«"from " + importStatement.path.fix_path.replace('/', '.') + " import *"»
 			«ENDFOR»
@@ -122,56 +119,66 @@ class YamlGenDslGenerator extends AbstractGenerator {
 		)
 	'''
 	
+	private def compile(Extend extend) '''
+		.extend(«extend.parentSubfieldName.python_string»)
+			«extend.body.compile»
+		.end_extend()
+	'''
+	
 	private def compile(NestedField nestedField) '''
-		«nestedField.field_create»
-		«FOR help : nestedField.help»
-			.add_help(«help.python_help_string»)
-		«ENDFOR»
-		«nestedField.body.compile»
+		.add_field(
+			«nestedField.field_create»
+			«FOR help : nestedField.help»
+				.add_help(«help.python_help_string»)
+			«ENDFOR»
+			«nestedField.body.compile»
+		)
 	'''
 	
 	private def compile(NestedFields nestedFields) '''
-		«nestedFields.fields_create»
-		«FOR help : nestedFields.help»
-			.add_help(«help.python_help_string»)
-		«ENDFOR»
-		«nestedFields.body.compile»
+		.add_field_generator(
+			«nestedFields.fields_create»
+			«FOR help : nestedFields.help»
+				.add_help(«help.python_help_string»)
+			«ENDFOR»
+			«nestedFields.body.compile»
+		)
+	'''
+	
+	
+	private def compile(StringProperty stringProperty) '''
+		.set_property(«stringProperty.key.python_string», «stringProperty.value.python_string»)
+	'''
+	
+	private def compile(ValuesProperty valuesProperty) '''
+		.set_property(«valuesProperty.key.python_string», «valuesProperty.value.python_values»)
+	'''
+	
+	private def compile(TypeProperty typeProperty) '''
+		.set_property(«typeProperty.key.python_string», «typeProperty.value.python_string»)
+		«IF typeProperty.help !== null»
+			.set_property("type-description", «typeProperty.help.python_string»)
+		«ENDIF»
 	'''
 	
 	private def compile(Body body) '''
-		«FOR t : body.elements.filter(Key)»
-		.set_property("key", «t.value.python_string»)
+		«FOR t : body.elements.filter(StringProperty)»
+		«t.compile»
 		«ENDFOR»
-		«FOR t : body.elements.filter(Name)»
-		.set_property("name", «t.value.python_string»)
+		«FOR t : body.elements.filter(ValuesProperty)»
+		«t.compile»
 		«ENDFOR»
-		«FOR t : body.elements.filter(Default)»
-			.set_property("default", «t.value.python_values»)
-		«ENDFOR»
-		«FOR t : body.elements.filter(Hint)»
-			.set_property("hint", «t.value.python_string»)
-		«ENDFOR»
-		«FOR t : body.elements.filter(PermittedValues)»
-			.set_property("values", «t.value.python_values»)
+		«FOR t : body.elements.filter(TypeProperty)»
+		«t.compile»
 		«ENDFOR»
 		«FOR t : body.elements.filter(Extend)»
 		«t.compile»
 		«ENDFOR»
 		«FOR t : body.elements.filter(NestedField)»
-			.add_field(
-				«t.compile»
-			)
+		«t.compile»
 		«ENDFOR»
 		«FOR t : body.elements.filter(NestedFields)»
-			.add_field_generator(
-				«t.compile»
-			)
+		«t.compile»
 		«ENDFOR»
-	'''
-	
-	private def compile(Extend extend) '''
-		.extend(«extend.name_property.python_string»)
-			«extend.body.compile»
-		.end_extend()
-	'''
+	'''	
 }

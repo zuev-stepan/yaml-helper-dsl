@@ -16,12 +16,14 @@ Tensorboard {
         key: "logdir"
         default: "log_tb"
         hint: "A directory to keep tensorboard logs in"
+        type: string
     }
 
     field mandatory {
         key: "port"
         default: "6006"
         hint: "Port for tensorboard"
+        type: string
     }
 }
 
@@ -36,6 +38,7 @@ Ngrok {
     field mandatory {
         key: "token"
         hint: "Your ngrok token"
+        type: string
     }
 
     field mandatory {
@@ -56,6 +59,7 @@ NotificationBot {
     field mandatory {
         key: "token"
         hint: "Your telegram bot token"
+        type: string
     }
 
     field mandatory {
@@ -73,10 +77,7 @@ NotificationBot {
 @ Notification bot
 MonitoringServices {
     key: "monitoringServices"
-    field default extends Tensorboard {
-    }
-    field default extends Ngrok {
-    }
-    field default extends MonitoringServices {
-    }
+    field default extends Tensorboard {}
+    field default extends Ngrok {}
+    field default extends NotificationBot {}
 }

@@ -91,6 +91,11 @@ public class YamlGenDslAdapterFactory extends AdapterFactoryImpl
         return createImportAdapter();
       }
       @Override
+      public Adapter caseAnyField(AnyField object)
+      {
+        return createAnyFieldAdapter();
+      }
+      @Override
       public Adapter caseField(Field object)
       {
         return createFieldAdapter();
@@ -111,6 +116,11 @@ public class YamlGenDslAdapterFactory extends AdapterFactoryImpl
         return createExtendAdapter();
       }
       @Override
+      public Adapter caseAnyNestedField(AnyNestedField object)
+      {
+        return createAnyNestedFieldAdapter();
+      }
+      @Override
       public Adapter caseNestedField(NestedField object)
       {
         return createNestedFieldAdapter();
@@ -126,29 +136,19 @@ public class YamlGenDslAdapterFactory extends AdapterFactoryImpl
         return createPropertyAdapter();
       }
       @Override
-      public Adapter caseKey(Key object)
+      public Adapter caseStringProperty(StringProperty object)
       {
-        return createKeyAdapter();
+        return createStringPropertyAdapter();
       }
       @Override
-      public Adapter caseName(Name object)
+      public Adapter caseValuesProperty(ValuesProperty object)
       {
-        return createNameAdapter();
+        return createValuesPropertyAdapter();
       }
       @Override
-      public Adapter caseDefault(Default object)
+      public Adapter caseTypeProperty(TypeProperty object)
       {
-        return createDefaultAdapter();
-      }
-      @Override
-      public Adapter caseHint(Hint object)
-      {
-        return createHintAdapter();
-      }
-      @Override
-      public Adapter casePermittedValues(PermittedValues object)
-      {
-        return createPermittedValuesAdapter();
+        return createTypePropertyAdapter();
       }
       @Override
       public Adapter caseValues(Values object)
@@ -223,6 +223,21 @@ public class YamlGenDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link yaml.helper.dsl.yamlGenDsl.AnyField <em>Any Field</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see yaml.helper.dsl.yamlGenDsl.AnyField
+   * @generated
+   */
+  public Adapter createAnyFieldAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link yaml.helper.dsl.yamlGenDsl.Field <em>Field</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -283,6 +298,21 @@ public class YamlGenDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link yaml.helper.dsl.yamlGenDsl.AnyNestedField <em>Any Nested Field</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see yaml.helper.dsl.yamlGenDsl.AnyNestedField
+   * @generated
+   */
+  public Adapter createAnyNestedFieldAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link yaml.helper.dsl.yamlGenDsl.NestedField <em>Nested Field</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -328,76 +358,46 @@ public class YamlGenDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link yaml.helper.dsl.yamlGenDsl.Key <em>Key</em>}'.
+   * Creates a new adapter for an object of class '{@link yaml.helper.dsl.yamlGenDsl.StringProperty <em>String Property</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see yaml.helper.dsl.yamlGenDsl.Key
+   * @see yaml.helper.dsl.yamlGenDsl.StringProperty
    * @generated
    */
-  public Adapter createKeyAdapter()
+  public Adapter createStringPropertyAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link yaml.helper.dsl.yamlGenDsl.Name <em>Name</em>}'.
+   * Creates a new adapter for an object of class '{@link yaml.helper.dsl.yamlGenDsl.ValuesProperty <em>Values Property</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see yaml.helper.dsl.yamlGenDsl.Name
+   * @see yaml.helper.dsl.yamlGenDsl.ValuesProperty
    * @generated
    */
-  public Adapter createNameAdapter()
+  public Adapter createValuesPropertyAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link yaml.helper.dsl.yamlGenDsl.Default <em>Default</em>}'.
+   * Creates a new adapter for an object of class '{@link yaml.helper.dsl.yamlGenDsl.TypeProperty <em>Type Property</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see yaml.helper.dsl.yamlGenDsl.Default
+   * @see yaml.helper.dsl.yamlGenDsl.TypeProperty
    * @generated
    */
-  public Adapter createDefaultAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link yaml.helper.dsl.yamlGenDsl.Hint <em>Hint</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see yaml.helper.dsl.yamlGenDsl.Hint
-   * @generated
-   */
-  public Adapter createHintAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link yaml.helper.dsl.yamlGenDsl.PermittedValues <em>Permitted Values</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see yaml.helper.dsl.yamlGenDsl.PermittedValues
-   * @generated
-   */
-  public Adapter createPermittedValuesAdapter()
+  public Adapter createTypePropertyAdapter()
   {
     return null;
   }

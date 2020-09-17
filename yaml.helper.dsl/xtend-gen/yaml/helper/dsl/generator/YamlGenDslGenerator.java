@@ -15,18 +15,17 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import yaml.helper.dsl.yamlGenDsl.AnyField;
 import yaml.helper.dsl.yamlGenDsl.Body;
-import yaml.helper.dsl.yamlGenDsl.Default;
 import yaml.helper.dsl.yamlGenDsl.Extend;
 import yaml.helper.dsl.yamlGenDsl.Field;
-import yaml.helper.dsl.yamlGenDsl.Hint;
 import yaml.helper.dsl.yamlGenDsl.Import;
-import yaml.helper.dsl.yamlGenDsl.Key;
-import yaml.helper.dsl.yamlGenDsl.Name;
 import yaml.helper.dsl.yamlGenDsl.NestedField;
 import yaml.helper.dsl.yamlGenDsl.NestedFields;
-import yaml.helper.dsl.yamlGenDsl.PermittedValues;
+import yaml.helper.dsl.yamlGenDsl.StringProperty;
+import yaml.helper.dsl.yamlGenDsl.TypeProperty;
 import yaml.helper.dsl.yamlGenDsl.Values;
+import yaml.helper.dsl.yamlGenDsl.ValuesProperty;
 
 /**
  * Generates code from your model files on save.
@@ -102,56 +101,38 @@ public class YamlGenDslGenerator extends AbstractGenerator {
     return _xifexpression;
   }
   
-  private String field_create(final Field field) {
+  private String field_create_start(final AnyField field) {
     Field _superField = field.getSuperField();
     boolean _tripleNotEquals = (_superField != null);
     if (_tripleNotEquals) {
       String _name = field.getSuperField().getName();
       String _plus = ("extend_field(" + _name);
-      return (_plus + ", False, False)");
+      return (_plus + ", ");
     } else {
-      return "new_field(False, False)";
+      return "new_field(";
     }
+  }
+  
+  private String field_create(final Field field) {
+    String _field_create_start = this.field_create_start(field);
+    String _python_bool = this.python_bool(field.isRoot());
+    String _plus = (_field_create_start + _python_bool);
+    return (_plus + ", True)");
   }
   
   private String field_create(final NestedField nestedField) {
-    String _xblockexpression = null;
-    {
-      String res = "";
-      Field _superField = nestedField.getSuperField();
-      boolean _tripleNotEquals = (_superField != null);
-      if (_tripleNotEquals) {
-        String _res = res;
-        String _name = nestedField.getSuperField().getName();
-        String _plus = ("extend_field(" + _name);
-        String _plus_1 = (_plus + ", ");
-        res = (_res + _plus_1);
-      } else {
-        String _res_1 = res;
-        res = (_res_1 + "new_field(");
-      }
-      String _res_2 = res;
-      String _python_bool = this.python_bool(nestedField.isMandatory());
-      String _plus_2 = (_python_bool + ", ");
-      String _python_bool_1 = this.python_bool(nestedField.isDefault());
-      String _plus_3 = (_plus_2 + _python_bool_1);
-      String _plus_4 = (_plus_3 + ")");
-      _xblockexpression = res = (_res_2 + _plus_4);
-    }
-    return _xblockexpression;
+    String _field_create_start = this.field_create_start(nestedField);
+    String _python_bool = this.python_bool(nestedField.isMandatory());
+    String _plus = (_field_create_start + _python_bool);
+    String _plus_1 = (_plus + ", ");
+    String _python_bool_1 = this.python_bool(nestedField.isDefault());
+    String _plus_2 = (_plus_1 + _python_bool_1);
+    return (_plus_2 + ")");
   }
   
   private String fields_create(final NestedFields nestedFields) {
-    String res = "";
-    Field _superField = nestedFields.getSuperField();
-    boolean _tripleNotEquals = (_superField != null);
-    if (_tripleNotEquals) {
-      String _name = nestedFields.getSuperField().getName();
-      String _plus = ("extend_field(" + _name);
-      return (_plus + ", False, False)");
-    } else {
-      return "new_field(False, False)";
-    }
+    String _field_create_start = this.field_create_start(nestedFields);
+    return (_field_create_start + "False, False)");
   }
   
   @Override
@@ -160,6 +141,8 @@ public class YamlGenDslGenerator extends AbstractGenerator {
     String _fix_path = this.fix_path(filePath);
     String file = (_fix_path + ".py");
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("from field import new_field, extend_field, wrap");
+    _builder.newLine();
     {
       Iterable<Import> _iterable = IteratorExtensions.<Import>toIterable(Iterators.<Import>filter(resource.getAllContents(), Import.class));
       for(final Import importStatement : _iterable) {
@@ -213,141 +196,10 @@ public class YamlGenDslGenerator extends AbstractGenerator {
     return _builder;
   }
   
-  private CharSequence compile(final NestedField nestedField) {
-    StringConcatenation _builder = new StringConcatenation();
-    String _field_create = this.field_create(nestedField);
-    _builder.append(_field_create);
-    _builder.newLineIfNotEmpty();
-    {
-      EList<String> _help = nestedField.getHelp();
-      for(final String help : _help) {
-        _builder.append(".add_help(");
-        String _python_help_string = this.python_help_string(help);
-        _builder.append(_python_help_string);
-        _builder.append(")");
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    Object _compile = this.compile(nestedField.getBody());
-    _builder.append(_compile);
-    _builder.newLineIfNotEmpty();
-    return _builder;
-  }
-  
-  private CharSequence compile(final NestedFields nestedFields) {
-    StringConcatenation _builder = new StringConcatenation();
-    String _fields_create = this.fields_create(nestedFields);
-    _builder.append(_fields_create);
-    _builder.newLineIfNotEmpty();
-    {
-      EList<String> _help = nestedFields.getHelp();
-      for(final String help : _help) {
-        _builder.append(".add_help(");
-        String _python_help_string = this.python_help_string(help);
-        _builder.append(_python_help_string);
-        _builder.append(")");
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    Object _compile = this.compile(nestedFields.getBody());
-    _builder.append(_compile);
-    _builder.newLineIfNotEmpty();
-    return _builder;
-  }
-  
-  private CharSequence compile(final Body body) {
-    StringConcatenation _builder = new StringConcatenation();
-    {
-      Iterable<Key> _filter = Iterables.<Key>filter(body.getElements(), Key.class);
-      for(final Key t : _filter) {
-        _builder.append(".set_property(\"key\", ");
-        String _python_string = this.python_string(t.getValue());
-        _builder.append(_python_string);
-        _builder.append(")");
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    {
-      Iterable<Name> _filter_1 = Iterables.<Name>filter(body.getElements(), Name.class);
-      for(final Name t_1 : _filter_1) {
-        _builder.append(".set_property(\"name\", ");
-        String _python_string_1 = this.python_string(t_1.getValue());
-        _builder.append(_python_string_1);
-        _builder.append(")");
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    {
-      Iterable<Default> _filter_2 = Iterables.<Default>filter(body.getElements(), Default.class);
-      for(final Default t_2 : _filter_2) {
-        _builder.append(".set_property(\"default\", ");
-        Object _python_values = this.python_values(t_2.getValue());
-        _builder.append(_python_values);
-        _builder.append(")");
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    {
-      Iterable<Hint> _filter_3 = Iterables.<Hint>filter(body.getElements(), Hint.class);
-      for(final Hint t_3 : _filter_3) {
-        _builder.append(".set_property(\"hint\", ");
-        String _python_string_2 = this.python_string(t_3.getValue());
-        _builder.append(_python_string_2);
-        _builder.append(")");
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    {
-      Iterable<PermittedValues> _filter_4 = Iterables.<PermittedValues>filter(body.getElements(), PermittedValues.class);
-      for(final PermittedValues t_4 : _filter_4) {
-        _builder.append(".set_property(\"values\", ");
-        Object _python_values_1 = this.python_values(t_4.getValue());
-        _builder.append(_python_values_1);
-        _builder.append(")");
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    {
-      Iterable<Extend> _filter_5 = Iterables.<Extend>filter(body.getElements(), Extend.class);
-      for(final Extend t_5 : _filter_5) {
-        CharSequence _compile = this.compile(t_5);
-        _builder.append(_compile);
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    {
-      Iterable<NestedField> _filter_6 = Iterables.<NestedField>filter(body.getElements(), NestedField.class);
-      for(final NestedField t_6 : _filter_6) {
-        _builder.append(".add_field(");
-        _builder.newLine();
-        _builder.append("\t");
-        CharSequence _compile_1 = this.compile(t_6);
-        _builder.append(_compile_1, "\t");
-        _builder.newLineIfNotEmpty();
-        _builder.append(")");
-        _builder.newLine();
-      }
-    }
-    {
-      Iterable<NestedFields> _filter_7 = Iterables.<NestedFields>filter(body.getElements(), NestedFields.class);
-      for(final NestedFields t_7 : _filter_7) {
-        _builder.append(".add_field_generator(");
-        _builder.newLine();
-        _builder.append("\t");
-        CharSequence _compile_2 = this.compile(t_7);
-        _builder.append(_compile_2, "\t");
-        _builder.newLineIfNotEmpty();
-        _builder.append(")");
-        _builder.newLine();
-      }
-    }
-    return _builder;
-  }
-  
   private CharSequence compile(final Extend extend) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append(".extend(");
-    String _python_string = this.python_string(extend.getName_property());
+    String _python_string = this.python_string(extend.getParentSubfieldName());
     _builder.append(_python_string);
     _builder.append(")");
     _builder.newLineIfNotEmpty();
@@ -357,6 +209,165 @@ public class YamlGenDslGenerator extends AbstractGenerator {
     _builder.newLineIfNotEmpty();
     _builder.append(".end_extend()");
     _builder.newLine();
+    return _builder;
+  }
+  
+  private CharSequence compile(final NestedField nestedField) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append(".add_field(");
+    _builder.newLine();
+    _builder.append("\t");
+    String _field_create = this.field_create(nestedField);
+    _builder.append(_field_create, "\t");
+    _builder.newLineIfNotEmpty();
+    {
+      EList<String> _help = nestedField.getHelp();
+      for(final String help : _help) {
+        _builder.append("\t");
+        _builder.append(".add_help(");
+        String _python_help_string = this.python_help_string(help);
+        _builder.append(_python_help_string, "\t");
+        _builder.append(")");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("\t");
+    Object _compile = this.compile(nestedField.getBody());
+    _builder.append(_compile, "\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append(")");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  private CharSequence compile(final NestedFields nestedFields) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append(".add_field_generator(");
+    _builder.newLine();
+    _builder.append("\t");
+    String _fields_create = this.fields_create(nestedFields);
+    _builder.append(_fields_create, "\t");
+    _builder.newLineIfNotEmpty();
+    {
+      EList<String> _help = nestedFields.getHelp();
+      for(final String help : _help) {
+        _builder.append("\t");
+        _builder.append(".add_help(");
+        String _python_help_string = this.python_help_string(help);
+        _builder.append(_python_help_string, "\t");
+        _builder.append(")");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("\t");
+    Object _compile = this.compile(nestedFields.getBody());
+    _builder.append(_compile, "\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append(")");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  private CharSequence compile(final StringProperty stringProperty) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append(".set_property(");
+    String _python_string = this.python_string(stringProperty.getKey());
+    _builder.append(_python_string);
+    _builder.append(", ");
+    String _python_string_1 = this.python_string(stringProperty.getValue());
+    _builder.append(_python_string_1);
+    _builder.append(")");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  private CharSequence compile(final ValuesProperty valuesProperty) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append(".set_property(");
+    String _python_string = this.python_string(valuesProperty.getKey());
+    _builder.append(_python_string);
+    _builder.append(", ");
+    Object _python_values = this.python_values(valuesProperty.getValue());
+    _builder.append(_python_values);
+    _builder.append(")");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  private CharSequence compile(final TypeProperty typeProperty) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append(".set_property(");
+    String _python_string = this.python_string(typeProperty.getKey());
+    _builder.append(_python_string);
+    _builder.append(", ");
+    String _python_string_1 = this.python_string(typeProperty.getValue());
+    _builder.append(_python_string_1);
+    _builder.append(")");
+    _builder.newLineIfNotEmpty();
+    {
+      String _help = typeProperty.getHelp();
+      boolean _tripleNotEquals = (_help != null);
+      if (_tripleNotEquals) {
+        _builder.append(".set_property(\"type-description\", ");
+        String _python_string_2 = this.python_string(typeProperty.getHelp());
+        _builder.append(_python_string_2);
+        _builder.append(")");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
+  }
+  
+  private CharSequence compile(final Body body) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      Iterable<StringProperty> _filter = Iterables.<StringProperty>filter(body.getElements(), StringProperty.class);
+      for(final StringProperty t : _filter) {
+        CharSequence _compile = this.compile(t);
+        _builder.append(_compile);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      Iterable<ValuesProperty> _filter_1 = Iterables.<ValuesProperty>filter(body.getElements(), ValuesProperty.class);
+      for(final ValuesProperty t_1 : _filter_1) {
+        CharSequence _compile_1 = this.compile(t_1);
+        _builder.append(_compile_1);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      Iterable<TypeProperty> _filter_2 = Iterables.<TypeProperty>filter(body.getElements(), TypeProperty.class);
+      for(final TypeProperty t_2 : _filter_2) {
+        CharSequence _compile_2 = this.compile(t_2);
+        _builder.append(_compile_2);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      Iterable<Extend> _filter_3 = Iterables.<Extend>filter(body.getElements(), Extend.class);
+      for(final Extend t_3 : _filter_3) {
+        CharSequence _compile_3 = this.compile(t_3);
+        _builder.append(_compile_3);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      Iterable<NestedField> _filter_4 = Iterables.<NestedField>filter(body.getElements(), NestedField.class);
+      for(final NestedField t_4 : _filter_4) {
+        CharSequence _compile_4 = this.compile(t_4);
+        _builder.append(_compile_4);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      Iterable<NestedFields> _filter_5 = Iterables.<NestedFields>filter(body.getElements(), NestedFields.class);
+      for(final NestedFields t_5 : _filter_5) {
+        CharSequence _compile_5 = this.compile(t_5);
+        _builder.append(_compile_5);
+        _builder.newLineIfNotEmpty();
+      }
+    }
     return _builder;
   }
 }

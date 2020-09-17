@@ -68,18 +68,18 @@ public class YamlGenDslFactoryImpl extends EFactoryImpl implements YamlGenDslFac
       case YamlGenDslPackage.SOURCE: return createSource();
       case YamlGenDslPackage.SOURCE_ELEMENT: return createSourceElement();
       case YamlGenDslPackage.IMPORT: return createImport();
+      case YamlGenDslPackage.ANY_FIELD: return createAnyField();
       case YamlGenDslPackage.FIELD: return createField();
       case YamlGenDslPackage.BODY: return createBody();
       case YamlGenDslPackage.BODY_ELEMENT: return createBodyElement();
       case YamlGenDslPackage.EXTEND: return createExtend();
+      case YamlGenDslPackage.ANY_NESTED_FIELD: return createAnyNestedField();
       case YamlGenDslPackage.NESTED_FIELD: return createNestedField();
       case YamlGenDslPackage.NESTED_FIELDS: return createNestedFields();
       case YamlGenDslPackage.PROPERTY: return createProperty();
-      case YamlGenDslPackage.KEY: return createKey();
-      case YamlGenDslPackage.NAME: return createName();
-      case YamlGenDslPackage.DEFAULT: return createDefault();
-      case YamlGenDslPackage.HINT: return createHint();
-      case YamlGenDslPackage.PERMITTED_VALUES: return createPermittedValues();
+      case YamlGenDslPackage.STRING_PROPERTY: return createStringProperty();
+      case YamlGenDslPackage.VALUES_PROPERTY: return createValuesProperty();
+      case YamlGenDslPackage.TYPE_PROPERTY: return createTypeProperty();
       case YamlGenDslPackage.VALUES: return createValues();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -120,6 +120,18 @@ public class YamlGenDslFactoryImpl extends EFactoryImpl implements YamlGenDslFac
   {
     ImportImpl import_ = new ImportImpl();
     return import_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public AnyField createAnyField()
+  {
+    AnyFieldImpl anyField = new AnyFieldImpl();
+    return anyField;
   }
 
   /**
@@ -176,6 +188,18 @@ public class YamlGenDslFactoryImpl extends EFactoryImpl implements YamlGenDslFac
    * @generated
    */
   @Override
+  public AnyNestedField createAnyNestedField()
+  {
+    AnyNestedFieldImpl anyNestedField = new AnyNestedFieldImpl();
+    return anyNestedField;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NestedField createNestedField()
   {
     NestedFieldImpl nestedField = new NestedFieldImpl();
@@ -212,10 +236,10 @@ public class YamlGenDslFactoryImpl extends EFactoryImpl implements YamlGenDslFac
    * @generated
    */
   @Override
-  public Key createKey()
+  public StringProperty createStringProperty()
   {
-    KeyImpl key = new KeyImpl();
-    return key;
+    StringPropertyImpl stringProperty = new StringPropertyImpl();
+    return stringProperty;
   }
 
   /**
@@ -224,10 +248,10 @@ public class YamlGenDslFactoryImpl extends EFactoryImpl implements YamlGenDslFac
    * @generated
    */
   @Override
-  public Name createName()
+  public ValuesProperty createValuesProperty()
   {
-    NameImpl name = new NameImpl();
-    return name;
+    ValuesPropertyImpl valuesProperty = new ValuesPropertyImpl();
+    return valuesProperty;
   }
 
   /**
@@ -236,34 +260,10 @@ public class YamlGenDslFactoryImpl extends EFactoryImpl implements YamlGenDslFac
    * @generated
    */
   @Override
-  public Default createDefault()
+  public TypeProperty createTypeProperty()
   {
-    DefaultImpl default_ = new DefaultImpl();
-    return default_;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Hint createHint()
-  {
-    HintImpl hint = new HintImpl();
-    return hint;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public PermittedValues createPermittedValues()
-  {
-    PermittedValuesImpl permittedValues = new PermittedValuesImpl();
-    return permittedValues;
+    TypePropertyImpl typeProperty = new TypePropertyImpl();
+    return typeProperty;
   }
 
   /**

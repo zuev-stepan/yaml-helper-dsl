@@ -9,6 +9,12 @@ package yaml.helper.dsl.yamlGenDsl;
  * A representation of the model object '<em><b>Property</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link yaml.helper.dsl.yamlGenDsl.Property#getKey <em>Key</em>}</li>
+ * </ul>
  *
  * @see yaml.helper.dsl.yamlGenDsl.YamlGenDslPackage#getProperty()
  * @model
@@ -16,4 +22,26 @@ package yaml.helper.dsl.yamlGenDsl;
  */
 public interface Property extends BodyElement
 {
+  /**
+   * Returns the value of the '<em><b>Key</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Key</em>' attribute.
+   * @see #setKey(String)
+   * @see yaml.helper.dsl.yamlGenDsl.YamlGenDslPackage#getProperty_Key()
+   * @model
+   * @generated
+   */
+  String getKey();
+
+  /**
+   * Sets the value of the '{@link yaml.helper.dsl.yamlGenDsl.Property#getKey <em>Key</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Key</em>' attribute.
+   * @see #getKey()
+   * @generated
+   */
+  void setKey(String value);
+
 } // Property

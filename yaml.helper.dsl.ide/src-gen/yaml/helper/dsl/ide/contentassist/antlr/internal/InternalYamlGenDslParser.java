@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalYamlGenDslParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_HELP_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'import'", "'extends'", "'{'", "'}'", "'extend'", "'field'", "'fields'", "'key:'", "'name:'", "'default:'", "'hint:'", "'values:'", "'['", "']'", "'root'", "'mandatory'", "'default'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_HELP_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'key'", "'name'", "'hint'", "'default'", "'values'", "'int'", "'float'", "'string'", "'list'", "'any'", "'import'", "'extends'", "'{'", "'}'", "'extend'", "'field'", "'fields'", "':'", "'('", "')'", "'['", "']'", "'root'", "'mandatory'", "'type'"
     };
     public static final int RULE_HELP_STRING=5;
     public static final int RULE_STRING=4;
@@ -32,10 +32,17 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
     public static final int T__16=16;
     public static final int T__17=17;
     public static final int T__18=18;
+    public static final int T__33=33;
     public static final int T__12=12;
+    public static final int T__34=34;
     public static final int T__13=13;
+    public static final int T__35=35;
     public static final int T__14=14;
+    public static final int T__36=36;
     public static final int EOF=-1;
+    public static final int T__30=30;
+    public static final int T__31=31;
+    public static final int T__32=32;
     public static final int RULE_ID=6;
     public static final int RULE_WS=10;
     public static final int RULE_ANY_OTHER=11;
@@ -43,6 +50,7 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
     public static final int T__27=27;
     public static final int T__28=28;
     public static final int RULE_INT=7;
+    public static final int T__29=29;
     public static final int T__22=22;
     public static final int RULE_ML_COMMENT=8;
     public static final int T__23=23;
@@ -136,7 +144,7 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
                 int alt1=2;
                 int LA1_0 = input.LA(1);
 
-                if ( ((LA1_0>=RULE_HELP_STRING && LA1_0<=RULE_ID)||LA1_0==12||LA1_0==26) ) {
+                if ( ((LA1_0>=RULE_HELP_STRING && LA1_0<=RULE_ID)||LA1_0==22||LA1_0==34) ) {
                     alt1=1;
                 }
 
@@ -643,12 +651,89 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
     // $ANTLR end "ruleExtend"
 
 
+    // $ANTLR start "entryRuleAnyNestedField"
+    // InternalYamlGenDsl.g:228:1: entryRuleAnyNestedField : ruleAnyNestedField EOF ;
+    public final void entryRuleAnyNestedField() throws RecognitionException {
+        try {
+            // InternalYamlGenDsl.g:229:1: ( ruleAnyNestedField EOF )
+            // InternalYamlGenDsl.g:230:1: ruleAnyNestedField EOF
+            {
+             before(grammarAccess.getAnyNestedFieldRule()); 
+            pushFollow(FOLLOW_1);
+            ruleAnyNestedField();
+
+            state._fsp--;
+
+             after(grammarAccess.getAnyNestedFieldRule()); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleAnyNestedField"
+
+
+    // $ANTLR start "ruleAnyNestedField"
+    // InternalYamlGenDsl.g:237:1: ruleAnyNestedField : ( ( rule__AnyNestedField__Alternatives ) ) ;
+    public final void ruleAnyNestedField() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalYamlGenDsl.g:241:2: ( ( ( rule__AnyNestedField__Alternatives ) ) )
+            // InternalYamlGenDsl.g:242:2: ( ( rule__AnyNestedField__Alternatives ) )
+            {
+            // InternalYamlGenDsl.g:242:2: ( ( rule__AnyNestedField__Alternatives ) )
+            // InternalYamlGenDsl.g:243:3: ( rule__AnyNestedField__Alternatives )
+            {
+             before(grammarAccess.getAnyNestedFieldAccess().getAlternatives()); 
+            // InternalYamlGenDsl.g:244:3: ( rule__AnyNestedField__Alternatives )
+            // InternalYamlGenDsl.g:244:4: rule__AnyNestedField__Alternatives
+            {
+            pushFollow(FOLLOW_2);
+            rule__AnyNestedField__Alternatives();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getAnyNestedFieldAccess().getAlternatives()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleAnyNestedField"
+
+
     // $ANTLR start "entryRuleNestedField"
-    // InternalYamlGenDsl.g:228:1: entryRuleNestedField : ruleNestedField EOF ;
+    // InternalYamlGenDsl.g:253:1: entryRuleNestedField : ruleNestedField EOF ;
     public final void entryRuleNestedField() throws RecognitionException {
         try {
-            // InternalYamlGenDsl.g:229:1: ( ruleNestedField EOF )
-            // InternalYamlGenDsl.g:230:1: ruleNestedField EOF
+            // InternalYamlGenDsl.g:254:1: ( ruleNestedField EOF )
+            // InternalYamlGenDsl.g:255:1: ruleNestedField EOF
             {
              before(grammarAccess.getNestedFieldRule()); 
             pushFollow(FOLLOW_1);
@@ -674,21 +759,21 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "ruleNestedField"
-    // InternalYamlGenDsl.g:237:1: ruleNestedField : ( ( rule__NestedField__Group__0 ) ) ;
+    // InternalYamlGenDsl.g:262:1: ruleNestedField : ( ( rule__NestedField__Group__0 ) ) ;
     public final void ruleNestedField() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:241:2: ( ( ( rule__NestedField__Group__0 ) ) )
-            // InternalYamlGenDsl.g:242:2: ( ( rule__NestedField__Group__0 ) )
+            // InternalYamlGenDsl.g:266:2: ( ( ( rule__NestedField__Group__0 ) ) )
+            // InternalYamlGenDsl.g:267:2: ( ( rule__NestedField__Group__0 ) )
             {
-            // InternalYamlGenDsl.g:242:2: ( ( rule__NestedField__Group__0 ) )
-            // InternalYamlGenDsl.g:243:3: ( rule__NestedField__Group__0 )
+            // InternalYamlGenDsl.g:267:2: ( ( rule__NestedField__Group__0 ) )
+            // InternalYamlGenDsl.g:268:3: ( rule__NestedField__Group__0 )
             {
              before(grammarAccess.getNestedFieldAccess().getGroup()); 
-            // InternalYamlGenDsl.g:244:3: ( rule__NestedField__Group__0 )
-            // InternalYamlGenDsl.g:244:4: rule__NestedField__Group__0
+            // InternalYamlGenDsl.g:269:3: ( rule__NestedField__Group__0 )
+            // InternalYamlGenDsl.g:269:4: rule__NestedField__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__NestedField__Group__0();
@@ -721,11 +806,11 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "entryRuleNestedFields"
-    // InternalYamlGenDsl.g:253:1: entryRuleNestedFields : ruleNestedFields EOF ;
+    // InternalYamlGenDsl.g:278:1: entryRuleNestedFields : ruleNestedFields EOF ;
     public final void entryRuleNestedFields() throws RecognitionException {
         try {
-            // InternalYamlGenDsl.g:254:1: ( ruleNestedFields EOF )
-            // InternalYamlGenDsl.g:255:1: ruleNestedFields EOF
+            // InternalYamlGenDsl.g:279:1: ( ruleNestedFields EOF )
+            // InternalYamlGenDsl.g:280:1: ruleNestedFields EOF
             {
              before(grammarAccess.getNestedFieldsRule()); 
             pushFollow(FOLLOW_1);
@@ -751,21 +836,21 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "ruleNestedFields"
-    // InternalYamlGenDsl.g:262:1: ruleNestedFields : ( ( rule__NestedFields__Group__0 ) ) ;
+    // InternalYamlGenDsl.g:287:1: ruleNestedFields : ( ( rule__NestedFields__Group__0 ) ) ;
     public final void ruleNestedFields() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:266:2: ( ( ( rule__NestedFields__Group__0 ) ) )
-            // InternalYamlGenDsl.g:267:2: ( ( rule__NestedFields__Group__0 ) )
+            // InternalYamlGenDsl.g:291:2: ( ( ( rule__NestedFields__Group__0 ) ) )
+            // InternalYamlGenDsl.g:292:2: ( ( rule__NestedFields__Group__0 ) )
             {
-            // InternalYamlGenDsl.g:267:2: ( ( rule__NestedFields__Group__0 ) )
-            // InternalYamlGenDsl.g:268:3: ( rule__NestedFields__Group__0 )
+            // InternalYamlGenDsl.g:292:2: ( ( rule__NestedFields__Group__0 ) )
+            // InternalYamlGenDsl.g:293:3: ( rule__NestedFields__Group__0 )
             {
              before(grammarAccess.getNestedFieldsAccess().getGroup()); 
-            // InternalYamlGenDsl.g:269:3: ( rule__NestedFields__Group__0 )
-            // InternalYamlGenDsl.g:269:4: rule__NestedFields__Group__0
+            // InternalYamlGenDsl.g:294:3: ( rule__NestedFields__Group__0 )
+            // InternalYamlGenDsl.g:294:4: rule__NestedFields__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__NestedFields__Group__0();
@@ -798,11 +883,11 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "entryRuleProperty"
-    // InternalYamlGenDsl.g:278:1: entryRuleProperty : ruleProperty EOF ;
+    // InternalYamlGenDsl.g:303:1: entryRuleProperty : ruleProperty EOF ;
     public final void entryRuleProperty() throws RecognitionException {
         try {
-            // InternalYamlGenDsl.g:279:1: ( ruleProperty EOF )
-            // InternalYamlGenDsl.g:280:1: ruleProperty EOF
+            // InternalYamlGenDsl.g:304:1: ( ruleProperty EOF )
+            // InternalYamlGenDsl.g:305:1: ruleProperty EOF
             {
              before(grammarAccess.getPropertyRule()); 
             pushFollow(FOLLOW_1);
@@ -828,21 +913,21 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "ruleProperty"
-    // InternalYamlGenDsl.g:287:1: ruleProperty : ( ( rule__Property__Alternatives ) ) ;
+    // InternalYamlGenDsl.g:312:1: ruleProperty : ( ( rule__Property__Alternatives ) ) ;
     public final void ruleProperty() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:291:2: ( ( ( rule__Property__Alternatives ) ) )
-            // InternalYamlGenDsl.g:292:2: ( ( rule__Property__Alternatives ) )
+            // InternalYamlGenDsl.g:316:2: ( ( ( rule__Property__Alternatives ) ) )
+            // InternalYamlGenDsl.g:317:2: ( ( rule__Property__Alternatives ) )
             {
-            // InternalYamlGenDsl.g:292:2: ( ( rule__Property__Alternatives ) )
-            // InternalYamlGenDsl.g:293:3: ( rule__Property__Alternatives )
+            // InternalYamlGenDsl.g:317:2: ( ( rule__Property__Alternatives ) )
+            // InternalYamlGenDsl.g:318:3: ( rule__Property__Alternatives )
             {
              before(grammarAccess.getPropertyAccess().getAlternatives()); 
-            // InternalYamlGenDsl.g:294:3: ( rule__Property__Alternatives )
-            // InternalYamlGenDsl.g:294:4: rule__Property__Alternatives
+            // InternalYamlGenDsl.g:319:3: ( rule__Property__Alternatives )
+            // InternalYamlGenDsl.g:319:4: rule__Property__Alternatives
             {
             pushFollow(FOLLOW_2);
             rule__Property__Alternatives();
@@ -874,20 +959,20 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
     // $ANTLR end "ruleProperty"
 
 
-    // $ANTLR start "entryRuleKey"
-    // InternalYamlGenDsl.g:303:1: entryRuleKey : ruleKey EOF ;
-    public final void entryRuleKey() throws RecognitionException {
+    // $ANTLR start "entryRuleStringProperty"
+    // InternalYamlGenDsl.g:328:1: entryRuleStringProperty : ruleStringProperty EOF ;
+    public final void entryRuleStringProperty() throws RecognitionException {
         try {
-            // InternalYamlGenDsl.g:304:1: ( ruleKey EOF )
-            // InternalYamlGenDsl.g:305:1: ruleKey EOF
+            // InternalYamlGenDsl.g:329:1: ( ruleStringProperty EOF )
+            // InternalYamlGenDsl.g:330:1: ruleStringProperty EOF
             {
-             before(grammarAccess.getKeyRule()); 
+             before(grammarAccess.getStringPropertyRule()); 
             pushFollow(FOLLOW_1);
-            ruleKey();
+            ruleStringProperty();
 
             state._fsp--;
 
-             after(grammarAccess.getKeyRule()); 
+             after(grammarAccess.getStringPropertyRule()); 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -901,35 +986,35 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "entryRuleKey"
+    // $ANTLR end "entryRuleStringProperty"
 
 
-    // $ANTLR start "ruleKey"
-    // InternalYamlGenDsl.g:312:1: ruleKey : ( ( rule__Key__Group__0 ) ) ;
-    public final void ruleKey() throws RecognitionException {
+    // $ANTLR start "ruleStringProperty"
+    // InternalYamlGenDsl.g:337:1: ruleStringProperty : ( ( rule__StringProperty__Group__0 ) ) ;
+    public final void ruleStringProperty() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:316:2: ( ( ( rule__Key__Group__0 ) ) )
-            // InternalYamlGenDsl.g:317:2: ( ( rule__Key__Group__0 ) )
+            // InternalYamlGenDsl.g:341:2: ( ( ( rule__StringProperty__Group__0 ) ) )
+            // InternalYamlGenDsl.g:342:2: ( ( rule__StringProperty__Group__0 ) )
             {
-            // InternalYamlGenDsl.g:317:2: ( ( rule__Key__Group__0 ) )
-            // InternalYamlGenDsl.g:318:3: ( rule__Key__Group__0 )
+            // InternalYamlGenDsl.g:342:2: ( ( rule__StringProperty__Group__0 ) )
+            // InternalYamlGenDsl.g:343:3: ( rule__StringProperty__Group__0 )
             {
-             before(grammarAccess.getKeyAccess().getGroup()); 
-            // InternalYamlGenDsl.g:319:3: ( rule__Key__Group__0 )
-            // InternalYamlGenDsl.g:319:4: rule__Key__Group__0
+             before(grammarAccess.getStringPropertyAccess().getGroup()); 
+            // InternalYamlGenDsl.g:344:3: ( rule__StringProperty__Group__0 )
+            // InternalYamlGenDsl.g:344:4: rule__StringProperty__Group__0
             {
             pushFollow(FOLLOW_2);
-            rule__Key__Group__0();
+            rule__StringProperty__Group__0();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getKeyAccess().getGroup()); 
+             after(grammarAccess.getStringPropertyAccess().getGroup()); 
 
             }
 
@@ -948,23 +1033,23 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "ruleKey"
+    // $ANTLR end "ruleStringProperty"
 
 
-    // $ANTLR start "entryRuleName"
-    // InternalYamlGenDsl.g:328:1: entryRuleName : ruleName EOF ;
-    public final void entryRuleName() throws RecognitionException {
+    // $ANTLR start "entryRuleValuesProperty"
+    // InternalYamlGenDsl.g:353:1: entryRuleValuesProperty : ruleValuesProperty EOF ;
+    public final void entryRuleValuesProperty() throws RecognitionException {
         try {
-            // InternalYamlGenDsl.g:329:1: ( ruleName EOF )
-            // InternalYamlGenDsl.g:330:1: ruleName EOF
+            // InternalYamlGenDsl.g:354:1: ( ruleValuesProperty EOF )
+            // InternalYamlGenDsl.g:355:1: ruleValuesProperty EOF
             {
-             before(grammarAccess.getNameRule()); 
+             before(grammarAccess.getValuesPropertyRule()); 
             pushFollow(FOLLOW_1);
-            ruleName();
+            ruleValuesProperty();
 
             state._fsp--;
 
-             after(grammarAccess.getNameRule()); 
+             after(grammarAccess.getValuesPropertyRule()); 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -978,35 +1063,35 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "entryRuleName"
+    // $ANTLR end "entryRuleValuesProperty"
 
 
-    // $ANTLR start "ruleName"
-    // InternalYamlGenDsl.g:337:1: ruleName : ( ( rule__Name__Group__0 ) ) ;
-    public final void ruleName() throws RecognitionException {
+    // $ANTLR start "ruleValuesProperty"
+    // InternalYamlGenDsl.g:362:1: ruleValuesProperty : ( ( rule__ValuesProperty__Group__0 ) ) ;
+    public final void ruleValuesProperty() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:341:2: ( ( ( rule__Name__Group__0 ) ) )
-            // InternalYamlGenDsl.g:342:2: ( ( rule__Name__Group__0 ) )
+            // InternalYamlGenDsl.g:366:2: ( ( ( rule__ValuesProperty__Group__0 ) ) )
+            // InternalYamlGenDsl.g:367:2: ( ( rule__ValuesProperty__Group__0 ) )
             {
-            // InternalYamlGenDsl.g:342:2: ( ( rule__Name__Group__0 ) )
-            // InternalYamlGenDsl.g:343:3: ( rule__Name__Group__0 )
+            // InternalYamlGenDsl.g:367:2: ( ( rule__ValuesProperty__Group__0 ) )
+            // InternalYamlGenDsl.g:368:3: ( rule__ValuesProperty__Group__0 )
             {
-             before(grammarAccess.getNameAccess().getGroup()); 
-            // InternalYamlGenDsl.g:344:3: ( rule__Name__Group__0 )
-            // InternalYamlGenDsl.g:344:4: rule__Name__Group__0
+             before(grammarAccess.getValuesPropertyAccess().getGroup()); 
+            // InternalYamlGenDsl.g:369:3: ( rule__ValuesProperty__Group__0 )
+            // InternalYamlGenDsl.g:369:4: rule__ValuesProperty__Group__0
             {
             pushFollow(FOLLOW_2);
-            rule__Name__Group__0();
+            rule__ValuesProperty__Group__0();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getNameAccess().getGroup()); 
+             after(grammarAccess.getValuesPropertyAccess().getGroup()); 
 
             }
 
@@ -1025,23 +1110,23 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "ruleName"
+    // $ANTLR end "ruleValuesProperty"
 
 
-    // $ANTLR start "entryRuleDefault"
-    // InternalYamlGenDsl.g:353:1: entryRuleDefault : ruleDefault EOF ;
-    public final void entryRuleDefault() throws RecognitionException {
+    // $ANTLR start "entryRuleTypeProperty"
+    // InternalYamlGenDsl.g:378:1: entryRuleTypeProperty : ruleTypeProperty EOF ;
+    public final void entryRuleTypeProperty() throws RecognitionException {
         try {
-            // InternalYamlGenDsl.g:354:1: ( ruleDefault EOF )
-            // InternalYamlGenDsl.g:355:1: ruleDefault EOF
+            // InternalYamlGenDsl.g:379:1: ( ruleTypeProperty EOF )
+            // InternalYamlGenDsl.g:380:1: ruleTypeProperty EOF
             {
-             before(grammarAccess.getDefaultRule()); 
+             before(grammarAccess.getTypePropertyRule()); 
             pushFollow(FOLLOW_1);
-            ruleDefault();
+            ruleTypeProperty();
 
             state._fsp--;
 
-             after(grammarAccess.getDefaultRule()); 
+             after(grammarAccess.getTypePropertyRule()); 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -1055,35 +1140,35 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "entryRuleDefault"
+    // $ANTLR end "entryRuleTypeProperty"
 
 
-    // $ANTLR start "ruleDefault"
-    // InternalYamlGenDsl.g:362:1: ruleDefault : ( ( rule__Default__Group__0 ) ) ;
-    public final void ruleDefault() throws RecognitionException {
+    // $ANTLR start "ruleTypeProperty"
+    // InternalYamlGenDsl.g:387:1: ruleTypeProperty : ( ( rule__TypeProperty__Group__0 ) ) ;
+    public final void ruleTypeProperty() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:366:2: ( ( ( rule__Default__Group__0 ) ) )
-            // InternalYamlGenDsl.g:367:2: ( ( rule__Default__Group__0 ) )
+            // InternalYamlGenDsl.g:391:2: ( ( ( rule__TypeProperty__Group__0 ) ) )
+            // InternalYamlGenDsl.g:392:2: ( ( rule__TypeProperty__Group__0 ) )
             {
-            // InternalYamlGenDsl.g:367:2: ( ( rule__Default__Group__0 ) )
-            // InternalYamlGenDsl.g:368:3: ( rule__Default__Group__0 )
+            // InternalYamlGenDsl.g:392:2: ( ( rule__TypeProperty__Group__0 ) )
+            // InternalYamlGenDsl.g:393:3: ( rule__TypeProperty__Group__0 )
             {
-             before(grammarAccess.getDefaultAccess().getGroup()); 
-            // InternalYamlGenDsl.g:369:3: ( rule__Default__Group__0 )
-            // InternalYamlGenDsl.g:369:4: rule__Default__Group__0
+             before(grammarAccess.getTypePropertyAccess().getGroup()); 
+            // InternalYamlGenDsl.g:394:3: ( rule__TypeProperty__Group__0 )
+            // InternalYamlGenDsl.g:394:4: rule__TypeProperty__Group__0
             {
             pushFollow(FOLLOW_2);
-            rule__Default__Group__0();
+            rule__TypeProperty__Group__0();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getDefaultAccess().getGroup()); 
+             after(grammarAccess.getTypePropertyAccess().getGroup()); 
 
             }
 
@@ -1102,169 +1187,15 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "ruleDefault"
-
-
-    // $ANTLR start "entryRuleHint"
-    // InternalYamlGenDsl.g:378:1: entryRuleHint : ruleHint EOF ;
-    public final void entryRuleHint() throws RecognitionException {
-        try {
-            // InternalYamlGenDsl.g:379:1: ( ruleHint EOF )
-            // InternalYamlGenDsl.g:380:1: ruleHint EOF
-            {
-             before(grammarAccess.getHintRule()); 
-            pushFollow(FOLLOW_1);
-            ruleHint();
-
-            state._fsp--;
-
-             after(grammarAccess.getHintRule()); 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-        }
-        return ;
-    }
-    // $ANTLR end "entryRuleHint"
-
-
-    // $ANTLR start "ruleHint"
-    // InternalYamlGenDsl.g:387:1: ruleHint : ( ( rule__Hint__Group__0 ) ) ;
-    public final void ruleHint() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalYamlGenDsl.g:391:2: ( ( ( rule__Hint__Group__0 ) ) )
-            // InternalYamlGenDsl.g:392:2: ( ( rule__Hint__Group__0 ) )
-            {
-            // InternalYamlGenDsl.g:392:2: ( ( rule__Hint__Group__0 ) )
-            // InternalYamlGenDsl.g:393:3: ( rule__Hint__Group__0 )
-            {
-             before(grammarAccess.getHintAccess().getGroup()); 
-            // InternalYamlGenDsl.g:394:3: ( rule__Hint__Group__0 )
-            // InternalYamlGenDsl.g:394:4: rule__Hint__Group__0
-            {
-            pushFollow(FOLLOW_2);
-            rule__Hint__Group__0();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getHintAccess().getGroup()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "ruleHint"
-
-
-    // $ANTLR start "entryRulePermittedValues"
-    // InternalYamlGenDsl.g:403:1: entryRulePermittedValues : rulePermittedValues EOF ;
-    public final void entryRulePermittedValues() throws RecognitionException {
-        try {
-            // InternalYamlGenDsl.g:404:1: ( rulePermittedValues EOF )
-            // InternalYamlGenDsl.g:405:1: rulePermittedValues EOF
-            {
-             before(grammarAccess.getPermittedValuesRule()); 
-            pushFollow(FOLLOW_1);
-            rulePermittedValues();
-
-            state._fsp--;
-
-             after(grammarAccess.getPermittedValuesRule()); 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-        }
-        return ;
-    }
-    // $ANTLR end "entryRulePermittedValues"
-
-
-    // $ANTLR start "rulePermittedValues"
-    // InternalYamlGenDsl.g:412:1: rulePermittedValues : ( ( rule__PermittedValues__Group__0 ) ) ;
-    public final void rulePermittedValues() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalYamlGenDsl.g:416:2: ( ( ( rule__PermittedValues__Group__0 ) ) )
-            // InternalYamlGenDsl.g:417:2: ( ( rule__PermittedValues__Group__0 ) )
-            {
-            // InternalYamlGenDsl.g:417:2: ( ( rule__PermittedValues__Group__0 ) )
-            // InternalYamlGenDsl.g:418:3: ( rule__PermittedValues__Group__0 )
-            {
-             before(grammarAccess.getPermittedValuesAccess().getGroup()); 
-            // InternalYamlGenDsl.g:419:3: ( rule__PermittedValues__Group__0 )
-            // InternalYamlGenDsl.g:419:4: rule__PermittedValues__Group__0
-            {
-            pushFollow(FOLLOW_2);
-            rule__PermittedValues__Group__0();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getPermittedValuesAccess().getGroup()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rulePermittedValues"
+    // $ANTLR end "ruleTypeProperty"
 
 
     // $ANTLR start "entryRuleValues"
-    // InternalYamlGenDsl.g:428:1: entryRuleValues : ruleValues EOF ;
+    // InternalYamlGenDsl.g:403:1: entryRuleValues : ruleValues EOF ;
     public final void entryRuleValues() throws RecognitionException {
         try {
-            // InternalYamlGenDsl.g:429:1: ( ruleValues EOF )
-            // InternalYamlGenDsl.g:430:1: ruleValues EOF
+            // InternalYamlGenDsl.g:404:1: ( ruleValues EOF )
+            // InternalYamlGenDsl.g:405:1: ruleValues EOF
             {
              before(grammarAccess.getValuesRule()); 
             pushFollow(FOLLOW_1);
@@ -1290,21 +1221,21 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "ruleValues"
-    // InternalYamlGenDsl.g:437:1: ruleValues : ( ( rule__Values__Alternatives ) ) ;
+    // InternalYamlGenDsl.g:412:1: ruleValues : ( ( rule__Values__Alternatives ) ) ;
     public final void ruleValues() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:441:2: ( ( ( rule__Values__Alternatives ) ) )
-            // InternalYamlGenDsl.g:442:2: ( ( rule__Values__Alternatives ) )
+            // InternalYamlGenDsl.g:416:2: ( ( ( rule__Values__Alternatives ) ) )
+            // InternalYamlGenDsl.g:417:2: ( ( rule__Values__Alternatives ) )
             {
-            // InternalYamlGenDsl.g:442:2: ( ( rule__Values__Alternatives ) )
-            // InternalYamlGenDsl.g:443:3: ( rule__Values__Alternatives )
+            // InternalYamlGenDsl.g:417:2: ( ( rule__Values__Alternatives ) )
+            // InternalYamlGenDsl.g:418:3: ( rule__Values__Alternatives )
             {
              before(grammarAccess.getValuesAccess().getAlternatives()); 
-            // InternalYamlGenDsl.g:444:3: ( rule__Values__Alternatives )
-            // InternalYamlGenDsl.g:444:4: rule__Values__Alternatives
+            // InternalYamlGenDsl.g:419:3: ( rule__Values__Alternatives )
+            // InternalYamlGenDsl.g:419:4: rule__Values__Alternatives
             {
             pushFollow(FOLLOW_2);
             rule__Values__Alternatives();
@@ -1337,20 +1268,20 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__SourceElement__Alternatives"
-    // InternalYamlGenDsl.g:452:1: rule__SourceElement__Alternatives : ( ( ruleField ) | ( ruleImport ) );
+    // InternalYamlGenDsl.g:427:1: rule__SourceElement__Alternatives : ( ( ruleField ) | ( ruleImport ) );
     public final void rule__SourceElement__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:456:1: ( ( ruleField ) | ( ruleImport ) )
+            // InternalYamlGenDsl.g:431:1: ( ( ruleField ) | ( ruleImport ) )
             int alt2=2;
             int LA2_0 = input.LA(1);
 
-            if ( ((LA2_0>=RULE_HELP_STRING && LA2_0<=RULE_ID)||LA2_0==26) ) {
+            if ( ((LA2_0>=RULE_HELP_STRING && LA2_0<=RULE_ID)||LA2_0==34) ) {
                 alt2=1;
             }
-            else if ( (LA2_0==12) ) {
+            else if ( (LA2_0==22) ) {
                 alt2=2;
             }
             else {
@@ -1361,10 +1292,10 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
             }
             switch (alt2) {
                 case 1 :
-                    // InternalYamlGenDsl.g:457:2: ( ruleField )
+                    // InternalYamlGenDsl.g:432:2: ( ruleField )
                     {
-                    // InternalYamlGenDsl.g:457:2: ( ruleField )
-                    // InternalYamlGenDsl.g:458:3: ruleField
+                    // InternalYamlGenDsl.g:432:2: ( ruleField )
+                    // InternalYamlGenDsl.g:433:3: ruleField
                     {
                      before(grammarAccess.getSourceElementAccess().getFieldParserRuleCall_0()); 
                     pushFollow(FOLLOW_2);
@@ -1380,10 +1311,10 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
                     }
                     break;
                 case 2 :
-                    // InternalYamlGenDsl.g:463:2: ( ruleImport )
+                    // InternalYamlGenDsl.g:438:2: ( ruleImport )
                     {
-                    // InternalYamlGenDsl.g:463:2: ( ruleImport )
-                    // InternalYamlGenDsl.g:464:3: ruleImport
+                    // InternalYamlGenDsl.g:438:2: ( ruleImport )
+                    // InternalYamlGenDsl.g:439:3: ruleImport
                     {
                      before(grammarAccess.getSourceElementAccess().getImportParserRuleCall_1()); 
                     pushFollow(FOLLOW_2);
@@ -1416,21 +1347,50 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__BodyElement__Alternatives"
-    // InternalYamlGenDsl.g:473:1: rule__BodyElement__Alternatives : ( ( ruleExtend ) | ( ruleNestedField ) | ( ruleNestedFields ) | ( ruleProperty ) );
+    // InternalYamlGenDsl.g:448:1: rule__BodyElement__Alternatives : ( ( ruleExtend ) | ( ruleAnyNestedField ) | ( ruleProperty ) );
     public final void rule__BodyElement__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:477:1: ( ( ruleExtend ) | ( ruleNestedField ) | ( ruleNestedFields ) | ( ruleProperty ) )
-            int alt3=4;
-            alt3 = dfa3.predict(input);
+            // InternalYamlGenDsl.g:452:1: ( ( ruleExtend ) | ( ruleAnyNestedField ) | ( ruleProperty ) )
+            int alt3=3;
+            switch ( input.LA(1) ) {
+            case 26:
+                {
+                alt3=1;
+                }
+                break;
+            case RULE_HELP_STRING:
+            case 27:
+            case 28:
+                {
+                alt3=2;
+                }
+                break;
+            case 12:
+            case 13:
+            case 14:
+            case 15:
+            case 16:
+            case 36:
+                {
+                alt3=3;
+                }
+                break;
+            default:
+                NoViableAltException nvae =
+                    new NoViableAltException("", 3, 0, input);
+
+                throw nvae;
+            }
+
             switch (alt3) {
                 case 1 :
-                    // InternalYamlGenDsl.g:478:2: ( ruleExtend )
+                    // InternalYamlGenDsl.g:453:2: ( ruleExtend )
                     {
-                    // InternalYamlGenDsl.g:478:2: ( ruleExtend )
-                    // InternalYamlGenDsl.g:479:3: ruleExtend
+                    // InternalYamlGenDsl.g:453:2: ( ruleExtend )
+                    // InternalYamlGenDsl.g:454:3: ruleExtend
                     {
                      before(grammarAccess.getBodyElementAccess().getExtendParserRuleCall_0()); 
                     pushFollow(FOLLOW_2);
@@ -1446,18 +1406,18 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
                     }
                     break;
                 case 2 :
-                    // InternalYamlGenDsl.g:484:2: ( ruleNestedField )
+                    // InternalYamlGenDsl.g:459:2: ( ruleAnyNestedField )
                     {
-                    // InternalYamlGenDsl.g:484:2: ( ruleNestedField )
-                    // InternalYamlGenDsl.g:485:3: ruleNestedField
+                    // InternalYamlGenDsl.g:459:2: ( ruleAnyNestedField )
+                    // InternalYamlGenDsl.g:460:3: ruleAnyNestedField
                     {
-                     before(grammarAccess.getBodyElementAccess().getNestedFieldParserRuleCall_1()); 
+                     before(grammarAccess.getBodyElementAccess().getAnyNestedFieldParserRuleCall_1()); 
                     pushFollow(FOLLOW_2);
-                    ruleNestedField();
+                    ruleAnyNestedField();
 
                     state._fsp--;
 
-                     after(grammarAccess.getBodyElementAccess().getNestedFieldParserRuleCall_1()); 
+                     after(grammarAccess.getBodyElementAccess().getAnyNestedFieldParserRuleCall_1()); 
 
                     }
 
@@ -1465,37 +1425,18 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
                     }
                     break;
                 case 3 :
-                    // InternalYamlGenDsl.g:490:2: ( ruleNestedFields )
+                    // InternalYamlGenDsl.g:465:2: ( ruleProperty )
                     {
-                    // InternalYamlGenDsl.g:490:2: ( ruleNestedFields )
-                    // InternalYamlGenDsl.g:491:3: ruleNestedFields
+                    // InternalYamlGenDsl.g:465:2: ( ruleProperty )
+                    // InternalYamlGenDsl.g:466:3: ruleProperty
                     {
-                     before(grammarAccess.getBodyElementAccess().getNestedFieldsParserRuleCall_2()); 
-                    pushFollow(FOLLOW_2);
-                    ruleNestedFields();
-
-                    state._fsp--;
-
-                     after(grammarAccess.getBodyElementAccess().getNestedFieldsParserRuleCall_2()); 
-
-                    }
-
-
-                    }
-                    break;
-                case 4 :
-                    // InternalYamlGenDsl.g:496:2: ( ruleProperty )
-                    {
-                    // InternalYamlGenDsl.g:496:2: ( ruleProperty )
-                    // InternalYamlGenDsl.g:497:3: ruleProperty
-                    {
-                     before(grammarAccess.getBodyElementAccess().getPropertyParserRuleCall_3()); 
+                     before(grammarAccess.getBodyElementAccess().getPropertyParserRuleCall_2()); 
                     pushFollow(FOLLOW_2);
                     ruleProperty();
 
                     state._fsp--;
 
-                     after(grammarAccess.getBodyElementAccess().getPropertyParserRuleCall_3()); 
+                     after(grammarAccess.getBodyElementAccess().getPropertyParserRuleCall_2()); 
 
                     }
 
@@ -1519,62 +1460,30 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__BodyElement__Alternatives"
 
 
-    // $ANTLR start "rule__Property__Alternatives"
-    // InternalYamlGenDsl.g:506:1: rule__Property__Alternatives : ( ( ruleName ) | ( ruleKey ) | ( ruleDefault ) | ( ruleHint ) | ( rulePermittedValues ) );
-    public final void rule__Property__Alternatives() throws RecognitionException {
+    // $ANTLR start "rule__AnyNestedField__Alternatives"
+    // InternalYamlGenDsl.g:475:1: rule__AnyNestedField__Alternatives : ( ( ruleNestedField ) | ( ruleNestedFields ) );
+    public final void rule__AnyNestedField__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:510:1: ( ( ruleName ) | ( ruleKey ) | ( ruleDefault ) | ( ruleHint ) | ( rulePermittedValues ) )
-            int alt4=5;
-            switch ( input.LA(1) ) {
-            case 20:
-                {
-                alt4=1;
-                }
-                break;
-            case 19:
-                {
-                alt4=2;
-                }
-                break;
-            case 21:
-                {
-                alt4=3;
-                }
-                break;
-            case 22:
-                {
-                alt4=4;
-                }
-                break;
-            case 23:
-                {
-                alt4=5;
-                }
-                break;
-            default:
-                NoViableAltException nvae =
-                    new NoViableAltException("", 4, 0, input);
-
-                throw nvae;
-            }
-
+            // InternalYamlGenDsl.g:479:1: ( ( ruleNestedField ) | ( ruleNestedFields ) )
+            int alt4=2;
+            alt4 = dfa4.predict(input);
             switch (alt4) {
                 case 1 :
-                    // InternalYamlGenDsl.g:511:2: ( ruleName )
+                    // InternalYamlGenDsl.g:480:2: ( ruleNestedField )
                     {
-                    // InternalYamlGenDsl.g:511:2: ( ruleName )
-                    // InternalYamlGenDsl.g:512:3: ruleName
+                    // InternalYamlGenDsl.g:480:2: ( ruleNestedField )
+                    // InternalYamlGenDsl.g:481:3: ruleNestedField
                     {
-                     before(grammarAccess.getPropertyAccess().getNameParserRuleCall_0()); 
+                     before(grammarAccess.getAnyNestedFieldAccess().getNestedFieldParserRuleCall_0()); 
                     pushFollow(FOLLOW_2);
-                    ruleName();
+                    ruleNestedField();
 
                     state._fsp--;
 
-                     after(grammarAccess.getPropertyAccess().getNameParserRuleCall_0()); 
+                     after(grammarAccess.getAnyNestedFieldAccess().getNestedFieldParserRuleCall_0()); 
 
                     }
 
@@ -1582,18 +1491,109 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
                     }
                     break;
                 case 2 :
-                    // InternalYamlGenDsl.g:517:2: ( ruleKey )
+                    // InternalYamlGenDsl.g:486:2: ( ruleNestedFields )
                     {
-                    // InternalYamlGenDsl.g:517:2: ( ruleKey )
-                    // InternalYamlGenDsl.g:518:3: ruleKey
+                    // InternalYamlGenDsl.g:486:2: ( ruleNestedFields )
+                    // InternalYamlGenDsl.g:487:3: ruleNestedFields
                     {
-                     before(grammarAccess.getPropertyAccess().getKeyParserRuleCall_1()); 
+                     before(grammarAccess.getAnyNestedFieldAccess().getNestedFieldsParserRuleCall_1()); 
                     pushFollow(FOLLOW_2);
-                    ruleKey();
+                    ruleNestedFields();
 
                     state._fsp--;
 
-                     after(grammarAccess.getPropertyAccess().getKeyParserRuleCall_1()); 
+                     after(grammarAccess.getAnyNestedFieldAccess().getNestedFieldsParserRuleCall_1()); 
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__AnyNestedField__Alternatives"
+
+
+    // $ANTLR start "rule__Property__Alternatives"
+    // InternalYamlGenDsl.g:496:1: rule__Property__Alternatives : ( ( ruleStringProperty ) | ( ruleValuesProperty ) | ( ruleTypeProperty ) );
+    public final void rule__Property__Alternatives() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalYamlGenDsl.g:500:1: ( ( ruleStringProperty ) | ( ruleValuesProperty ) | ( ruleTypeProperty ) )
+            int alt5=3;
+            switch ( input.LA(1) ) {
+            case 12:
+            case 13:
+            case 14:
+                {
+                alt5=1;
+                }
+                break;
+            case 15:
+            case 16:
+                {
+                alt5=2;
+                }
+                break;
+            case 36:
+                {
+                alt5=3;
+                }
+                break;
+            default:
+                NoViableAltException nvae =
+                    new NoViableAltException("", 5, 0, input);
+
+                throw nvae;
+            }
+
+            switch (alt5) {
+                case 1 :
+                    // InternalYamlGenDsl.g:501:2: ( ruleStringProperty )
+                    {
+                    // InternalYamlGenDsl.g:501:2: ( ruleStringProperty )
+                    // InternalYamlGenDsl.g:502:3: ruleStringProperty
+                    {
+                     before(grammarAccess.getPropertyAccess().getStringPropertyParserRuleCall_0()); 
+                    pushFollow(FOLLOW_2);
+                    ruleStringProperty();
+
+                    state._fsp--;
+
+                     after(grammarAccess.getPropertyAccess().getStringPropertyParserRuleCall_0()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalYamlGenDsl.g:507:2: ( ruleValuesProperty )
+                    {
+                    // InternalYamlGenDsl.g:507:2: ( ruleValuesProperty )
+                    // InternalYamlGenDsl.g:508:3: ruleValuesProperty
+                    {
+                     before(grammarAccess.getPropertyAccess().getValuesPropertyParserRuleCall_1()); 
+                    pushFollow(FOLLOW_2);
+                    ruleValuesProperty();
+
+                    state._fsp--;
+
+                     after(grammarAccess.getPropertyAccess().getValuesPropertyParserRuleCall_1()); 
 
                     }
 
@@ -1601,56 +1601,18 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
                     }
                     break;
                 case 3 :
-                    // InternalYamlGenDsl.g:523:2: ( ruleDefault )
+                    // InternalYamlGenDsl.g:513:2: ( ruleTypeProperty )
                     {
-                    // InternalYamlGenDsl.g:523:2: ( ruleDefault )
-                    // InternalYamlGenDsl.g:524:3: ruleDefault
+                    // InternalYamlGenDsl.g:513:2: ( ruleTypeProperty )
+                    // InternalYamlGenDsl.g:514:3: ruleTypeProperty
                     {
-                     before(grammarAccess.getPropertyAccess().getDefaultParserRuleCall_2()); 
+                     before(grammarAccess.getPropertyAccess().getTypePropertyParserRuleCall_2()); 
                     pushFollow(FOLLOW_2);
-                    ruleDefault();
+                    ruleTypeProperty();
 
                     state._fsp--;
 
-                     after(grammarAccess.getPropertyAccess().getDefaultParserRuleCall_2()); 
-
-                    }
-
-
-                    }
-                    break;
-                case 4 :
-                    // InternalYamlGenDsl.g:529:2: ( ruleHint )
-                    {
-                    // InternalYamlGenDsl.g:529:2: ( ruleHint )
-                    // InternalYamlGenDsl.g:530:3: ruleHint
-                    {
-                     before(grammarAccess.getPropertyAccess().getHintParserRuleCall_3()); 
-                    pushFollow(FOLLOW_2);
-                    ruleHint();
-
-                    state._fsp--;
-
-                     after(grammarAccess.getPropertyAccess().getHintParserRuleCall_3()); 
-
-                    }
-
-
-                    }
-                    break;
-                case 5 :
-                    // InternalYamlGenDsl.g:535:2: ( rulePermittedValues )
-                    {
-                    // InternalYamlGenDsl.g:535:2: ( rulePermittedValues )
-                    // InternalYamlGenDsl.g:536:3: rulePermittedValues
-                    {
-                     before(grammarAccess.getPropertyAccess().getPermittedValuesParserRuleCall_4()); 
-                    pushFollow(FOLLOW_2);
-                    rulePermittedValues();
-
-                    state._fsp--;
-
-                     after(grammarAccess.getPropertyAccess().getPermittedValuesParserRuleCall_4()); 
+                     after(grammarAccess.getPropertyAccess().getTypePropertyParserRuleCall_2()); 
 
                     }
 
@@ -1674,39 +1636,360 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__Property__Alternatives"
 
 
+    // $ANTLR start "rule__StringProperty__KeyAlternatives_0_0"
+    // InternalYamlGenDsl.g:523:1: rule__StringProperty__KeyAlternatives_0_0 : ( ( 'key' ) | ( 'name' ) | ( 'hint' ) );
+    public final void rule__StringProperty__KeyAlternatives_0_0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalYamlGenDsl.g:527:1: ( ( 'key' ) | ( 'name' ) | ( 'hint' ) )
+            int alt6=3;
+            switch ( input.LA(1) ) {
+            case 12:
+                {
+                alt6=1;
+                }
+                break;
+            case 13:
+                {
+                alt6=2;
+                }
+                break;
+            case 14:
+                {
+                alt6=3;
+                }
+                break;
+            default:
+                NoViableAltException nvae =
+                    new NoViableAltException("", 6, 0, input);
+
+                throw nvae;
+            }
+
+            switch (alt6) {
+                case 1 :
+                    // InternalYamlGenDsl.g:528:2: ( 'key' )
+                    {
+                    // InternalYamlGenDsl.g:528:2: ( 'key' )
+                    // InternalYamlGenDsl.g:529:3: 'key'
+                    {
+                     before(grammarAccess.getStringPropertyAccess().getKeyKeyKeyword_0_0_0()); 
+                    match(input,12,FOLLOW_2); 
+                     after(grammarAccess.getStringPropertyAccess().getKeyKeyKeyword_0_0_0()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalYamlGenDsl.g:534:2: ( 'name' )
+                    {
+                    // InternalYamlGenDsl.g:534:2: ( 'name' )
+                    // InternalYamlGenDsl.g:535:3: 'name'
+                    {
+                     before(grammarAccess.getStringPropertyAccess().getKeyNameKeyword_0_0_1()); 
+                    match(input,13,FOLLOW_2); 
+                     after(grammarAccess.getStringPropertyAccess().getKeyNameKeyword_0_0_1()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 3 :
+                    // InternalYamlGenDsl.g:540:2: ( 'hint' )
+                    {
+                    // InternalYamlGenDsl.g:540:2: ( 'hint' )
+                    // InternalYamlGenDsl.g:541:3: 'hint'
+                    {
+                     before(grammarAccess.getStringPropertyAccess().getKeyHintKeyword_0_0_2()); 
+                    match(input,14,FOLLOW_2); 
+                     after(grammarAccess.getStringPropertyAccess().getKeyHintKeyword_0_0_2()); 
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__StringProperty__KeyAlternatives_0_0"
+
+
+    // $ANTLR start "rule__ValuesProperty__KeyAlternatives_0_0"
+    // InternalYamlGenDsl.g:550:1: rule__ValuesProperty__KeyAlternatives_0_0 : ( ( 'default' ) | ( 'values' ) );
+    public final void rule__ValuesProperty__KeyAlternatives_0_0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalYamlGenDsl.g:554:1: ( ( 'default' ) | ( 'values' ) )
+            int alt7=2;
+            int LA7_0 = input.LA(1);
+
+            if ( (LA7_0==15) ) {
+                alt7=1;
+            }
+            else if ( (LA7_0==16) ) {
+                alt7=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 7, 0, input);
+
+                throw nvae;
+            }
+            switch (alt7) {
+                case 1 :
+                    // InternalYamlGenDsl.g:555:2: ( 'default' )
+                    {
+                    // InternalYamlGenDsl.g:555:2: ( 'default' )
+                    // InternalYamlGenDsl.g:556:3: 'default'
+                    {
+                     before(grammarAccess.getValuesPropertyAccess().getKeyDefaultKeyword_0_0_0()); 
+                    match(input,15,FOLLOW_2); 
+                     after(grammarAccess.getValuesPropertyAccess().getKeyDefaultKeyword_0_0_0()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalYamlGenDsl.g:561:2: ( 'values' )
+                    {
+                    // InternalYamlGenDsl.g:561:2: ( 'values' )
+                    // InternalYamlGenDsl.g:562:3: 'values'
+                    {
+                     before(grammarAccess.getValuesPropertyAccess().getKeyValuesKeyword_0_0_1()); 
+                    match(input,16,FOLLOW_2); 
+                     after(grammarAccess.getValuesPropertyAccess().getKeyValuesKeyword_0_0_1()); 
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ValuesProperty__KeyAlternatives_0_0"
+
+
+    // $ANTLR start "rule__TypeProperty__ValueAlternatives_2_0"
+    // InternalYamlGenDsl.g:571:1: rule__TypeProperty__ValueAlternatives_2_0 : ( ( 'int' ) | ( 'float' ) | ( 'string' ) | ( 'list' ) | ( 'any' ) | ( RULE_STRING ) );
+    public final void rule__TypeProperty__ValueAlternatives_2_0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalYamlGenDsl.g:575:1: ( ( 'int' ) | ( 'float' ) | ( 'string' ) | ( 'list' ) | ( 'any' ) | ( RULE_STRING ) )
+            int alt8=6;
+            switch ( input.LA(1) ) {
+            case 17:
+                {
+                alt8=1;
+                }
+                break;
+            case 18:
+                {
+                alt8=2;
+                }
+                break;
+            case 19:
+                {
+                alt8=3;
+                }
+                break;
+            case 20:
+                {
+                alt8=4;
+                }
+                break;
+            case 21:
+                {
+                alt8=5;
+                }
+                break;
+            case RULE_STRING:
+                {
+                alt8=6;
+                }
+                break;
+            default:
+                NoViableAltException nvae =
+                    new NoViableAltException("", 8, 0, input);
+
+                throw nvae;
+            }
+
+            switch (alt8) {
+                case 1 :
+                    // InternalYamlGenDsl.g:576:2: ( 'int' )
+                    {
+                    // InternalYamlGenDsl.g:576:2: ( 'int' )
+                    // InternalYamlGenDsl.g:577:3: 'int'
+                    {
+                     before(grammarAccess.getTypePropertyAccess().getValueIntKeyword_2_0_0()); 
+                    match(input,17,FOLLOW_2); 
+                     after(grammarAccess.getTypePropertyAccess().getValueIntKeyword_2_0_0()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalYamlGenDsl.g:582:2: ( 'float' )
+                    {
+                    // InternalYamlGenDsl.g:582:2: ( 'float' )
+                    // InternalYamlGenDsl.g:583:3: 'float'
+                    {
+                     before(grammarAccess.getTypePropertyAccess().getValueFloatKeyword_2_0_1()); 
+                    match(input,18,FOLLOW_2); 
+                     after(grammarAccess.getTypePropertyAccess().getValueFloatKeyword_2_0_1()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 3 :
+                    // InternalYamlGenDsl.g:588:2: ( 'string' )
+                    {
+                    // InternalYamlGenDsl.g:588:2: ( 'string' )
+                    // InternalYamlGenDsl.g:589:3: 'string'
+                    {
+                     before(grammarAccess.getTypePropertyAccess().getValueStringKeyword_2_0_2()); 
+                    match(input,19,FOLLOW_2); 
+                     after(grammarAccess.getTypePropertyAccess().getValueStringKeyword_2_0_2()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 4 :
+                    // InternalYamlGenDsl.g:594:2: ( 'list' )
+                    {
+                    // InternalYamlGenDsl.g:594:2: ( 'list' )
+                    // InternalYamlGenDsl.g:595:3: 'list'
+                    {
+                     before(grammarAccess.getTypePropertyAccess().getValueListKeyword_2_0_3()); 
+                    match(input,20,FOLLOW_2); 
+                     after(grammarAccess.getTypePropertyAccess().getValueListKeyword_2_0_3()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 5 :
+                    // InternalYamlGenDsl.g:600:2: ( 'any' )
+                    {
+                    // InternalYamlGenDsl.g:600:2: ( 'any' )
+                    // InternalYamlGenDsl.g:601:3: 'any'
+                    {
+                     before(grammarAccess.getTypePropertyAccess().getValueAnyKeyword_2_0_4()); 
+                    match(input,21,FOLLOW_2); 
+                     after(grammarAccess.getTypePropertyAccess().getValueAnyKeyword_2_0_4()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 6 :
+                    // InternalYamlGenDsl.g:606:2: ( RULE_STRING )
+                    {
+                    // InternalYamlGenDsl.g:606:2: ( RULE_STRING )
+                    // InternalYamlGenDsl.g:607:3: RULE_STRING
+                    {
+                     before(grammarAccess.getTypePropertyAccess().getValueSTRINGTerminalRuleCall_2_0_5()); 
+                    match(input,RULE_STRING,FOLLOW_2); 
+                     after(grammarAccess.getTypePropertyAccess().getValueSTRINGTerminalRuleCall_2_0_5()); 
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__TypeProperty__ValueAlternatives_2_0"
+
+
     // $ANTLR start "rule__Values__Alternatives"
-    // InternalYamlGenDsl.g:545:1: rule__Values__Alternatives : ( ( ( rule__Values__Group_0__0 ) ) | ( ( rule__Values__StringAssignment_1 ) ) );
+    // InternalYamlGenDsl.g:616:1: rule__Values__Alternatives : ( ( ( rule__Values__Group_0__0 ) ) | ( ( rule__Values__StringAssignment_1 ) ) );
     public final void rule__Values__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:549:1: ( ( ( rule__Values__Group_0__0 ) ) | ( ( rule__Values__StringAssignment_1 ) ) )
-            int alt5=2;
-            int LA5_0 = input.LA(1);
+            // InternalYamlGenDsl.g:620:1: ( ( ( rule__Values__Group_0__0 ) ) | ( ( rule__Values__StringAssignment_1 ) ) )
+            int alt9=2;
+            int LA9_0 = input.LA(1);
 
-            if ( (LA5_0==24) ) {
-                alt5=1;
+            if ( (LA9_0==32) ) {
+                alt9=1;
             }
-            else if ( (LA5_0==RULE_STRING) ) {
-                alt5=2;
+            else if ( (LA9_0==RULE_STRING) ) {
+                alt9=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 5, 0, input);
+                    new NoViableAltException("", 9, 0, input);
 
                 throw nvae;
             }
-            switch (alt5) {
+            switch (alt9) {
                 case 1 :
-                    // InternalYamlGenDsl.g:550:2: ( ( rule__Values__Group_0__0 ) )
+                    // InternalYamlGenDsl.g:621:2: ( ( rule__Values__Group_0__0 ) )
                     {
-                    // InternalYamlGenDsl.g:550:2: ( ( rule__Values__Group_0__0 ) )
-                    // InternalYamlGenDsl.g:551:3: ( rule__Values__Group_0__0 )
+                    // InternalYamlGenDsl.g:621:2: ( ( rule__Values__Group_0__0 ) )
+                    // InternalYamlGenDsl.g:622:3: ( rule__Values__Group_0__0 )
                     {
                      before(grammarAccess.getValuesAccess().getGroup_0()); 
-                    // InternalYamlGenDsl.g:552:3: ( rule__Values__Group_0__0 )
-                    // InternalYamlGenDsl.g:552:4: rule__Values__Group_0__0
+                    // InternalYamlGenDsl.g:623:3: ( rule__Values__Group_0__0 )
+                    // InternalYamlGenDsl.g:623:4: rule__Values__Group_0__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Values__Group_0__0();
@@ -1724,14 +2007,14 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
                     }
                     break;
                 case 2 :
-                    // InternalYamlGenDsl.g:556:2: ( ( rule__Values__StringAssignment_1 ) )
+                    // InternalYamlGenDsl.g:627:2: ( ( rule__Values__StringAssignment_1 ) )
                     {
-                    // InternalYamlGenDsl.g:556:2: ( ( rule__Values__StringAssignment_1 ) )
-                    // InternalYamlGenDsl.g:557:3: ( rule__Values__StringAssignment_1 )
+                    // InternalYamlGenDsl.g:627:2: ( ( rule__Values__StringAssignment_1 ) )
+                    // InternalYamlGenDsl.g:628:3: ( rule__Values__StringAssignment_1 )
                     {
                      before(grammarAccess.getValuesAccess().getStringAssignment_1()); 
-                    // InternalYamlGenDsl.g:558:3: ( rule__Values__StringAssignment_1 )
-                    // InternalYamlGenDsl.g:558:4: rule__Values__StringAssignment_1
+                    // InternalYamlGenDsl.g:629:3: ( rule__Values__StringAssignment_1 )
+                    // InternalYamlGenDsl.g:629:4: rule__Values__StringAssignment_1
                     {
                     pushFollow(FOLLOW_2);
                     rule__Values__StringAssignment_1();
@@ -1766,14 +2049,14 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Import__Group__0"
-    // InternalYamlGenDsl.g:566:1: rule__Import__Group__0 : rule__Import__Group__0__Impl rule__Import__Group__1 ;
+    // InternalYamlGenDsl.g:637:1: rule__Import__Group__0 : rule__Import__Group__0__Impl rule__Import__Group__1 ;
     public final void rule__Import__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:570:1: ( rule__Import__Group__0__Impl rule__Import__Group__1 )
-            // InternalYamlGenDsl.g:571:2: rule__Import__Group__0__Impl rule__Import__Group__1
+            // InternalYamlGenDsl.g:641:1: ( rule__Import__Group__0__Impl rule__Import__Group__1 )
+            // InternalYamlGenDsl.g:642:2: rule__Import__Group__0__Impl rule__Import__Group__1
             {
             pushFollow(FOLLOW_4);
             rule__Import__Group__0__Impl();
@@ -1804,20 +2087,20 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Import__Group__0__Impl"
-    // InternalYamlGenDsl.g:578:1: rule__Import__Group__0__Impl : ( 'import' ) ;
+    // InternalYamlGenDsl.g:649:1: rule__Import__Group__0__Impl : ( 'import' ) ;
     public final void rule__Import__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:582:1: ( ( 'import' ) )
-            // InternalYamlGenDsl.g:583:1: ( 'import' )
+            // InternalYamlGenDsl.g:653:1: ( ( 'import' ) )
+            // InternalYamlGenDsl.g:654:1: ( 'import' )
             {
-            // InternalYamlGenDsl.g:583:1: ( 'import' )
-            // InternalYamlGenDsl.g:584:2: 'import'
+            // InternalYamlGenDsl.g:654:1: ( 'import' )
+            // InternalYamlGenDsl.g:655:2: 'import'
             {
              before(grammarAccess.getImportAccess().getImportKeyword_0()); 
-            match(input,12,FOLLOW_2); 
+            match(input,22,FOLLOW_2); 
              after(grammarAccess.getImportAccess().getImportKeyword_0()); 
 
             }
@@ -1841,14 +2124,14 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Import__Group__1"
-    // InternalYamlGenDsl.g:593:1: rule__Import__Group__1 : rule__Import__Group__1__Impl ;
+    // InternalYamlGenDsl.g:664:1: rule__Import__Group__1 : rule__Import__Group__1__Impl ;
     public final void rule__Import__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:597:1: ( rule__Import__Group__1__Impl )
-            // InternalYamlGenDsl.g:598:2: rule__Import__Group__1__Impl
+            // InternalYamlGenDsl.g:668:1: ( rule__Import__Group__1__Impl )
+            // InternalYamlGenDsl.g:669:2: rule__Import__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Import__Group__1__Impl();
@@ -1874,21 +2157,21 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Import__Group__1__Impl"
-    // InternalYamlGenDsl.g:604:1: rule__Import__Group__1__Impl : ( ( rule__Import__PathAssignment_1 ) ) ;
+    // InternalYamlGenDsl.g:675:1: rule__Import__Group__1__Impl : ( ( rule__Import__PathAssignment_1 ) ) ;
     public final void rule__Import__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:608:1: ( ( ( rule__Import__PathAssignment_1 ) ) )
-            // InternalYamlGenDsl.g:609:1: ( ( rule__Import__PathAssignment_1 ) )
+            // InternalYamlGenDsl.g:679:1: ( ( ( rule__Import__PathAssignment_1 ) ) )
+            // InternalYamlGenDsl.g:680:1: ( ( rule__Import__PathAssignment_1 ) )
             {
-            // InternalYamlGenDsl.g:609:1: ( ( rule__Import__PathAssignment_1 ) )
-            // InternalYamlGenDsl.g:610:2: ( rule__Import__PathAssignment_1 )
+            // InternalYamlGenDsl.g:680:1: ( ( rule__Import__PathAssignment_1 ) )
+            // InternalYamlGenDsl.g:681:2: ( rule__Import__PathAssignment_1 )
             {
              before(grammarAccess.getImportAccess().getPathAssignment_1()); 
-            // InternalYamlGenDsl.g:611:2: ( rule__Import__PathAssignment_1 )
-            // InternalYamlGenDsl.g:611:3: rule__Import__PathAssignment_1
+            // InternalYamlGenDsl.g:682:2: ( rule__Import__PathAssignment_1 )
+            // InternalYamlGenDsl.g:682:3: rule__Import__PathAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Import__PathAssignment_1();
@@ -1921,14 +2204,14 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Field__Group__0"
-    // InternalYamlGenDsl.g:620:1: rule__Field__Group__0 : rule__Field__Group__0__Impl rule__Field__Group__1 ;
+    // InternalYamlGenDsl.g:691:1: rule__Field__Group__0 : rule__Field__Group__0__Impl rule__Field__Group__1 ;
     public final void rule__Field__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:624:1: ( rule__Field__Group__0__Impl rule__Field__Group__1 )
-            // InternalYamlGenDsl.g:625:2: rule__Field__Group__0__Impl rule__Field__Group__1
+            // InternalYamlGenDsl.g:695:1: ( rule__Field__Group__0__Impl rule__Field__Group__1 )
+            // InternalYamlGenDsl.g:696:2: rule__Field__Group__0__Impl rule__Field__Group__1
             {
             pushFollow(FOLLOW_5);
             rule__Field__Group__0__Impl();
@@ -1959,33 +2242,33 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Field__Group__0__Impl"
-    // InternalYamlGenDsl.g:632:1: rule__Field__Group__0__Impl : ( ( rule__Field__HelpAssignment_0 )* ) ;
+    // InternalYamlGenDsl.g:703:1: rule__Field__Group__0__Impl : ( ( rule__Field__HelpAssignment_0 )* ) ;
     public final void rule__Field__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:636:1: ( ( ( rule__Field__HelpAssignment_0 )* ) )
-            // InternalYamlGenDsl.g:637:1: ( ( rule__Field__HelpAssignment_0 )* )
+            // InternalYamlGenDsl.g:707:1: ( ( ( rule__Field__HelpAssignment_0 )* ) )
+            // InternalYamlGenDsl.g:708:1: ( ( rule__Field__HelpAssignment_0 )* )
             {
-            // InternalYamlGenDsl.g:637:1: ( ( rule__Field__HelpAssignment_0 )* )
-            // InternalYamlGenDsl.g:638:2: ( rule__Field__HelpAssignment_0 )*
+            // InternalYamlGenDsl.g:708:1: ( ( rule__Field__HelpAssignment_0 )* )
+            // InternalYamlGenDsl.g:709:2: ( rule__Field__HelpAssignment_0 )*
             {
              before(grammarAccess.getFieldAccess().getHelpAssignment_0()); 
-            // InternalYamlGenDsl.g:639:2: ( rule__Field__HelpAssignment_0 )*
-            loop6:
+            // InternalYamlGenDsl.g:710:2: ( rule__Field__HelpAssignment_0 )*
+            loop10:
             do {
-                int alt6=2;
-                int LA6_0 = input.LA(1);
+                int alt10=2;
+                int LA10_0 = input.LA(1);
 
-                if ( (LA6_0==RULE_HELP_STRING) ) {
-                    alt6=1;
+                if ( (LA10_0==RULE_HELP_STRING) ) {
+                    alt10=1;
                 }
 
 
-                switch (alt6) {
+                switch (alt10) {
             	case 1 :
-            	    // InternalYamlGenDsl.g:639:3: rule__Field__HelpAssignment_0
+            	    // InternalYamlGenDsl.g:710:3: rule__Field__HelpAssignment_0
             	    {
             	    pushFollow(FOLLOW_6);
             	    rule__Field__HelpAssignment_0();
@@ -1997,7 +2280,7 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
             	    break;
 
             	default :
-            	    break loop6;
+            	    break loop10;
                 }
             } while (true);
 
@@ -2024,14 +2307,14 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Field__Group__1"
-    // InternalYamlGenDsl.g:647:1: rule__Field__Group__1 : rule__Field__Group__1__Impl rule__Field__Group__2 ;
+    // InternalYamlGenDsl.g:718:1: rule__Field__Group__1 : rule__Field__Group__1__Impl rule__Field__Group__2 ;
     public final void rule__Field__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:651:1: ( rule__Field__Group__1__Impl rule__Field__Group__2 )
-            // InternalYamlGenDsl.g:652:2: rule__Field__Group__1__Impl rule__Field__Group__2
+            // InternalYamlGenDsl.g:722:1: ( rule__Field__Group__1__Impl rule__Field__Group__2 )
+            // InternalYamlGenDsl.g:723:2: rule__Field__Group__1__Impl rule__Field__Group__2
             {
             pushFollow(FOLLOW_5);
             rule__Field__Group__1__Impl();
@@ -2062,29 +2345,29 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Field__Group__1__Impl"
-    // InternalYamlGenDsl.g:659:1: rule__Field__Group__1__Impl : ( ( rule__Field__RootAssignment_1 )? ) ;
+    // InternalYamlGenDsl.g:730:1: rule__Field__Group__1__Impl : ( ( rule__Field__RootAssignment_1 )? ) ;
     public final void rule__Field__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:663:1: ( ( ( rule__Field__RootAssignment_1 )? ) )
-            // InternalYamlGenDsl.g:664:1: ( ( rule__Field__RootAssignment_1 )? )
+            // InternalYamlGenDsl.g:734:1: ( ( ( rule__Field__RootAssignment_1 )? ) )
+            // InternalYamlGenDsl.g:735:1: ( ( rule__Field__RootAssignment_1 )? )
             {
-            // InternalYamlGenDsl.g:664:1: ( ( rule__Field__RootAssignment_1 )? )
-            // InternalYamlGenDsl.g:665:2: ( rule__Field__RootAssignment_1 )?
+            // InternalYamlGenDsl.g:735:1: ( ( rule__Field__RootAssignment_1 )? )
+            // InternalYamlGenDsl.g:736:2: ( rule__Field__RootAssignment_1 )?
             {
              before(grammarAccess.getFieldAccess().getRootAssignment_1()); 
-            // InternalYamlGenDsl.g:666:2: ( rule__Field__RootAssignment_1 )?
-            int alt7=2;
-            int LA7_0 = input.LA(1);
+            // InternalYamlGenDsl.g:737:2: ( rule__Field__RootAssignment_1 )?
+            int alt11=2;
+            int LA11_0 = input.LA(1);
 
-            if ( (LA7_0==26) ) {
-                alt7=1;
+            if ( (LA11_0==34) ) {
+                alt11=1;
             }
-            switch (alt7) {
+            switch (alt11) {
                 case 1 :
-                    // InternalYamlGenDsl.g:666:3: rule__Field__RootAssignment_1
+                    // InternalYamlGenDsl.g:737:3: rule__Field__RootAssignment_1
                     {
                     pushFollow(FOLLOW_2);
                     rule__Field__RootAssignment_1();
@@ -2120,14 +2403,14 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Field__Group__2"
-    // InternalYamlGenDsl.g:674:1: rule__Field__Group__2 : rule__Field__Group__2__Impl rule__Field__Group__3 ;
+    // InternalYamlGenDsl.g:745:1: rule__Field__Group__2 : rule__Field__Group__2__Impl rule__Field__Group__3 ;
     public final void rule__Field__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:678:1: ( rule__Field__Group__2__Impl rule__Field__Group__3 )
-            // InternalYamlGenDsl.g:679:2: rule__Field__Group__2__Impl rule__Field__Group__3
+            // InternalYamlGenDsl.g:749:1: ( rule__Field__Group__2__Impl rule__Field__Group__3 )
+            // InternalYamlGenDsl.g:750:2: rule__Field__Group__2__Impl rule__Field__Group__3
             {
             pushFollow(FOLLOW_7);
             rule__Field__Group__2__Impl();
@@ -2158,21 +2441,21 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Field__Group__2__Impl"
-    // InternalYamlGenDsl.g:686:1: rule__Field__Group__2__Impl : ( ( rule__Field__NameAssignment_2 ) ) ;
+    // InternalYamlGenDsl.g:757:1: rule__Field__Group__2__Impl : ( ( rule__Field__NameAssignment_2 ) ) ;
     public final void rule__Field__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:690:1: ( ( ( rule__Field__NameAssignment_2 ) ) )
-            // InternalYamlGenDsl.g:691:1: ( ( rule__Field__NameAssignment_2 ) )
+            // InternalYamlGenDsl.g:761:1: ( ( ( rule__Field__NameAssignment_2 ) ) )
+            // InternalYamlGenDsl.g:762:1: ( ( rule__Field__NameAssignment_2 ) )
             {
-            // InternalYamlGenDsl.g:691:1: ( ( rule__Field__NameAssignment_2 ) )
-            // InternalYamlGenDsl.g:692:2: ( rule__Field__NameAssignment_2 )
+            // InternalYamlGenDsl.g:762:1: ( ( rule__Field__NameAssignment_2 ) )
+            // InternalYamlGenDsl.g:763:2: ( rule__Field__NameAssignment_2 )
             {
              before(grammarAccess.getFieldAccess().getNameAssignment_2()); 
-            // InternalYamlGenDsl.g:693:2: ( rule__Field__NameAssignment_2 )
-            // InternalYamlGenDsl.g:693:3: rule__Field__NameAssignment_2
+            // InternalYamlGenDsl.g:764:2: ( rule__Field__NameAssignment_2 )
+            // InternalYamlGenDsl.g:764:3: rule__Field__NameAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__Field__NameAssignment_2();
@@ -2205,14 +2488,14 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Field__Group__3"
-    // InternalYamlGenDsl.g:701:1: rule__Field__Group__3 : rule__Field__Group__3__Impl rule__Field__Group__4 ;
+    // InternalYamlGenDsl.g:772:1: rule__Field__Group__3 : rule__Field__Group__3__Impl rule__Field__Group__4 ;
     public final void rule__Field__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:705:1: ( rule__Field__Group__3__Impl rule__Field__Group__4 )
-            // InternalYamlGenDsl.g:706:2: rule__Field__Group__3__Impl rule__Field__Group__4
+            // InternalYamlGenDsl.g:776:1: ( rule__Field__Group__3__Impl rule__Field__Group__4 )
+            // InternalYamlGenDsl.g:777:2: rule__Field__Group__3__Impl rule__Field__Group__4
             {
             pushFollow(FOLLOW_7);
             rule__Field__Group__3__Impl();
@@ -2243,29 +2526,29 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Field__Group__3__Impl"
-    // InternalYamlGenDsl.g:713:1: rule__Field__Group__3__Impl : ( ( rule__Field__Group_3__0 )? ) ;
+    // InternalYamlGenDsl.g:784:1: rule__Field__Group__3__Impl : ( ( rule__Field__Group_3__0 )? ) ;
     public final void rule__Field__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:717:1: ( ( ( rule__Field__Group_3__0 )? ) )
-            // InternalYamlGenDsl.g:718:1: ( ( rule__Field__Group_3__0 )? )
+            // InternalYamlGenDsl.g:788:1: ( ( ( rule__Field__Group_3__0 )? ) )
+            // InternalYamlGenDsl.g:789:1: ( ( rule__Field__Group_3__0 )? )
             {
-            // InternalYamlGenDsl.g:718:1: ( ( rule__Field__Group_3__0 )? )
-            // InternalYamlGenDsl.g:719:2: ( rule__Field__Group_3__0 )?
+            // InternalYamlGenDsl.g:789:1: ( ( rule__Field__Group_3__0 )? )
+            // InternalYamlGenDsl.g:790:2: ( rule__Field__Group_3__0 )?
             {
              before(grammarAccess.getFieldAccess().getGroup_3()); 
-            // InternalYamlGenDsl.g:720:2: ( rule__Field__Group_3__0 )?
-            int alt8=2;
-            int LA8_0 = input.LA(1);
+            // InternalYamlGenDsl.g:791:2: ( rule__Field__Group_3__0 )?
+            int alt12=2;
+            int LA12_0 = input.LA(1);
 
-            if ( (LA8_0==13) ) {
-                alt8=1;
+            if ( (LA12_0==23) ) {
+                alt12=1;
             }
-            switch (alt8) {
+            switch (alt12) {
                 case 1 :
-                    // InternalYamlGenDsl.g:720:3: rule__Field__Group_3__0
+                    // InternalYamlGenDsl.g:791:3: rule__Field__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Field__Group_3__0();
@@ -2301,14 +2584,14 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Field__Group__4"
-    // InternalYamlGenDsl.g:728:1: rule__Field__Group__4 : rule__Field__Group__4__Impl ;
+    // InternalYamlGenDsl.g:799:1: rule__Field__Group__4 : rule__Field__Group__4__Impl ;
     public final void rule__Field__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:732:1: ( rule__Field__Group__4__Impl )
-            // InternalYamlGenDsl.g:733:2: rule__Field__Group__4__Impl
+            // InternalYamlGenDsl.g:803:1: ( rule__Field__Group__4__Impl )
+            // InternalYamlGenDsl.g:804:2: rule__Field__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Field__Group__4__Impl();
@@ -2334,21 +2617,21 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Field__Group__4__Impl"
-    // InternalYamlGenDsl.g:739:1: rule__Field__Group__4__Impl : ( ( rule__Field__BodyAssignment_4 ) ) ;
+    // InternalYamlGenDsl.g:810:1: rule__Field__Group__4__Impl : ( ( rule__Field__BodyAssignment_4 ) ) ;
     public final void rule__Field__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:743:1: ( ( ( rule__Field__BodyAssignment_4 ) ) )
-            // InternalYamlGenDsl.g:744:1: ( ( rule__Field__BodyAssignment_4 ) )
+            // InternalYamlGenDsl.g:814:1: ( ( ( rule__Field__BodyAssignment_4 ) ) )
+            // InternalYamlGenDsl.g:815:1: ( ( rule__Field__BodyAssignment_4 ) )
             {
-            // InternalYamlGenDsl.g:744:1: ( ( rule__Field__BodyAssignment_4 ) )
-            // InternalYamlGenDsl.g:745:2: ( rule__Field__BodyAssignment_4 )
+            // InternalYamlGenDsl.g:815:1: ( ( rule__Field__BodyAssignment_4 ) )
+            // InternalYamlGenDsl.g:816:2: ( rule__Field__BodyAssignment_4 )
             {
              before(grammarAccess.getFieldAccess().getBodyAssignment_4()); 
-            // InternalYamlGenDsl.g:746:2: ( rule__Field__BodyAssignment_4 )
-            // InternalYamlGenDsl.g:746:3: rule__Field__BodyAssignment_4
+            // InternalYamlGenDsl.g:817:2: ( rule__Field__BodyAssignment_4 )
+            // InternalYamlGenDsl.g:817:3: rule__Field__BodyAssignment_4
             {
             pushFollow(FOLLOW_2);
             rule__Field__BodyAssignment_4();
@@ -2381,14 +2664,14 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Field__Group_3__0"
-    // InternalYamlGenDsl.g:755:1: rule__Field__Group_3__0 : rule__Field__Group_3__0__Impl rule__Field__Group_3__1 ;
+    // InternalYamlGenDsl.g:826:1: rule__Field__Group_3__0 : rule__Field__Group_3__0__Impl rule__Field__Group_3__1 ;
     public final void rule__Field__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:759:1: ( rule__Field__Group_3__0__Impl rule__Field__Group_3__1 )
-            // InternalYamlGenDsl.g:760:2: rule__Field__Group_3__0__Impl rule__Field__Group_3__1
+            // InternalYamlGenDsl.g:830:1: ( rule__Field__Group_3__0__Impl rule__Field__Group_3__1 )
+            // InternalYamlGenDsl.g:831:2: rule__Field__Group_3__0__Impl rule__Field__Group_3__1
             {
             pushFollow(FOLLOW_8);
             rule__Field__Group_3__0__Impl();
@@ -2419,20 +2702,20 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Field__Group_3__0__Impl"
-    // InternalYamlGenDsl.g:767:1: rule__Field__Group_3__0__Impl : ( 'extends' ) ;
+    // InternalYamlGenDsl.g:838:1: rule__Field__Group_3__0__Impl : ( 'extends' ) ;
     public final void rule__Field__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:771:1: ( ( 'extends' ) )
-            // InternalYamlGenDsl.g:772:1: ( 'extends' )
+            // InternalYamlGenDsl.g:842:1: ( ( 'extends' ) )
+            // InternalYamlGenDsl.g:843:1: ( 'extends' )
             {
-            // InternalYamlGenDsl.g:772:1: ( 'extends' )
-            // InternalYamlGenDsl.g:773:2: 'extends'
+            // InternalYamlGenDsl.g:843:1: ( 'extends' )
+            // InternalYamlGenDsl.g:844:2: 'extends'
             {
              before(grammarAccess.getFieldAccess().getExtendsKeyword_3_0()); 
-            match(input,13,FOLLOW_2); 
+            match(input,23,FOLLOW_2); 
              after(grammarAccess.getFieldAccess().getExtendsKeyword_3_0()); 
 
             }
@@ -2456,14 +2739,14 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Field__Group_3__1"
-    // InternalYamlGenDsl.g:782:1: rule__Field__Group_3__1 : rule__Field__Group_3__1__Impl ;
+    // InternalYamlGenDsl.g:853:1: rule__Field__Group_3__1 : rule__Field__Group_3__1__Impl ;
     public final void rule__Field__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:786:1: ( rule__Field__Group_3__1__Impl )
-            // InternalYamlGenDsl.g:787:2: rule__Field__Group_3__1__Impl
+            // InternalYamlGenDsl.g:857:1: ( rule__Field__Group_3__1__Impl )
+            // InternalYamlGenDsl.g:858:2: rule__Field__Group_3__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Field__Group_3__1__Impl();
@@ -2489,21 +2772,21 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Field__Group_3__1__Impl"
-    // InternalYamlGenDsl.g:793:1: rule__Field__Group_3__1__Impl : ( ( rule__Field__SuperFieldAssignment_3_1 ) ) ;
+    // InternalYamlGenDsl.g:864:1: rule__Field__Group_3__1__Impl : ( ( rule__Field__SuperFieldAssignment_3_1 ) ) ;
     public final void rule__Field__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:797:1: ( ( ( rule__Field__SuperFieldAssignment_3_1 ) ) )
-            // InternalYamlGenDsl.g:798:1: ( ( rule__Field__SuperFieldAssignment_3_1 ) )
+            // InternalYamlGenDsl.g:868:1: ( ( ( rule__Field__SuperFieldAssignment_3_1 ) ) )
+            // InternalYamlGenDsl.g:869:1: ( ( rule__Field__SuperFieldAssignment_3_1 ) )
             {
-            // InternalYamlGenDsl.g:798:1: ( ( rule__Field__SuperFieldAssignment_3_1 ) )
-            // InternalYamlGenDsl.g:799:2: ( rule__Field__SuperFieldAssignment_3_1 )
+            // InternalYamlGenDsl.g:869:1: ( ( rule__Field__SuperFieldAssignment_3_1 ) )
+            // InternalYamlGenDsl.g:870:2: ( rule__Field__SuperFieldAssignment_3_1 )
             {
              before(grammarAccess.getFieldAccess().getSuperFieldAssignment_3_1()); 
-            // InternalYamlGenDsl.g:800:2: ( rule__Field__SuperFieldAssignment_3_1 )
-            // InternalYamlGenDsl.g:800:3: rule__Field__SuperFieldAssignment_3_1
+            // InternalYamlGenDsl.g:871:2: ( rule__Field__SuperFieldAssignment_3_1 )
+            // InternalYamlGenDsl.g:871:3: rule__Field__SuperFieldAssignment_3_1
             {
             pushFollow(FOLLOW_2);
             rule__Field__SuperFieldAssignment_3_1();
@@ -2536,14 +2819,14 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Body__Group__0"
-    // InternalYamlGenDsl.g:809:1: rule__Body__Group__0 : rule__Body__Group__0__Impl rule__Body__Group__1 ;
+    // InternalYamlGenDsl.g:880:1: rule__Body__Group__0 : rule__Body__Group__0__Impl rule__Body__Group__1 ;
     public final void rule__Body__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:813:1: ( rule__Body__Group__0__Impl rule__Body__Group__1 )
-            // InternalYamlGenDsl.g:814:2: rule__Body__Group__0__Impl rule__Body__Group__1
+            // InternalYamlGenDsl.g:884:1: ( rule__Body__Group__0__Impl rule__Body__Group__1 )
+            // InternalYamlGenDsl.g:885:2: rule__Body__Group__0__Impl rule__Body__Group__1
             {
             pushFollow(FOLLOW_7);
             rule__Body__Group__0__Impl();
@@ -2574,21 +2857,21 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Body__Group__0__Impl"
-    // InternalYamlGenDsl.g:821:1: rule__Body__Group__0__Impl : ( () ) ;
+    // InternalYamlGenDsl.g:892:1: rule__Body__Group__0__Impl : ( () ) ;
     public final void rule__Body__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:825:1: ( ( () ) )
-            // InternalYamlGenDsl.g:826:1: ( () )
+            // InternalYamlGenDsl.g:896:1: ( ( () ) )
+            // InternalYamlGenDsl.g:897:1: ( () )
             {
-            // InternalYamlGenDsl.g:826:1: ( () )
-            // InternalYamlGenDsl.g:827:2: ()
+            // InternalYamlGenDsl.g:897:1: ( () )
+            // InternalYamlGenDsl.g:898:2: ()
             {
              before(grammarAccess.getBodyAccess().getBodyAction_0()); 
-            // InternalYamlGenDsl.g:828:2: ()
-            // InternalYamlGenDsl.g:828:3: 
+            // InternalYamlGenDsl.g:899:2: ()
+            // InternalYamlGenDsl.g:899:3: 
             {
             }
 
@@ -2611,14 +2894,14 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Body__Group__1"
-    // InternalYamlGenDsl.g:836:1: rule__Body__Group__1 : rule__Body__Group__1__Impl rule__Body__Group__2 ;
+    // InternalYamlGenDsl.g:907:1: rule__Body__Group__1 : rule__Body__Group__1__Impl rule__Body__Group__2 ;
     public final void rule__Body__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:840:1: ( rule__Body__Group__1__Impl rule__Body__Group__2 )
-            // InternalYamlGenDsl.g:841:2: rule__Body__Group__1__Impl rule__Body__Group__2
+            // InternalYamlGenDsl.g:911:1: ( rule__Body__Group__1__Impl rule__Body__Group__2 )
+            // InternalYamlGenDsl.g:912:2: rule__Body__Group__1__Impl rule__Body__Group__2
             {
             pushFollow(FOLLOW_9);
             rule__Body__Group__1__Impl();
@@ -2649,20 +2932,20 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Body__Group__1__Impl"
-    // InternalYamlGenDsl.g:848:1: rule__Body__Group__1__Impl : ( '{' ) ;
+    // InternalYamlGenDsl.g:919:1: rule__Body__Group__1__Impl : ( '{' ) ;
     public final void rule__Body__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:852:1: ( ( '{' ) )
-            // InternalYamlGenDsl.g:853:1: ( '{' )
+            // InternalYamlGenDsl.g:923:1: ( ( '{' ) )
+            // InternalYamlGenDsl.g:924:1: ( '{' )
             {
-            // InternalYamlGenDsl.g:853:1: ( '{' )
-            // InternalYamlGenDsl.g:854:2: '{'
+            // InternalYamlGenDsl.g:924:1: ( '{' )
+            // InternalYamlGenDsl.g:925:2: '{'
             {
              before(grammarAccess.getBodyAccess().getLeftCurlyBracketKeyword_1()); 
-            match(input,14,FOLLOW_2); 
+            match(input,24,FOLLOW_2); 
              after(grammarAccess.getBodyAccess().getLeftCurlyBracketKeyword_1()); 
 
             }
@@ -2686,14 +2969,14 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Body__Group__2"
-    // InternalYamlGenDsl.g:863:1: rule__Body__Group__2 : rule__Body__Group__2__Impl rule__Body__Group__3 ;
+    // InternalYamlGenDsl.g:934:1: rule__Body__Group__2 : rule__Body__Group__2__Impl rule__Body__Group__3 ;
     public final void rule__Body__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:867:1: ( rule__Body__Group__2__Impl rule__Body__Group__3 )
-            // InternalYamlGenDsl.g:868:2: rule__Body__Group__2__Impl rule__Body__Group__3
+            // InternalYamlGenDsl.g:938:1: ( rule__Body__Group__2__Impl rule__Body__Group__3 )
+            // InternalYamlGenDsl.g:939:2: rule__Body__Group__2__Impl rule__Body__Group__3
             {
             pushFollow(FOLLOW_9);
             rule__Body__Group__2__Impl();
@@ -2724,33 +3007,33 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Body__Group__2__Impl"
-    // InternalYamlGenDsl.g:875:1: rule__Body__Group__2__Impl : ( ( rule__Body__ElementsAssignment_2 )* ) ;
+    // InternalYamlGenDsl.g:946:1: rule__Body__Group__2__Impl : ( ( rule__Body__ElementsAssignment_2 )* ) ;
     public final void rule__Body__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:879:1: ( ( ( rule__Body__ElementsAssignment_2 )* ) )
-            // InternalYamlGenDsl.g:880:1: ( ( rule__Body__ElementsAssignment_2 )* )
+            // InternalYamlGenDsl.g:950:1: ( ( ( rule__Body__ElementsAssignment_2 )* ) )
+            // InternalYamlGenDsl.g:951:1: ( ( rule__Body__ElementsAssignment_2 )* )
             {
-            // InternalYamlGenDsl.g:880:1: ( ( rule__Body__ElementsAssignment_2 )* )
-            // InternalYamlGenDsl.g:881:2: ( rule__Body__ElementsAssignment_2 )*
+            // InternalYamlGenDsl.g:951:1: ( ( rule__Body__ElementsAssignment_2 )* )
+            // InternalYamlGenDsl.g:952:2: ( rule__Body__ElementsAssignment_2 )*
             {
              before(grammarAccess.getBodyAccess().getElementsAssignment_2()); 
-            // InternalYamlGenDsl.g:882:2: ( rule__Body__ElementsAssignment_2 )*
-            loop9:
+            // InternalYamlGenDsl.g:953:2: ( rule__Body__ElementsAssignment_2 )*
+            loop13:
             do {
-                int alt9=2;
-                int LA9_0 = input.LA(1);
+                int alt13=2;
+                int LA13_0 = input.LA(1);
 
-                if ( (LA9_0==RULE_HELP_STRING||(LA9_0>=16 && LA9_0<=23)) ) {
-                    alt9=1;
+                if ( (LA13_0==RULE_HELP_STRING||(LA13_0>=12 && LA13_0<=16)||(LA13_0>=26 && LA13_0<=28)||LA13_0==36) ) {
+                    alt13=1;
                 }
 
 
-                switch (alt9) {
+                switch (alt13) {
             	case 1 :
-            	    // InternalYamlGenDsl.g:882:3: rule__Body__ElementsAssignment_2
+            	    // InternalYamlGenDsl.g:953:3: rule__Body__ElementsAssignment_2
             	    {
             	    pushFollow(FOLLOW_10);
             	    rule__Body__ElementsAssignment_2();
@@ -2762,7 +3045,7 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
             	    break;
 
             	default :
-            	    break loop9;
+            	    break loop13;
                 }
             } while (true);
 
@@ -2789,14 +3072,14 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Body__Group__3"
-    // InternalYamlGenDsl.g:890:1: rule__Body__Group__3 : rule__Body__Group__3__Impl ;
+    // InternalYamlGenDsl.g:961:1: rule__Body__Group__3 : rule__Body__Group__3__Impl ;
     public final void rule__Body__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:894:1: ( rule__Body__Group__3__Impl )
-            // InternalYamlGenDsl.g:895:2: rule__Body__Group__3__Impl
+            // InternalYamlGenDsl.g:965:1: ( rule__Body__Group__3__Impl )
+            // InternalYamlGenDsl.g:966:2: rule__Body__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Body__Group__3__Impl();
@@ -2822,20 +3105,20 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Body__Group__3__Impl"
-    // InternalYamlGenDsl.g:901:1: rule__Body__Group__3__Impl : ( '}' ) ;
+    // InternalYamlGenDsl.g:972:1: rule__Body__Group__3__Impl : ( '}' ) ;
     public final void rule__Body__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:905:1: ( ( '}' ) )
-            // InternalYamlGenDsl.g:906:1: ( '}' )
+            // InternalYamlGenDsl.g:976:1: ( ( '}' ) )
+            // InternalYamlGenDsl.g:977:1: ( '}' )
             {
-            // InternalYamlGenDsl.g:906:1: ( '}' )
-            // InternalYamlGenDsl.g:907:2: '}'
+            // InternalYamlGenDsl.g:977:1: ( '}' )
+            // InternalYamlGenDsl.g:978:2: '}'
             {
              before(grammarAccess.getBodyAccess().getRightCurlyBracketKeyword_3()); 
-            match(input,15,FOLLOW_2); 
+            match(input,25,FOLLOW_2); 
              after(grammarAccess.getBodyAccess().getRightCurlyBracketKeyword_3()); 
 
             }
@@ -2859,14 +3142,14 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Extend__Group__0"
-    // InternalYamlGenDsl.g:917:1: rule__Extend__Group__0 : rule__Extend__Group__0__Impl rule__Extend__Group__1 ;
+    // InternalYamlGenDsl.g:988:1: rule__Extend__Group__0 : rule__Extend__Group__0__Impl rule__Extend__Group__1 ;
     public final void rule__Extend__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:921:1: ( rule__Extend__Group__0__Impl rule__Extend__Group__1 )
-            // InternalYamlGenDsl.g:922:2: rule__Extend__Group__0__Impl rule__Extend__Group__1
+            // InternalYamlGenDsl.g:992:1: ( rule__Extend__Group__0__Impl rule__Extend__Group__1 )
+            // InternalYamlGenDsl.g:993:2: rule__Extend__Group__0__Impl rule__Extend__Group__1
             {
             pushFollow(FOLLOW_4);
             rule__Extend__Group__0__Impl();
@@ -2897,20 +3180,20 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Extend__Group__0__Impl"
-    // InternalYamlGenDsl.g:929:1: rule__Extend__Group__0__Impl : ( 'extend' ) ;
+    // InternalYamlGenDsl.g:1000:1: rule__Extend__Group__0__Impl : ( 'extend' ) ;
     public final void rule__Extend__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:933:1: ( ( 'extend' ) )
-            // InternalYamlGenDsl.g:934:1: ( 'extend' )
+            // InternalYamlGenDsl.g:1004:1: ( ( 'extend' ) )
+            // InternalYamlGenDsl.g:1005:1: ( 'extend' )
             {
-            // InternalYamlGenDsl.g:934:1: ( 'extend' )
-            // InternalYamlGenDsl.g:935:2: 'extend'
+            // InternalYamlGenDsl.g:1005:1: ( 'extend' )
+            // InternalYamlGenDsl.g:1006:2: 'extend'
             {
              before(grammarAccess.getExtendAccess().getExtendKeyword_0()); 
-            match(input,16,FOLLOW_2); 
+            match(input,26,FOLLOW_2); 
              after(grammarAccess.getExtendAccess().getExtendKeyword_0()); 
 
             }
@@ -2934,14 +3217,14 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Extend__Group__1"
-    // InternalYamlGenDsl.g:944:1: rule__Extend__Group__1 : rule__Extend__Group__1__Impl rule__Extend__Group__2 ;
+    // InternalYamlGenDsl.g:1015:1: rule__Extend__Group__1 : rule__Extend__Group__1__Impl rule__Extend__Group__2 ;
     public final void rule__Extend__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:948:1: ( rule__Extend__Group__1__Impl rule__Extend__Group__2 )
-            // InternalYamlGenDsl.g:949:2: rule__Extend__Group__1__Impl rule__Extend__Group__2
+            // InternalYamlGenDsl.g:1019:1: ( rule__Extend__Group__1__Impl rule__Extend__Group__2 )
+            // InternalYamlGenDsl.g:1020:2: rule__Extend__Group__1__Impl rule__Extend__Group__2
             {
             pushFollow(FOLLOW_7);
             rule__Extend__Group__1__Impl();
@@ -2972,31 +3255,31 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Extend__Group__1__Impl"
-    // InternalYamlGenDsl.g:956:1: rule__Extend__Group__1__Impl : ( ( rule__Extend__Name_propertyAssignment_1 ) ) ;
+    // InternalYamlGenDsl.g:1027:1: rule__Extend__Group__1__Impl : ( ( rule__Extend__ParentSubfieldNameAssignment_1 ) ) ;
     public final void rule__Extend__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:960:1: ( ( ( rule__Extend__Name_propertyAssignment_1 ) ) )
-            // InternalYamlGenDsl.g:961:1: ( ( rule__Extend__Name_propertyAssignment_1 ) )
+            // InternalYamlGenDsl.g:1031:1: ( ( ( rule__Extend__ParentSubfieldNameAssignment_1 ) ) )
+            // InternalYamlGenDsl.g:1032:1: ( ( rule__Extend__ParentSubfieldNameAssignment_1 ) )
             {
-            // InternalYamlGenDsl.g:961:1: ( ( rule__Extend__Name_propertyAssignment_1 ) )
-            // InternalYamlGenDsl.g:962:2: ( rule__Extend__Name_propertyAssignment_1 )
+            // InternalYamlGenDsl.g:1032:1: ( ( rule__Extend__ParentSubfieldNameAssignment_1 ) )
+            // InternalYamlGenDsl.g:1033:2: ( rule__Extend__ParentSubfieldNameAssignment_1 )
             {
-             before(grammarAccess.getExtendAccess().getName_propertyAssignment_1()); 
-            // InternalYamlGenDsl.g:963:2: ( rule__Extend__Name_propertyAssignment_1 )
-            // InternalYamlGenDsl.g:963:3: rule__Extend__Name_propertyAssignment_1
+             before(grammarAccess.getExtendAccess().getParentSubfieldNameAssignment_1()); 
+            // InternalYamlGenDsl.g:1034:2: ( rule__Extend__ParentSubfieldNameAssignment_1 )
+            // InternalYamlGenDsl.g:1034:3: rule__Extend__ParentSubfieldNameAssignment_1
             {
             pushFollow(FOLLOW_2);
-            rule__Extend__Name_propertyAssignment_1();
+            rule__Extend__ParentSubfieldNameAssignment_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getExtendAccess().getName_propertyAssignment_1()); 
+             after(grammarAccess.getExtendAccess().getParentSubfieldNameAssignment_1()); 
 
             }
 
@@ -3019,14 +3302,14 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Extend__Group__2"
-    // InternalYamlGenDsl.g:971:1: rule__Extend__Group__2 : rule__Extend__Group__2__Impl ;
+    // InternalYamlGenDsl.g:1042:1: rule__Extend__Group__2 : rule__Extend__Group__2__Impl ;
     public final void rule__Extend__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:975:1: ( rule__Extend__Group__2__Impl )
-            // InternalYamlGenDsl.g:976:2: rule__Extend__Group__2__Impl
+            // InternalYamlGenDsl.g:1046:1: ( rule__Extend__Group__2__Impl )
+            // InternalYamlGenDsl.g:1047:2: rule__Extend__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Extend__Group__2__Impl();
@@ -3052,21 +3335,21 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Extend__Group__2__Impl"
-    // InternalYamlGenDsl.g:982:1: rule__Extend__Group__2__Impl : ( ( rule__Extend__BodyAssignment_2 ) ) ;
+    // InternalYamlGenDsl.g:1053:1: rule__Extend__Group__2__Impl : ( ( rule__Extend__BodyAssignment_2 ) ) ;
     public final void rule__Extend__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:986:1: ( ( ( rule__Extend__BodyAssignment_2 ) ) )
-            // InternalYamlGenDsl.g:987:1: ( ( rule__Extend__BodyAssignment_2 ) )
+            // InternalYamlGenDsl.g:1057:1: ( ( ( rule__Extend__BodyAssignment_2 ) ) )
+            // InternalYamlGenDsl.g:1058:1: ( ( rule__Extend__BodyAssignment_2 ) )
             {
-            // InternalYamlGenDsl.g:987:1: ( ( rule__Extend__BodyAssignment_2 ) )
-            // InternalYamlGenDsl.g:988:2: ( rule__Extend__BodyAssignment_2 )
+            // InternalYamlGenDsl.g:1058:1: ( ( rule__Extend__BodyAssignment_2 ) )
+            // InternalYamlGenDsl.g:1059:2: ( rule__Extend__BodyAssignment_2 )
             {
              before(grammarAccess.getExtendAccess().getBodyAssignment_2()); 
-            // InternalYamlGenDsl.g:989:2: ( rule__Extend__BodyAssignment_2 )
-            // InternalYamlGenDsl.g:989:3: rule__Extend__BodyAssignment_2
+            // InternalYamlGenDsl.g:1060:2: ( rule__Extend__BodyAssignment_2 )
+            // InternalYamlGenDsl.g:1060:3: rule__Extend__BodyAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__Extend__BodyAssignment_2();
@@ -3099,14 +3382,14 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__NestedField__Group__0"
-    // InternalYamlGenDsl.g:998:1: rule__NestedField__Group__0 : rule__NestedField__Group__0__Impl rule__NestedField__Group__1 ;
+    // InternalYamlGenDsl.g:1069:1: rule__NestedField__Group__0 : rule__NestedField__Group__0__Impl rule__NestedField__Group__1 ;
     public final void rule__NestedField__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1002:1: ( rule__NestedField__Group__0__Impl rule__NestedField__Group__1 )
-            // InternalYamlGenDsl.g:1003:2: rule__NestedField__Group__0__Impl rule__NestedField__Group__1
+            // InternalYamlGenDsl.g:1073:1: ( rule__NestedField__Group__0__Impl rule__NestedField__Group__1 )
+            // InternalYamlGenDsl.g:1074:2: rule__NestedField__Group__0__Impl rule__NestedField__Group__1
             {
             pushFollow(FOLLOW_11);
             rule__NestedField__Group__0__Impl();
@@ -3137,33 +3420,33 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__NestedField__Group__0__Impl"
-    // InternalYamlGenDsl.g:1010:1: rule__NestedField__Group__0__Impl : ( ( rule__NestedField__HelpAssignment_0 )* ) ;
+    // InternalYamlGenDsl.g:1081:1: rule__NestedField__Group__0__Impl : ( ( rule__NestedField__HelpAssignment_0 )* ) ;
     public final void rule__NestedField__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1014:1: ( ( ( rule__NestedField__HelpAssignment_0 )* ) )
-            // InternalYamlGenDsl.g:1015:1: ( ( rule__NestedField__HelpAssignment_0 )* )
+            // InternalYamlGenDsl.g:1085:1: ( ( ( rule__NestedField__HelpAssignment_0 )* ) )
+            // InternalYamlGenDsl.g:1086:1: ( ( rule__NestedField__HelpAssignment_0 )* )
             {
-            // InternalYamlGenDsl.g:1015:1: ( ( rule__NestedField__HelpAssignment_0 )* )
-            // InternalYamlGenDsl.g:1016:2: ( rule__NestedField__HelpAssignment_0 )*
+            // InternalYamlGenDsl.g:1086:1: ( ( rule__NestedField__HelpAssignment_0 )* )
+            // InternalYamlGenDsl.g:1087:2: ( rule__NestedField__HelpAssignment_0 )*
             {
              before(grammarAccess.getNestedFieldAccess().getHelpAssignment_0()); 
-            // InternalYamlGenDsl.g:1017:2: ( rule__NestedField__HelpAssignment_0 )*
-            loop10:
+            // InternalYamlGenDsl.g:1088:2: ( rule__NestedField__HelpAssignment_0 )*
+            loop14:
             do {
-                int alt10=2;
-                int LA10_0 = input.LA(1);
+                int alt14=2;
+                int LA14_0 = input.LA(1);
 
-                if ( (LA10_0==RULE_HELP_STRING) ) {
-                    alt10=1;
+                if ( (LA14_0==RULE_HELP_STRING) ) {
+                    alt14=1;
                 }
 
 
-                switch (alt10) {
+                switch (alt14) {
             	case 1 :
-            	    // InternalYamlGenDsl.g:1017:3: rule__NestedField__HelpAssignment_0
+            	    // InternalYamlGenDsl.g:1088:3: rule__NestedField__HelpAssignment_0
             	    {
             	    pushFollow(FOLLOW_6);
             	    rule__NestedField__HelpAssignment_0();
@@ -3175,7 +3458,7 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
             	    break;
 
             	default :
-            	    break loop10;
+            	    break loop14;
                 }
             } while (true);
 
@@ -3202,14 +3485,14 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__NestedField__Group__1"
-    // InternalYamlGenDsl.g:1025:1: rule__NestedField__Group__1 : rule__NestedField__Group__1__Impl rule__NestedField__Group__2 ;
+    // InternalYamlGenDsl.g:1096:1: rule__NestedField__Group__1 : rule__NestedField__Group__1__Impl rule__NestedField__Group__2 ;
     public final void rule__NestedField__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1029:1: ( rule__NestedField__Group__1__Impl rule__NestedField__Group__2 )
-            // InternalYamlGenDsl.g:1030:2: rule__NestedField__Group__1__Impl rule__NestedField__Group__2
+            // InternalYamlGenDsl.g:1100:1: ( rule__NestedField__Group__1__Impl rule__NestedField__Group__2 )
+            // InternalYamlGenDsl.g:1101:2: rule__NestedField__Group__1__Impl rule__NestedField__Group__2
             {
             pushFollow(FOLLOW_12);
             rule__NestedField__Group__1__Impl();
@@ -3240,20 +3523,20 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__NestedField__Group__1__Impl"
-    // InternalYamlGenDsl.g:1037:1: rule__NestedField__Group__1__Impl : ( 'field' ) ;
+    // InternalYamlGenDsl.g:1108:1: rule__NestedField__Group__1__Impl : ( 'field' ) ;
     public final void rule__NestedField__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1041:1: ( ( 'field' ) )
-            // InternalYamlGenDsl.g:1042:1: ( 'field' )
+            // InternalYamlGenDsl.g:1112:1: ( ( 'field' ) )
+            // InternalYamlGenDsl.g:1113:1: ( 'field' )
             {
-            // InternalYamlGenDsl.g:1042:1: ( 'field' )
-            // InternalYamlGenDsl.g:1043:2: 'field'
+            // InternalYamlGenDsl.g:1113:1: ( 'field' )
+            // InternalYamlGenDsl.g:1114:2: 'field'
             {
              before(grammarAccess.getNestedFieldAccess().getFieldKeyword_1()); 
-            match(input,17,FOLLOW_2); 
+            match(input,27,FOLLOW_2); 
              after(grammarAccess.getNestedFieldAccess().getFieldKeyword_1()); 
 
             }
@@ -3277,14 +3560,14 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__NestedField__Group__2"
-    // InternalYamlGenDsl.g:1052:1: rule__NestedField__Group__2 : rule__NestedField__Group__2__Impl rule__NestedField__Group__3 ;
+    // InternalYamlGenDsl.g:1123:1: rule__NestedField__Group__2 : rule__NestedField__Group__2__Impl rule__NestedField__Group__3 ;
     public final void rule__NestedField__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1056:1: ( rule__NestedField__Group__2__Impl rule__NestedField__Group__3 )
-            // InternalYamlGenDsl.g:1057:2: rule__NestedField__Group__2__Impl rule__NestedField__Group__3
+            // InternalYamlGenDsl.g:1127:1: ( rule__NestedField__Group__2__Impl rule__NestedField__Group__3 )
+            // InternalYamlGenDsl.g:1128:2: rule__NestedField__Group__2__Impl rule__NestedField__Group__3
             {
             pushFollow(FOLLOW_12);
             rule__NestedField__Group__2__Impl();
@@ -3315,29 +3598,29 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__NestedField__Group__2__Impl"
-    // InternalYamlGenDsl.g:1064:1: rule__NestedField__Group__2__Impl : ( ( rule__NestedField__MandatoryAssignment_2 )? ) ;
+    // InternalYamlGenDsl.g:1135:1: rule__NestedField__Group__2__Impl : ( ( rule__NestedField__MandatoryAssignment_2 )? ) ;
     public final void rule__NestedField__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1068:1: ( ( ( rule__NestedField__MandatoryAssignment_2 )? ) )
-            // InternalYamlGenDsl.g:1069:1: ( ( rule__NestedField__MandatoryAssignment_2 )? )
+            // InternalYamlGenDsl.g:1139:1: ( ( ( rule__NestedField__MandatoryAssignment_2 )? ) )
+            // InternalYamlGenDsl.g:1140:1: ( ( rule__NestedField__MandatoryAssignment_2 )? )
             {
-            // InternalYamlGenDsl.g:1069:1: ( ( rule__NestedField__MandatoryAssignment_2 )? )
-            // InternalYamlGenDsl.g:1070:2: ( rule__NestedField__MandatoryAssignment_2 )?
+            // InternalYamlGenDsl.g:1140:1: ( ( rule__NestedField__MandatoryAssignment_2 )? )
+            // InternalYamlGenDsl.g:1141:2: ( rule__NestedField__MandatoryAssignment_2 )?
             {
              before(grammarAccess.getNestedFieldAccess().getMandatoryAssignment_2()); 
-            // InternalYamlGenDsl.g:1071:2: ( rule__NestedField__MandatoryAssignment_2 )?
-            int alt11=2;
-            int LA11_0 = input.LA(1);
+            // InternalYamlGenDsl.g:1142:2: ( rule__NestedField__MandatoryAssignment_2 )?
+            int alt15=2;
+            int LA15_0 = input.LA(1);
 
-            if ( (LA11_0==27) ) {
-                alt11=1;
+            if ( (LA15_0==35) ) {
+                alt15=1;
             }
-            switch (alt11) {
+            switch (alt15) {
                 case 1 :
-                    // InternalYamlGenDsl.g:1071:3: rule__NestedField__MandatoryAssignment_2
+                    // InternalYamlGenDsl.g:1142:3: rule__NestedField__MandatoryAssignment_2
                     {
                     pushFollow(FOLLOW_2);
                     rule__NestedField__MandatoryAssignment_2();
@@ -3373,14 +3656,14 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__NestedField__Group__3"
-    // InternalYamlGenDsl.g:1079:1: rule__NestedField__Group__3 : rule__NestedField__Group__3__Impl rule__NestedField__Group__4 ;
+    // InternalYamlGenDsl.g:1150:1: rule__NestedField__Group__3 : rule__NestedField__Group__3__Impl rule__NestedField__Group__4 ;
     public final void rule__NestedField__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1083:1: ( rule__NestedField__Group__3__Impl rule__NestedField__Group__4 )
-            // InternalYamlGenDsl.g:1084:2: rule__NestedField__Group__3__Impl rule__NestedField__Group__4
+            // InternalYamlGenDsl.g:1154:1: ( rule__NestedField__Group__3__Impl rule__NestedField__Group__4 )
+            // InternalYamlGenDsl.g:1155:2: rule__NestedField__Group__3__Impl rule__NestedField__Group__4
             {
             pushFollow(FOLLOW_12);
             rule__NestedField__Group__3__Impl();
@@ -3411,29 +3694,29 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__NestedField__Group__3__Impl"
-    // InternalYamlGenDsl.g:1091:1: rule__NestedField__Group__3__Impl : ( ( rule__NestedField__DefaultAssignment_3 )? ) ;
+    // InternalYamlGenDsl.g:1162:1: rule__NestedField__Group__3__Impl : ( ( rule__NestedField__DefaultAssignment_3 )? ) ;
     public final void rule__NestedField__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1095:1: ( ( ( rule__NestedField__DefaultAssignment_3 )? ) )
-            // InternalYamlGenDsl.g:1096:1: ( ( rule__NestedField__DefaultAssignment_3 )? )
+            // InternalYamlGenDsl.g:1166:1: ( ( ( rule__NestedField__DefaultAssignment_3 )? ) )
+            // InternalYamlGenDsl.g:1167:1: ( ( rule__NestedField__DefaultAssignment_3 )? )
             {
-            // InternalYamlGenDsl.g:1096:1: ( ( rule__NestedField__DefaultAssignment_3 )? )
-            // InternalYamlGenDsl.g:1097:2: ( rule__NestedField__DefaultAssignment_3 )?
+            // InternalYamlGenDsl.g:1167:1: ( ( rule__NestedField__DefaultAssignment_3 )? )
+            // InternalYamlGenDsl.g:1168:2: ( rule__NestedField__DefaultAssignment_3 )?
             {
              before(grammarAccess.getNestedFieldAccess().getDefaultAssignment_3()); 
-            // InternalYamlGenDsl.g:1098:2: ( rule__NestedField__DefaultAssignment_3 )?
-            int alt12=2;
-            int LA12_0 = input.LA(1);
+            // InternalYamlGenDsl.g:1169:2: ( rule__NestedField__DefaultAssignment_3 )?
+            int alt16=2;
+            int LA16_0 = input.LA(1);
 
-            if ( (LA12_0==28) ) {
-                alt12=1;
+            if ( (LA16_0==15) ) {
+                alt16=1;
             }
-            switch (alt12) {
+            switch (alt16) {
                 case 1 :
-                    // InternalYamlGenDsl.g:1098:3: rule__NestedField__DefaultAssignment_3
+                    // InternalYamlGenDsl.g:1169:3: rule__NestedField__DefaultAssignment_3
                     {
                     pushFollow(FOLLOW_2);
                     rule__NestedField__DefaultAssignment_3();
@@ -3469,14 +3752,14 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__NestedField__Group__4"
-    // InternalYamlGenDsl.g:1106:1: rule__NestedField__Group__4 : rule__NestedField__Group__4__Impl rule__NestedField__Group__5 ;
+    // InternalYamlGenDsl.g:1177:1: rule__NestedField__Group__4 : rule__NestedField__Group__4__Impl rule__NestedField__Group__5 ;
     public final void rule__NestedField__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1110:1: ( rule__NestedField__Group__4__Impl rule__NestedField__Group__5 )
-            // InternalYamlGenDsl.g:1111:2: rule__NestedField__Group__4__Impl rule__NestedField__Group__5
+            // InternalYamlGenDsl.g:1181:1: ( rule__NestedField__Group__4__Impl rule__NestedField__Group__5 )
+            // InternalYamlGenDsl.g:1182:2: rule__NestedField__Group__4__Impl rule__NestedField__Group__5
             {
             pushFollow(FOLLOW_12);
             rule__NestedField__Group__4__Impl();
@@ -3507,29 +3790,29 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__NestedField__Group__4__Impl"
-    // InternalYamlGenDsl.g:1118:1: rule__NestedField__Group__4__Impl : ( ( rule__NestedField__Group_4__0 )? ) ;
+    // InternalYamlGenDsl.g:1189:1: rule__NestedField__Group__4__Impl : ( ( rule__NestedField__Group_4__0 )? ) ;
     public final void rule__NestedField__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1122:1: ( ( ( rule__NestedField__Group_4__0 )? ) )
-            // InternalYamlGenDsl.g:1123:1: ( ( rule__NestedField__Group_4__0 )? )
+            // InternalYamlGenDsl.g:1193:1: ( ( ( rule__NestedField__Group_4__0 )? ) )
+            // InternalYamlGenDsl.g:1194:1: ( ( rule__NestedField__Group_4__0 )? )
             {
-            // InternalYamlGenDsl.g:1123:1: ( ( rule__NestedField__Group_4__0 )? )
-            // InternalYamlGenDsl.g:1124:2: ( rule__NestedField__Group_4__0 )?
+            // InternalYamlGenDsl.g:1194:1: ( ( rule__NestedField__Group_4__0 )? )
+            // InternalYamlGenDsl.g:1195:2: ( rule__NestedField__Group_4__0 )?
             {
              before(grammarAccess.getNestedFieldAccess().getGroup_4()); 
-            // InternalYamlGenDsl.g:1125:2: ( rule__NestedField__Group_4__0 )?
-            int alt13=2;
-            int LA13_0 = input.LA(1);
+            // InternalYamlGenDsl.g:1196:2: ( rule__NestedField__Group_4__0 )?
+            int alt17=2;
+            int LA17_0 = input.LA(1);
 
-            if ( (LA13_0==13) ) {
-                alt13=1;
+            if ( (LA17_0==23) ) {
+                alt17=1;
             }
-            switch (alt13) {
+            switch (alt17) {
                 case 1 :
-                    // InternalYamlGenDsl.g:1125:3: rule__NestedField__Group_4__0
+                    // InternalYamlGenDsl.g:1196:3: rule__NestedField__Group_4__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__NestedField__Group_4__0();
@@ -3565,14 +3848,14 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__NestedField__Group__5"
-    // InternalYamlGenDsl.g:1133:1: rule__NestedField__Group__5 : rule__NestedField__Group__5__Impl ;
+    // InternalYamlGenDsl.g:1204:1: rule__NestedField__Group__5 : rule__NestedField__Group__5__Impl ;
     public final void rule__NestedField__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1137:1: ( rule__NestedField__Group__5__Impl )
-            // InternalYamlGenDsl.g:1138:2: rule__NestedField__Group__5__Impl
+            // InternalYamlGenDsl.g:1208:1: ( rule__NestedField__Group__5__Impl )
+            // InternalYamlGenDsl.g:1209:2: rule__NestedField__Group__5__Impl
             {
             pushFollow(FOLLOW_2);
             rule__NestedField__Group__5__Impl();
@@ -3598,21 +3881,21 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__NestedField__Group__5__Impl"
-    // InternalYamlGenDsl.g:1144:1: rule__NestedField__Group__5__Impl : ( ( rule__NestedField__BodyAssignment_5 ) ) ;
+    // InternalYamlGenDsl.g:1215:1: rule__NestedField__Group__5__Impl : ( ( rule__NestedField__BodyAssignment_5 ) ) ;
     public final void rule__NestedField__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1148:1: ( ( ( rule__NestedField__BodyAssignment_5 ) ) )
-            // InternalYamlGenDsl.g:1149:1: ( ( rule__NestedField__BodyAssignment_5 ) )
+            // InternalYamlGenDsl.g:1219:1: ( ( ( rule__NestedField__BodyAssignment_5 ) ) )
+            // InternalYamlGenDsl.g:1220:1: ( ( rule__NestedField__BodyAssignment_5 ) )
             {
-            // InternalYamlGenDsl.g:1149:1: ( ( rule__NestedField__BodyAssignment_5 ) )
-            // InternalYamlGenDsl.g:1150:2: ( rule__NestedField__BodyAssignment_5 )
+            // InternalYamlGenDsl.g:1220:1: ( ( rule__NestedField__BodyAssignment_5 ) )
+            // InternalYamlGenDsl.g:1221:2: ( rule__NestedField__BodyAssignment_5 )
             {
              before(grammarAccess.getNestedFieldAccess().getBodyAssignment_5()); 
-            // InternalYamlGenDsl.g:1151:2: ( rule__NestedField__BodyAssignment_5 )
-            // InternalYamlGenDsl.g:1151:3: rule__NestedField__BodyAssignment_5
+            // InternalYamlGenDsl.g:1222:2: ( rule__NestedField__BodyAssignment_5 )
+            // InternalYamlGenDsl.g:1222:3: rule__NestedField__BodyAssignment_5
             {
             pushFollow(FOLLOW_2);
             rule__NestedField__BodyAssignment_5();
@@ -3645,14 +3928,14 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__NestedField__Group_4__0"
-    // InternalYamlGenDsl.g:1160:1: rule__NestedField__Group_4__0 : rule__NestedField__Group_4__0__Impl rule__NestedField__Group_4__1 ;
+    // InternalYamlGenDsl.g:1231:1: rule__NestedField__Group_4__0 : rule__NestedField__Group_4__0__Impl rule__NestedField__Group_4__1 ;
     public final void rule__NestedField__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1164:1: ( rule__NestedField__Group_4__0__Impl rule__NestedField__Group_4__1 )
-            // InternalYamlGenDsl.g:1165:2: rule__NestedField__Group_4__0__Impl rule__NestedField__Group_4__1
+            // InternalYamlGenDsl.g:1235:1: ( rule__NestedField__Group_4__0__Impl rule__NestedField__Group_4__1 )
+            // InternalYamlGenDsl.g:1236:2: rule__NestedField__Group_4__0__Impl rule__NestedField__Group_4__1
             {
             pushFollow(FOLLOW_8);
             rule__NestedField__Group_4__0__Impl();
@@ -3683,20 +3966,20 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__NestedField__Group_4__0__Impl"
-    // InternalYamlGenDsl.g:1172:1: rule__NestedField__Group_4__0__Impl : ( 'extends' ) ;
+    // InternalYamlGenDsl.g:1243:1: rule__NestedField__Group_4__0__Impl : ( 'extends' ) ;
     public final void rule__NestedField__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1176:1: ( ( 'extends' ) )
-            // InternalYamlGenDsl.g:1177:1: ( 'extends' )
+            // InternalYamlGenDsl.g:1247:1: ( ( 'extends' ) )
+            // InternalYamlGenDsl.g:1248:1: ( 'extends' )
             {
-            // InternalYamlGenDsl.g:1177:1: ( 'extends' )
-            // InternalYamlGenDsl.g:1178:2: 'extends'
+            // InternalYamlGenDsl.g:1248:1: ( 'extends' )
+            // InternalYamlGenDsl.g:1249:2: 'extends'
             {
              before(grammarAccess.getNestedFieldAccess().getExtendsKeyword_4_0()); 
-            match(input,13,FOLLOW_2); 
+            match(input,23,FOLLOW_2); 
              after(grammarAccess.getNestedFieldAccess().getExtendsKeyword_4_0()); 
 
             }
@@ -3720,14 +4003,14 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__NestedField__Group_4__1"
-    // InternalYamlGenDsl.g:1187:1: rule__NestedField__Group_4__1 : rule__NestedField__Group_4__1__Impl ;
+    // InternalYamlGenDsl.g:1258:1: rule__NestedField__Group_4__1 : rule__NestedField__Group_4__1__Impl ;
     public final void rule__NestedField__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1191:1: ( rule__NestedField__Group_4__1__Impl )
-            // InternalYamlGenDsl.g:1192:2: rule__NestedField__Group_4__1__Impl
+            // InternalYamlGenDsl.g:1262:1: ( rule__NestedField__Group_4__1__Impl )
+            // InternalYamlGenDsl.g:1263:2: rule__NestedField__Group_4__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__NestedField__Group_4__1__Impl();
@@ -3753,21 +4036,21 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__NestedField__Group_4__1__Impl"
-    // InternalYamlGenDsl.g:1198:1: rule__NestedField__Group_4__1__Impl : ( ( rule__NestedField__SuperFieldAssignment_4_1 ) ) ;
+    // InternalYamlGenDsl.g:1269:1: rule__NestedField__Group_4__1__Impl : ( ( rule__NestedField__SuperFieldAssignment_4_1 ) ) ;
     public final void rule__NestedField__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1202:1: ( ( ( rule__NestedField__SuperFieldAssignment_4_1 ) ) )
-            // InternalYamlGenDsl.g:1203:1: ( ( rule__NestedField__SuperFieldAssignment_4_1 ) )
+            // InternalYamlGenDsl.g:1273:1: ( ( ( rule__NestedField__SuperFieldAssignment_4_1 ) ) )
+            // InternalYamlGenDsl.g:1274:1: ( ( rule__NestedField__SuperFieldAssignment_4_1 ) )
             {
-            // InternalYamlGenDsl.g:1203:1: ( ( rule__NestedField__SuperFieldAssignment_4_1 ) )
-            // InternalYamlGenDsl.g:1204:2: ( rule__NestedField__SuperFieldAssignment_4_1 )
+            // InternalYamlGenDsl.g:1274:1: ( ( rule__NestedField__SuperFieldAssignment_4_1 ) )
+            // InternalYamlGenDsl.g:1275:2: ( rule__NestedField__SuperFieldAssignment_4_1 )
             {
              before(grammarAccess.getNestedFieldAccess().getSuperFieldAssignment_4_1()); 
-            // InternalYamlGenDsl.g:1205:2: ( rule__NestedField__SuperFieldAssignment_4_1 )
-            // InternalYamlGenDsl.g:1205:3: rule__NestedField__SuperFieldAssignment_4_1
+            // InternalYamlGenDsl.g:1276:2: ( rule__NestedField__SuperFieldAssignment_4_1 )
+            // InternalYamlGenDsl.g:1276:3: rule__NestedField__SuperFieldAssignment_4_1
             {
             pushFollow(FOLLOW_2);
             rule__NestedField__SuperFieldAssignment_4_1();
@@ -3800,14 +4083,14 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__NestedFields__Group__0"
-    // InternalYamlGenDsl.g:1214:1: rule__NestedFields__Group__0 : rule__NestedFields__Group__0__Impl rule__NestedFields__Group__1 ;
+    // InternalYamlGenDsl.g:1285:1: rule__NestedFields__Group__0 : rule__NestedFields__Group__0__Impl rule__NestedFields__Group__1 ;
     public final void rule__NestedFields__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1218:1: ( rule__NestedFields__Group__0__Impl rule__NestedFields__Group__1 )
-            // InternalYamlGenDsl.g:1219:2: rule__NestedFields__Group__0__Impl rule__NestedFields__Group__1
+            // InternalYamlGenDsl.g:1289:1: ( rule__NestedFields__Group__0__Impl rule__NestedFields__Group__1 )
+            // InternalYamlGenDsl.g:1290:2: rule__NestedFields__Group__0__Impl rule__NestedFields__Group__1
             {
             pushFollow(FOLLOW_13);
             rule__NestedFields__Group__0__Impl();
@@ -3838,33 +4121,33 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__NestedFields__Group__0__Impl"
-    // InternalYamlGenDsl.g:1226:1: rule__NestedFields__Group__0__Impl : ( ( rule__NestedFields__HelpAssignment_0 )* ) ;
+    // InternalYamlGenDsl.g:1297:1: rule__NestedFields__Group__0__Impl : ( ( rule__NestedFields__HelpAssignment_0 )* ) ;
     public final void rule__NestedFields__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1230:1: ( ( ( rule__NestedFields__HelpAssignment_0 )* ) )
-            // InternalYamlGenDsl.g:1231:1: ( ( rule__NestedFields__HelpAssignment_0 )* )
+            // InternalYamlGenDsl.g:1301:1: ( ( ( rule__NestedFields__HelpAssignment_0 )* ) )
+            // InternalYamlGenDsl.g:1302:1: ( ( rule__NestedFields__HelpAssignment_0 )* )
             {
-            // InternalYamlGenDsl.g:1231:1: ( ( rule__NestedFields__HelpAssignment_0 )* )
-            // InternalYamlGenDsl.g:1232:2: ( rule__NestedFields__HelpAssignment_0 )*
+            // InternalYamlGenDsl.g:1302:1: ( ( rule__NestedFields__HelpAssignment_0 )* )
+            // InternalYamlGenDsl.g:1303:2: ( rule__NestedFields__HelpAssignment_0 )*
             {
              before(grammarAccess.getNestedFieldsAccess().getHelpAssignment_0()); 
-            // InternalYamlGenDsl.g:1233:2: ( rule__NestedFields__HelpAssignment_0 )*
-            loop14:
+            // InternalYamlGenDsl.g:1304:2: ( rule__NestedFields__HelpAssignment_0 )*
+            loop18:
             do {
-                int alt14=2;
-                int LA14_0 = input.LA(1);
+                int alt18=2;
+                int LA18_0 = input.LA(1);
 
-                if ( (LA14_0==RULE_HELP_STRING) ) {
-                    alt14=1;
+                if ( (LA18_0==RULE_HELP_STRING) ) {
+                    alt18=1;
                 }
 
 
-                switch (alt14) {
+                switch (alt18) {
             	case 1 :
-            	    // InternalYamlGenDsl.g:1233:3: rule__NestedFields__HelpAssignment_0
+            	    // InternalYamlGenDsl.g:1304:3: rule__NestedFields__HelpAssignment_0
             	    {
             	    pushFollow(FOLLOW_6);
             	    rule__NestedFields__HelpAssignment_0();
@@ -3876,7 +4159,7 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
             	    break;
 
             	default :
-            	    break loop14;
+            	    break loop18;
                 }
             } while (true);
 
@@ -3903,14 +4186,14 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__NestedFields__Group__1"
-    // InternalYamlGenDsl.g:1241:1: rule__NestedFields__Group__1 : rule__NestedFields__Group__1__Impl rule__NestedFields__Group__2 ;
+    // InternalYamlGenDsl.g:1312:1: rule__NestedFields__Group__1 : rule__NestedFields__Group__1__Impl rule__NestedFields__Group__2 ;
     public final void rule__NestedFields__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1245:1: ( rule__NestedFields__Group__1__Impl rule__NestedFields__Group__2 )
-            // InternalYamlGenDsl.g:1246:2: rule__NestedFields__Group__1__Impl rule__NestedFields__Group__2
+            // InternalYamlGenDsl.g:1316:1: ( rule__NestedFields__Group__1__Impl rule__NestedFields__Group__2 )
+            // InternalYamlGenDsl.g:1317:2: rule__NestedFields__Group__1__Impl rule__NestedFields__Group__2
             {
             pushFollow(FOLLOW_14);
             rule__NestedFields__Group__1__Impl();
@@ -3941,20 +4224,20 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__NestedFields__Group__1__Impl"
-    // InternalYamlGenDsl.g:1253:1: rule__NestedFields__Group__1__Impl : ( 'fields' ) ;
+    // InternalYamlGenDsl.g:1324:1: rule__NestedFields__Group__1__Impl : ( 'fields' ) ;
     public final void rule__NestedFields__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1257:1: ( ( 'fields' ) )
-            // InternalYamlGenDsl.g:1258:1: ( 'fields' )
+            // InternalYamlGenDsl.g:1328:1: ( ( 'fields' ) )
+            // InternalYamlGenDsl.g:1329:1: ( 'fields' )
             {
-            // InternalYamlGenDsl.g:1258:1: ( 'fields' )
-            // InternalYamlGenDsl.g:1259:2: 'fields'
+            // InternalYamlGenDsl.g:1329:1: ( 'fields' )
+            // InternalYamlGenDsl.g:1330:2: 'fields'
             {
              before(grammarAccess.getNestedFieldsAccess().getFieldsKeyword_1()); 
-            match(input,18,FOLLOW_2); 
+            match(input,28,FOLLOW_2); 
              after(grammarAccess.getNestedFieldsAccess().getFieldsKeyword_1()); 
 
             }
@@ -3978,14 +4261,14 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__NestedFields__Group__2"
-    // InternalYamlGenDsl.g:1268:1: rule__NestedFields__Group__2 : rule__NestedFields__Group__2__Impl rule__NestedFields__Group__3 ;
+    // InternalYamlGenDsl.g:1339:1: rule__NestedFields__Group__2 : rule__NestedFields__Group__2__Impl rule__NestedFields__Group__3 ;
     public final void rule__NestedFields__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1272:1: ( rule__NestedFields__Group__2__Impl rule__NestedFields__Group__3 )
-            // InternalYamlGenDsl.g:1273:2: rule__NestedFields__Group__2__Impl rule__NestedFields__Group__3
+            // InternalYamlGenDsl.g:1343:1: ( rule__NestedFields__Group__2__Impl rule__NestedFields__Group__3 )
+            // InternalYamlGenDsl.g:1344:2: rule__NestedFields__Group__2__Impl rule__NestedFields__Group__3
             {
             pushFollow(FOLLOW_14);
             rule__NestedFields__Group__2__Impl();
@@ -4016,29 +4299,29 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__NestedFields__Group__2__Impl"
-    // InternalYamlGenDsl.g:1280:1: rule__NestedFields__Group__2__Impl : ( ( rule__NestedFields__Group_2__0 )? ) ;
+    // InternalYamlGenDsl.g:1351:1: rule__NestedFields__Group__2__Impl : ( ( rule__NestedFields__Group_2__0 )? ) ;
     public final void rule__NestedFields__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1284:1: ( ( ( rule__NestedFields__Group_2__0 )? ) )
-            // InternalYamlGenDsl.g:1285:1: ( ( rule__NestedFields__Group_2__0 )? )
+            // InternalYamlGenDsl.g:1355:1: ( ( ( rule__NestedFields__Group_2__0 )? ) )
+            // InternalYamlGenDsl.g:1356:1: ( ( rule__NestedFields__Group_2__0 )? )
             {
-            // InternalYamlGenDsl.g:1285:1: ( ( rule__NestedFields__Group_2__0 )? )
-            // InternalYamlGenDsl.g:1286:2: ( rule__NestedFields__Group_2__0 )?
+            // InternalYamlGenDsl.g:1356:1: ( ( rule__NestedFields__Group_2__0 )? )
+            // InternalYamlGenDsl.g:1357:2: ( rule__NestedFields__Group_2__0 )?
             {
              before(grammarAccess.getNestedFieldsAccess().getGroup_2()); 
-            // InternalYamlGenDsl.g:1287:2: ( rule__NestedFields__Group_2__0 )?
-            int alt15=2;
-            int LA15_0 = input.LA(1);
+            // InternalYamlGenDsl.g:1358:2: ( rule__NestedFields__Group_2__0 )?
+            int alt19=2;
+            int LA19_0 = input.LA(1);
 
-            if ( (LA15_0==16) ) {
-                alt15=1;
+            if ( (LA19_0==26) ) {
+                alt19=1;
             }
-            switch (alt15) {
+            switch (alt19) {
                 case 1 :
-                    // InternalYamlGenDsl.g:1287:3: rule__NestedFields__Group_2__0
+                    // InternalYamlGenDsl.g:1358:3: rule__NestedFields__Group_2__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__NestedFields__Group_2__0();
@@ -4074,14 +4357,14 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__NestedFields__Group__3"
-    // InternalYamlGenDsl.g:1295:1: rule__NestedFields__Group__3 : rule__NestedFields__Group__3__Impl ;
+    // InternalYamlGenDsl.g:1366:1: rule__NestedFields__Group__3 : rule__NestedFields__Group__3__Impl ;
     public final void rule__NestedFields__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1299:1: ( rule__NestedFields__Group__3__Impl )
-            // InternalYamlGenDsl.g:1300:2: rule__NestedFields__Group__3__Impl
+            // InternalYamlGenDsl.g:1370:1: ( rule__NestedFields__Group__3__Impl )
+            // InternalYamlGenDsl.g:1371:2: rule__NestedFields__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__NestedFields__Group__3__Impl();
@@ -4107,21 +4390,21 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__NestedFields__Group__3__Impl"
-    // InternalYamlGenDsl.g:1306:1: rule__NestedFields__Group__3__Impl : ( ( rule__NestedFields__BodyAssignment_3 ) ) ;
+    // InternalYamlGenDsl.g:1377:1: rule__NestedFields__Group__3__Impl : ( ( rule__NestedFields__BodyAssignment_3 ) ) ;
     public final void rule__NestedFields__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1310:1: ( ( ( rule__NestedFields__BodyAssignment_3 ) ) )
-            // InternalYamlGenDsl.g:1311:1: ( ( rule__NestedFields__BodyAssignment_3 ) )
+            // InternalYamlGenDsl.g:1381:1: ( ( ( rule__NestedFields__BodyAssignment_3 ) ) )
+            // InternalYamlGenDsl.g:1382:1: ( ( rule__NestedFields__BodyAssignment_3 ) )
             {
-            // InternalYamlGenDsl.g:1311:1: ( ( rule__NestedFields__BodyAssignment_3 ) )
-            // InternalYamlGenDsl.g:1312:2: ( rule__NestedFields__BodyAssignment_3 )
+            // InternalYamlGenDsl.g:1382:1: ( ( rule__NestedFields__BodyAssignment_3 ) )
+            // InternalYamlGenDsl.g:1383:2: ( rule__NestedFields__BodyAssignment_3 )
             {
              before(grammarAccess.getNestedFieldsAccess().getBodyAssignment_3()); 
-            // InternalYamlGenDsl.g:1313:2: ( rule__NestedFields__BodyAssignment_3 )
-            // InternalYamlGenDsl.g:1313:3: rule__NestedFields__BodyAssignment_3
+            // InternalYamlGenDsl.g:1384:2: ( rule__NestedFields__BodyAssignment_3 )
+            // InternalYamlGenDsl.g:1384:3: rule__NestedFields__BodyAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__NestedFields__BodyAssignment_3();
@@ -4154,14 +4437,14 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__NestedFields__Group_2__0"
-    // InternalYamlGenDsl.g:1322:1: rule__NestedFields__Group_2__0 : rule__NestedFields__Group_2__0__Impl rule__NestedFields__Group_2__1 ;
+    // InternalYamlGenDsl.g:1393:1: rule__NestedFields__Group_2__0 : rule__NestedFields__Group_2__0__Impl rule__NestedFields__Group_2__1 ;
     public final void rule__NestedFields__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1326:1: ( rule__NestedFields__Group_2__0__Impl rule__NestedFields__Group_2__1 )
-            // InternalYamlGenDsl.g:1327:2: rule__NestedFields__Group_2__0__Impl rule__NestedFields__Group_2__1
+            // InternalYamlGenDsl.g:1397:1: ( rule__NestedFields__Group_2__0__Impl rule__NestedFields__Group_2__1 )
+            // InternalYamlGenDsl.g:1398:2: rule__NestedFields__Group_2__0__Impl rule__NestedFields__Group_2__1
             {
             pushFollow(FOLLOW_8);
             rule__NestedFields__Group_2__0__Impl();
@@ -4192,20 +4475,20 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__NestedFields__Group_2__0__Impl"
-    // InternalYamlGenDsl.g:1334:1: rule__NestedFields__Group_2__0__Impl : ( 'extend' ) ;
+    // InternalYamlGenDsl.g:1405:1: rule__NestedFields__Group_2__0__Impl : ( 'extend' ) ;
     public final void rule__NestedFields__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1338:1: ( ( 'extend' ) )
-            // InternalYamlGenDsl.g:1339:1: ( 'extend' )
+            // InternalYamlGenDsl.g:1409:1: ( ( 'extend' ) )
+            // InternalYamlGenDsl.g:1410:1: ( 'extend' )
             {
-            // InternalYamlGenDsl.g:1339:1: ( 'extend' )
-            // InternalYamlGenDsl.g:1340:2: 'extend'
+            // InternalYamlGenDsl.g:1410:1: ( 'extend' )
+            // InternalYamlGenDsl.g:1411:2: 'extend'
             {
              before(grammarAccess.getNestedFieldsAccess().getExtendKeyword_2_0()); 
-            match(input,16,FOLLOW_2); 
+            match(input,26,FOLLOW_2); 
              after(grammarAccess.getNestedFieldsAccess().getExtendKeyword_2_0()); 
 
             }
@@ -4229,14 +4512,14 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__NestedFields__Group_2__1"
-    // InternalYamlGenDsl.g:1349:1: rule__NestedFields__Group_2__1 : rule__NestedFields__Group_2__1__Impl ;
+    // InternalYamlGenDsl.g:1420:1: rule__NestedFields__Group_2__1 : rule__NestedFields__Group_2__1__Impl ;
     public final void rule__NestedFields__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1353:1: ( rule__NestedFields__Group_2__1__Impl )
-            // InternalYamlGenDsl.g:1354:2: rule__NestedFields__Group_2__1__Impl
+            // InternalYamlGenDsl.g:1424:1: ( rule__NestedFields__Group_2__1__Impl )
+            // InternalYamlGenDsl.g:1425:2: rule__NestedFields__Group_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__NestedFields__Group_2__1__Impl();
@@ -4262,21 +4545,21 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__NestedFields__Group_2__1__Impl"
-    // InternalYamlGenDsl.g:1360:1: rule__NestedFields__Group_2__1__Impl : ( ( rule__NestedFields__SuperFieldAssignment_2_1 ) ) ;
+    // InternalYamlGenDsl.g:1431:1: rule__NestedFields__Group_2__1__Impl : ( ( rule__NestedFields__SuperFieldAssignment_2_1 ) ) ;
     public final void rule__NestedFields__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1364:1: ( ( ( rule__NestedFields__SuperFieldAssignment_2_1 ) ) )
-            // InternalYamlGenDsl.g:1365:1: ( ( rule__NestedFields__SuperFieldAssignment_2_1 ) )
+            // InternalYamlGenDsl.g:1435:1: ( ( ( rule__NestedFields__SuperFieldAssignment_2_1 ) ) )
+            // InternalYamlGenDsl.g:1436:1: ( ( rule__NestedFields__SuperFieldAssignment_2_1 ) )
             {
-            // InternalYamlGenDsl.g:1365:1: ( ( rule__NestedFields__SuperFieldAssignment_2_1 ) )
-            // InternalYamlGenDsl.g:1366:2: ( rule__NestedFields__SuperFieldAssignment_2_1 )
+            // InternalYamlGenDsl.g:1436:1: ( ( rule__NestedFields__SuperFieldAssignment_2_1 ) )
+            // InternalYamlGenDsl.g:1437:2: ( rule__NestedFields__SuperFieldAssignment_2_1 )
             {
              before(grammarAccess.getNestedFieldsAccess().getSuperFieldAssignment_2_1()); 
-            // InternalYamlGenDsl.g:1367:2: ( rule__NestedFields__SuperFieldAssignment_2_1 )
-            // InternalYamlGenDsl.g:1367:3: rule__NestedFields__SuperFieldAssignment_2_1
+            // InternalYamlGenDsl.g:1438:2: ( rule__NestedFields__SuperFieldAssignment_2_1 )
+            // InternalYamlGenDsl.g:1438:3: rule__NestedFields__SuperFieldAssignment_2_1
             {
             pushFollow(FOLLOW_2);
             rule__NestedFields__SuperFieldAssignment_2_1();
@@ -4308,333 +4591,23 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__NestedFields__Group_2__1__Impl"
 
 
-    // $ANTLR start "rule__Key__Group__0"
-    // InternalYamlGenDsl.g:1376:1: rule__Key__Group__0 : rule__Key__Group__0__Impl rule__Key__Group__1 ;
-    public final void rule__Key__Group__0() throws RecognitionException {
+    // $ANTLR start "rule__StringProperty__Group__0"
+    // InternalYamlGenDsl.g:1447:1: rule__StringProperty__Group__0 : rule__StringProperty__Group__0__Impl rule__StringProperty__Group__1 ;
+    public final void rule__StringProperty__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1380:1: ( rule__Key__Group__0__Impl rule__Key__Group__1 )
-            // InternalYamlGenDsl.g:1381:2: rule__Key__Group__0__Impl rule__Key__Group__1
-            {
-            pushFollow(FOLLOW_4);
-            rule__Key__Group__0__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Key__Group__1();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Key__Group__0"
-
-
-    // $ANTLR start "rule__Key__Group__0__Impl"
-    // InternalYamlGenDsl.g:1388:1: rule__Key__Group__0__Impl : ( 'key:' ) ;
-    public final void rule__Key__Group__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalYamlGenDsl.g:1392:1: ( ( 'key:' ) )
-            // InternalYamlGenDsl.g:1393:1: ( 'key:' )
-            {
-            // InternalYamlGenDsl.g:1393:1: ( 'key:' )
-            // InternalYamlGenDsl.g:1394:2: 'key:'
-            {
-             before(grammarAccess.getKeyAccess().getKeyKeyword_0()); 
-            match(input,19,FOLLOW_2); 
-             after(grammarAccess.getKeyAccess().getKeyKeyword_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Key__Group__0__Impl"
-
-
-    // $ANTLR start "rule__Key__Group__1"
-    // InternalYamlGenDsl.g:1403:1: rule__Key__Group__1 : rule__Key__Group__1__Impl ;
-    public final void rule__Key__Group__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalYamlGenDsl.g:1407:1: ( rule__Key__Group__1__Impl )
-            // InternalYamlGenDsl.g:1408:2: rule__Key__Group__1__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__Key__Group__1__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Key__Group__1"
-
-
-    // $ANTLR start "rule__Key__Group__1__Impl"
-    // InternalYamlGenDsl.g:1414:1: rule__Key__Group__1__Impl : ( ( rule__Key__ValueAssignment_1 ) ) ;
-    public final void rule__Key__Group__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalYamlGenDsl.g:1418:1: ( ( ( rule__Key__ValueAssignment_1 ) ) )
-            // InternalYamlGenDsl.g:1419:1: ( ( rule__Key__ValueAssignment_1 ) )
-            {
-            // InternalYamlGenDsl.g:1419:1: ( ( rule__Key__ValueAssignment_1 ) )
-            // InternalYamlGenDsl.g:1420:2: ( rule__Key__ValueAssignment_1 )
-            {
-             before(grammarAccess.getKeyAccess().getValueAssignment_1()); 
-            // InternalYamlGenDsl.g:1421:2: ( rule__Key__ValueAssignment_1 )
-            // InternalYamlGenDsl.g:1421:3: rule__Key__ValueAssignment_1
-            {
-            pushFollow(FOLLOW_2);
-            rule__Key__ValueAssignment_1();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getKeyAccess().getValueAssignment_1()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Key__Group__1__Impl"
-
-
-    // $ANTLR start "rule__Name__Group__0"
-    // InternalYamlGenDsl.g:1430:1: rule__Name__Group__0 : rule__Name__Group__0__Impl rule__Name__Group__1 ;
-    public final void rule__Name__Group__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalYamlGenDsl.g:1434:1: ( rule__Name__Group__0__Impl rule__Name__Group__1 )
-            // InternalYamlGenDsl.g:1435:2: rule__Name__Group__0__Impl rule__Name__Group__1
-            {
-            pushFollow(FOLLOW_4);
-            rule__Name__Group__0__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Name__Group__1();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Name__Group__0"
-
-
-    // $ANTLR start "rule__Name__Group__0__Impl"
-    // InternalYamlGenDsl.g:1442:1: rule__Name__Group__0__Impl : ( 'name:' ) ;
-    public final void rule__Name__Group__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalYamlGenDsl.g:1446:1: ( ( 'name:' ) )
-            // InternalYamlGenDsl.g:1447:1: ( 'name:' )
-            {
-            // InternalYamlGenDsl.g:1447:1: ( 'name:' )
-            // InternalYamlGenDsl.g:1448:2: 'name:'
-            {
-             before(grammarAccess.getNameAccess().getNameKeyword_0()); 
-            match(input,20,FOLLOW_2); 
-             after(grammarAccess.getNameAccess().getNameKeyword_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Name__Group__0__Impl"
-
-
-    // $ANTLR start "rule__Name__Group__1"
-    // InternalYamlGenDsl.g:1457:1: rule__Name__Group__1 : rule__Name__Group__1__Impl ;
-    public final void rule__Name__Group__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalYamlGenDsl.g:1461:1: ( rule__Name__Group__1__Impl )
-            // InternalYamlGenDsl.g:1462:2: rule__Name__Group__1__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__Name__Group__1__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Name__Group__1"
-
-
-    // $ANTLR start "rule__Name__Group__1__Impl"
-    // InternalYamlGenDsl.g:1468:1: rule__Name__Group__1__Impl : ( ( rule__Name__ValueAssignment_1 ) ) ;
-    public final void rule__Name__Group__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalYamlGenDsl.g:1472:1: ( ( ( rule__Name__ValueAssignment_1 ) ) )
-            // InternalYamlGenDsl.g:1473:1: ( ( rule__Name__ValueAssignment_1 ) )
-            {
-            // InternalYamlGenDsl.g:1473:1: ( ( rule__Name__ValueAssignment_1 ) )
-            // InternalYamlGenDsl.g:1474:2: ( rule__Name__ValueAssignment_1 )
-            {
-             before(grammarAccess.getNameAccess().getValueAssignment_1()); 
-            // InternalYamlGenDsl.g:1475:2: ( rule__Name__ValueAssignment_1 )
-            // InternalYamlGenDsl.g:1475:3: rule__Name__ValueAssignment_1
-            {
-            pushFollow(FOLLOW_2);
-            rule__Name__ValueAssignment_1();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getNameAccess().getValueAssignment_1()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Name__Group__1__Impl"
-
-
-    // $ANTLR start "rule__Default__Group__0"
-    // InternalYamlGenDsl.g:1484:1: rule__Default__Group__0 : rule__Default__Group__0__Impl rule__Default__Group__1 ;
-    public final void rule__Default__Group__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalYamlGenDsl.g:1488:1: ( rule__Default__Group__0__Impl rule__Default__Group__1 )
-            // InternalYamlGenDsl.g:1489:2: rule__Default__Group__0__Impl rule__Default__Group__1
+            // InternalYamlGenDsl.g:1451:1: ( rule__StringProperty__Group__0__Impl rule__StringProperty__Group__1 )
+            // InternalYamlGenDsl.g:1452:2: rule__StringProperty__Group__0__Impl rule__StringProperty__Group__1
             {
             pushFollow(FOLLOW_15);
-            rule__Default__Group__0__Impl();
+            rule__StringProperty__Group__0__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Default__Group__1();
+            rule__StringProperty__Group__1();
 
             state._fsp--;
 
@@ -4653,105 +4626,35 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__Default__Group__0"
+    // $ANTLR end "rule__StringProperty__Group__0"
 
 
-    // $ANTLR start "rule__Default__Group__0__Impl"
-    // InternalYamlGenDsl.g:1496:1: rule__Default__Group__0__Impl : ( 'default:' ) ;
-    public final void rule__Default__Group__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalYamlGenDsl.g:1500:1: ( ( 'default:' ) )
-            // InternalYamlGenDsl.g:1501:1: ( 'default:' )
-            {
-            // InternalYamlGenDsl.g:1501:1: ( 'default:' )
-            // InternalYamlGenDsl.g:1502:2: 'default:'
-            {
-             before(grammarAccess.getDefaultAccess().getDefaultKeyword_0()); 
-            match(input,21,FOLLOW_2); 
-             after(grammarAccess.getDefaultAccess().getDefaultKeyword_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Default__Group__0__Impl"
-
-
-    // $ANTLR start "rule__Default__Group__1"
-    // InternalYamlGenDsl.g:1511:1: rule__Default__Group__1 : rule__Default__Group__1__Impl ;
-    public final void rule__Default__Group__1() throws RecognitionException {
+    // $ANTLR start "rule__StringProperty__Group__0__Impl"
+    // InternalYamlGenDsl.g:1459:1: rule__StringProperty__Group__0__Impl : ( ( rule__StringProperty__KeyAssignment_0 ) ) ;
+    public final void rule__StringProperty__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1515:1: ( rule__Default__Group__1__Impl )
-            // InternalYamlGenDsl.g:1516:2: rule__Default__Group__1__Impl
+            // InternalYamlGenDsl.g:1463:1: ( ( ( rule__StringProperty__KeyAssignment_0 ) ) )
+            // InternalYamlGenDsl.g:1464:1: ( ( rule__StringProperty__KeyAssignment_0 ) )
+            {
+            // InternalYamlGenDsl.g:1464:1: ( ( rule__StringProperty__KeyAssignment_0 ) )
+            // InternalYamlGenDsl.g:1465:2: ( rule__StringProperty__KeyAssignment_0 )
+            {
+             before(grammarAccess.getStringPropertyAccess().getKeyAssignment_0()); 
+            // InternalYamlGenDsl.g:1466:2: ( rule__StringProperty__KeyAssignment_0 )
+            // InternalYamlGenDsl.g:1466:3: rule__StringProperty__KeyAssignment_0
             {
             pushFollow(FOLLOW_2);
-            rule__Default__Group__1__Impl();
+            rule__StringProperty__KeyAssignment_0();
 
             state._fsp--;
 
 
             }
 
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Default__Group__1"
-
-
-    // $ANTLR start "rule__Default__Group__1__Impl"
-    // InternalYamlGenDsl.g:1522:1: rule__Default__Group__1__Impl : ( ( rule__Default__ValueAssignment_1 ) ) ;
-    public final void rule__Default__Group__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalYamlGenDsl.g:1526:1: ( ( ( rule__Default__ValueAssignment_1 ) ) )
-            // InternalYamlGenDsl.g:1527:1: ( ( rule__Default__ValueAssignment_1 ) )
-            {
-            // InternalYamlGenDsl.g:1527:1: ( ( rule__Default__ValueAssignment_1 ) )
-            // InternalYamlGenDsl.g:1528:2: ( rule__Default__ValueAssignment_1 )
-            {
-             before(grammarAccess.getDefaultAccess().getValueAssignment_1()); 
-            // InternalYamlGenDsl.g:1529:2: ( rule__Default__ValueAssignment_1 )
-            // InternalYamlGenDsl.g:1529:3: rule__Default__ValueAssignment_1
-            {
-            pushFollow(FOLLOW_2);
-            rule__Default__ValueAssignment_1();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getDefaultAccess().getValueAssignment_1()); 
+             after(grammarAccess.getStringPropertyAccess().getKeyAssignment_0()); 
 
             }
 
@@ -4770,26 +4673,26 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__Default__Group__1__Impl"
+    // $ANTLR end "rule__StringProperty__Group__0__Impl"
 
 
-    // $ANTLR start "rule__Hint__Group__0"
-    // InternalYamlGenDsl.g:1538:1: rule__Hint__Group__0 : rule__Hint__Group__0__Impl rule__Hint__Group__1 ;
-    public final void rule__Hint__Group__0() throws RecognitionException {
+    // $ANTLR start "rule__StringProperty__Group__1"
+    // InternalYamlGenDsl.g:1474:1: rule__StringProperty__Group__1 : rule__StringProperty__Group__1__Impl rule__StringProperty__Group__2 ;
+    public final void rule__StringProperty__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1542:1: ( rule__Hint__Group__0__Impl rule__Hint__Group__1 )
-            // InternalYamlGenDsl.g:1543:2: rule__Hint__Group__0__Impl rule__Hint__Group__1
+            // InternalYamlGenDsl.g:1478:1: ( rule__StringProperty__Group__1__Impl rule__StringProperty__Group__2 )
+            // InternalYamlGenDsl.g:1479:2: rule__StringProperty__Group__1__Impl rule__StringProperty__Group__2
             {
             pushFollow(FOLLOW_4);
-            rule__Hint__Group__0__Impl();
+            rule__StringProperty__Group__1__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Hint__Group__1();
+            rule__StringProperty__Group__2();
 
             state._fsp--;
 
@@ -4808,25 +4711,25 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__Hint__Group__0"
+    // $ANTLR end "rule__StringProperty__Group__1"
 
 
-    // $ANTLR start "rule__Hint__Group__0__Impl"
-    // InternalYamlGenDsl.g:1550:1: rule__Hint__Group__0__Impl : ( 'hint:' ) ;
-    public final void rule__Hint__Group__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__StringProperty__Group__1__Impl"
+    // InternalYamlGenDsl.g:1486:1: rule__StringProperty__Group__1__Impl : ( ':' ) ;
+    public final void rule__StringProperty__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1554:1: ( ( 'hint:' ) )
-            // InternalYamlGenDsl.g:1555:1: ( 'hint:' )
+            // InternalYamlGenDsl.g:1490:1: ( ( ':' ) )
+            // InternalYamlGenDsl.g:1491:1: ( ':' )
             {
-            // InternalYamlGenDsl.g:1555:1: ( 'hint:' )
-            // InternalYamlGenDsl.g:1556:2: 'hint:'
+            // InternalYamlGenDsl.g:1491:1: ( ':' )
+            // InternalYamlGenDsl.g:1492:2: ':'
             {
-             before(grammarAccess.getHintAccess().getHintKeyword_0()); 
-            match(input,22,FOLLOW_2); 
-             after(grammarAccess.getHintAccess().getHintKeyword_0()); 
+             before(grammarAccess.getStringPropertyAccess().getColonKeyword_1()); 
+            match(input,29,FOLLOW_2); 
+             after(grammarAccess.getStringPropertyAccess().getColonKeyword_1()); 
 
             }
 
@@ -4845,21 +4748,21 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__Hint__Group__0__Impl"
+    // $ANTLR end "rule__StringProperty__Group__1__Impl"
 
 
-    // $ANTLR start "rule__Hint__Group__1"
-    // InternalYamlGenDsl.g:1565:1: rule__Hint__Group__1 : rule__Hint__Group__1__Impl ;
-    public final void rule__Hint__Group__1() throws RecognitionException {
+    // $ANTLR start "rule__StringProperty__Group__2"
+    // InternalYamlGenDsl.g:1501:1: rule__StringProperty__Group__2 : rule__StringProperty__Group__2__Impl ;
+    public final void rule__StringProperty__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1569:1: ( rule__Hint__Group__1__Impl )
-            // InternalYamlGenDsl.g:1570:2: rule__Hint__Group__1__Impl
+            // InternalYamlGenDsl.g:1505:1: ( rule__StringProperty__Group__2__Impl )
+            // InternalYamlGenDsl.g:1506:2: rule__StringProperty__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__Hint__Group__1__Impl();
+            rule__StringProperty__Group__2__Impl();
 
             state._fsp--;
 
@@ -4878,35 +4781,35 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__Hint__Group__1"
+    // $ANTLR end "rule__StringProperty__Group__2"
 
 
-    // $ANTLR start "rule__Hint__Group__1__Impl"
-    // InternalYamlGenDsl.g:1576:1: rule__Hint__Group__1__Impl : ( ( rule__Hint__ValueAssignment_1 ) ) ;
-    public final void rule__Hint__Group__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__StringProperty__Group__2__Impl"
+    // InternalYamlGenDsl.g:1512:1: rule__StringProperty__Group__2__Impl : ( ( rule__StringProperty__ValueAssignment_2 ) ) ;
+    public final void rule__StringProperty__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1580:1: ( ( ( rule__Hint__ValueAssignment_1 ) ) )
-            // InternalYamlGenDsl.g:1581:1: ( ( rule__Hint__ValueAssignment_1 ) )
+            // InternalYamlGenDsl.g:1516:1: ( ( ( rule__StringProperty__ValueAssignment_2 ) ) )
+            // InternalYamlGenDsl.g:1517:1: ( ( rule__StringProperty__ValueAssignment_2 ) )
             {
-            // InternalYamlGenDsl.g:1581:1: ( ( rule__Hint__ValueAssignment_1 ) )
-            // InternalYamlGenDsl.g:1582:2: ( rule__Hint__ValueAssignment_1 )
+            // InternalYamlGenDsl.g:1517:1: ( ( rule__StringProperty__ValueAssignment_2 ) )
+            // InternalYamlGenDsl.g:1518:2: ( rule__StringProperty__ValueAssignment_2 )
             {
-             before(grammarAccess.getHintAccess().getValueAssignment_1()); 
-            // InternalYamlGenDsl.g:1583:2: ( rule__Hint__ValueAssignment_1 )
-            // InternalYamlGenDsl.g:1583:3: rule__Hint__ValueAssignment_1
+             before(grammarAccess.getStringPropertyAccess().getValueAssignment_2()); 
+            // InternalYamlGenDsl.g:1519:2: ( rule__StringProperty__ValueAssignment_2 )
+            // InternalYamlGenDsl.g:1519:3: rule__StringProperty__ValueAssignment_2
             {
             pushFollow(FOLLOW_2);
-            rule__Hint__ValueAssignment_1();
+            rule__StringProperty__ValueAssignment_2();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getHintAccess().getValueAssignment_1()); 
+             after(grammarAccess.getStringPropertyAccess().getValueAssignment_2()); 
 
             }
 
@@ -4925,26 +4828,26 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__Hint__Group__1__Impl"
+    // $ANTLR end "rule__StringProperty__Group__2__Impl"
 
 
-    // $ANTLR start "rule__PermittedValues__Group__0"
-    // InternalYamlGenDsl.g:1592:1: rule__PermittedValues__Group__0 : rule__PermittedValues__Group__0__Impl rule__PermittedValues__Group__1 ;
-    public final void rule__PermittedValues__Group__0() throws RecognitionException {
+    // $ANTLR start "rule__ValuesProperty__Group__0"
+    // InternalYamlGenDsl.g:1528:1: rule__ValuesProperty__Group__0 : rule__ValuesProperty__Group__0__Impl rule__ValuesProperty__Group__1 ;
+    public final void rule__ValuesProperty__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1596:1: ( rule__PermittedValues__Group__0__Impl rule__PermittedValues__Group__1 )
-            // InternalYamlGenDsl.g:1597:2: rule__PermittedValues__Group__0__Impl rule__PermittedValues__Group__1
+            // InternalYamlGenDsl.g:1532:1: ( rule__ValuesProperty__Group__0__Impl rule__ValuesProperty__Group__1 )
+            // InternalYamlGenDsl.g:1533:2: rule__ValuesProperty__Group__0__Impl rule__ValuesProperty__Group__1
             {
             pushFollow(FOLLOW_15);
-            rule__PermittedValues__Group__0__Impl();
+            rule__ValuesProperty__Group__0__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__PermittedValues__Group__1();
+            rule__ValuesProperty__Group__1();
 
             state._fsp--;
 
@@ -4963,60 +4866,37 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__PermittedValues__Group__0"
+    // $ANTLR end "rule__ValuesProperty__Group__0"
 
 
-    // $ANTLR start "rule__PermittedValues__Group__0__Impl"
-    // InternalYamlGenDsl.g:1604:1: rule__PermittedValues__Group__0__Impl : ( 'values:' ) ;
-    public final void rule__PermittedValues__Group__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalYamlGenDsl.g:1608:1: ( ( 'values:' ) )
-            // InternalYamlGenDsl.g:1609:1: ( 'values:' )
-            {
-            // InternalYamlGenDsl.g:1609:1: ( 'values:' )
-            // InternalYamlGenDsl.g:1610:2: 'values:'
-            {
-             before(grammarAccess.getPermittedValuesAccess().getValuesKeyword_0()); 
-            match(input,23,FOLLOW_2); 
-             after(grammarAccess.getPermittedValuesAccess().getValuesKeyword_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__PermittedValues__Group__0__Impl"
-
-
-    // $ANTLR start "rule__PermittedValues__Group__1"
-    // InternalYamlGenDsl.g:1619:1: rule__PermittedValues__Group__1 : rule__PermittedValues__Group__1__Impl ;
-    public final void rule__PermittedValues__Group__1() throws RecognitionException {
+    // $ANTLR start "rule__ValuesProperty__Group__0__Impl"
+    // InternalYamlGenDsl.g:1540:1: rule__ValuesProperty__Group__0__Impl : ( ( rule__ValuesProperty__KeyAssignment_0 ) ) ;
+    public final void rule__ValuesProperty__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1623:1: ( rule__PermittedValues__Group__1__Impl )
-            // InternalYamlGenDsl.g:1624:2: rule__PermittedValues__Group__1__Impl
+            // InternalYamlGenDsl.g:1544:1: ( ( ( rule__ValuesProperty__KeyAssignment_0 ) ) )
+            // InternalYamlGenDsl.g:1545:1: ( ( rule__ValuesProperty__KeyAssignment_0 ) )
+            {
+            // InternalYamlGenDsl.g:1545:1: ( ( rule__ValuesProperty__KeyAssignment_0 ) )
+            // InternalYamlGenDsl.g:1546:2: ( rule__ValuesProperty__KeyAssignment_0 )
+            {
+             before(grammarAccess.getValuesPropertyAccess().getKeyAssignment_0()); 
+            // InternalYamlGenDsl.g:1547:2: ( rule__ValuesProperty__KeyAssignment_0 )
+            // InternalYamlGenDsl.g:1547:3: rule__ValuesProperty__KeyAssignment_0
             {
             pushFollow(FOLLOW_2);
-            rule__PermittedValues__Group__1__Impl();
+            rule__ValuesProperty__KeyAssignment_0();
 
             state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getValuesPropertyAccess().getKeyAssignment_0()); 
+
+            }
 
 
             }
@@ -5033,35 +4913,63 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__PermittedValues__Group__1"
+    // $ANTLR end "rule__ValuesProperty__Group__0__Impl"
 
 
-    // $ANTLR start "rule__PermittedValues__Group__1__Impl"
-    // InternalYamlGenDsl.g:1630:1: rule__PermittedValues__Group__1__Impl : ( ( rule__PermittedValues__ValueAssignment_1 ) ) ;
-    public final void rule__PermittedValues__Group__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__ValuesProperty__Group__1"
+    // InternalYamlGenDsl.g:1555:1: rule__ValuesProperty__Group__1 : rule__ValuesProperty__Group__1__Impl rule__ValuesProperty__Group__2 ;
+    public final void rule__ValuesProperty__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1634:1: ( ( ( rule__PermittedValues__ValueAssignment_1 ) ) )
-            // InternalYamlGenDsl.g:1635:1: ( ( rule__PermittedValues__ValueAssignment_1 ) )
+            // InternalYamlGenDsl.g:1559:1: ( rule__ValuesProperty__Group__1__Impl rule__ValuesProperty__Group__2 )
+            // InternalYamlGenDsl.g:1560:2: rule__ValuesProperty__Group__1__Impl rule__ValuesProperty__Group__2
             {
-            // InternalYamlGenDsl.g:1635:1: ( ( rule__PermittedValues__ValueAssignment_1 ) )
-            // InternalYamlGenDsl.g:1636:2: ( rule__PermittedValues__ValueAssignment_1 )
-            {
-             before(grammarAccess.getPermittedValuesAccess().getValueAssignment_1()); 
-            // InternalYamlGenDsl.g:1637:2: ( rule__PermittedValues__ValueAssignment_1 )
-            // InternalYamlGenDsl.g:1637:3: rule__PermittedValues__ValueAssignment_1
-            {
+            pushFollow(FOLLOW_16);
+            rule__ValuesProperty__Group__1__Impl();
+
+            state._fsp--;
+
             pushFollow(FOLLOW_2);
-            rule__PermittedValues__ValueAssignment_1();
+            rule__ValuesProperty__Group__2();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getPermittedValuesAccess().getValueAssignment_1()); 
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ValuesProperty__Group__1"
+
+
+    // $ANTLR start "rule__ValuesProperty__Group__1__Impl"
+    // InternalYamlGenDsl.g:1567:1: rule__ValuesProperty__Group__1__Impl : ( ':' ) ;
+    public final void rule__ValuesProperty__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalYamlGenDsl.g:1571:1: ( ( ':' ) )
+            // InternalYamlGenDsl.g:1572:1: ( ':' )
+            {
+            // InternalYamlGenDsl.g:1572:1: ( ':' )
+            // InternalYamlGenDsl.g:1573:2: ':'
+            {
+             before(grammarAccess.getValuesPropertyAccess().getColonKeyword_1()); 
+            match(input,29,FOLLOW_2); 
+             after(grammarAccess.getValuesPropertyAccess().getColonKeyword_1()); 
 
             }
 
@@ -5080,20 +4988,666 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__PermittedValues__Group__1__Impl"
+    // $ANTLR end "rule__ValuesProperty__Group__1__Impl"
+
+
+    // $ANTLR start "rule__ValuesProperty__Group__2"
+    // InternalYamlGenDsl.g:1582:1: rule__ValuesProperty__Group__2 : rule__ValuesProperty__Group__2__Impl ;
+    public final void rule__ValuesProperty__Group__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalYamlGenDsl.g:1586:1: ( rule__ValuesProperty__Group__2__Impl )
+            // InternalYamlGenDsl.g:1587:2: rule__ValuesProperty__Group__2__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__ValuesProperty__Group__2__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ValuesProperty__Group__2"
+
+
+    // $ANTLR start "rule__ValuesProperty__Group__2__Impl"
+    // InternalYamlGenDsl.g:1593:1: rule__ValuesProperty__Group__2__Impl : ( ( rule__ValuesProperty__ValueAssignment_2 ) ) ;
+    public final void rule__ValuesProperty__Group__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalYamlGenDsl.g:1597:1: ( ( ( rule__ValuesProperty__ValueAssignment_2 ) ) )
+            // InternalYamlGenDsl.g:1598:1: ( ( rule__ValuesProperty__ValueAssignment_2 ) )
+            {
+            // InternalYamlGenDsl.g:1598:1: ( ( rule__ValuesProperty__ValueAssignment_2 ) )
+            // InternalYamlGenDsl.g:1599:2: ( rule__ValuesProperty__ValueAssignment_2 )
+            {
+             before(grammarAccess.getValuesPropertyAccess().getValueAssignment_2()); 
+            // InternalYamlGenDsl.g:1600:2: ( rule__ValuesProperty__ValueAssignment_2 )
+            // InternalYamlGenDsl.g:1600:3: rule__ValuesProperty__ValueAssignment_2
+            {
+            pushFollow(FOLLOW_2);
+            rule__ValuesProperty__ValueAssignment_2();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getValuesPropertyAccess().getValueAssignment_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ValuesProperty__Group__2__Impl"
+
+
+    // $ANTLR start "rule__TypeProperty__Group__0"
+    // InternalYamlGenDsl.g:1609:1: rule__TypeProperty__Group__0 : rule__TypeProperty__Group__0__Impl rule__TypeProperty__Group__1 ;
+    public final void rule__TypeProperty__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalYamlGenDsl.g:1613:1: ( rule__TypeProperty__Group__0__Impl rule__TypeProperty__Group__1 )
+            // InternalYamlGenDsl.g:1614:2: rule__TypeProperty__Group__0__Impl rule__TypeProperty__Group__1
+            {
+            pushFollow(FOLLOW_15);
+            rule__TypeProperty__Group__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__TypeProperty__Group__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__TypeProperty__Group__0"
+
+
+    // $ANTLR start "rule__TypeProperty__Group__0__Impl"
+    // InternalYamlGenDsl.g:1621:1: rule__TypeProperty__Group__0__Impl : ( ( rule__TypeProperty__KeyAssignment_0 ) ) ;
+    public final void rule__TypeProperty__Group__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalYamlGenDsl.g:1625:1: ( ( ( rule__TypeProperty__KeyAssignment_0 ) ) )
+            // InternalYamlGenDsl.g:1626:1: ( ( rule__TypeProperty__KeyAssignment_0 ) )
+            {
+            // InternalYamlGenDsl.g:1626:1: ( ( rule__TypeProperty__KeyAssignment_0 ) )
+            // InternalYamlGenDsl.g:1627:2: ( rule__TypeProperty__KeyAssignment_0 )
+            {
+             before(grammarAccess.getTypePropertyAccess().getKeyAssignment_0()); 
+            // InternalYamlGenDsl.g:1628:2: ( rule__TypeProperty__KeyAssignment_0 )
+            // InternalYamlGenDsl.g:1628:3: rule__TypeProperty__KeyAssignment_0
+            {
+            pushFollow(FOLLOW_2);
+            rule__TypeProperty__KeyAssignment_0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getTypePropertyAccess().getKeyAssignment_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__TypeProperty__Group__0__Impl"
+
+
+    // $ANTLR start "rule__TypeProperty__Group__1"
+    // InternalYamlGenDsl.g:1636:1: rule__TypeProperty__Group__1 : rule__TypeProperty__Group__1__Impl rule__TypeProperty__Group__2 ;
+    public final void rule__TypeProperty__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalYamlGenDsl.g:1640:1: ( rule__TypeProperty__Group__1__Impl rule__TypeProperty__Group__2 )
+            // InternalYamlGenDsl.g:1641:2: rule__TypeProperty__Group__1__Impl rule__TypeProperty__Group__2
+            {
+            pushFollow(FOLLOW_17);
+            rule__TypeProperty__Group__1__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__TypeProperty__Group__2();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__TypeProperty__Group__1"
+
+
+    // $ANTLR start "rule__TypeProperty__Group__1__Impl"
+    // InternalYamlGenDsl.g:1648:1: rule__TypeProperty__Group__1__Impl : ( ':' ) ;
+    public final void rule__TypeProperty__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalYamlGenDsl.g:1652:1: ( ( ':' ) )
+            // InternalYamlGenDsl.g:1653:1: ( ':' )
+            {
+            // InternalYamlGenDsl.g:1653:1: ( ':' )
+            // InternalYamlGenDsl.g:1654:2: ':'
+            {
+             before(grammarAccess.getTypePropertyAccess().getColonKeyword_1()); 
+            match(input,29,FOLLOW_2); 
+             after(grammarAccess.getTypePropertyAccess().getColonKeyword_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__TypeProperty__Group__1__Impl"
+
+
+    // $ANTLR start "rule__TypeProperty__Group__2"
+    // InternalYamlGenDsl.g:1663:1: rule__TypeProperty__Group__2 : rule__TypeProperty__Group__2__Impl rule__TypeProperty__Group__3 ;
+    public final void rule__TypeProperty__Group__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalYamlGenDsl.g:1667:1: ( rule__TypeProperty__Group__2__Impl rule__TypeProperty__Group__3 )
+            // InternalYamlGenDsl.g:1668:2: rule__TypeProperty__Group__2__Impl rule__TypeProperty__Group__3
+            {
+            pushFollow(FOLLOW_18);
+            rule__TypeProperty__Group__2__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__TypeProperty__Group__3();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__TypeProperty__Group__2"
+
+
+    // $ANTLR start "rule__TypeProperty__Group__2__Impl"
+    // InternalYamlGenDsl.g:1675:1: rule__TypeProperty__Group__2__Impl : ( ( rule__TypeProperty__ValueAssignment_2 ) ) ;
+    public final void rule__TypeProperty__Group__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalYamlGenDsl.g:1679:1: ( ( ( rule__TypeProperty__ValueAssignment_2 ) ) )
+            // InternalYamlGenDsl.g:1680:1: ( ( rule__TypeProperty__ValueAssignment_2 ) )
+            {
+            // InternalYamlGenDsl.g:1680:1: ( ( rule__TypeProperty__ValueAssignment_2 ) )
+            // InternalYamlGenDsl.g:1681:2: ( rule__TypeProperty__ValueAssignment_2 )
+            {
+             before(grammarAccess.getTypePropertyAccess().getValueAssignment_2()); 
+            // InternalYamlGenDsl.g:1682:2: ( rule__TypeProperty__ValueAssignment_2 )
+            // InternalYamlGenDsl.g:1682:3: rule__TypeProperty__ValueAssignment_2
+            {
+            pushFollow(FOLLOW_2);
+            rule__TypeProperty__ValueAssignment_2();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getTypePropertyAccess().getValueAssignment_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__TypeProperty__Group__2__Impl"
+
+
+    // $ANTLR start "rule__TypeProperty__Group__3"
+    // InternalYamlGenDsl.g:1690:1: rule__TypeProperty__Group__3 : rule__TypeProperty__Group__3__Impl ;
+    public final void rule__TypeProperty__Group__3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalYamlGenDsl.g:1694:1: ( rule__TypeProperty__Group__3__Impl )
+            // InternalYamlGenDsl.g:1695:2: rule__TypeProperty__Group__3__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__TypeProperty__Group__3__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__TypeProperty__Group__3"
+
+
+    // $ANTLR start "rule__TypeProperty__Group__3__Impl"
+    // InternalYamlGenDsl.g:1701:1: rule__TypeProperty__Group__3__Impl : ( ( rule__TypeProperty__Group_3__0 )? ) ;
+    public final void rule__TypeProperty__Group__3__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalYamlGenDsl.g:1705:1: ( ( ( rule__TypeProperty__Group_3__0 )? ) )
+            // InternalYamlGenDsl.g:1706:1: ( ( rule__TypeProperty__Group_3__0 )? )
+            {
+            // InternalYamlGenDsl.g:1706:1: ( ( rule__TypeProperty__Group_3__0 )? )
+            // InternalYamlGenDsl.g:1707:2: ( rule__TypeProperty__Group_3__0 )?
+            {
+             before(grammarAccess.getTypePropertyAccess().getGroup_3()); 
+            // InternalYamlGenDsl.g:1708:2: ( rule__TypeProperty__Group_3__0 )?
+            int alt20=2;
+            int LA20_0 = input.LA(1);
+
+            if ( (LA20_0==30) ) {
+                alt20=1;
+            }
+            switch (alt20) {
+                case 1 :
+                    // InternalYamlGenDsl.g:1708:3: rule__TypeProperty__Group_3__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__TypeProperty__Group_3__0();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getTypePropertyAccess().getGroup_3()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__TypeProperty__Group__3__Impl"
+
+
+    // $ANTLR start "rule__TypeProperty__Group_3__0"
+    // InternalYamlGenDsl.g:1717:1: rule__TypeProperty__Group_3__0 : rule__TypeProperty__Group_3__0__Impl rule__TypeProperty__Group_3__1 ;
+    public final void rule__TypeProperty__Group_3__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalYamlGenDsl.g:1721:1: ( rule__TypeProperty__Group_3__0__Impl rule__TypeProperty__Group_3__1 )
+            // InternalYamlGenDsl.g:1722:2: rule__TypeProperty__Group_3__0__Impl rule__TypeProperty__Group_3__1
+            {
+            pushFollow(FOLLOW_4);
+            rule__TypeProperty__Group_3__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__TypeProperty__Group_3__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__TypeProperty__Group_3__0"
+
+
+    // $ANTLR start "rule__TypeProperty__Group_3__0__Impl"
+    // InternalYamlGenDsl.g:1729:1: rule__TypeProperty__Group_3__0__Impl : ( '(' ) ;
+    public final void rule__TypeProperty__Group_3__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalYamlGenDsl.g:1733:1: ( ( '(' ) )
+            // InternalYamlGenDsl.g:1734:1: ( '(' )
+            {
+            // InternalYamlGenDsl.g:1734:1: ( '(' )
+            // InternalYamlGenDsl.g:1735:2: '('
+            {
+             before(grammarAccess.getTypePropertyAccess().getLeftParenthesisKeyword_3_0()); 
+            match(input,30,FOLLOW_2); 
+             after(grammarAccess.getTypePropertyAccess().getLeftParenthesisKeyword_3_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__TypeProperty__Group_3__0__Impl"
+
+
+    // $ANTLR start "rule__TypeProperty__Group_3__1"
+    // InternalYamlGenDsl.g:1744:1: rule__TypeProperty__Group_3__1 : rule__TypeProperty__Group_3__1__Impl rule__TypeProperty__Group_3__2 ;
+    public final void rule__TypeProperty__Group_3__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalYamlGenDsl.g:1748:1: ( rule__TypeProperty__Group_3__1__Impl rule__TypeProperty__Group_3__2 )
+            // InternalYamlGenDsl.g:1749:2: rule__TypeProperty__Group_3__1__Impl rule__TypeProperty__Group_3__2
+            {
+            pushFollow(FOLLOW_19);
+            rule__TypeProperty__Group_3__1__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__TypeProperty__Group_3__2();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__TypeProperty__Group_3__1"
+
+
+    // $ANTLR start "rule__TypeProperty__Group_3__1__Impl"
+    // InternalYamlGenDsl.g:1756:1: rule__TypeProperty__Group_3__1__Impl : ( ( rule__TypeProperty__HelpAssignment_3_1 ) ) ;
+    public final void rule__TypeProperty__Group_3__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalYamlGenDsl.g:1760:1: ( ( ( rule__TypeProperty__HelpAssignment_3_1 ) ) )
+            // InternalYamlGenDsl.g:1761:1: ( ( rule__TypeProperty__HelpAssignment_3_1 ) )
+            {
+            // InternalYamlGenDsl.g:1761:1: ( ( rule__TypeProperty__HelpAssignment_3_1 ) )
+            // InternalYamlGenDsl.g:1762:2: ( rule__TypeProperty__HelpAssignment_3_1 )
+            {
+             before(grammarAccess.getTypePropertyAccess().getHelpAssignment_3_1()); 
+            // InternalYamlGenDsl.g:1763:2: ( rule__TypeProperty__HelpAssignment_3_1 )
+            // InternalYamlGenDsl.g:1763:3: rule__TypeProperty__HelpAssignment_3_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__TypeProperty__HelpAssignment_3_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getTypePropertyAccess().getHelpAssignment_3_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__TypeProperty__Group_3__1__Impl"
+
+
+    // $ANTLR start "rule__TypeProperty__Group_3__2"
+    // InternalYamlGenDsl.g:1771:1: rule__TypeProperty__Group_3__2 : rule__TypeProperty__Group_3__2__Impl ;
+    public final void rule__TypeProperty__Group_3__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalYamlGenDsl.g:1775:1: ( rule__TypeProperty__Group_3__2__Impl )
+            // InternalYamlGenDsl.g:1776:2: rule__TypeProperty__Group_3__2__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__TypeProperty__Group_3__2__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__TypeProperty__Group_3__2"
+
+
+    // $ANTLR start "rule__TypeProperty__Group_3__2__Impl"
+    // InternalYamlGenDsl.g:1782:1: rule__TypeProperty__Group_3__2__Impl : ( ')' ) ;
+    public final void rule__TypeProperty__Group_3__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalYamlGenDsl.g:1786:1: ( ( ')' ) )
+            // InternalYamlGenDsl.g:1787:1: ( ')' )
+            {
+            // InternalYamlGenDsl.g:1787:1: ( ')' )
+            // InternalYamlGenDsl.g:1788:2: ')'
+            {
+             before(grammarAccess.getTypePropertyAccess().getRightParenthesisKeyword_3_2()); 
+            match(input,31,FOLLOW_2); 
+             after(grammarAccess.getTypePropertyAccess().getRightParenthesisKeyword_3_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__TypeProperty__Group_3__2__Impl"
 
 
     // $ANTLR start "rule__Values__Group_0__0"
-    // InternalYamlGenDsl.g:1646:1: rule__Values__Group_0__0 : rule__Values__Group_0__0__Impl rule__Values__Group_0__1 ;
+    // InternalYamlGenDsl.g:1798:1: rule__Values__Group_0__0 : rule__Values__Group_0__0__Impl rule__Values__Group_0__1 ;
     public final void rule__Values__Group_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1650:1: ( rule__Values__Group_0__0__Impl rule__Values__Group_0__1 )
-            // InternalYamlGenDsl.g:1651:2: rule__Values__Group_0__0__Impl rule__Values__Group_0__1
+            // InternalYamlGenDsl.g:1802:1: ( rule__Values__Group_0__0__Impl rule__Values__Group_0__1 )
+            // InternalYamlGenDsl.g:1803:2: rule__Values__Group_0__0__Impl rule__Values__Group_0__1
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_16);
             rule__Values__Group_0__0__Impl();
 
             state._fsp--;
@@ -5122,20 +5676,20 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Values__Group_0__0__Impl"
-    // InternalYamlGenDsl.g:1658:1: rule__Values__Group_0__0__Impl : ( '[' ) ;
+    // InternalYamlGenDsl.g:1810:1: rule__Values__Group_0__0__Impl : ( '[' ) ;
     public final void rule__Values__Group_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1662:1: ( ( '[' ) )
-            // InternalYamlGenDsl.g:1663:1: ( '[' )
+            // InternalYamlGenDsl.g:1814:1: ( ( '[' ) )
+            // InternalYamlGenDsl.g:1815:1: ( '[' )
             {
-            // InternalYamlGenDsl.g:1663:1: ( '[' )
-            // InternalYamlGenDsl.g:1664:2: '['
+            // InternalYamlGenDsl.g:1815:1: ( '[' )
+            // InternalYamlGenDsl.g:1816:2: '['
             {
              before(grammarAccess.getValuesAccess().getLeftSquareBracketKeyword_0_0()); 
-            match(input,24,FOLLOW_2); 
+            match(input,32,FOLLOW_2); 
              after(grammarAccess.getValuesAccess().getLeftSquareBracketKeyword_0_0()); 
 
             }
@@ -5159,16 +5713,16 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Values__Group_0__1"
-    // InternalYamlGenDsl.g:1673:1: rule__Values__Group_0__1 : rule__Values__Group_0__1__Impl rule__Values__Group_0__2 ;
+    // InternalYamlGenDsl.g:1825:1: rule__Values__Group_0__1 : rule__Values__Group_0__1__Impl rule__Values__Group_0__2 ;
     public final void rule__Values__Group_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1677:1: ( rule__Values__Group_0__1__Impl rule__Values__Group_0__2 )
-            // InternalYamlGenDsl.g:1678:2: rule__Values__Group_0__1__Impl rule__Values__Group_0__2
+            // InternalYamlGenDsl.g:1829:1: ( rule__Values__Group_0__1__Impl rule__Values__Group_0__2 )
+            // InternalYamlGenDsl.g:1830:2: rule__Values__Group_0__1__Impl rule__Values__Group_0__2
             {
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_20);
             rule__Values__Group_0__1__Impl();
 
             state._fsp--;
@@ -5197,26 +5751,26 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Values__Group_0__1__Impl"
-    // InternalYamlGenDsl.g:1685:1: rule__Values__Group_0__1__Impl : ( ( ( rule__Values__ValuesAssignment_0_1 ) ) ( ( rule__Values__ValuesAssignment_0_1 )* ) ) ;
+    // InternalYamlGenDsl.g:1837:1: rule__Values__Group_0__1__Impl : ( ( ( rule__Values__ValuesAssignment_0_1 ) ) ( ( rule__Values__ValuesAssignment_0_1 )* ) ) ;
     public final void rule__Values__Group_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1689:1: ( ( ( ( rule__Values__ValuesAssignment_0_1 ) ) ( ( rule__Values__ValuesAssignment_0_1 )* ) ) )
-            // InternalYamlGenDsl.g:1690:1: ( ( ( rule__Values__ValuesAssignment_0_1 ) ) ( ( rule__Values__ValuesAssignment_0_1 )* ) )
+            // InternalYamlGenDsl.g:1841:1: ( ( ( ( rule__Values__ValuesAssignment_0_1 ) ) ( ( rule__Values__ValuesAssignment_0_1 )* ) ) )
+            // InternalYamlGenDsl.g:1842:1: ( ( ( rule__Values__ValuesAssignment_0_1 ) ) ( ( rule__Values__ValuesAssignment_0_1 )* ) )
             {
-            // InternalYamlGenDsl.g:1690:1: ( ( ( rule__Values__ValuesAssignment_0_1 ) ) ( ( rule__Values__ValuesAssignment_0_1 )* ) )
-            // InternalYamlGenDsl.g:1691:2: ( ( rule__Values__ValuesAssignment_0_1 ) ) ( ( rule__Values__ValuesAssignment_0_1 )* )
+            // InternalYamlGenDsl.g:1842:1: ( ( ( rule__Values__ValuesAssignment_0_1 ) ) ( ( rule__Values__ValuesAssignment_0_1 )* ) )
+            // InternalYamlGenDsl.g:1843:2: ( ( rule__Values__ValuesAssignment_0_1 ) ) ( ( rule__Values__ValuesAssignment_0_1 )* )
             {
-            // InternalYamlGenDsl.g:1691:2: ( ( rule__Values__ValuesAssignment_0_1 ) )
-            // InternalYamlGenDsl.g:1692:3: ( rule__Values__ValuesAssignment_0_1 )
+            // InternalYamlGenDsl.g:1843:2: ( ( rule__Values__ValuesAssignment_0_1 ) )
+            // InternalYamlGenDsl.g:1844:3: ( rule__Values__ValuesAssignment_0_1 )
             {
              before(grammarAccess.getValuesAccess().getValuesAssignment_0_1()); 
-            // InternalYamlGenDsl.g:1693:3: ( rule__Values__ValuesAssignment_0_1 )
-            // InternalYamlGenDsl.g:1693:4: rule__Values__ValuesAssignment_0_1
+            // InternalYamlGenDsl.g:1845:3: ( rule__Values__ValuesAssignment_0_1 )
+            // InternalYamlGenDsl.g:1845:4: rule__Values__ValuesAssignment_0_1
             {
-            pushFollow(FOLLOW_17);
+            pushFollow(FOLLOW_21);
             rule__Values__ValuesAssignment_0_1();
 
             state._fsp--;
@@ -5228,26 +5782,26 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
             }
 
-            // InternalYamlGenDsl.g:1696:2: ( ( rule__Values__ValuesAssignment_0_1 )* )
-            // InternalYamlGenDsl.g:1697:3: ( rule__Values__ValuesAssignment_0_1 )*
+            // InternalYamlGenDsl.g:1848:2: ( ( rule__Values__ValuesAssignment_0_1 )* )
+            // InternalYamlGenDsl.g:1849:3: ( rule__Values__ValuesAssignment_0_1 )*
             {
              before(grammarAccess.getValuesAccess().getValuesAssignment_0_1()); 
-            // InternalYamlGenDsl.g:1698:3: ( rule__Values__ValuesAssignment_0_1 )*
-            loop16:
+            // InternalYamlGenDsl.g:1850:3: ( rule__Values__ValuesAssignment_0_1 )*
+            loop21:
             do {
-                int alt16=2;
-                int LA16_0 = input.LA(1);
+                int alt21=2;
+                int LA21_0 = input.LA(1);
 
-                if ( (LA16_0==RULE_STRING||LA16_0==24) ) {
-                    alt16=1;
+                if ( (LA21_0==RULE_STRING||LA21_0==32) ) {
+                    alt21=1;
                 }
 
 
-                switch (alt16) {
+                switch (alt21) {
             	case 1 :
-            	    // InternalYamlGenDsl.g:1698:4: rule__Values__ValuesAssignment_0_1
+            	    // InternalYamlGenDsl.g:1850:4: rule__Values__ValuesAssignment_0_1
             	    {
-            	    pushFollow(FOLLOW_17);
+            	    pushFollow(FOLLOW_21);
             	    rule__Values__ValuesAssignment_0_1();
 
             	    state._fsp--;
@@ -5257,7 +5811,7 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
             	    break;
 
             	default :
-            	    break loop16;
+            	    break loop21;
                 }
             } while (true);
 
@@ -5287,14 +5841,14 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Values__Group_0__2"
-    // InternalYamlGenDsl.g:1707:1: rule__Values__Group_0__2 : rule__Values__Group_0__2__Impl ;
+    // InternalYamlGenDsl.g:1859:1: rule__Values__Group_0__2 : rule__Values__Group_0__2__Impl ;
     public final void rule__Values__Group_0__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1711:1: ( rule__Values__Group_0__2__Impl )
-            // InternalYamlGenDsl.g:1712:2: rule__Values__Group_0__2__Impl
+            // InternalYamlGenDsl.g:1863:1: ( rule__Values__Group_0__2__Impl )
+            // InternalYamlGenDsl.g:1864:2: rule__Values__Group_0__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Values__Group_0__2__Impl();
@@ -5320,20 +5874,20 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Values__Group_0__2__Impl"
-    // InternalYamlGenDsl.g:1718:1: rule__Values__Group_0__2__Impl : ( ']' ) ;
+    // InternalYamlGenDsl.g:1870:1: rule__Values__Group_0__2__Impl : ( ']' ) ;
     public final void rule__Values__Group_0__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1722:1: ( ( ']' ) )
-            // InternalYamlGenDsl.g:1723:1: ( ']' )
+            // InternalYamlGenDsl.g:1874:1: ( ( ']' ) )
+            // InternalYamlGenDsl.g:1875:1: ( ']' )
             {
-            // InternalYamlGenDsl.g:1723:1: ( ']' )
-            // InternalYamlGenDsl.g:1724:2: ']'
+            // InternalYamlGenDsl.g:1875:1: ( ']' )
+            // InternalYamlGenDsl.g:1876:2: ']'
             {
              before(grammarAccess.getValuesAccess().getRightSquareBracketKeyword_0_2()); 
-            match(input,25,FOLLOW_2); 
+            match(input,33,FOLLOW_2); 
              after(grammarAccess.getValuesAccess().getRightSquareBracketKeyword_0_2()); 
 
             }
@@ -5357,17 +5911,17 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Source__EntriesAssignment"
-    // InternalYamlGenDsl.g:1734:1: rule__Source__EntriesAssignment : ( ruleSourceElement ) ;
+    // InternalYamlGenDsl.g:1886:1: rule__Source__EntriesAssignment : ( ruleSourceElement ) ;
     public final void rule__Source__EntriesAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1738:1: ( ( ruleSourceElement ) )
-            // InternalYamlGenDsl.g:1739:2: ( ruleSourceElement )
+            // InternalYamlGenDsl.g:1890:1: ( ( ruleSourceElement ) )
+            // InternalYamlGenDsl.g:1891:2: ( ruleSourceElement )
             {
-            // InternalYamlGenDsl.g:1739:2: ( ruleSourceElement )
-            // InternalYamlGenDsl.g:1740:3: ruleSourceElement
+            // InternalYamlGenDsl.g:1891:2: ( ruleSourceElement )
+            // InternalYamlGenDsl.g:1892:3: ruleSourceElement
             {
              before(grammarAccess.getSourceAccess().getEntriesSourceElementParserRuleCall_0()); 
             pushFollow(FOLLOW_2);
@@ -5398,17 +5952,17 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Import__PathAssignment_1"
-    // InternalYamlGenDsl.g:1749:1: rule__Import__PathAssignment_1 : ( RULE_STRING ) ;
+    // InternalYamlGenDsl.g:1901:1: rule__Import__PathAssignment_1 : ( RULE_STRING ) ;
     public final void rule__Import__PathAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1753:1: ( ( RULE_STRING ) )
-            // InternalYamlGenDsl.g:1754:2: ( RULE_STRING )
+            // InternalYamlGenDsl.g:1905:1: ( ( RULE_STRING ) )
+            // InternalYamlGenDsl.g:1906:2: ( RULE_STRING )
             {
-            // InternalYamlGenDsl.g:1754:2: ( RULE_STRING )
-            // InternalYamlGenDsl.g:1755:3: RULE_STRING
+            // InternalYamlGenDsl.g:1906:2: ( RULE_STRING )
+            // InternalYamlGenDsl.g:1907:3: RULE_STRING
             {
              before(grammarAccess.getImportAccess().getPathSTRINGTerminalRuleCall_1_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -5435,17 +5989,17 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Field__HelpAssignment_0"
-    // InternalYamlGenDsl.g:1764:1: rule__Field__HelpAssignment_0 : ( RULE_HELP_STRING ) ;
+    // InternalYamlGenDsl.g:1916:1: rule__Field__HelpAssignment_0 : ( RULE_HELP_STRING ) ;
     public final void rule__Field__HelpAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1768:1: ( ( RULE_HELP_STRING ) )
-            // InternalYamlGenDsl.g:1769:2: ( RULE_HELP_STRING )
+            // InternalYamlGenDsl.g:1920:1: ( ( RULE_HELP_STRING ) )
+            // InternalYamlGenDsl.g:1921:2: ( RULE_HELP_STRING )
             {
-            // InternalYamlGenDsl.g:1769:2: ( RULE_HELP_STRING )
-            // InternalYamlGenDsl.g:1770:3: RULE_HELP_STRING
+            // InternalYamlGenDsl.g:1921:2: ( RULE_HELP_STRING )
+            // InternalYamlGenDsl.g:1922:3: RULE_HELP_STRING
             {
              before(grammarAccess.getFieldAccess().getHelpHELP_STRINGTerminalRuleCall_0_0()); 
             match(input,RULE_HELP_STRING,FOLLOW_2); 
@@ -5472,24 +6026,24 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Field__RootAssignment_1"
-    // InternalYamlGenDsl.g:1779:1: rule__Field__RootAssignment_1 : ( ( 'root' ) ) ;
+    // InternalYamlGenDsl.g:1931:1: rule__Field__RootAssignment_1 : ( ( 'root' ) ) ;
     public final void rule__Field__RootAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1783:1: ( ( ( 'root' ) ) )
-            // InternalYamlGenDsl.g:1784:2: ( ( 'root' ) )
+            // InternalYamlGenDsl.g:1935:1: ( ( ( 'root' ) ) )
+            // InternalYamlGenDsl.g:1936:2: ( ( 'root' ) )
             {
-            // InternalYamlGenDsl.g:1784:2: ( ( 'root' ) )
-            // InternalYamlGenDsl.g:1785:3: ( 'root' )
-            {
-             before(grammarAccess.getFieldAccess().getRootRootKeyword_1_0()); 
-            // InternalYamlGenDsl.g:1786:3: ( 'root' )
-            // InternalYamlGenDsl.g:1787:4: 'root'
+            // InternalYamlGenDsl.g:1936:2: ( ( 'root' ) )
+            // InternalYamlGenDsl.g:1937:3: ( 'root' )
             {
              before(grammarAccess.getFieldAccess().getRootRootKeyword_1_0()); 
-            match(input,26,FOLLOW_2); 
+            // InternalYamlGenDsl.g:1938:3: ( 'root' )
+            // InternalYamlGenDsl.g:1939:4: 'root'
+            {
+             before(grammarAccess.getFieldAccess().getRootRootKeyword_1_0()); 
+            match(input,34,FOLLOW_2); 
              after(grammarAccess.getFieldAccess().getRootRootKeyword_1_0()); 
 
             }
@@ -5517,17 +6071,17 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Field__NameAssignment_2"
-    // InternalYamlGenDsl.g:1798:1: rule__Field__NameAssignment_2 : ( RULE_ID ) ;
+    // InternalYamlGenDsl.g:1950:1: rule__Field__NameAssignment_2 : ( RULE_ID ) ;
     public final void rule__Field__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1802:1: ( ( RULE_ID ) )
-            // InternalYamlGenDsl.g:1803:2: ( RULE_ID )
+            // InternalYamlGenDsl.g:1954:1: ( ( RULE_ID ) )
+            // InternalYamlGenDsl.g:1955:2: ( RULE_ID )
             {
-            // InternalYamlGenDsl.g:1803:2: ( RULE_ID )
-            // InternalYamlGenDsl.g:1804:3: RULE_ID
+            // InternalYamlGenDsl.g:1955:2: ( RULE_ID )
+            // InternalYamlGenDsl.g:1956:3: RULE_ID
             {
              before(grammarAccess.getFieldAccess().getNameIDTerminalRuleCall_2_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -5554,21 +6108,21 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Field__SuperFieldAssignment_3_1"
-    // InternalYamlGenDsl.g:1813:1: rule__Field__SuperFieldAssignment_3_1 : ( ( RULE_ID ) ) ;
+    // InternalYamlGenDsl.g:1965:1: rule__Field__SuperFieldAssignment_3_1 : ( ( RULE_ID ) ) ;
     public final void rule__Field__SuperFieldAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1817:1: ( ( ( RULE_ID ) ) )
-            // InternalYamlGenDsl.g:1818:2: ( ( RULE_ID ) )
+            // InternalYamlGenDsl.g:1969:1: ( ( ( RULE_ID ) ) )
+            // InternalYamlGenDsl.g:1970:2: ( ( RULE_ID ) )
             {
-            // InternalYamlGenDsl.g:1818:2: ( ( RULE_ID ) )
-            // InternalYamlGenDsl.g:1819:3: ( RULE_ID )
+            // InternalYamlGenDsl.g:1970:2: ( ( RULE_ID ) )
+            // InternalYamlGenDsl.g:1971:3: ( RULE_ID )
             {
              before(grammarAccess.getFieldAccess().getSuperFieldFieldCrossReference_3_1_0()); 
-            // InternalYamlGenDsl.g:1820:3: ( RULE_ID )
-            // InternalYamlGenDsl.g:1821:4: RULE_ID
+            // InternalYamlGenDsl.g:1972:3: ( RULE_ID )
+            // InternalYamlGenDsl.g:1973:4: RULE_ID
             {
              before(grammarAccess.getFieldAccess().getSuperFieldFieldIDTerminalRuleCall_3_1_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -5599,17 +6153,17 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Field__BodyAssignment_4"
-    // InternalYamlGenDsl.g:1832:1: rule__Field__BodyAssignment_4 : ( ruleBody ) ;
+    // InternalYamlGenDsl.g:1984:1: rule__Field__BodyAssignment_4 : ( ruleBody ) ;
     public final void rule__Field__BodyAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1836:1: ( ( ruleBody ) )
-            // InternalYamlGenDsl.g:1837:2: ( ruleBody )
+            // InternalYamlGenDsl.g:1988:1: ( ( ruleBody ) )
+            // InternalYamlGenDsl.g:1989:2: ( ruleBody )
             {
-            // InternalYamlGenDsl.g:1837:2: ( ruleBody )
-            // InternalYamlGenDsl.g:1838:3: ruleBody
+            // InternalYamlGenDsl.g:1989:2: ( ruleBody )
+            // InternalYamlGenDsl.g:1990:3: ruleBody
             {
              before(grammarAccess.getFieldAccess().getBodyBodyParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -5640,17 +6194,17 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Body__ElementsAssignment_2"
-    // InternalYamlGenDsl.g:1847:1: rule__Body__ElementsAssignment_2 : ( ruleBodyElement ) ;
+    // InternalYamlGenDsl.g:1999:1: rule__Body__ElementsAssignment_2 : ( ruleBodyElement ) ;
     public final void rule__Body__ElementsAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1851:1: ( ( ruleBodyElement ) )
-            // InternalYamlGenDsl.g:1852:2: ( ruleBodyElement )
+            // InternalYamlGenDsl.g:2003:1: ( ( ruleBodyElement ) )
+            // InternalYamlGenDsl.g:2004:2: ( ruleBodyElement )
             {
-            // InternalYamlGenDsl.g:1852:2: ( ruleBodyElement )
-            // InternalYamlGenDsl.g:1853:3: ruleBodyElement
+            // InternalYamlGenDsl.g:2004:2: ( ruleBodyElement )
+            // InternalYamlGenDsl.g:2005:3: ruleBodyElement
             {
              before(grammarAccess.getBodyAccess().getElementsBodyElementParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -5680,22 +6234,22 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__Body__ElementsAssignment_2"
 
 
-    // $ANTLR start "rule__Extend__Name_propertyAssignment_1"
-    // InternalYamlGenDsl.g:1862:1: rule__Extend__Name_propertyAssignment_1 : ( RULE_STRING ) ;
-    public final void rule__Extend__Name_propertyAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__Extend__ParentSubfieldNameAssignment_1"
+    // InternalYamlGenDsl.g:2014:1: rule__Extend__ParentSubfieldNameAssignment_1 : ( RULE_STRING ) ;
+    public final void rule__Extend__ParentSubfieldNameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1866:1: ( ( RULE_STRING ) )
-            // InternalYamlGenDsl.g:1867:2: ( RULE_STRING )
+            // InternalYamlGenDsl.g:2018:1: ( ( RULE_STRING ) )
+            // InternalYamlGenDsl.g:2019:2: ( RULE_STRING )
             {
-            // InternalYamlGenDsl.g:1867:2: ( RULE_STRING )
-            // InternalYamlGenDsl.g:1868:3: RULE_STRING
+            // InternalYamlGenDsl.g:2019:2: ( RULE_STRING )
+            // InternalYamlGenDsl.g:2020:3: RULE_STRING
             {
-             before(grammarAccess.getExtendAccess().getName_propertySTRINGTerminalRuleCall_1_0()); 
+             before(grammarAccess.getExtendAccess().getParentSubfieldNameSTRINGTerminalRuleCall_1_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
-             after(grammarAccess.getExtendAccess().getName_propertySTRINGTerminalRuleCall_1_0()); 
+             after(grammarAccess.getExtendAccess().getParentSubfieldNameSTRINGTerminalRuleCall_1_0()); 
 
             }
 
@@ -5714,21 +6268,21 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__Extend__Name_propertyAssignment_1"
+    // $ANTLR end "rule__Extend__ParentSubfieldNameAssignment_1"
 
 
     // $ANTLR start "rule__Extend__BodyAssignment_2"
-    // InternalYamlGenDsl.g:1877:1: rule__Extend__BodyAssignment_2 : ( ruleBody ) ;
+    // InternalYamlGenDsl.g:2029:1: rule__Extend__BodyAssignment_2 : ( ruleBody ) ;
     public final void rule__Extend__BodyAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1881:1: ( ( ruleBody ) )
-            // InternalYamlGenDsl.g:1882:2: ( ruleBody )
+            // InternalYamlGenDsl.g:2033:1: ( ( ruleBody ) )
+            // InternalYamlGenDsl.g:2034:2: ( ruleBody )
             {
-            // InternalYamlGenDsl.g:1882:2: ( ruleBody )
-            // InternalYamlGenDsl.g:1883:3: ruleBody
+            // InternalYamlGenDsl.g:2034:2: ( ruleBody )
+            // InternalYamlGenDsl.g:2035:3: ruleBody
             {
              before(grammarAccess.getExtendAccess().getBodyBodyParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -5759,17 +6313,17 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__NestedField__HelpAssignment_0"
-    // InternalYamlGenDsl.g:1892:1: rule__NestedField__HelpAssignment_0 : ( RULE_HELP_STRING ) ;
+    // InternalYamlGenDsl.g:2044:1: rule__NestedField__HelpAssignment_0 : ( RULE_HELP_STRING ) ;
     public final void rule__NestedField__HelpAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1896:1: ( ( RULE_HELP_STRING ) )
-            // InternalYamlGenDsl.g:1897:2: ( RULE_HELP_STRING )
+            // InternalYamlGenDsl.g:2048:1: ( ( RULE_HELP_STRING ) )
+            // InternalYamlGenDsl.g:2049:2: ( RULE_HELP_STRING )
             {
-            // InternalYamlGenDsl.g:1897:2: ( RULE_HELP_STRING )
-            // InternalYamlGenDsl.g:1898:3: RULE_HELP_STRING
+            // InternalYamlGenDsl.g:2049:2: ( RULE_HELP_STRING )
+            // InternalYamlGenDsl.g:2050:3: RULE_HELP_STRING
             {
              before(grammarAccess.getNestedFieldAccess().getHelpHELP_STRINGTerminalRuleCall_0_0()); 
             match(input,RULE_HELP_STRING,FOLLOW_2); 
@@ -5796,24 +6350,24 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__NestedField__MandatoryAssignment_2"
-    // InternalYamlGenDsl.g:1907:1: rule__NestedField__MandatoryAssignment_2 : ( ( 'mandatory' ) ) ;
+    // InternalYamlGenDsl.g:2059:1: rule__NestedField__MandatoryAssignment_2 : ( ( 'mandatory' ) ) ;
     public final void rule__NestedField__MandatoryAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1911:1: ( ( ( 'mandatory' ) ) )
-            // InternalYamlGenDsl.g:1912:2: ( ( 'mandatory' ) )
+            // InternalYamlGenDsl.g:2063:1: ( ( ( 'mandatory' ) ) )
+            // InternalYamlGenDsl.g:2064:2: ( ( 'mandatory' ) )
             {
-            // InternalYamlGenDsl.g:1912:2: ( ( 'mandatory' ) )
-            // InternalYamlGenDsl.g:1913:3: ( 'mandatory' )
-            {
-             before(grammarAccess.getNestedFieldAccess().getMandatoryMandatoryKeyword_2_0()); 
-            // InternalYamlGenDsl.g:1914:3: ( 'mandatory' )
-            // InternalYamlGenDsl.g:1915:4: 'mandatory'
+            // InternalYamlGenDsl.g:2064:2: ( ( 'mandatory' ) )
+            // InternalYamlGenDsl.g:2065:3: ( 'mandatory' )
             {
              before(grammarAccess.getNestedFieldAccess().getMandatoryMandatoryKeyword_2_0()); 
-            match(input,27,FOLLOW_2); 
+            // InternalYamlGenDsl.g:2066:3: ( 'mandatory' )
+            // InternalYamlGenDsl.g:2067:4: 'mandatory'
+            {
+             before(grammarAccess.getNestedFieldAccess().getMandatoryMandatoryKeyword_2_0()); 
+            match(input,35,FOLLOW_2); 
              after(grammarAccess.getNestedFieldAccess().getMandatoryMandatoryKeyword_2_0()); 
 
             }
@@ -5841,24 +6395,24 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__NestedField__DefaultAssignment_3"
-    // InternalYamlGenDsl.g:1926:1: rule__NestedField__DefaultAssignment_3 : ( ( 'default' ) ) ;
+    // InternalYamlGenDsl.g:2078:1: rule__NestedField__DefaultAssignment_3 : ( ( 'default' ) ) ;
     public final void rule__NestedField__DefaultAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1930:1: ( ( ( 'default' ) ) )
-            // InternalYamlGenDsl.g:1931:2: ( ( 'default' ) )
+            // InternalYamlGenDsl.g:2082:1: ( ( ( 'default' ) ) )
+            // InternalYamlGenDsl.g:2083:2: ( ( 'default' ) )
             {
-            // InternalYamlGenDsl.g:1931:2: ( ( 'default' ) )
-            // InternalYamlGenDsl.g:1932:3: ( 'default' )
-            {
-             before(grammarAccess.getNestedFieldAccess().getDefaultDefaultKeyword_3_0()); 
-            // InternalYamlGenDsl.g:1933:3: ( 'default' )
-            // InternalYamlGenDsl.g:1934:4: 'default'
+            // InternalYamlGenDsl.g:2083:2: ( ( 'default' ) )
+            // InternalYamlGenDsl.g:2084:3: ( 'default' )
             {
              before(grammarAccess.getNestedFieldAccess().getDefaultDefaultKeyword_3_0()); 
-            match(input,28,FOLLOW_2); 
+            // InternalYamlGenDsl.g:2085:3: ( 'default' )
+            // InternalYamlGenDsl.g:2086:4: 'default'
+            {
+             before(grammarAccess.getNestedFieldAccess().getDefaultDefaultKeyword_3_0()); 
+            match(input,15,FOLLOW_2); 
              after(grammarAccess.getNestedFieldAccess().getDefaultDefaultKeyword_3_0()); 
 
             }
@@ -5886,21 +6440,21 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__NestedField__SuperFieldAssignment_4_1"
-    // InternalYamlGenDsl.g:1945:1: rule__NestedField__SuperFieldAssignment_4_1 : ( ( RULE_ID ) ) ;
+    // InternalYamlGenDsl.g:2097:1: rule__NestedField__SuperFieldAssignment_4_1 : ( ( RULE_ID ) ) ;
     public final void rule__NestedField__SuperFieldAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1949:1: ( ( ( RULE_ID ) ) )
-            // InternalYamlGenDsl.g:1950:2: ( ( RULE_ID ) )
+            // InternalYamlGenDsl.g:2101:1: ( ( ( RULE_ID ) ) )
+            // InternalYamlGenDsl.g:2102:2: ( ( RULE_ID ) )
             {
-            // InternalYamlGenDsl.g:1950:2: ( ( RULE_ID ) )
-            // InternalYamlGenDsl.g:1951:3: ( RULE_ID )
+            // InternalYamlGenDsl.g:2102:2: ( ( RULE_ID ) )
+            // InternalYamlGenDsl.g:2103:3: ( RULE_ID )
             {
              before(grammarAccess.getNestedFieldAccess().getSuperFieldFieldCrossReference_4_1_0()); 
-            // InternalYamlGenDsl.g:1952:3: ( RULE_ID )
-            // InternalYamlGenDsl.g:1953:4: RULE_ID
+            // InternalYamlGenDsl.g:2104:3: ( RULE_ID )
+            // InternalYamlGenDsl.g:2105:4: RULE_ID
             {
              before(grammarAccess.getNestedFieldAccess().getSuperFieldFieldIDTerminalRuleCall_4_1_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -5931,17 +6485,17 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__NestedField__BodyAssignment_5"
-    // InternalYamlGenDsl.g:1964:1: rule__NestedField__BodyAssignment_5 : ( ruleBody ) ;
+    // InternalYamlGenDsl.g:2116:1: rule__NestedField__BodyAssignment_5 : ( ruleBody ) ;
     public final void rule__NestedField__BodyAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1968:1: ( ( ruleBody ) )
-            // InternalYamlGenDsl.g:1969:2: ( ruleBody )
+            // InternalYamlGenDsl.g:2120:1: ( ( ruleBody ) )
+            // InternalYamlGenDsl.g:2121:2: ( ruleBody )
             {
-            // InternalYamlGenDsl.g:1969:2: ( ruleBody )
-            // InternalYamlGenDsl.g:1970:3: ruleBody
+            // InternalYamlGenDsl.g:2121:2: ( ruleBody )
+            // InternalYamlGenDsl.g:2122:3: ruleBody
             {
              before(grammarAccess.getNestedFieldAccess().getBodyBodyParserRuleCall_5_0()); 
             pushFollow(FOLLOW_2);
@@ -5972,17 +6526,17 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__NestedFields__HelpAssignment_0"
-    // InternalYamlGenDsl.g:1979:1: rule__NestedFields__HelpAssignment_0 : ( RULE_HELP_STRING ) ;
+    // InternalYamlGenDsl.g:2131:1: rule__NestedFields__HelpAssignment_0 : ( RULE_HELP_STRING ) ;
     public final void rule__NestedFields__HelpAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1983:1: ( ( RULE_HELP_STRING ) )
-            // InternalYamlGenDsl.g:1984:2: ( RULE_HELP_STRING )
+            // InternalYamlGenDsl.g:2135:1: ( ( RULE_HELP_STRING ) )
+            // InternalYamlGenDsl.g:2136:2: ( RULE_HELP_STRING )
             {
-            // InternalYamlGenDsl.g:1984:2: ( RULE_HELP_STRING )
-            // InternalYamlGenDsl.g:1985:3: RULE_HELP_STRING
+            // InternalYamlGenDsl.g:2136:2: ( RULE_HELP_STRING )
+            // InternalYamlGenDsl.g:2137:3: RULE_HELP_STRING
             {
              before(grammarAccess.getNestedFieldsAccess().getHelpHELP_STRINGTerminalRuleCall_0_0()); 
             match(input,RULE_HELP_STRING,FOLLOW_2); 
@@ -6009,21 +6563,21 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__NestedFields__SuperFieldAssignment_2_1"
-    // InternalYamlGenDsl.g:1994:1: rule__NestedFields__SuperFieldAssignment_2_1 : ( ( RULE_ID ) ) ;
+    // InternalYamlGenDsl.g:2146:1: rule__NestedFields__SuperFieldAssignment_2_1 : ( ( RULE_ID ) ) ;
     public final void rule__NestedFields__SuperFieldAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:1998:1: ( ( ( RULE_ID ) ) )
-            // InternalYamlGenDsl.g:1999:2: ( ( RULE_ID ) )
+            // InternalYamlGenDsl.g:2150:1: ( ( ( RULE_ID ) ) )
+            // InternalYamlGenDsl.g:2151:2: ( ( RULE_ID ) )
             {
-            // InternalYamlGenDsl.g:1999:2: ( ( RULE_ID ) )
-            // InternalYamlGenDsl.g:2000:3: ( RULE_ID )
+            // InternalYamlGenDsl.g:2151:2: ( ( RULE_ID ) )
+            // InternalYamlGenDsl.g:2152:3: ( RULE_ID )
             {
              before(grammarAccess.getNestedFieldsAccess().getSuperFieldFieldCrossReference_2_1_0()); 
-            // InternalYamlGenDsl.g:2001:3: ( RULE_ID )
-            // InternalYamlGenDsl.g:2002:4: RULE_ID
+            // InternalYamlGenDsl.g:2153:3: ( RULE_ID )
+            // InternalYamlGenDsl.g:2154:4: RULE_ID
             {
              before(grammarAccess.getNestedFieldsAccess().getSuperFieldFieldIDTerminalRuleCall_2_1_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -6054,17 +6608,17 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__NestedFields__BodyAssignment_3"
-    // InternalYamlGenDsl.g:2013:1: rule__NestedFields__BodyAssignment_3 : ( ruleBody ) ;
+    // InternalYamlGenDsl.g:2165:1: rule__NestedFields__BodyAssignment_3 : ( ruleBody ) ;
     public final void rule__NestedFields__BodyAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:2017:1: ( ( ruleBody ) )
-            // InternalYamlGenDsl.g:2018:2: ( ruleBody )
+            // InternalYamlGenDsl.g:2169:1: ( ( ruleBody ) )
+            // InternalYamlGenDsl.g:2170:2: ( ruleBody )
             {
-            // InternalYamlGenDsl.g:2018:2: ( ruleBody )
-            // InternalYamlGenDsl.g:2019:3: ruleBody
+            // InternalYamlGenDsl.g:2170:2: ( ruleBody )
+            // InternalYamlGenDsl.g:2171:3: ruleBody
             {
              before(grammarAccess.getNestedFieldsAccess().getBodyBodyParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -6094,22 +6648,32 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__NestedFields__BodyAssignment_3"
 
 
-    // $ANTLR start "rule__Key__ValueAssignment_1"
-    // InternalYamlGenDsl.g:2028:1: rule__Key__ValueAssignment_1 : ( RULE_STRING ) ;
-    public final void rule__Key__ValueAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__StringProperty__KeyAssignment_0"
+    // InternalYamlGenDsl.g:2180:1: rule__StringProperty__KeyAssignment_0 : ( ( rule__StringProperty__KeyAlternatives_0_0 ) ) ;
+    public final void rule__StringProperty__KeyAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:2032:1: ( ( RULE_STRING ) )
-            // InternalYamlGenDsl.g:2033:2: ( RULE_STRING )
+            // InternalYamlGenDsl.g:2184:1: ( ( ( rule__StringProperty__KeyAlternatives_0_0 ) ) )
+            // InternalYamlGenDsl.g:2185:2: ( ( rule__StringProperty__KeyAlternatives_0_0 ) )
             {
-            // InternalYamlGenDsl.g:2033:2: ( RULE_STRING )
-            // InternalYamlGenDsl.g:2034:3: RULE_STRING
+            // InternalYamlGenDsl.g:2185:2: ( ( rule__StringProperty__KeyAlternatives_0_0 ) )
+            // InternalYamlGenDsl.g:2186:3: ( rule__StringProperty__KeyAlternatives_0_0 )
             {
-             before(grammarAccess.getKeyAccess().getValueSTRINGTerminalRuleCall_1_0()); 
-            match(input,RULE_STRING,FOLLOW_2); 
-             after(grammarAccess.getKeyAccess().getValueSTRINGTerminalRuleCall_1_0()); 
+             before(grammarAccess.getStringPropertyAccess().getKeyAlternatives_0_0()); 
+            // InternalYamlGenDsl.g:2187:3: ( rule__StringProperty__KeyAlternatives_0_0 )
+            // InternalYamlGenDsl.g:2187:4: rule__StringProperty__KeyAlternatives_0_0
+            {
+            pushFollow(FOLLOW_2);
+            rule__StringProperty__KeyAlternatives_0_0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getStringPropertyAccess().getKeyAlternatives_0_0()); 
 
             }
 
@@ -6128,25 +6692,25 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__Key__ValueAssignment_1"
+    // $ANTLR end "rule__StringProperty__KeyAssignment_0"
 
 
-    // $ANTLR start "rule__Name__ValueAssignment_1"
-    // InternalYamlGenDsl.g:2043:1: rule__Name__ValueAssignment_1 : ( RULE_STRING ) ;
-    public final void rule__Name__ValueAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__StringProperty__ValueAssignment_2"
+    // InternalYamlGenDsl.g:2195:1: rule__StringProperty__ValueAssignment_2 : ( RULE_STRING ) ;
+    public final void rule__StringProperty__ValueAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:2047:1: ( ( RULE_STRING ) )
-            // InternalYamlGenDsl.g:2048:2: ( RULE_STRING )
+            // InternalYamlGenDsl.g:2199:1: ( ( RULE_STRING ) )
+            // InternalYamlGenDsl.g:2200:2: ( RULE_STRING )
             {
-            // InternalYamlGenDsl.g:2048:2: ( RULE_STRING )
-            // InternalYamlGenDsl.g:2049:3: RULE_STRING
+            // InternalYamlGenDsl.g:2200:2: ( RULE_STRING )
+            // InternalYamlGenDsl.g:2201:3: RULE_STRING
             {
-             before(grammarAccess.getNameAccess().getValueSTRINGTerminalRuleCall_1_0()); 
+             before(grammarAccess.getStringPropertyAccess().getValueSTRINGTerminalRuleCall_2_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
-             after(grammarAccess.getNameAccess().getValueSTRINGTerminalRuleCall_1_0()); 
+             after(grammarAccess.getStringPropertyAccess().getValueSTRINGTerminalRuleCall_2_0()); 
 
             }
 
@@ -6165,29 +6729,76 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__Name__ValueAssignment_1"
+    // $ANTLR end "rule__StringProperty__ValueAssignment_2"
 
 
-    // $ANTLR start "rule__Default__ValueAssignment_1"
-    // InternalYamlGenDsl.g:2058:1: rule__Default__ValueAssignment_1 : ( ruleValues ) ;
-    public final void rule__Default__ValueAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__ValuesProperty__KeyAssignment_0"
+    // InternalYamlGenDsl.g:2210:1: rule__ValuesProperty__KeyAssignment_0 : ( ( rule__ValuesProperty__KeyAlternatives_0_0 ) ) ;
+    public final void rule__ValuesProperty__KeyAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:2062:1: ( ( ruleValues ) )
-            // InternalYamlGenDsl.g:2063:2: ( ruleValues )
+            // InternalYamlGenDsl.g:2214:1: ( ( ( rule__ValuesProperty__KeyAlternatives_0_0 ) ) )
+            // InternalYamlGenDsl.g:2215:2: ( ( rule__ValuesProperty__KeyAlternatives_0_0 ) )
             {
-            // InternalYamlGenDsl.g:2063:2: ( ruleValues )
-            // InternalYamlGenDsl.g:2064:3: ruleValues
+            // InternalYamlGenDsl.g:2215:2: ( ( rule__ValuesProperty__KeyAlternatives_0_0 ) )
+            // InternalYamlGenDsl.g:2216:3: ( rule__ValuesProperty__KeyAlternatives_0_0 )
             {
-             before(grammarAccess.getDefaultAccess().getValueValuesParserRuleCall_1_0()); 
+             before(grammarAccess.getValuesPropertyAccess().getKeyAlternatives_0_0()); 
+            // InternalYamlGenDsl.g:2217:3: ( rule__ValuesProperty__KeyAlternatives_0_0 )
+            // InternalYamlGenDsl.g:2217:4: rule__ValuesProperty__KeyAlternatives_0_0
+            {
+            pushFollow(FOLLOW_2);
+            rule__ValuesProperty__KeyAlternatives_0_0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getValuesPropertyAccess().getKeyAlternatives_0_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ValuesProperty__KeyAssignment_0"
+
+
+    // $ANTLR start "rule__ValuesProperty__ValueAssignment_2"
+    // InternalYamlGenDsl.g:2225:1: rule__ValuesProperty__ValueAssignment_2 : ( ruleValues ) ;
+    public final void rule__ValuesProperty__ValueAssignment_2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalYamlGenDsl.g:2229:1: ( ( ruleValues ) )
+            // InternalYamlGenDsl.g:2230:2: ( ruleValues )
+            {
+            // InternalYamlGenDsl.g:2230:2: ( ruleValues )
+            // InternalYamlGenDsl.g:2231:3: ruleValues
+            {
+             before(grammarAccess.getValuesPropertyAccess().getValueValuesParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
             ruleValues();
 
             state._fsp--;
 
-             after(grammarAccess.getDefaultAccess().getValueValuesParserRuleCall_1_0()); 
+             after(grammarAccess.getValuesPropertyAccess().getValueValuesParserRuleCall_2_0()); 
 
             }
 
@@ -6206,25 +6817,33 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__Default__ValueAssignment_1"
+    // $ANTLR end "rule__ValuesProperty__ValueAssignment_2"
 
 
-    // $ANTLR start "rule__Hint__ValueAssignment_1"
-    // InternalYamlGenDsl.g:2073:1: rule__Hint__ValueAssignment_1 : ( RULE_STRING ) ;
-    public final void rule__Hint__ValueAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__TypeProperty__KeyAssignment_0"
+    // InternalYamlGenDsl.g:2240:1: rule__TypeProperty__KeyAssignment_0 : ( ( 'type' ) ) ;
+    public final void rule__TypeProperty__KeyAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:2077:1: ( ( RULE_STRING ) )
-            // InternalYamlGenDsl.g:2078:2: ( RULE_STRING )
+            // InternalYamlGenDsl.g:2244:1: ( ( ( 'type' ) ) )
+            // InternalYamlGenDsl.g:2245:2: ( ( 'type' ) )
             {
-            // InternalYamlGenDsl.g:2078:2: ( RULE_STRING )
-            // InternalYamlGenDsl.g:2079:3: RULE_STRING
+            // InternalYamlGenDsl.g:2245:2: ( ( 'type' ) )
+            // InternalYamlGenDsl.g:2246:3: ( 'type' )
             {
-             before(grammarAccess.getHintAccess().getValueSTRINGTerminalRuleCall_1_0()); 
-            match(input,RULE_STRING,FOLLOW_2); 
-             after(grammarAccess.getHintAccess().getValueSTRINGTerminalRuleCall_1_0()); 
+             before(grammarAccess.getTypePropertyAccess().getKeyTypeKeyword_0_0()); 
+            // InternalYamlGenDsl.g:2247:3: ( 'type' )
+            // InternalYamlGenDsl.g:2248:4: 'type'
+            {
+             before(grammarAccess.getTypePropertyAccess().getKeyTypeKeyword_0_0()); 
+            match(input,36,FOLLOW_2); 
+             after(grammarAccess.getTypePropertyAccess().getKeyTypeKeyword_0_0()); 
+
+            }
+
+             after(grammarAccess.getTypePropertyAccess().getKeyTypeKeyword_0_0()); 
 
             }
 
@@ -6243,29 +6862,35 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__Hint__ValueAssignment_1"
+    // $ANTLR end "rule__TypeProperty__KeyAssignment_0"
 
 
-    // $ANTLR start "rule__PermittedValues__ValueAssignment_1"
-    // InternalYamlGenDsl.g:2088:1: rule__PermittedValues__ValueAssignment_1 : ( ruleValues ) ;
-    public final void rule__PermittedValues__ValueAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__TypeProperty__ValueAssignment_2"
+    // InternalYamlGenDsl.g:2259:1: rule__TypeProperty__ValueAssignment_2 : ( ( rule__TypeProperty__ValueAlternatives_2_0 ) ) ;
+    public final void rule__TypeProperty__ValueAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:2092:1: ( ( ruleValues ) )
-            // InternalYamlGenDsl.g:2093:2: ( ruleValues )
+            // InternalYamlGenDsl.g:2263:1: ( ( ( rule__TypeProperty__ValueAlternatives_2_0 ) ) )
+            // InternalYamlGenDsl.g:2264:2: ( ( rule__TypeProperty__ValueAlternatives_2_0 ) )
             {
-            // InternalYamlGenDsl.g:2093:2: ( ruleValues )
-            // InternalYamlGenDsl.g:2094:3: ruleValues
+            // InternalYamlGenDsl.g:2264:2: ( ( rule__TypeProperty__ValueAlternatives_2_0 ) )
+            // InternalYamlGenDsl.g:2265:3: ( rule__TypeProperty__ValueAlternatives_2_0 )
             {
-             before(grammarAccess.getPermittedValuesAccess().getValueValuesParserRuleCall_1_0()); 
+             before(grammarAccess.getTypePropertyAccess().getValueAlternatives_2_0()); 
+            // InternalYamlGenDsl.g:2266:3: ( rule__TypeProperty__ValueAlternatives_2_0 )
+            // InternalYamlGenDsl.g:2266:4: rule__TypeProperty__ValueAlternatives_2_0
+            {
             pushFollow(FOLLOW_2);
-            ruleValues();
+            rule__TypeProperty__ValueAlternatives_2_0();
 
             state._fsp--;
 
-             after(grammarAccess.getPermittedValuesAccess().getValueValuesParserRuleCall_1_0()); 
+
+            }
+
+             after(grammarAccess.getTypePropertyAccess().getValueAlternatives_2_0()); 
 
             }
 
@@ -6284,21 +6909,58 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__PermittedValues__ValueAssignment_1"
+    // $ANTLR end "rule__TypeProperty__ValueAssignment_2"
+
+
+    // $ANTLR start "rule__TypeProperty__HelpAssignment_3_1"
+    // InternalYamlGenDsl.g:2274:1: rule__TypeProperty__HelpAssignment_3_1 : ( RULE_STRING ) ;
+    public final void rule__TypeProperty__HelpAssignment_3_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalYamlGenDsl.g:2278:1: ( ( RULE_STRING ) )
+            // InternalYamlGenDsl.g:2279:2: ( RULE_STRING )
+            {
+            // InternalYamlGenDsl.g:2279:2: ( RULE_STRING )
+            // InternalYamlGenDsl.g:2280:3: RULE_STRING
+            {
+             before(grammarAccess.getTypePropertyAccess().getHelpSTRINGTerminalRuleCall_3_1_0()); 
+            match(input,RULE_STRING,FOLLOW_2); 
+             after(grammarAccess.getTypePropertyAccess().getHelpSTRINGTerminalRuleCall_3_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__TypeProperty__HelpAssignment_3_1"
 
 
     // $ANTLR start "rule__Values__ValuesAssignment_0_1"
-    // InternalYamlGenDsl.g:2103:1: rule__Values__ValuesAssignment_0_1 : ( ruleValues ) ;
+    // InternalYamlGenDsl.g:2289:1: rule__Values__ValuesAssignment_0_1 : ( ruleValues ) ;
     public final void rule__Values__ValuesAssignment_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:2107:1: ( ( ruleValues ) )
-            // InternalYamlGenDsl.g:2108:2: ( ruleValues )
+            // InternalYamlGenDsl.g:2293:1: ( ( ruleValues ) )
+            // InternalYamlGenDsl.g:2294:2: ( ruleValues )
             {
-            // InternalYamlGenDsl.g:2108:2: ( ruleValues )
-            // InternalYamlGenDsl.g:2109:3: ruleValues
+            // InternalYamlGenDsl.g:2294:2: ( ruleValues )
+            // InternalYamlGenDsl.g:2295:3: ruleValues
             {
              before(grammarAccess.getValuesAccess().getValuesValuesParserRuleCall_0_1_0()); 
             pushFollow(FOLLOW_2);
@@ -6329,17 +6991,17 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Values__StringAssignment_1"
-    // InternalYamlGenDsl.g:2118:1: rule__Values__StringAssignment_1 : ( RULE_STRING ) ;
+    // InternalYamlGenDsl.g:2304:1: rule__Values__StringAssignment_1 : ( RULE_STRING ) ;
     public final void rule__Values__StringAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalYamlGenDsl.g:2122:1: ( ( RULE_STRING ) )
-            // InternalYamlGenDsl.g:2123:2: ( RULE_STRING )
+            // InternalYamlGenDsl.g:2308:1: ( ( RULE_STRING ) )
+            // InternalYamlGenDsl.g:2309:2: ( RULE_STRING )
             {
-            // InternalYamlGenDsl.g:2123:2: ( RULE_STRING )
-            // InternalYamlGenDsl.g:2124:3: RULE_STRING
+            // InternalYamlGenDsl.g:2309:2: ( RULE_STRING )
+            // InternalYamlGenDsl.g:2310:3: RULE_STRING
             {
              before(grammarAccess.getValuesAccess().getStringSTRINGTerminalRuleCall_1_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -6367,17 +7029,15 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
     // Delegated rules
 
 
-    protected DFA3 dfa3 = new DFA3(this);
-    static final String dfa_1s = "\6\uffff";
-    static final String dfa_2s = "\1\5\1\uffff\1\5\3\uffff";
-    static final String dfa_3s = "\1\27\1\uffff\1\22\3\uffff";
-    static final String dfa_4s = "\1\uffff\1\1\1\uffff\1\2\1\3\1\4";
-    static final String dfa_5s = "\6\uffff}>";
+    protected DFA4 dfa4 = new DFA4(this);
+    static final String dfa_1s = "\4\uffff";
+    static final String dfa_2s = "\2\5\2\uffff";
+    static final String dfa_3s = "\2\34\2\uffff";
+    static final String dfa_4s = "\2\uffff\1\1\1\2";
+    static final String dfa_5s = "\4\uffff}>";
     static final String[] dfa_6s = {
-            "\1\2\12\uffff\1\1\1\3\1\4\5\5",
-            "",
-            "\1\2\13\uffff\1\3\1\4",
-            "",
+            "\1\1\25\uffff\1\2\1\3",
+            "\1\1\25\uffff\1\2\1\3",
             "",
             ""
     };
@@ -6389,11 +7049,11 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
     static final short[] dfa_5 = DFA.unpackEncodedString(dfa_5s);
     static final short[][] dfa_6 = unpackEncodedStringArray(dfa_6s);
 
-    class DFA3 extends DFA {
+    class DFA4 extends DFA {
 
-        public DFA3(BaseRecognizer recognizer) {
+        public DFA4(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 3;
+            this.decisionNumber = 4;
             this.eot = dfa_1;
             this.eof = dfa_1;
             this.min = dfa_2;
@@ -6403,27 +7063,31 @@ public class InternalYamlGenDslParser extends AbstractInternalContentAssistParse
             this.transition = dfa_6;
         }
         public String getDescription() {
-            return "473:1: rule__BodyElement__Alternatives : ( ( ruleExtend ) | ( ruleNestedField ) | ( ruleNestedFields ) | ( ruleProperty ) );";
+            return "475:1: rule__AnyNestedField__Alternatives : ( ( ruleNestedField ) | ( ruleNestedFields ) );";
         }
     }
  
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000004001062L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000400400062L});
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000004000060L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000400000060L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000000022L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000006000L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000001800000L});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000FF8020L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000FF0022L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000020020L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000018006000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000040020L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000016000L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000001000010L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000001000012L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x000000101E01F020L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x000000101C01F022L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000008000020L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000801808000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000018000020L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000005800000L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000100000010L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x00000000003E0010L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000040000000L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000100000012L});
 
 }

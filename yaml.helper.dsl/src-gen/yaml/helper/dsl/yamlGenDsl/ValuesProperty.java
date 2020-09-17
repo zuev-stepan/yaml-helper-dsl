@@ -6,21 +6,21 @@ package yaml.helper.dsl.yamlGenDsl;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Permitted Values</b></em>'.
+ * A representation of the model object '<em><b>Values Property</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link yaml.helper.dsl.yamlGenDsl.PermittedValues#getValue <em>Value</em>}</li>
+ *   <li>{@link yaml.helper.dsl.yamlGenDsl.ValuesProperty#getValue <em>Value</em>}</li>
  * </ul>
  *
- * @see yaml.helper.dsl.yamlGenDsl.YamlGenDslPackage#getPermittedValues()
+ * @see yaml.helper.dsl.yamlGenDsl.YamlGenDslPackage#getValuesProperty()
  * @model
  * @generated
  */
-public interface PermittedValues extends Property
+public interface ValuesProperty extends Property
 {
   /**
    * Returns the value of the '<em><b>Value</b></em>' containment reference.
@@ -28,14 +28,14 @@ public interface PermittedValues extends Property
    * <!-- end-user-doc -->
    * @return the value of the '<em>Value</em>' containment reference.
    * @see #setValue(Values)
-   * @see yaml.helper.dsl.yamlGenDsl.YamlGenDslPackage#getPermittedValues_Value()
+   * @see yaml.helper.dsl.yamlGenDsl.YamlGenDslPackage#getValuesProperty_Value()
    * @model containment="true"
    * @generated
    */
   Values getValue();
 
   /**
-   * Sets the value of the '{@link yaml.helper.dsl.yamlGenDsl.PermittedValues#getValue <em>Value</em>}' containment reference.
+   * Sets the value of the '{@link yaml.helper.dsl.yamlGenDsl.ValuesProperty#getValue <em>Value</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Value</em>' containment reference.
@@ -44,4 +44,4 @@ public interface PermittedValues extends Property
    */
   void setValue(Values value);
 
-} // PermittedValues
+} // ValuesProperty

@@ -9,23 +9,23 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import yaml.helper.dsl.yamlGenDsl.Name;
+import yaml.helper.dsl.yamlGenDsl.StringProperty;
 import yaml.helper.dsl.yamlGenDsl.YamlGenDslPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Name</b></em>'.
+ * An implementation of the model object '<em><b>String Property</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link yaml.helper.dsl.yamlGenDsl.impl.NameImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link yaml.helper.dsl.yamlGenDsl.impl.StringPropertyImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class NameImpl extends PropertyImpl implements Name
+public class StringPropertyImpl extends PropertyImpl implements StringProperty
 {
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -52,7 +52,7 @@ public class NameImpl extends PropertyImpl implements Name
    * <!-- end-user-doc -->
    * @generated
    */
-  protected NameImpl()
+  protected StringPropertyImpl()
   {
     super();
   }
@@ -65,7 +65,7 @@ public class NameImpl extends PropertyImpl implements Name
   @Override
   protected EClass eStaticClass()
   {
-    return YamlGenDslPackage.Literals.NAME;
+    return YamlGenDslPackage.Literals.STRING_PROPERTY;
   }
 
   /**
@@ -90,7 +90,7 @@ public class NameImpl extends PropertyImpl implements Name
     String oldValue = value;
     value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, YamlGenDslPackage.NAME__VALUE, oldValue, value));
+      eNotify(new ENotificationImpl(this, Notification.SET, YamlGenDslPackage.STRING_PROPERTY__VALUE, oldValue, value));
   }
 
   /**
@@ -103,7 +103,7 @@ public class NameImpl extends PropertyImpl implements Name
   {
     switch (featureID)
     {
-      case YamlGenDslPackage.NAME__VALUE:
+      case YamlGenDslPackage.STRING_PROPERTY__VALUE:
         return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -119,7 +119,7 @@ public class NameImpl extends PropertyImpl implements Name
   {
     switch (featureID)
     {
-      case YamlGenDslPackage.NAME__VALUE:
+      case YamlGenDslPackage.STRING_PROPERTY__VALUE:
         setValue((String)newValue);
         return;
     }
@@ -136,7 +136,7 @@ public class NameImpl extends PropertyImpl implements Name
   {
     switch (featureID)
     {
-      case YamlGenDslPackage.NAME__VALUE:
+      case YamlGenDslPackage.STRING_PROPERTY__VALUE:
         setValue(VALUE_EDEFAULT);
         return;
     }
@@ -153,7 +153,7 @@ public class NameImpl extends PropertyImpl implements Name
   {
     switch (featureID)
     {
-      case YamlGenDslPackage.NAME__VALUE:
+      case YamlGenDslPackage.STRING_PROPERTY__VALUE:
         return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
     return super.eIsSet(featureID);
@@ -176,4 +176,4 @@ public class NameImpl extends PropertyImpl implements Name
     return result.toString();
   }
 
-} //NameImpl
+} //StringPropertyImpl

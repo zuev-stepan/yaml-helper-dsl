@@ -14,21 +14,29 @@ Import:
 	'import' path=STRING
 ;
 
+AnyField:
+	Field | AnyNestedField
+;
+
 Field:
 	(help+=HELP_STRING)*
 	(root?='root')? name=ID ('extends' superField=[Field])? body=Body
 ;
-	
+
 Body:
 	{Body} '{' (elements+=BodyElement)* '}'
 ;
 	
 BodyElement:
-	Extend | NestedField | NestedFields | Property
+	Extend | AnyNestedField | Property
 ;
 	
 Extend:
-	'extend' name_property=STRING body=Body
+	'extend' parentSubfieldName=STRING body=Body
+;
+
+AnyNestedField:
+	NestedField | NestedFields
 ;
 	
 NestedField:
@@ -42,28 +50,19 @@ NestedFields:
 ;
 
 Property:
-	Name | Key | Default | Hint | PermittedValues
+	StringProperty | ValuesProperty | TypeProperty
 ;
 
-Key:
-	'key:' value=STRING
+StringProperty:
+	key=('key' | 'name' | 'hint')':' value=STRING
 ;
 
-Name:
-	'name:' value=STRING
+ValuesProperty:
+	key=('default' | 'values')':' value=Values
 ;
-	
-Default:
-	'default:' value=Values
-;
-	
-Hint:
-	'hint:' value=STRING
-;
-	
-PermittedValues:
-	'values:' value=Values
-;
+
+TypeProperty:
+	key='type' ':' value=('int' | 'float' | 'string' | 'list' | 'any' | STRING) ('(' help=STRING ')')?;
 
 Values:
 	'[' (values+=Values)+ ']'

@@ -6,21 +6,21 @@ package yaml.helper.dsl.yamlGenDsl;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Key</b></em>'.
+ * A representation of the model object '<em><b>String Property</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link yaml.helper.dsl.yamlGenDsl.Key#getValue <em>Value</em>}</li>
+ *   <li>{@link yaml.helper.dsl.yamlGenDsl.StringProperty#getValue <em>Value</em>}</li>
  * </ul>
  *
- * @see yaml.helper.dsl.yamlGenDsl.YamlGenDslPackage#getKey()
+ * @see yaml.helper.dsl.yamlGenDsl.YamlGenDslPackage#getStringProperty()
  * @model
  * @generated
  */
-public interface Key extends Property
+public interface StringProperty extends Property
 {
   /**
    * Returns the value of the '<em><b>Value</b></em>' attribute.
@@ -28,14 +28,14 @@ public interface Key extends Property
    * <!-- end-user-doc -->
    * @return the value of the '<em>Value</em>' attribute.
    * @see #setValue(String)
-   * @see yaml.helper.dsl.yamlGenDsl.YamlGenDslPackage#getKey_Value()
+   * @see yaml.helper.dsl.yamlGenDsl.YamlGenDslPackage#getStringProperty_Value()
    * @model
    * @generated
    */
   String getValue();
 
   /**
-   * Sets the value of the '{@link yaml.helper.dsl.yamlGenDsl.Key#getValue <em>Value</em>}' attribute.
+   * Sets the value of the '{@link yaml.helper.dsl.yamlGenDsl.StringProperty#getValue <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Value</em>' attribute.
@@ -44,4 +44,4 @@ public interface Key extends Property
    */
   void setValue(String value);
 
-} // Key
+} // StringProperty

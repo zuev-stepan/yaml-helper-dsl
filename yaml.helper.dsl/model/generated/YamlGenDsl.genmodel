@@ -13,48 +13,41 @@
     <genClasses ecoreClass="YamlGenDsl.ecore#//Import">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute YamlGenDsl.ecore#//Import/path"/>
     </genClasses>
+    <genClasses ecoreClass="YamlGenDsl.ecore#//AnyField">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute YamlGenDsl.ecore#//AnyField/help"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference YamlGenDsl.ecore#//AnyField/superField"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference YamlGenDsl.ecore#//AnyField/body"/>
+    </genClasses>
     <genClasses ecoreClass="YamlGenDsl.ecore#//Field">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute YamlGenDsl.ecore#//Field/help"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute YamlGenDsl.ecore#//Field/root"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute YamlGenDsl.ecore#//Field/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference YamlGenDsl.ecore#//Field/superField"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference YamlGenDsl.ecore#//Field/body"/>
     </genClasses>
     <genClasses ecoreClass="YamlGenDsl.ecore#//Body">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference YamlGenDsl.ecore#//Body/elements"/>
     </genClasses>
     <genClasses ecoreClass="YamlGenDsl.ecore#//BodyElement"/>
     <genClasses ecoreClass="YamlGenDsl.ecore#//Extend">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute YamlGenDsl.ecore#//Extend/name_property"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute YamlGenDsl.ecore#//Extend/parentSubfieldName"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference YamlGenDsl.ecore#//Extend/body"/>
     </genClasses>
+    <genClasses ecoreClass="YamlGenDsl.ecore#//AnyNestedField"/>
     <genClasses ecoreClass="YamlGenDsl.ecore#//NestedField">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute YamlGenDsl.ecore#//NestedField/help"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute YamlGenDsl.ecore#//NestedField/mandatory"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute YamlGenDsl.ecore#//NestedField/default"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference YamlGenDsl.ecore#//NestedField/superField"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference YamlGenDsl.ecore#//NestedField/body"/>
     </genClasses>
-    <genClasses ecoreClass="YamlGenDsl.ecore#//NestedFields">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute YamlGenDsl.ecore#//NestedFields/help"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference YamlGenDsl.ecore#//NestedFields/superField"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference YamlGenDsl.ecore#//NestedFields/body"/>
+    <genClasses ecoreClass="YamlGenDsl.ecore#//NestedFields"/>
+    <genClasses ecoreClass="YamlGenDsl.ecore#//Property">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute YamlGenDsl.ecore#//Property/key"/>
     </genClasses>
-    <genClasses ecoreClass="YamlGenDsl.ecore#//Property"/>
-    <genClasses ecoreClass="YamlGenDsl.ecore#//Key">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute YamlGenDsl.ecore#//Key/value"/>
+    <genClasses ecoreClass="YamlGenDsl.ecore#//StringProperty">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute YamlGenDsl.ecore#//StringProperty/value"/>
     </genClasses>
-    <genClasses ecoreClass="YamlGenDsl.ecore#//Name">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute YamlGenDsl.ecore#//Name/value"/>
+    <genClasses ecoreClass="YamlGenDsl.ecore#//ValuesProperty">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference YamlGenDsl.ecore#//ValuesProperty/value"/>
     </genClasses>
-    <genClasses ecoreClass="YamlGenDsl.ecore#//Default">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference YamlGenDsl.ecore#//Default/value"/>
-    </genClasses>
-    <genClasses ecoreClass="YamlGenDsl.ecore#//Hint">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute YamlGenDsl.ecore#//Hint/value"/>
-    </genClasses>
-    <genClasses ecoreClass="YamlGenDsl.ecore#//PermittedValues">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference YamlGenDsl.ecore#//PermittedValues/value"/>
+    <genClasses ecoreClass="YamlGenDsl.ecore#//TypeProperty">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute YamlGenDsl.ecore#//TypeProperty/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute YamlGenDsl.ecore#//TypeProperty/help"/>
     </genClasses>
     <genClasses ecoreClass="YamlGenDsl.ecore#//Values">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference YamlGenDsl.ecore#//Values/values"/>

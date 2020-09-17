@@ -9,13 +9,15 @@
   <eClassifiers xsi:type="ecore:EClass" name="Import" eSuperTypes="#//SourceElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Field" eSuperTypes="#//SourceElement">
+  <eClassifiers xsi:type="ecore:EClass" name="AnyField">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="help" unique="false" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="root" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="superField" eType="#//Field"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//Body" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Field" eSuperTypes="#//SourceElement #//AnyField">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="root" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Body">
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
@@ -23,40 +25,28 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BodyElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="Extend" eSuperTypes="#//BodyElement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name_property" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parentSubfieldName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//Body" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NestedField" eSuperTypes="#//BodyElement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="help" unique="false" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AnyNestedField" eSuperTypes="#//AnyField #//BodyElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NestedField" eSuperTypes="#//AnyNestedField">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mandatory" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="default" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="superField" eType="#//Field"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//Body" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NestedFields" eSuperTypes="#//BodyElement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="help" unique="false" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="superField" eType="#//Field"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//Body" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NestedFields" eSuperTypes="#//AnyNestedField"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//BodyElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//BodyElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Key" eSuperTypes="#//Property">
+  <eClassifiers xsi:type="ecore:EClass" name="StringProperty" eSuperTypes="#//Property">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Name" eSuperTypes="#//Property">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Default" eSuperTypes="#//Property">
+  <eClassifiers xsi:type="ecore:EClass" name="ValuesProperty" eSuperTypes="#//Property">
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Values"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Hint" eSuperTypes="#//Property">
+  <eClassifiers xsi:type="ecore:EClass" name="TypeProperty" eSuperTypes="#//Property">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PermittedValues" eSuperTypes="#//Property">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Values"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="help" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Values">
     <eStructuralFeatures xsi:type="ecore:EReference" name="values" upperBound="-1"

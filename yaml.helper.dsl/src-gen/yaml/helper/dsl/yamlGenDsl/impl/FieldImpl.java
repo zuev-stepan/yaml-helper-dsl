@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 
+import yaml.helper.dsl.yamlGenDsl.AnyField;
 import yaml.helper.dsl.yamlGenDsl.Body;
 import yaml.helper.dsl.yamlGenDsl.Field;
 import yaml.helper.dsl.yamlGenDsl.YamlGenDslPackage;
@@ -30,10 +31,10 @@ import yaml.helper.dsl.yamlGenDsl.YamlGenDslPackage;
  * </p>
  * <ul>
  *   <li>{@link yaml.helper.dsl.yamlGenDsl.impl.FieldImpl#getHelp <em>Help</em>}</li>
- *   <li>{@link yaml.helper.dsl.yamlGenDsl.impl.FieldImpl#isRoot <em>Root</em>}</li>
- *   <li>{@link yaml.helper.dsl.yamlGenDsl.impl.FieldImpl#getName <em>Name</em>}</li>
  *   <li>{@link yaml.helper.dsl.yamlGenDsl.impl.FieldImpl#getSuperField <em>Super Field</em>}</li>
  *   <li>{@link yaml.helper.dsl.yamlGenDsl.impl.FieldImpl#getBody <em>Body</em>}</li>
+ *   <li>{@link yaml.helper.dsl.yamlGenDsl.impl.FieldImpl#isRoot <em>Root</em>}</li>
+ *   <li>{@link yaml.helper.dsl.yamlGenDsl.impl.FieldImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -49,6 +50,26 @@ public class FieldImpl extends SourceElementImpl implements Field
    * @ordered
    */
   protected EList<String> help;
+
+  /**
+   * The cached value of the '{@link #getSuperField() <em>Super Field</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSuperField()
+   * @generated
+   * @ordered
+   */
+  protected Field superField;
+
+  /**
+   * The cached value of the '{@link #getBody() <em>Body</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBody()
+   * @generated
+   * @ordered
+   */
+  protected Body body;
 
   /**
    * The default value of the '{@link #isRoot() <em>Root</em>}' attribute.
@@ -91,26 +112,6 @@ public class FieldImpl extends SourceElementImpl implements Field
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getSuperField() <em>Super Field</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getSuperField()
-   * @generated
-   * @ordered
-   */
-  protected Field superField;
-
-  /**
-   * The cached value of the '{@link #getBody() <em>Body</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getBody()
-   * @generated
-   * @ordered
-   */
-  protected Body body;
-
-  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -144,56 +145,6 @@ public class FieldImpl extends SourceElementImpl implements Field
       help = new EDataTypeEList<String>(String.class, this, YamlGenDslPackage.FIELD__HELP);
     }
     return help;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public boolean isRoot()
-  {
-    return root;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setRoot(boolean newRoot)
-  {
-    boolean oldRoot = root;
-    root = newRoot;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, YamlGenDslPackage.FIELD__ROOT, oldRoot, root));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, YamlGenDslPackage.FIELD__NAME, oldName, name));
   }
 
   /**
@@ -297,6 +248,56 @@ public class FieldImpl extends SourceElementImpl implements Field
    * @generated
    */
   @Override
+  public boolean isRoot()
+  {
+    return root;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setRoot(boolean newRoot)
+  {
+    boolean oldRoot = root;
+    root = newRoot;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, YamlGenDslPackage.FIELD__ROOT, oldRoot, root));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, YamlGenDslPackage.FIELD__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
@@ -319,15 +320,15 @@ public class FieldImpl extends SourceElementImpl implements Field
     {
       case YamlGenDslPackage.FIELD__HELP:
         return getHelp();
-      case YamlGenDslPackage.FIELD__ROOT:
-        return isRoot();
-      case YamlGenDslPackage.FIELD__NAME:
-        return getName();
       case YamlGenDslPackage.FIELD__SUPER_FIELD:
         if (resolve) return getSuperField();
         return basicGetSuperField();
       case YamlGenDslPackage.FIELD__BODY:
         return getBody();
+      case YamlGenDslPackage.FIELD__ROOT:
+        return isRoot();
+      case YamlGenDslPackage.FIELD__NAME:
+        return getName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -347,17 +348,17 @@ public class FieldImpl extends SourceElementImpl implements Field
         getHelp().clear();
         getHelp().addAll((Collection<? extends String>)newValue);
         return;
-      case YamlGenDslPackage.FIELD__ROOT:
-        setRoot((Boolean)newValue);
-        return;
-      case YamlGenDslPackage.FIELD__NAME:
-        setName((String)newValue);
-        return;
       case YamlGenDslPackage.FIELD__SUPER_FIELD:
         setSuperField((Field)newValue);
         return;
       case YamlGenDslPackage.FIELD__BODY:
         setBody((Body)newValue);
+        return;
+      case YamlGenDslPackage.FIELD__ROOT:
+        setRoot((Boolean)newValue);
+        return;
+      case YamlGenDslPackage.FIELD__NAME:
+        setName((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -376,17 +377,17 @@ public class FieldImpl extends SourceElementImpl implements Field
       case YamlGenDslPackage.FIELD__HELP:
         getHelp().clear();
         return;
-      case YamlGenDslPackage.FIELD__ROOT:
-        setRoot(ROOT_EDEFAULT);
-        return;
-      case YamlGenDslPackage.FIELD__NAME:
-        setName(NAME_EDEFAULT);
-        return;
       case YamlGenDslPackage.FIELD__SUPER_FIELD:
         setSuperField((Field)null);
         return;
       case YamlGenDslPackage.FIELD__BODY:
         setBody((Body)null);
+        return;
+      case YamlGenDslPackage.FIELD__ROOT:
+        setRoot(ROOT_EDEFAULT);
+        return;
+      case YamlGenDslPackage.FIELD__NAME:
+        setName(NAME_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -404,16 +405,58 @@ public class FieldImpl extends SourceElementImpl implements Field
     {
       case YamlGenDslPackage.FIELD__HELP:
         return help != null && !help.isEmpty();
-      case YamlGenDslPackage.FIELD__ROOT:
-        return root != ROOT_EDEFAULT;
-      case YamlGenDslPackage.FIELD__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case YamlGenDslPackage.FIELD__SUPER_FIELD:
         return superField != null;
       case YamlGenDslPackage.FIELD__BODY:
         return body != null;
+      case YamlGenDslPackage.FIELD__ROOT:
+        return root != ROOT_EDEFAULT;
+      case YamlGenDslPackage.FIELD__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
+  {
+    if (baseClass == AnyField.class)
+    {
+      switch (derivedFeatureID)
+      {
+        case YamlGenDslPackage.FIELD__HELP: return YamlGenDslPackage.ANY_FIELD__HELP;
+        case YamlGenDslPackage.FIELD__SUPER_FIELD: return YamlGenDslPackage.ANY_FIELD__SUPER_FIELD;
+        case YamlGenDslPackage.FIELD__BODY: return YamlGenDslPackage.ANY_FIELD__BODY;
+        default: return -1;
+      }
+    }
+    return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
+  {
+    if (baseClass == AnyField.class)
+    {
+      switch (baseFeatureID)
+      {
+        case YamlGenDslPackage.ANY_FIELD__HELP: return YamlGenDslPackage.FIELD__HELP;
+        case YamlGenDslPackage.ANY_FIELD__SUPER_FIELD: return YamlGenDslPackage.FIELD__SUPER_FIELD;
+        case YamlGenDslPackage.ANY_FIELD__BODY: return YamlGenDslPackage.FIELD__BODY;
+        default: return -1;
+      }
+    }
+    return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
   }
 
   /**

@@ -3,12 +3,14 @@ BaseDirectory {
         key: "path"
         hint: "Path to directory"
         default: "./data"
+        type: string
     }
 
     field mandatory {
-        key: "needsToBePassedAsArg"
+        key: "needsToBeassedAsArg"
         hint: 'Set this to "true" if you need to pass specified directory and files as a parameter for your script'
         values: ["true" "false"]
+        default: "false"
     }
 }
 

@@ -95,11 +95,19 @@ public class YamlGenDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case YamlGenDslPackage.ANY_FIELD:
+      {
+        AnyField anyField = (AnyField)theEObject;
+        T result = caseAnyField(anyField);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case YamlGenDslPackage.FIELD:
       {
         Field field = (Field)theEObject;
         T result = caseField(field);
         if (result == null) result = caseSourceElement(field);
+        if (result == null) result = caseAnyField(field);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -125,10 +133,21 @@ public class YamlGenDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case YamlGenDslPackage.ANY_NESTED_FIELD:
+      {
+        AnyNestedField anyNestedField = (AnyNestedField)theEObject;
+        T result = caseAnyNestedField(anyNestedField);
+        if (result == null) result = caseAnyField(anyNestedField);
+        if (result == null) result = caseBodyElement(anyNestedField);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case YamlGenDslPackage.NESTED_FIELD:
       {
         NestedField nestedField = (NestedField)theEObject;
         T result = caseNestedField(nestedField);
+        if (result == null) result = caseAnyNestedField(nestedField);
+        if (result == null) result = caseAnyField(nestedField);
         if (result == null) result = caseBodyElement(nestedField);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -137,6 +156,8 @@ public class YamlGenDslSwitch<T> extends Switch<T>
       {
         NestedFields nestedFields = (NestedFields)theEObject;
         T result = caseNestedFields(nestedFields);
+        if (result == null) result = caseAnyNestedField(nestedFields);
+        if (result == null) result = caseAnyField(nestedFields);
         if (result == null) result = caseBodyElement(nestedFields);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -149,48 +170,30 @@ public class YamlGenDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case YamlGenDslPackage.KEY:
+      case YamlGenDslPackage.STRING_PROPERTY:
       {
-        Key key = (Key)theEObject;
-        T result = caseKey(key);
-        if (result == null) result = caseProperty(key);
-        if (result == null) result = caseBodyElement(key);
+        StringProperty stringProperty = (StringProperty)theEObject;
+        T result = caseStringProperty(stringProperty);
+        if (result == null) result = caseProperty(stringProperty);
+        if (result == null) result = caseBodyElement(stringProperty);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case YamlGenDslPackage.NAME:
+      case YamlGenDslPackage.VALUES_PROPERTY:
       {
-        Name name = (Name)theEObject;
-        T result = caseName(name);
-        if (result == null) result = caseProperty(name);
-        if (result == null) result = caseBodyElement(name);
+        ValuesProperty valuesProperty = (ValuesProperty)theEObject;
+        T result = caseValuesProperty(valuesProperty);
+        if (result == null) result = caseProperty(valuesProperty);
+        if (result == null) result = caseBodyElement(valuesProperty);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case YamlGenDslPackage.DEFAULT:
+      case YamlGenDslPackage.TYPE_PROPERTY:
       {
-        Default default_ = (Default)theEObject;
-        T result = caseDefault(default_);
-        if (result == null) result = caseProperty(default_);
-        if (result == null) result = caseBodyElement(default_);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case YamlGenDslPackage.HINT:
-      {
-        Hint hint = (Hint)theEObject;
-        T result = caseHint(hint);
-        if (result == null) result = caseProperty(hint);
-        if (result == null) result = caseBodyElement(hint);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case YamlGenDslPackage.PERMITTED_VALUES:
-      {
-        PermittedValues permittedValues = (PermittedValues)theEObject;
-        T result = casePermittedValues(permittedValues);
-        if (result == null) result = caseProperty(permittedValues);
-        if (result == null) result = caseBodyElement(permittedValues);
+        TypeProperty typeProperty = (TypeProperty)theEObject;
+        T result = caseTypeProperty(typeProperty);
+        if (result == null) result = caseProperty(typeProperty);
+        if (result == null) result = caseBodyElement(typeProperty);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -249,6 +252,22 @@ public class YamlGenDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseImport(Import object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Any Field</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Any Field</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAnyField(AnyField object)
   {
     return null;
   }
@@ -318,6 +337,22 @@ public class YamlGenDslSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Any Nested Field</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Any Nested Field</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAnyNestedField(AnyNestedField object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Nested Field</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -366,81 +401,49 @@ public class YamlGenDslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Key</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>String Property</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Key</em>'.
+   * @return the result of interpreting the object as an instance of '<em>String Property</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseKey(Key object)
+  public T caseStringProperty(StringProperty object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Name</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Values Property</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Name</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Values Property</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseName(Name object)
+  public T caseValuesProperty(ValuesProperty object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Default</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Type Property</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Default</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Type Property</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseDefault(Default object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Hint</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Hint</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseHint(Hint object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Permitted Values</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Permitted Values</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casePermittedValues(PermittedValues object)
+  public T caseTypeProperty(TypeProperty object)
   {
     return null;
   }

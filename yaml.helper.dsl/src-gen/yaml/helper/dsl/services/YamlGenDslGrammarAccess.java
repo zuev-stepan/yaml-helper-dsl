@@ -81,6 +81,25 @@ public class YamlGenDslGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//STRING
 		public RuleCall getPathSTRINGTerminalRuleCall_1_0() { return cPathSTRINGTerminalRuleCall_1_0; }
 	}
+	public class AnyFieldElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "yaml.helper.dsl.YamlGenDsl.AnyField");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cFieldParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cAnyNestedFieldParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//AnyField:
+		//	Field | AnyNestedField;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//Field | AnyNestedField
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//Field
+		public RuleCall getFieldParserRuleCall_0() { return cFieldParserRuleCall_0; }
+		
+		//AnyNestedField
+		public RuleCall getAnyNestedFieldParserRuleCall_1() { return cAnyNestedFieldParserRuleCall_1; }
+	}
 	public class FieldElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "yaml.helper.dsl.YamlGenDsl.Field");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -180,59 +199,74 @@ public class YamlGenDslGrammarAccess extends AbstractElementFinder.AbstractGramm
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "yaml.helper.dsl.YamlGenDsl.BodyElement");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cExtendParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cNestedFieldParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cNestedFieldsParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cPropertyParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cAnyNestedFieldParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cPropertyParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//BodyElement:
-		//	Extend | NestedField | NestedFields | Property;
+		//	Extend | AnyNestedField | Property;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Extend | NestedField | NestedFields | Property
+		//Extend | AnyNestedField | Property
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Extend
 		public RuleCall getExtendParserRuleCall_0() { return cExtendParserRuleCall_0; }
 		
-		//NestedField
-		public RuleCall getNestedFieldParserRuleCall_1() { return cNestedFieldParserRuleCall_1; }
-		
-		//NestedFields
-		public RuleCall getNestedFieldsParserRuleCall_2() { return cNestedFieldsParserRuleCall_2; }
+		//AnyNestedField
+		public RuleCall getAnyNestedFieldParserRuleCall_1() { return cAnyNestedFieldParserRuleCall_1; }
 		
 		//Property
-		public RuleCall getPropertyParserRuleCall_3() { return cPropertyParserRuleCall_3; }
+		public RuleCall getPropertyParserRuleCall_2() { return cPropertyParserRuleCall_2; }
 	}
 	public class ExtendElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "yaml.helper.dsl.YamlGenDsl.Extend");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cExtendKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cName_propertyAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cName_propertySTRINGTerminalRuleCall_1_0 = (RuleCall)cName_propertyAssignment_1.eContents().get(0);
+		private final Assignment cParentSubfieldNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cParentSubfieldNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cParentSubfieldNameAssignment_1.eContents().get(0);
 		private final Assignment cBodyAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cBodyBodyParserRuleCall_2_0 = (RuleCall)cBodyAssignment_2.eContents().get(0);
 		
 		//Extend:
-		//	'extend' name_property=STRING body=Body;
+		//	'extend' parentSubfieldName=STRING body=Body;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'extend' name_property=STRING body=Body
+		//'extend' parentSubfieldName=STRING body=Body
 		public Group getGroup() { return cGroup; }
 		
 		//'extend'
 		public Keyword getExtendKeyword_0() { return cExtendKeyword_0; }
 		
-		//name_property=STRING
-		public Assignment getName_propertyAssignment_1() { return cName_propertyAssignment_1; }
+		//parentSubfieldName=STRING
+		public Assignment getParentSubfieldNameAssignment_1() { return cParentSubfieldNameAssignment_1; }
 		
 		//STRING
-		public RuleCall getName_propertySTRINGTerminalRuleCall_1_0() { return cName_propertySTRINGTerminalRuleCall_1_0; }
+		public RuleCall getParentSubfieldNameSTRINGTerminalRuleCall_1_0() { return cParentSubfieldNameSTRINGTerminalRuleCall_1_0; }
 		
 		//body=Body
 		public Assignment getBodyAssignment_2() { return cBodyAssignment_2; }
 		
 		//Body
 		public RuleCall getBodyBodyParserRuleCall_2_0() { return cBodyBodyParserRuleCall_2_0; }
+	}
+	public class AnyNestedFieldElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "yaml.helper.dsl.YamlGenDsl.AnyNestedField");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cNestedFieldParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cNestedFieldsParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//AnyNestedField:
+		//	NestedField | NestedFields;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//NestedField | NestedFields
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//NestedField
+		public RuleCall getNestedFieldParserRuleCall_0() { return cNestedFieldParserRuleCall_0; }
+		
+		//NestedFields
+		public RuleCall getNestedFieldsParserRuleCall_1() { return cNestedFieldsParserRuleCall_1; }
 	}
 	public class NestedFieldElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "yaml.helper.dsl.YamlGenDsl.NestedField");
@@ -357,148 +391,182 @@ public class YamlGenDslGrammarAccess extends AbstractElementFinder.AbstractGramm
 	public class PropertyElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "yaml.helper.dsl.YamlGenDsl.Property");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cNameParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cKeyParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cDefaultParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cHintParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cPermittedValuesParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cStringPropertyParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cValuesPropertyParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cTypePropertyParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//Property:
-		//	Name | Key | Default | Hint | PermittedValues;
+		//	StringProperty | ValuesProperty | TypeProperty;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Name | Key | Default | Hint | PermittedValues
+		//StringProperty | ValuesProperty | TypeProperty
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//Name
-		public RuleCall getNameParserRuleCall_0() { return cNameParserRuleCall_0; }
+		//StringProperty
+		public RuleCall getStringPropertyParserRuleCall_0() { return cStringPropertyParserRuleCall_0; }
 		
-		//Key
-		public RuleCall getKeyParserRuleCall_1() { return cKeyParserRuleCall_1; }
+		//ValuesProperty
+		public RuleCall getValuesPropertyParserRuleCall_1() { return cValuesPropertyParserRuleCall_1; }
 		
-		//Default
-		public RuleCall getDefaultParserRuleCall_2() { return cDefaultParserRuleCall_2; }
-		
-		//Hint
-		public RuleCall getHintParserRuleCall_3() { return cHintParserRuleCall_3; }
-		
-		//PermittedValues
-		public RuleCall getPermittedValuesParserRuleCall_4() { return cPermittedValuesParserRuleCall_4; }
+		//TypeProperty
+		public RuleCall getTypePropertyParserRuleCall_2() { return cTypePropertyParserRuleCall_2; }
 	}
-	public class KeyElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "yaml.helper.dsl.YamlGenDsl.Key");
+	public class StringPropertyElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "yaml.helper.dsl.YamlGenDsl.StringProperty");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cKeyKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cValueSTRINGTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final Assignment cKeyAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Alternatives cKeyAlternatives_0_0 = (Alternatives)cKeyAssignment_0.eContents().get(0);
+		private final Keyword cKeyKeyKeyword_0_0_0 = (Keyword)cKeyAlternatives_0_0.eContents().get(0);
+		private final Keyword cKeyNameKeyword_0_0_1 = (Keyword)cKeyAlternatives_0_0.eContents().get(1);
+		private final Keyword cKeyHintKeyword_0_0_2 = (Keyword)cKeyAlternatives_0_0.eContents().get(2);
+		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cValueSTRINGTerminalRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
 		
-		//Key:
-		//	'key:' value=STRING;
+		//StringProperty:
+		//	key=('key' | 'name' | 'hint') ':' value=STRING;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'key:' value=STRING
+		//key=('key' | 'name' | 'hint') ':' value=STRING
 		public Group getGroup() { return cGroup; }
 		
-		//'key:'
-		public Keyword getKeyKeyword_0() { return cKeyKeyword_0; }
+		//key=('key' | 'name' | 'hint')
+		public Assignment getKeyAssignment_0() { return cKeyAssignment_0; }
+		
+		//('key' | 'name' | 'hint')
+		public Alternatives getKeyAlternatives_0_0() { return cKeyAlternatives_0_0; }
+		
+		//'key'
+		public Keyword getKeyKeyKeyword_0_0_0() { return cKeyKeyKeyword_0_0_0; }
+		
+		//'name'
+		public Keyword getKeyNameKeyword_0_0_1() { return cKeyNameKeyword_0_0_1; }
+		
+		//'hint'
+		public Keyword getKeyHintKeyword_0_0_2() { return cKeyHintKeyword_0_0_2; }
+		
+		//':'
+		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
 		
 		//value=STRING
-		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
 		
 		//STRING
-		public RuleCall getValueSTRINGTerminalRuleCall_1_0() { return cValueSTRINGTerminalRuleCall_1_0; }
+		public RuleCall getValueSTRINGTerminalRuleCall_2_0() { return cValueSTRINGTerminalRuleCall_2_0; }
 	}
-	public class NameElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "yaml.helper.dsl.YamlGenDsl.Name");
+	public class ValuesPropertyElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "yaml.helper.dsl.YamlGenDsl.ValuesProperty");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cNameKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cValueSTRINGTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final Assignment cKeyAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Alternatives cKeyAlternatives_0_0 = (Alternatives)cKeyAssignment_0.eContents().get(0);
+		private final Keyword cKeyDefaultKeyword_0_0_0 = (Keyword)cKeyAlternatives_0_0.eContents().get(0);
+		private final Keyword cKeyValuesKeyword_0_0_1 = (Keyword)cKeyAlternatives_0_0.eContents().get(1);
+		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cValueValuesParserRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
 		
-		//Name:
-		//	'name:' value=STRING;
+		//ValuesProperty:
+		//	key=('default' | 'values') ':' value=Values;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'name:' value=STRING
+		//key=('default' | 'values') ':' value=Values
 		public Group getGroup() { return cGroup; }
 		
-		//'name:'
-		public Keyword getNameKeyword_0() { return cNameKeyword_0; }
+		//key=('default' | 'values')
+		public Assignment getKeyAssignment_0() { return cKeyAssignment_0; }
 		
-		//value=STRING
-		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+		//('default' | 'values')
+		public Alternatives getKeyAlternatives_0_0() { return cKeyAlternatives_0_0; }
 		
-		//STRING
-		public RuleCall getValueSTRINGTerminalRuleCall_1_0() { return cValueSTRINGTerminalRuleCall_1_0; }
-	}
-	public class DefaultElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "yaml.helper.dsl.YamlGenDsl.Default");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cDefaultKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cValueValuesParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		//'default'
+		public Keyword getKeyDefaultKeyword_0_0_0() { return cKeyDefaultKeyword_0_0_0; }
 		
-		//Default:
-		//	'default:' value=Values;
-		@Override public ParserRule getRule() { return rule; }
+		//'values'
+		public Keyword getKeyValuesKeyword_0_0_1() { return cKeyValuesKeyword_0_0_1; }
 		
-		//'default:' value=Values
-		public Group getGroup() { return cGroup; }
-		
-		//'default:'
-		public Keyword getDefaultKeyword_0() { return cDefaultKeyword_0; }
+		//':'
+		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
 		
 		//value=Values
-		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
 		
 		//Values
-		public RuleCall getValueValuesParserRuleCall_1_0() { return cValueValuesParserRuleCall_1_0; }
+		public RuleCall getValueValuesParserRuleCall_2_0() { return cValueValuesParserRuleCall_2_0; }
 	}
-	public class HintElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "yaml.helper.dsl.YamlGenDsl.Hint");
+	public class TypePropertyElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "yaml.helper.dsl.YamlGenDsl.TypeProperty");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cHintKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cValueSTRINGTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final Assignment cKeyAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cKeyTypeKeyword_0_0 = (Keyword)cKeyAssignment_0.eContents().get(0);
+		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final Alternatives cValueAlternatives_2_0 = (Alternatives)cValueAssignment_2.eContents().get(0);
+		private final Keyword cValueIntKeyword_2_0_0 = (Keyword)cValueAlternatives_2_0.eContents().get(0);
+		private final Keyword cValueFloatKeyword_2_0_1 = (Keyword)cValueAlternatives_2_0.eContents().get(1);
+		private final Keyword cValueStringKeyword_2_0_2 = (Keyword)cValueAlternatives_2_0.eContents().get(2);
+		private final Keyword cValueListKeyword_2_0_3 = (Keyword)cValueAlternatives_2_0.eContents().get(3);
+		private final Keyword cValueAnyKeyword_2_0_4 = (Keyword)cValueAlternatives_2_0.eContents().get(4);
+		private final RuleCall cValueSTRINGTerminalRuleCall_2_0_5 = (RuleCall)cValueAlternatives_2_0.eContents().get(5);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cLeftParenthesisKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cHelpAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cHelpSTRINGTerminalRuleCall_3_1_0 = (RuleCall)cHelpAssignment_3_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
 		
-		//Hint:
-		//	'hint:' value=STRING;
+		//TypeProperty:
+		//	key='type' ':' value=('int' | 'float' | 'string' | 'list' | 'any' | STRING) ('(' help=STRING ')')?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'hint:' value=STRING
+		//key='type' ':' value=('int' | 'float' | 'string' | 'list' | 'any' | STRING) ('(' help=STRING ')')?
 		public Group getGroup() { return cGroup; }
 		
-		//'hint:'
-		public Keyword getHintKeyword_0() { return cHintKeyword_0; }
+		//key='type'
+		public Assignment getKeyAssignment_0() { return cKeyAssignment_0; }
 		
-		//value=STRING
-		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+		//'type'
+		public Keyword getKeyTypeKeyword_0_0() { return cKeyTypeKeyword_0_0; }
+		
+		//':'
+		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
+		
+		//value=('int' | 'float' | 'string' | 'list' | 'any' | STRING)
+		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
+		
+		//('int' | 'float' | 'string' | 'list' | 'any' | STRING)
+		public Alternatives getValueAlternatives_2_0() { return cValueAlternatives_2_0; }
+		
+		//'int'
+		public Keyword getValueIntKeyword_2_0_0() { return cValueIntKeyword_2_0_0; }
+		
+		//'float'
+		public Keyword getValueFloatKeyword_2_0_1() { return cValueFloatKeyword_2_0_1; }
+		
+		//'string'
+		public Keyword getValueStringKeyword_2_0_2() { return cValueStringKeyword_2_0_2; }
+		
+		//'list'
+		public Keyword getValueListKeyword_2_0_3() { return cValueListKeyword_2_0_3; }
+		
+		//'any'
+		public Keyword getValueAnyKeyword_2_0_4() { return cValueAnyKeyword_2_0_4; }
 		
 		//STRING
-		public RuleCall getValueSTRINGTerminalRuleCall_1_0() { return cValueSTRINGTerminalRuleCall_1_0; }
-	}
-	public class PermittedValuesElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "yaml.helper.dsl.YamlGenDsl.PermittedValues");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cValuesKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cValueValuesParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		public RuleCall getValueSTRINGTerminalRuleCall_2_0_5() { return cValueSTRINGTerminalRuleCall_2_0_5; }
 		
-		//PermittedValues:
-		//	'values:' value=Values;
-		@Override public ParserRule getRule() { return rule; }
+		//('(' help=STRING ')')?
+		public Group getGroup_3() { return cGroup_3; }
 		
-		//'values:' value=Values
-		public Group getGroup() { return cGroup; }
+		//'('
+		public Keyword getLeftParenthesisKeyword_3_0() { return cLeftParenthesisKeyword_3_0; }
 		
-		//'values:'
-		public Keyword getValuesKeyword_0() { return cValuesKeyword_0; }
+		//help=STRING
+		public Assignment getHelpAssignment_3_1() { return cHelpAssignment_3_1; }
 		
-		//value=Values
-		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+		//STRING
+		public RuleCall getHelpSTRINGTerminalRuleCall_3_1_0() { return cHelpSTRINGTerminalRuleCall_3_1_0; }
 		
-		//Values
-		public RuleCall getValueValuesParserRuleCall_1_0() { return cValueValuesParserRuleCall_1_0; }
+		//')'
+		public Keyword getRightParenthesisKeyword_3_2() { return cRightParenthesisKeyword_3_2; }
 	}
 	public class ValuesElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "yaml.helper.dsl.YamlGenDsl.Values");
@@ -545,18 +613,18 @@ public class YamlGenDslGrammarAccess extends AbstractElementFinder.AbstractGramm
 	private final SourceElements pSource;
 	private final SourceElementElements pSourceElement;
 	private final ImportElements pImport;
+	private final AnyFieldElements pAnyField;
 	private final FieldElements pField;
 	private final BodyElements pBody;
 	private final BodyElementElements pBodyElement;
 	private final ExtendElements pExtend;
+	private final AnyNestedFieldElements pAnyNestedField;
 	private final NestedFieldElements pNestedField;
 	private final NestedFieldsElements pNestedFields;
 	private final PropertyElements pProperty;
-	private final KeyElements pKey;
-	private final NameElements pName;
-	private final DefaultElements pDefault;
-	private final HintElements pHint;
-	private final PermittedValuesElements pPermittedValues;
+	private final StringPropertyElements pStringProperty;
+	private final ValuesPropertyElements pValuesProperty;
+	private final TypePropertyElements pTypeProperty;
 	private final ValuesElements pValues;
 	private final TerminalRule tHELP_STRING;
 	
@@ -572,18 +640,18 @@ public class YamlGenDslGrammarAccess extends AbstractElementFinder.AbstractGramm
 		this.pSource = new SourceElements();
 		this.pSourceElement = new SourceElementElements();
 		this.pImport = new ImportElements();
+		this.pAnyField = new AnyFieldElements();
 		this.pField = new FieldElements();
 		this.pBody = new BodyElements();
 		this.pBodyElement = new BodyElementElements();
 		this.pExtend = new ExtendElements();
+		this.pAnyNestedField = new AnyNestedFieldElements();
 		this.pNestedField = new NestedFieldElements();
 		this.pNestedFields = new NestedFieldsElements();
 		this.pProperty = new PropertyElements();
-		this.pKey = new KeyElements();
-		this.pName = new NameElements();
-		this.pDefault = new DefaultElements();
-		this.pHint = new HintElements();
-		this.pPermittedValues = new PermittedValuesElements();
+		this.pStringProperty = new StringPropertyElements();
+		this.pValuesProperty = new ValuesPropertyElements();
+		this.pTypeProperty = new TypePropertyElements();
 		this.pValues = new ValuesElements();
 		this.tHELP_STRING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "yaml.helper.dsl.YamlGenDsl.HELP_STRING");
 	}
@@ -645,6 +713,16 @@ public class YamlGenDslGrammarAccess extends AbstractElementFinder.AbstractGramm
 		return getImportAccess().getRule();
 	}
 	
+	//AnyField:
+	//	Field | AnyNestedField;
+	public AnyFieldElements getAnyFieldAccess() {
+		return pAnyField;
+	}
+	
+	public ParserRule getAnyFieldRule() {
+		return getAnyFieldAccess().getRule();
+	}
+	
 	//Field:
 	//	help+=HELP_STRING*
 	//	root?='root'? name=ID ('extends' superField=[Field])? body=Body;
@@ -667,7 +745,7 @@ public class YamlGenDslGrammarAccess extends AbstractElementFinder.AbstractGramm
 	}
 	
 	//BodyElement:
-	//	Extend | NestedField | NestedFields | Property;
+	//	Extend | AnyNestedField | Property;
 	public BodyElementElements getBodyElementAccess() {
 		return pBodyElement;
 	}
@@ -677,13 +755,23 @@ public class YamlGenDslGrammarAccess extends AbstractElementFinder.AbstractGramm
 	}
 	
 	//Extend:
-	//	'extend' name_property=STRING body=Body;
+	//	'extend' parentSubfieldName=STRING body=Body;
 	public ExtendElements getExtendAccess() {
 		return pExtend;
 	}
 	
 	public ParserRule getExtendRule() {
 		return getExtendAccess().getRule();
+	}
+	
+	//AnyNestedField:
+	//	NestedField | NestedFields;
+	public AnyNestedFieldElements getAnyNestedFieldAccess() {
+		return pAnyNestedField;
+	}
+	
+	public ParserRule getAnyNestedFieldRule() {
+		return getAnyNestedFieldAccess().getRule();
 	}
 	
 	//NestedField:
@@ -709,7 +797,7 @@ public class YamlGenDslGrammarAccess extends AbstractElementFinder.AbstractGramm
 	}
 	
 	//Property:
-	//	Name | Key | Default | Hint | PermittedValues;
+	//	StringProperty | ValuesProperty | TypeProperty;
 	public PropertyElements getPropertyAccess() {
 		return pProperty;
 	}
@@ -718,54 +806,34 @@ public class YamlGenDslGrammarAccess extends AbstractElementFinder.AbstractGramm
 		return getPropertyAccess().getRule();
 	}
 	
-	//Key:
-	//	'key:' value=STRING;
-	public KeyElements getKeyAccess() {
-		return pKey;
+	//StringProperty:
+	//	key=('key' | 'name' | 'hint') ':' value=STRING;
+	public StringPropertyElements getStringPropertyAccess() {
+		return pStringProperty;
 	}
 	
-	public ParserRule getKeyRule() {
-		return getKeyAccess().getRule();
+	public ParserRule getStringPropertyRule() {
+		return getStringPropertyAccess().getRule();
 	}
 	
-	//Name:
-	//	'name:' value=STRING;
-	public NameElements getNameAccess() {
-		return pName;
+	//ValuesProperty:
+	//	key=('default' | 'values') ':' value=Values;
+	public ValuesPropertyElements getValuesPropertyAccess() {
+		return pValuesProperty;
 	}
 	
-	public ParserRule getNameRule() {
-		return getNameAccess().getRule();
+	public ParserRule getValuesPropertyRule() {
+		return getValuesPropertyAccess().getRule();
 	}
 	
-	//Default:
-	//	'default:' value=Values;
-	public DefaultElements getDefaultAccess() {
-		return pDefault;
+	//TypeProperty:
+	//	key='type' ':' value=('int' | 'float' | 'string' | 'list' | 'any' | STRING) ('(' help=STRING ')')?;
+	public TypePropertyElements getTypePropertyAccess() {
+		return pTypeProperty;
 	}
 	
-	public ParserRule getDefaultRule() {
-		return getDefaultAccess().getRule();
-	}
-	
-	//Hint:
-	//	'hint:' value=STRING;
-	public HintElements getHintAccess() {
-		return pHint;
-	}
-	
-	public ParserRule getHintRule() {
-		return getHintAccess().getRule();
-	}
-	
-	//PermittedValues:
-	//	'values:' value=Values;
-	public PermittedValuesElements getPermittedValuesAccess() {
-		return pPermittedValues;
-	}
-	
-	public ParserRule getPermittedValuesRule() {
-		return getPermittedValuesAccess().getRule();
+	public ParserRule getTypePropertyRule() {
+		return getTypePropertyAccess().getRule();
 	}
 	
 	//Values:

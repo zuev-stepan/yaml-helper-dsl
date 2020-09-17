@@ -3,6 +3,24 @@
  */
 package yaml.helper.dsl.validation;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+
+import org.eclipse.xtext.validation.Check;
+
+import yaml.helper.dsl.yamlGenDsl.YamlGenDslPackage;
+
+import yaml.helper.dsl.yamlGenDsl.Body;
+import yaml.helper.dsl.yamlGenDsl.BodyElement;
+import yaml.helper.dsl.yamlGenDsl.Field;
+import yaml.helper.dsl.yamlGenDsl.AnyField;
+import yaml.helper.dsl.yamlGenDsl.AnyNestedField;
+import yaml.helper.dsl.yamlGenDsl.NestedField;
+import yaml.helper.dsl.yamlGenDsl.NestedFields;
+import yaml.helper.dsl.yamlGenDsl.Property;
+import yaml.helper.dsl.yamlGenDsl.StringProperty;
+import yaml.helper.dsl.yamlGenDsl.Extend;
 
 /**
  * This class contains custom validation rules. 
@@ -10,16 +28,145 @@ package yaml.helper.dsl.validation;
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
 public class YamlGenDslValidator extends AbstractYamlGenDslValidator {
+	public static final String DUPLICATE_PROPERTY = "Duplicate property";
+	public static final String DUPLICATE_KEY_NAME_PROPERTY = "Field can't have ";
+	public static final String UNNAMED_NESTED_FIELD = "Nested field should have a name or a key";
+	public static final String DUPLICATE_NESTED_FIELD_NAME = "Nested fields should have unique name or a key";
+	public static final String EXTEND_FIELD_NOT_FOUND = "Field with this name or key not found";
 	
-//	public static final String INVALID_NAME = "invalidName";
-//
-//	@Check
-//	public void checkGreetingStartsWithCapital(Greeting greeting) {
-//		if (!Character.isUpperCase(greeting.getName().charAt(0))) {
-//			warning("Name should start with a capital",
-//					YamlGenDslPackage.Literals.GREETING__NAME,
-//					INVALID_NAME);
-//		}
-//	}
+	private StringProperty getName(Body body) {
+		for (BodyElement bodyElement : body.getElements()) {
+			if (bodyElement instanceof StringProperty) {
+				StringProperty property = (StringProperty) bodyElement;
+				if (property.getKey().equals("key") || property.getKey().equals("name")) {
+					return property;
+				}
+			}
+		}
+		
+		return null;
+	}
 	
+	private StringProperty getName(AnyField field) {
+		StringProperty res = getName(field.getBody());
+		if (res != null) {
+			return res;
+		}
+		
+		if (field.getSuperField() != null) {
+			return getName(field.getSuperField());
+		}
+		
+		return null;
+	}
+
+	@Check 
+	public void checkNestedFieldHasName(NestedField nestedField) {
+		StringProperty res = getName(nestedField);
+		if (res == null) {
+			error(UNNAMED_NESTED_FIELD, YamlGenDslPackage.Literals.ANY_FIELD__BODY, UNNAMED_NESTED_FIELD);
+		}
+	}
+	
+	@Check 
+	public void checkNestedFieldsHasName(NestedFields nestedFields) {
+		StringProperty res = getName(nestedFields);
+		if (res == null) {
+			error(UNNAMED_NESTED_FIELD, YamlGenDslPackage.Literals.ANY_FIELD__BODY, UNNAMED_NESTED_FIELD);
+		}
+	}
+	
+	@Check
+	public void checkDuplicateProperties(Body body) {
+		HashSet<String> seen = new HashSet<>();
+		for (BodyElement bodyElement : body.getElements()) {
+			if (bodyElement instanceof Property) {
+				Property property = (Property) bodyElement;
+				if (seen.contains(property.getKey())) {
+					error(DUPLICATE_PROPERTY, property, YamlGenDslPackage.Literals.PROPERTY__KEY, DUPLICATE_PROPERTY);					
+				}
+				if ((property.getKey().equals("key") && seen.contains("name"))
+					|| (property.getKey().equals("name") && seen.contains("key")))
+				{
+					error(DUPLICATE_KEY_NAME_PROPERTY, property, YamlGenDslPackage.Literals.PROPERTY__KEY, DUPLICATE_KEY_NAME_PROPERTY);
+				}
+				seen.add(property.getKey());
+			}
+		}
+	}
+	
+	public class FieldStructure {
+		StringProperty name;
+		HashMap<String, FieldStructure> fields;
+		
+		FieldStructure(AnyField field) {
+			if (field.getSuperField() != null) {
+				FieldStructure fieldStructure = new FieldStructure(field.getSuperField());
+				name = fieldStructure.name;
+				fields = fieldStructure.fields;
+			}
+			else {
+				fields = new HashMap<>();
+			}
+			
+			processBody(field.getBody());
+		}
+		
+		public void processBody(Body body) {
+			HashMap<String, FieldStructure> conflictingFields = new HashMap<>();
+			
+			for (BodyElement bodyElement : body.getElements()) {
+				if (bodyElement instanceof Extend) {
+					Extend extend = (Extend) bodyElement;
+					FieldStructure newStructure = conflictingFields.remove(extend.getParentSubfieldName());
+					if (newStructure == null) {
+						newStructure = fields.remove(extend.getParentSubfieldName());
+					}
+					if (newStructure == null) {
+						error(EXTEND_FIELD_NOT_FOUND, extend, YamlGenDslPackage.Literals.EXTEND__PARENT_SUBFIELD_NAME, EXTEND_FIELD_NOT_FOUND);
+						continue;
+					}
+					
+					newStructure.extend(extend);
+					if (fields.containsKey(newStructure.name.getValue())) {
+						FieldStructure oldStructure = fields.remove(newStructure.name.getValue());
+						oldStructure.name = newStructure.name; // Remember actual conflicting name for proper error position
+						conflictingFields.put(newStructure.name.getValue(), oldStructure);
+					}
+					fields.put(newStructure.name.getValue(), newStructure);
+				}
+			}
+			
+			conflictingFields.forEach(
+				(key, value) -> error(DUPLICATE_NESTED_FIELD_NAME, value.name, YamlGenDslPackage.Literals.STRING_PROPERTY__VALUE, DUPLICATE_NESTED_FIELD_NAME));
+			
+			for (BodyElement bodyElement : body.getElements()) {
+				if (bodyElement instanceof AnyNestedField) {
+					AnyNestedField field = (AnyNestedField) bodyElement;
+					FieldStructure newStructure = new FieldStructure(field);
+					if (fields.containsKey(newStructure.name.getValue())) {
+						error(DUPLICATE_NESTED_FIELD_NAME, newStructure.name, YamlGenDslPackage.Literals.STRING_PROPERTY__VALUE, DUPLICATE_NESTED_FIELD_NAME);
+					}
+					else {
+						fields.put(newStructure.name.getValue(), newStructure);
+					}
+				}
+				else if (bodyElement instanceof StringProperty) {
+					StringProperty stringProperty = (StringProperty) bodyElement;
+					if (stringProperty.getKey().equals("key") || stringProperty.getKey().equals("name")) {
+						this.name = stringProperty;
+					}
+				}
+			}
+		}
+
+		public void extend(Extend extend) {
+			processBody(extend.getBody());
+		}
+	}
+	
+	@Check
+	public void checkField(AnyField field) {
+		new FieldStructure(field);
+	}
 }

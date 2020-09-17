@@ -11,24 +11,24 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import yaml.helper.dsl.yamlGenDsl.Default;
 import yaml.helper.dsl.yamlGenDsl.Values;
+import yaml.helper.dsl.yamlGenDsl.ValuesProperty;
 import yaml.helper.dsl.yamlGenDsl.YamlGenDslPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Default</b></em>'.
+ * An implementation of the model object '<em><b>Values Property</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link yaml.helper.dsl.yamlGenDsl.impl.DefaultImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link yaml.helper.dsl.yamlGenDsl.impl.ValuesPropertyImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DefaultImpl extends PropertyImpl implements Default
+public class ValuesPropertyImpl extends PropertyImpl implements ValuesProperty
 {
   /**
    * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
@@ -45,7 +45,7 @@ public class DefaultImpl extends PropertyImpl implements Default
    * <!-- end-user-doc -->
    * @generated
    */
-  protected DefaultImpl()
+  protected ValuesPropertyImpl()
   {
     super();
   }
@@ -58,7 +58,7 @@ public class DefaultImpl extends PropertyImpl implements Default
   @Override
   protected EClass eStaticClass()
   {
-    return YamlGenDslPackage.Literals.DEFAULT;
+    return YamlGenDslPackage.Literals.VALUES_PROPERTY;
   }
 
   /**
@@ -83,7 +83,7 @@ public class DefaultImpl extends PropertyImpl implements Default
     value = newValue;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, YamlGenDslPackage.DEFAULT__VALUE, oldValue, newValue);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, YamlGenDslPackage.VALUES_PROPERTY__VALUE, oldValue, newValue);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -101,14 +101,14 @@ public class DefaultImpl extends PropertyImpl implements Default
     {
       NotificationChain msgs = null;
       if (value != null)
-        msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - YamlGenDslPackage.DEFAULT__VALUE, null, msgs);
+        msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - YamlGenDslPackage.VALUES_PROPERTY__VALUE, null, msgs);
       if (newValue != null)
-        msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - YamlGenDslPackage.DEFAULT__VALUE, null, msgs);
+        msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - YamlGenDslPackage.VALUES_PROPERTY__VALUE, null, msgs);
       msgs = basicSetValue(newValue, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, YamlGenDslPackage.DEFAULT__VALUE, newValue, newValue));
+      eNotify(new ENotificationImpl(this, Notification.SET, YamlGenDslPackage.VALUES_PROPERTY__VALUE, newValue, newValue));
   }
 
   /**
@@ -121,7 +121,7 @@ public class DefaultImpl extends PropertyImpl implements Default
   {
     switch (featureID)
     {
-      case YamlGenDslPackage.DEFAULT__VALUE:
+      case YamlGenDslPackage.VALUES_PROPERTY__VALUE:
         return basicSetValue(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -137,7 +137,7 @@ public class DefaultImpl extends PropertyImpl implements Default
   {
     switch (featureID)
     {
-      case YamlGenDslPackage.DEFAULT__VALUE:
+      case YamlGenDslPackage.VALUES_PROPERTY__VALUE:
         return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -153,7 +153,7 @@ public class DefaultImpl extends PropertyImpl implements Default
   {
     switch (featureID)
     {
-      case YamlGenDslPackage.DEFAULT__VALUE:
+      case YamlGenDslPackage.VALUES_PROPERTY__VALUE:
         setValue((Values)newValue);
         return;
     }
@@ -170,7 +170,7 @@ public class DefaultImpl extends PropertyImpl implements Default
   {
     switch (featureID)
     {
-      case YamlGenDslPackage.DEFAULT__VALUE:
+      case YamlGenDslPackage.VALUES_PROPERTY__VALUE:
         setValue((Values)null);
         return;
     }
@@ -187,10 +187,10 @@ public class DefaultImpl extends PropertyImpl implements Default
   {
     switch (featureID)
     {
-      case YamlGenDslPackage.DEFAULT__VALUE:
+      case YamlGenDslPackage.VALUES_PROPERTY__VALUE:
         return value != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //DefaultImpl
+} //ValuesPropertyImpl

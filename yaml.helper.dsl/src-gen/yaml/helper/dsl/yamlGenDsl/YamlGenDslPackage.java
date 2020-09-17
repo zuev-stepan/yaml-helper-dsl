@@ -133,6 +133,52 @@ public interface YamlGenDslPackage extends EPackage
   int IMPORT_FEATURE_COUNT = SOURCE_ELEMENT_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link yaml.helper.dsl.yamlGenDsl.impl.AnyFieldImpl <em>Any Field</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see yaml.helper.dsl.yamlGenDsl.impl.AnyFieldImpl
+   * @see yaml.helper.dsl.yamlGenDsl.impl.YamlGenDslPackageImpl#getAnyField()
+   * @generated
+   */
+  int ANY_FIELD = 3;
+
+  /**
+   * The feature id for the '<em><b>Help</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ANY_FIELD__HELP = 0;
+
+  /**
+   * The feature id for the '<em><b>Super Field</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ANY_FIELD__SUPER_FIELD = 1;
+
+  /**
+   * The feature id for the '<em><b>Body</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ANY_FIELD__BODY = 2;
+
+  /**
+   * The number of structural features of the '<em>Any Field</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ANY_FIELD_FEATURE_COUNT = 3;
+
+  /**
    * The meta object id for the '{@link yaml.helper.dsl.yamlGenDsl.impl.FieldImpl <em>Field</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -140,7 +186,7 @@ public interface YamlGenDslPackage extends EPackage
    * @see yaml.helper.dsl.yamlGenDsl.impl.YamlGenDslPackageImpl#getField()
    * @generated
    */
-  int FIELD = 3;
+  int FIELD = 4;
 
   /**
    * The feature id for the '<em><b>Help</b></em>' attribute list.
@@ -152,31 +198,13 @@ public interface YamlGenDslPackage extends EPackage
   int FIELD__HELP = SOURCE_ELEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Root</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FIELD__ROOT = SOURCE_ELEMENT_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FIELD__NAME = SOURCE_ELEMENT_FEATURE_COUNT + 2;
-
-  /**
    * The feature id for the '<em><b>Super Field</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FIELD__SUPER_FIELD = SOURCE_ELEMENT_FEATURE_COUNT + 3;
+  int FIELD__SUPER_FIELD = SOURCE_ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Body</b></em>' containment reference.
@@ -185,7 +213,25 @@ public interface YamlGenDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FIELD__BODY = SOURCE_ELEMENT_FEATURE_COUNT + 4;
+  int FIELD__BODY = SOURCE_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Root</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FIELD__ROOT = SOURCE_ELEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FIELD__NAME = SOURCE_ELEMENT_FEATURE_COUNT + 4;
 
   /**
    * The number of structural features of the '<em>Field</em>' class.
@@ -204,7 +250,7 @@ public interface YamlGenDslPackage extends EPackage
    * @see yaml.helper.dsl.yamlGenDsl.impl.YamlGenDslPackageImpl#getBody()
    * @generated
    */
-  int BODY = 4;
+  int BODY = 5;
 
   /**
    * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -232,7 +278,7 @@ public interface YamlGenDslPackage extends EPackage
    * @see yaml.helper.dsl.yamlGenDsl.impl.YamlGenDslPackageImpl#getBodyElement()
    * @generated
    */
-  int BODY_ELEMENT = 5;
+  int BODY_ELEMENT = 6;
 
   /**
    * The number of structural features of the '<em>Body Element</em>' class.
@@ -251,16 +297,16 @@ public interface YamlGenDslPackage extends EPackage
    * @see yaml.helper.dsl.yamlGenDsl.impl.YamlGenDslPackageImpl#getExtend()
    * @generated
    */
-  int EXTEND = 6;
+  int EXTEND = 7;
 
   /**
-   * The feature id for the '<em><b>Name property</b></em>' attribute.
+   * The feature id for the '<em><b>Parent Subfield Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXTEND__NAME_PROPERTY = BODY_ELEMENT_FEATURE_COUNT + 0;
+  int EXTEND__PARENT_SUBFIELD_NAME = BODY_ELEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Body</b></em>' containment reference.
@@ -281,14 +327,14 @@ public interface YamlGenDslPackage extends EPackage
   int EXTEND_FEATURE_COUNT = BODY_ELEMENT_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link yaml.helper.dsl.yamlGenDsl.impl.NestedFieldImpl <em>Nested Field</em>}' class.
+   * The meta object id for the '{@link yaml.helper.dsl.yamlGenDsl.impl.AnyNestedFieldImpl <em>Any Nested Field</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see yaml.helper.dsl.yamlGenDsl.impl.NestedFieldImpl
-   * @see yaml.helper.dsl.yamlGenDsl.impl.YamlGenDslPackageImpl#getNestedField()
+   * @see yaml.helper.dsl.yamlGenDsl.impl.AnyNestedFieldImpl
+   * @see yaml.helper.dsl.yamlGenDsl.impl.YamlGenDslPackageImpl#getAnyNestedField()
    * @generated
    */
-  int NESTED_FIELD = 7;
+  int ANY_NESTED_FIELD = 8;
 
   /**
    * The feature id for the '<em><b>Help</b></em>' attribute list.
@@ -297,25 +343,7 @@ public interface YamlGenDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int NESTED_FIELD__HELP = BODY_ELEMENT_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Mandatory</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NESTED_FIELD__MANDATORY = BODY_ELEMENT_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Default</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NESTED_FIELD__DEFAULT = BODY_ELEMENT_FEATURE_COUNT + 2;
+  int ANY_NESTED_FIELD__HELP = ANY_FIELD__HELP;
 
   /**
    * The feature id for the '<em><b>Super Field</b></em>' reference.
@@ -324,7 +352,7 @@ public interface YamlGenDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int NESTED_FIELD__SUPER_FIELD = BODY_ELEMENT_FEATURE_COUNT + 3;
+  int ANY_NESTED_FIELD__SUPER_FIELD = ANY_FIELD__SUPER_FIELD;
 
   /**
    * The feature id for the '<em><b>Body</b></em>' containment reference.
@@ -333,7 +361,71 @@ public interface YamlGenDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int NESTED_FIELD__BODY = BODY_ELEMENT_FEATURE_COUNT + 4;
+  int ANY_NESTED_FIELD__BODY = ANY_FIELD__BODY;
+
+  /**
+   * The number of structural features of the '<em>Any Nested Field</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ANY_NESTED_FIELD_FEATURE_COUNT = ANY_FIELD_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link yaml.helper.dsl.yamlGenDsl.impl.NestedFieldImpl <em>Nested Field</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see yaml.helper.dsl.yamlGenDsl.impl.NestedFieldImpl
+   * @see yaml.helper.dsl.yamlGenDsl.impl.YamlGenDslPackageImpl#getNestedField()
+   * @generated
+   */
+  int NESTED_FIELD = 9;
+
+  /**
+   * The feature id for the '<em><b>Help</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NESTED_FIELD__HELP = ANY_NESTED_FIELD__HELP;
+
+  /**
+   * The feature id for the '<em><b>Super Field</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NESTED_FIELD__SUPER_FIELD = ANY_NESTED_FIELD__SUPER_FIELD;
+
+  /**
+   * The feature id for the '<em><b>Body</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NESTED_FIELD__BODY = ANY_NESTED_FIELD__BODY;
+
+  /**
+   * The feature id for the '<em><b>Mandatory</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NESTED_FIELD__MANDATORY = ANY_NESTED_FIELD_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Default</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NESTED_FIELD__DEFAULT = ANY_NESTED_FIELD_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Nested Field</em>' class.
@@ -342,7 +434,7 @@ public interface YamlGenDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int NESTED_FIELD_FEATURE_COUNT = BODY_ELEMENT_FEATURE_COUNT + 5;
+  int NESTED_FIELD_FEATURE_COUNT = ANY_NESTED_FIELD_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link yaml.helper.dsl.yamlGenDsl.impl.NestedFieldsImpl <em>Nested Fields</em>}' class.
@@ -352,7 +444,7 @@ public interface YamlGenDslPackage extends EPackage
    * @see yaml.helper.dsl.yamlGenDsl.impl.YamlGenDslPackageImpl#getNestedFields()
    * @generated
    */
-  int NESTED_FIELDS = 8;
+  int NESTED_FIELDS = 10;
 
   /**
    * The feature id for the '<em><b>Help</b></em>' attribute list.
@@ -361,7 +453,7 @@ public interface YamlGenDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int NESTED_FIELDS__HELP = BODY_ELEMENT_FEATURE_COUNT + 0;
+  int NESTED_FIELDS__HELP = ANY_NESTED_FIELD__HELP;
 
   /**
    * The feature id for the '<em><b>Super Field</b></em>' reference.
@@ -370,7 +462,7 @@ public interface YamlGenDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int NESTED_FIELDS__SUPER_FIELD = BODY_ELEMENT_FEATURE_COUNT + 1;
+  int NESTED_FIELDS__SUPER_FIELD = ANY_NESTED_FIELD__SUPER_FIELD;
 
   /**
    * The feature id for the '<em><b>Body</b></em>' containment reference.
@@ -379,7 +471,7 @@ public interface YamlGenDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int NESTED_FIELDS__BODY = BODY_ELEMENT_FEATURE_COUNT + 2;
+  int NESTED_FIELDS__BODY = ANY_NESTED_FIELD__BODY;
 
   /**
    * The number of structural features of the '<em>Nested Fields</em>' class.
@@ -388,7 +480,7 @@ public interface YamlGenDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int NESTED_FIELDS_FEATURE_COUNT = BODY_ELEMENT_FEATURE_COUNT + 3;
+  int NESTED_FIELDS_FEATURE_COUNT = ANY_NESTED_FIELD_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link yaml.helper.dsl.yamlGenDsl.impl.PropertyImpl <em>Property</em>}' class.
@@ -398,7 +490,16 @@ public interface YamlGenDslPackage extends EPackage
    * @see yaml.helper.dsl.yamlGenDsl.impl.YamlGenDslPackageImpl#getProperty()
    * @generated
    */
-  int PROPERTY = 9;
+  int PROPERTY = 11;
+
+  /**
+   * The feature id for the '<em><b>Key</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROPERTY__KEY = BODY_ELEMENT_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Property</em>' class.
@@ -407,17 +508,26 @@ public interface YamlGenDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROPERTY_FEATURE_COUNT = BODY_ELEMENT_FEATURE_COUNT + 0;
+  int PROPERTY_FEATURE_COUNT = BODY_ELEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link yaml.helper.dsl.yamlGenDsl.impl.KeyImpl <em>Key</em>}' class.
+   * The meta object id for the '{@link yaml.helper.dsl.yamlGenDsl.impl.StringPropertyImpl <em>String Property</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see yaml.helper.dsl.yamlGenDsl.impl.KeyImpl
-   * @see yaml.helper.dsl.yamlGenDsl.impl.YamlGenDslPackageImpl#getKey()
+   * @see yaml.helper.dsl.yamlGenDsl.impl.StringPropertyImpl
+   * @see yaml.helper.dsl.yamlGenDsl.impl.YamlGenDslPackageImpl#getStringProperty()
    * @generated
    */
-  int KEY = 10;
+  int STRING_PROPERTY = 12;
+
+  /**
+   * The feature id for the '<em><b>Key</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING_PROPERTY__KEY = PROPERTY__KEY;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -426,54 +536,35 @@ public interface YamlGenDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int KEY__VALUE = PROPERTY_FEATURE_COUNT + 0;
+  int STRING_PROPERTY__VALUE = PROPERTY_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>Key</em>' class.
+   * The number of structural features of the '<em>String Property</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int KEY_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 1;
+  int STRING_PROPERTY_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link yaml.helper.dsl.yamlGenDsl.impl.NameImpl <em>Name</em>}' class.
+   * The meta object id for the '{@link yaml.helper.dsl.yamlGenDsl.impl.ValuesPropertyImpl <em>Values Property</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see yaml.helper.dsl.yamlGenDsl.impl.NameImpl
-   * @see yaml.helper.dsl.yamlGenDsl.impl.YamlGenDslPackageImpl#getName_()
+   * @see yaml.helper.dsl.yamlGenDsl.impl.ValuesPropertyImpl
+   * @see yaml.helper.dsl.yamlGenDsl.impl.YamlGenDslPackageImpl#getValuesProperty()
    * @generated
    */
-  int NAME = 11;
+  int VALUES_PROPERTY = 13;
 
   /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NAME__VALUE = PROPERTY_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Name</em>' class.
+   * The feature id for the '<em><b>Key</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int NAME_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link yaml.helper.dsl.yamlGenDsl.impl.DefaultImpl <em>Default</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see yaml.helper.dsl.yamlGenDsl.impl.DefaultImpl
-   * @see yaml.helper.dsl.yamlGenDsl.impl.YamlGenDslPackageImpl#getDefault()
-   * @generated
-   */
-  int DEFAULT = 12;
+  int VALUES_PROPERTY__KEY = PROPERTY__KEY;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -482,26 +573,35 @@ public interface YamlGenDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DEFAULT__VALUE = PROPERTY_FEATURE_COUNT + 0;
+  int VALUES_PROPERTY__VALUE = PROPERTY_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>Default</em>' class.
+   * The number of structural features of the '<em>Values Property</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DEFAULT_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 1;
+  int VALUES_PROPERTY_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link yaml.helper.dsl.yamlGenDsl.impl.HintImpl <em>Hint</em>}' class.
+   * The meta object id for the '{@link yaml.helper.dsl.yamlGenDsl.impl.TypePropertyImpl <em>Type Property</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see yaml.helper.dsl.yamlGenDsl.impl.HintImpl
-   * @see yaml.helper.dsl.yamlGenDsl.impl.YamlGenDslPackageImpl#getHint()
+   * @see yaml.helper.dsl.yamlGenDsl.impl.TypePropertyImpl
+   * @see yaml.helper.dsl.yamlGenDsl.impl.YamlGenDslPackageImpl#getTypeProperty()
    * @generated
    */
-  int HINT = 13;
+  int TYPE_PROPERTY = 14;
+
+  /**
+   * The feature id for the '<em><b>Key</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_PROPERTY__KEY = PROPERTY__KEY;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -510,44 +610,25 @@ public interface YamlGenDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int HINT__VALUE = PROPERTY_FEATURE_COUNT + 0;
+  int TYPE_PROPERTY__VALUE = PROPERTY_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>Hint</em>' class.
+   * The feature id for the '<em><b>Help</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int HINT_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 1;
+  int TYPE_PROPERTY__HELP = PROPERTY_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link yaml.helper.dsl.yamlGenDsl.impl.PermittedValuesImpl <em>Permitted Values</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see yaml.helper.dsl.yamlGenDsl.impl.PermittedValuesImpl
-   * @see yaml.helper.dsl.yamlGenDsl.impl.YamlGenDslPackageImpl#getPermittedValues()
-   * @generated
-   */
-  int PERMITTED_VALUES = 14;
-
-  /**
-   * The feature id for the '<em><b>Value</b></em>' containment reference.
+   * The number of structural features of the '<em>Type Property</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PERMITTED_VALUES__VALUE = PROPERTY_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Permitted Values</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PERMITTED_VALUES_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 1;
+  int TYPE_PROPERTY_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link yaml.helper.dsl.yamlGenDsl.impl.ValuesImpl <em>Values</em>}' class.
@@ -640,6 +721,49 @@ public interface YamlGenDslPackage extends EPackage
   EAttribute getImport_Path();
 
   /**
+   * Returns the meta object for class '{@link yaml.helper.dsl.yamlGenDsl.AnyField <em>Any Field</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Any Field</em>'.
+   * @see yaml.helper.dsl.yamlGenDsl.AnyField
+   * @generated
+   */
+  EClass getAnyField();
+
+  /**
+   * Returns the meta object for the attribute list '{@link yaml.helper.dsl.yamlGenDsl.AnyField#getHelp <em>Help</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Help</em>'.
+   * @see yaml.helper.dsl.yamlGenDsl.AnyField#getHelp()
+   * @see #getAnyField()
+   * @generated
+   */
+  EAttribute getAnyField_Help();
+
+  /**
+   * Returns the meta object for the reference '{@link yaml.helper.dsl.yamlGenDsl.AnyField#getSuperField <em>Super Field</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Super Field</em>'.
+   * @see yaml.helper.dsl.yamlGenDsl.AnyField#getSuperField()
+   * @see #getAnyField()
+   * @generated
+   */
+  EReference getAnyField_SuperField();
+
+  /**
+   * Returns the meta object for the containment reference '{@link yaml.helper.dsl.yamlGenDsl.AnyField#getBody <em>Body</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Body</em>'.
+   * @see yaml.helper.dsl.yamlGenDsl.AnyField#getBody()
+   * @see #getAnyField()
+   * @generated
+   */
+  EReference getAnyField_Body();
+
+  /**
    * Returns the meta object for class '{@link yaml.helper.dsl.yamlGenDsl.Field <em>Field</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -648,17 +772,6 @@ public interface YamlGenDslPackage extends EPackage
    * @generated
    */
   EClass getField();
-
-  /**
-   * Returns the meta object for the attribute list '{@link yaml.helper.dsl.yamlGenDsl.Field#getHelp <em>Help</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Help</em>'.
-   * @see yaml.helper.dsl.yamlGenDsl.Field#getHelp()
-   * @see #getField()
-   * @generated
-   */
-  EAttribute getField_Help();
 
   /**
    * Returns the meta object for the attribute '{@link yaml.helper.dsl.yamlGenDsl.Field#isRoot <em>Root</em>}'.
@@ -681,28 +794,6 @@ public interface YamlGenDslPackage extends EPackage
    * @generated
    */
   EAttribute getField_Name();
-
-  /**
-   * Returns the meta object for the reference '{@link yaml.helper.dsl.yamlGenDsl.Field#getSuperField <em>Super Field</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Super Field</em>'.
-   * @see yaml.helper.dsl.yamlGenDsl.Field#getSuperField()
-   * @see #getField()
-   * @generated
-   */
-  EReference getField_SuperField();
-
-  /**
-   * Returns the meta object for the containment reference '{@link yaml.helper.dsl.yamlGenDsl.Field#getBody <em>Body</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Body</em>'.
-   * @see yaml.helper.dsl.yamlGenDsl.Field#getBody()
-   * @see #getField()
-   * @generated
-   */
-  EReference getField_Body();
 
   /**
    * Returns the meta object for class '{@link yaml.helper.dsl.yamlGenDsl.Body <em>Body</em>}'.
@@ -746,15 +837,15 @@ public interface YamlGenDslPackage extends EPackage
   EClass getExtend();
 
   /**
-   * Returns the meta object for the attribute '{@link yaml.helper.dsl.yamlGenDsl.Extend#getName_property <em>Name property</em>}'.
+   * Returns the meta object for the attribute '{@link yaml.helper.dsl.yamlGenDsl.Extend#getParentSubfieldName <em>Parent Subfield Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name property</em>'.
-   * @see yaml.helper.dsl.yamlGenDsl.Extend#getName_property()
+   * @return the meta object for the attribute '<em>Parent Subfield Name</em>'.
+   * @see yaml.helper.dsl.yamlGenDsl.Extend#getParentSubfieldName()
    * @see #getExtend()
    * @generated
    */
-  EAttribute getExtend_Name_property();
+  EAttribute getExtend_ParentSubfieldName();
 
   /**
    * Returns the meta object for the containment reference '{@link yaml.helper.dsl.yamlGenDsl.Extend#getBody <em>Body</em>}'.
@@ -768,6 +859,16 @@ public interface YamlGenDslPackage extends EPackage
   EReference getExtend_Body();
 
   /**
+   * Returns the meta object for class '{@link yaml.helper.dsl.yamlGenDsl.AnyNestedField <em>Any Nested Field</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Any Nested Field</em>'.
+   * @see yaml.helper.dsl.yamlGenDsl.AnyNestedField
+   * @generated
+   */
+  EClass getAnyNestedField();
+
+  /**
    * Returns the meta object for class '{@link yaml.helper.dsl.yamlGenDsl.NestedField <em>Nested Field</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -776,17 +877,6 @@ public interface YamlGenDslPackage extends EPackage
    * @generated
    */
   EClass getNestedField();
-
-  /**
-   * Returns the meta object for the attribute list '{@link yaml.helper.dsl.yamlGenDsl.NestedField#getHelp <em>Help</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Help</em>'.
-   * @see yaml.helper.dsl.yamlGenDsl.NestedField#getHelp()
-   * @see #getNestedField()
-   * @generated
-   */
-  EAttribute getNestedField_Help();
 
   /**
    * Returns the meta object for the attribute '{@link yaml.helper.dsl.yamlGenDsl.NestedField#isMandatory <em>Mandatory</em>}'.
@@ -811,28 +901,6 @@ public interface YamlGenDslPackage extends EPackage
   EAttribute getNestedField_Default();
 
   /**
-   * Returns the meta object for the reference '{@link yaml.helper.dsl.yamlGenDsl.NestedField#getSuperField <em>Super Field</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Super Field</em>'.
-   * @see yaml.helper.dsl.yamlGenDsl.NestedField#getSuperField()
-   * @see #getNestedField()
-   * @generated
-   */
-  EReference getNestedField_SuperField();
-
-  /**
-   * Returns the meta object for the containment reference '{@link yaml.helper.dsl.yamlGenDsl.NestedField#getBody <em>Body</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Body</em>'.
-   * @see yaml.helper.dsl.yamlGenDsl.NestedField#getBody()
-   * @see #getNestedField()
-   * @generated
-   */
-  EReference getNestedField_Body();
-
-  /**
    * Returns the meta object for class '{@link yaml.helper.dsl.yamlGenDsl.NestedFields <em>Nested Fields</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -841,39 +909,6 @@ public interface YamlGenDslPackage extends EPackage
    * @generated
    */
   EClass getNestedFields();
-
-  /**
-   * Returns the meta object for the attribute list '{@link yaml.helper.dsl.yamlGenDsl.NestedFields#getHelp <em>Help</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Help</em>'.
-   * @see yaml.helper.dsl.yamlGenDsl.NestedFields#getHelp()
-   * @see #getNestedFields()
-   * @generated
-   */
-  EAttribute getNestedFields_Help();
-
-  /**
-   * Returns the meta object for the reference '{@link yaml.helper.dsl.yamlGenDsl.NestedFields#getSuperField <em>Super Field</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Super Field</em>'.
-   * @see yaml.helper.dsl.yamlGenDsl.NestedFields#getSuperField()
-   * @see #getNestedFields()
-   * @generated
-   */
-  EReference getNestedFields_SuperField();
-
-  /**
-   * Returns the meta object for the containment reference '{@link yaml.helper.dsl.yamlGenDsl.NestedFields#getBody <em>Body</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Body</em>'.
-   * @see yaml.helper.dsl.yamlGenDsl.NestedFields#getBody()
-   * @see #getNestedFields()
-   * @generated
-   */
-  EReference getNestedFields_Body();
 
   /**
    * Returns the meta object for class '{@link yaml.helper.dsl.yamlGenDsl.Property <em>Property</em>}'.
@@ -886,109 +921,89 @@ public interface YamlGenDslPackage extends EPackage
   EClass getProperty();
 
   /**
-   * Returns the meta object for class '{@link yaml.helper.dsl.yamlGenDsl.Key <em>Key</em>}'.
+   * Returns the meta object for the attribute '{@link yaml.helper.dsl.yamlGenDsl.Property#getKey <em>Key</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Key</em>'.
-   * @see yaml.helper.dsl.yamlGenDsl.Key
+   * @return the meta object for the attribute '<em>Key</em>'.
+   * @see yaml.helper.dsl.yamlGenDsl.Property#getKey()
+   * @see #getProperty()
    * @generated
    */
-  EClass getKey();
+  EAttribute getProperty_Key();
 
   /**
-   * Returns the meta object for the attribute '{@link yaml.helper.dsl.yamlGenDsl.Key#getValue <em>Value</em>}'.
+   * Returns the meta object for class '{@link yaml.helper.dsl.yamlGenDsl.StringProperty <em>String Property</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Value</em>'.
-   * @see yaml.helper.dsl.yamlGenDsl.Key#getValue()
-   * @see #getKey()
+   * @return the meta object for class '<em>String Property</em>'.
+   * @see yaml.helper.dsl.yamlGenDsl.StringProperty
    * @generated
    */
-  EAttribute getKey_Value();
+  EClass getStringProperty();
 
   /**
-   * Returns the meta object for class '{@link yaml.helper.dsl.yamlGenDsl.Name <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Name</em>'.
-   * @see yaml.helper.dsl.yamlGenDsl.Name
-   * @generated
-   */
-  EClass getName_();
-
-  /**
-   * Returns the meta object for the attribute '{@link yaml.helper.dsl.yamlGenDsl.Name#getValue <em>Value</em>}'.
+   * Returns the meta object for the attribute '{@link yaml.helper.dsl.yamlGenDsl.StringProperty#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Value</em>'.
-   * @see yaml.helper.dsl.yamlGenDsl.Name#getValue()
-   * @see #getName_()
+   * @see yaml.helper.dsl.yamlGenDsl.StringProperty#getValue()
+   * @see #getStringProperty()
    * @generated
    */
-  EAttribute getName_Value();
+  EAttribute getStringProperty_Value();
 
   /**
-   * Returns the meta object for class '{@link yaml.helper.dsl.yamlGenDsl.Default <em>Default</em>}'.
+   * Returns the meta object for class '{@link yaml.helper.dsl.yamlGenDsl.ValuesProperty <em>Values Property</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Default</em>'.
-   * @see yaml.helper.dsl.yamlGenDsl.Default
+   * @return the meta object for class '<em>Values Property</em>'.
+   * @see yaml.helper.dsl.yamlGenDsl.ValuesProperty
    * @generated
    */
-  EClass getDefault();
+  EClass getValuesProperty();
 
   /**
-   * Returns the meta object for the containment reference '{@link yaml.helper.dsl.yamlGenDsl.Default#getValue <em>Value</em>}'.
+   * Returns the meta object for the containment reference '{@link yaml.helper.dsl.yamlGenDsl.ValuesProperty#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Value</em>'.
-   * @see yaml.helper.dsl.yamlGenDsl.Default#getValue()
-   * @see #getDefault()
+   * @see yaml.helper.dsl.yamlGenDsl.ValuesProperty#getValue()
+   * @see #getValuesProperty()
    * @generated
    */
-  EReference getDefault_Value();
+  EReference getValuesProperty_Value();
 
   /**
-   * Returns the meta object for class '{@link yaml.helper.dsl.yamlGenDsl.Hint <em>Hint</em>}'.
+   * Returns the meta object for class '{@link yaml.helper.dsl.yamlGenDsl.TypeProperty <em>Type Property</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Hint</em>'.
-   * @see yaml.helper.dsl.yamlGenDsl.Hint
+   * @return the meta object for class '<em>Type Property</em>'.
+   * @see yaml.helper.dsl.yamlGenDsl.TypeProperty
    * @generated
    */
-  EClass getHint();
+  EClass getTypeProperty();
 
   /**
-   * Returns the meta object for the attribute '{@link yaml.helper.dsl.yamlGenDsl.Hint#getValue <em>Value</em>}'.
+   * Returns the meta object for the attribute '{@link yaml.helper.dsl.yamlGenDsl.TypeProperty#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Value</em>'.
-   * @see yaml.helper.dsl.yamlGenDsl.Hint#getValue()
-   * @see #getHint()
+   * @see yaml.helper.dsl.yamlGenDsl.TypeProperty#getValue()
+   * @see #getTypeProperty()
    * @generated
    */
-  EAttribute getHint_Value();
+  EAttribute getTypeProperty_Value();
 
   /**
-   * Returns the meta object for class '{@link yaml.helper.dsl.yamlGenDsl.PermittedValues <em>Permitted Values</em>}'.
+   * Returns the meta object for the attribute '{@link yaml.helper.dsl.yamlGenDsl.TypeProperty#getHelp <em>Help</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Permitted Values</em>'.
-   * @see yaml.helper.dsl.yamlGenDsl.PermittedValues
+   * @return the meta object for the attribute '<em>Help</em>'.
+   * @see yaml.helper.dsl.yamlGenDsl.TypeProperty#getHelp()
+   * @see #getTypeProperty()
    * @generated
    */
-  EClass getPermittedValues();
-
-  /**
-   * Returns the meta object for the containment reference '{@link yaml.helper.dsl.yamlGenDsl.PermittedValues#getValue <em>Value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Value</em>'.
-   * @see yaml.helper.dsl.yamlGenDsl.PermittedValues#getValue()
-   * @see #getPermittedValues()
-   * @generated
-   */
-  EReference getPermittedValues_Value();
+  EAttribute getTypeProperty_Help();
 
   /**
    * Returns the meta object for class '{@link yaml.helper.dsl.yamlGenDsl.Values <em>Values</em>}'.
@@ -1092,6 +1107,40 @@ public interface YamlGenDslPackage extends EPackage
     EAttribute IMPORT__PATH = eINSTANCE.getImport_Path();
 
     /**
+     * The meta object literal for the '{@link yaml.helper.dsl.yamlGenDsl.impl.AnyFieldImpl <em>Any Field</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see yaml.helper.dsl.yamlGenDsl.impl.AnyFieldImpl
+     * @see yaml.helper.dsl.yamlGenDsl.impl.YamlGenDslPackageImpl#getAnyField()
+     * @generated
+     */
+    EClass ANY_FIELD = eINSTANCE.getAnyField();
+
+    /**
+     * The meta object literal for the '<em><b>Help</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ANY_FIELD__HELP = eINSTANCE.getAnyField_Help();
+
+    /**
+     * The meta object literal for the '<em><b>Super Field</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ANY_FIELD__SUPER_FIELD = eINSTANCE.getAnyField_SuperField();
+
+    /**
+     * The meta object literal for the '<em><b>Body</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ANY_FIELD__BODY = eINSTANCE.getAnyField_Body();
+
+    /**
      * The meta object literal for the '{@link yaml.helper.dsl.yamlGenDsl.impl.FieldImpl <em>Field</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1100,14 +1149,6 @@ public interface YamlGenDslPackage extends EPackage
      * @generated
      */
     EClass FIELD = eINSTANCE.getField();
-
-    /**
-     * The meta object literal for the '<em><b>Help</b></em>' attribute list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute FIELD__HELP = eINSTANCE.getField_Help();
 
     /**
      * The meta object literal for the '<em><b>Root</b></em>' attribute feature.
@@ -1124,22 +1165,6 @@ public interface YamlGenDslPackage extends EPackage
      * @generated
      */
     EAttribute FIELD__NAME = eINSTANCE.getField_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Super Field</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference FIELD__SUPER_FIELD = eINSTANCE.getField_SuperField();
-
-    /**
-     * The meta object literal for the '<em><b>Body</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference FIELD__BODY = eINSTANCE.getField_Body();
 
     /**
      * The meta object literal for the '{@link yaml.helper.dsl.yamlGenDsl.impl.BodyImpl <em>Body</em>}' class.
@@ -1180,12 +1205,12 @@ public interface YamlGenDslPackage extends EPackage
     EClass EXTEND = eINSTANCE.getExtend();
 
     /**
-     * The meta object literal for the '<em><b>Name property</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Parent Subfield Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute EXTEND__NAME_PROPERTY = eINSTANCE.getExtend_Name_property();
+    EAttribute EXTEND__PARENT_SUBFIELD_NAME = eINSTANCE.getExtend_ParentSubfieldName();
 
     /**
      * The meta object literal for the '<em><b>Body</b></em>' containment reference feature.
@@ -1196,6 +1221,16 @@ public interface YamlGenDslPackage extends EPackage
     EReference EXTEND__BODY = eINSTANCE.getExtend_Body();
 
     /**
+     * The meta object literal for the '{@link yaml.helper.dsl.yamlGenDsl.impl.AnyNestedFieldImpl <em>Any Nested Field</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see yaml.helper.dsl.yamlGenDsl.impl.AnyNestedFieldImpl
+     * @see yaml.helper.dsl.yamlGenDsl.impl.YamlGenDslPackageImpl#getAnyNestedField()
+     * @generated
+     */
+    EClass ANY_NESTED_FIELD = eINSTANCE.getAnyNestedField();
+
+    /**
      * The meta object literal for the '{@link yaml.helper.dsl.yamlGenDsl.impl.NestedFieldImpl <em>Nested Field</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1204,14 +1239,6 @@ public interface YamlGenDslPackage extends EPackage
      * @generated
      */
     EClass NESTED_FIELD = eINSTANCE.getNestedField();
-
-    /**
-     * The meta object literal for the '<em><b>Help</b></em>' attribute list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute NESTED_FIELD__HELP = eINSTANCE.getNestedField_Help();
 
     /**
      * The meta object literal for the '<em><b>Mandatory</b></em>' attribute feature.
@@ -1230,22 +1257,6 @@ public interface YamlGenDslPackage extends EPackage
     EAttribute NESTED_FIELD__DEFAULT = eINSTANCE.getNestedField_Default();
 
     /**
-     * The meta object literal for the '<em><b>Super Field</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference NESTED_FIELD__SUPER_FIELD = eINSTANCE.getNestedField_SuperField();
-
-    /**
-     * The meta object literal for the '<em><b>Body</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference NESTED_FIELD__BODY = eINSTANCE.getNestedField_Body();
-
-    /**
      * The meta object literal for the '{@link yaml.helper.dsl.yamlGenDsl.impl.NestedFieldsImpl <em>Nested Fields</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1254,30 +1265,6 @@ public interface YamlGenDslPackage extends EPackage
      * @generated
      */
     EClass NESTED_FIELDS = eINSTANCE.getNestedFields();
-
-    /**
-     * The meta object literal for the '<em><b>Help</b></em>' attribute list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute NESTED_FIELDS__HELP = eINSTANCE.getNestedFields_Help();
-
-    /**
-     * The meta object literal for the '<em><b>Super Field</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference NESTED_FIELDS__SUPER_FIELD = eINSTANCE.getNestedFields_SuperField();
-
-    /**
-     * The meta object literal for the '<em><b>Body</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference NESTED_FIELDS__BODY = eINSTANCE.getNestedFields_Body();
 
     /**
      * The meta object literal for the '{@link yaml.helper.dsl.yamlGenDsl.impl.PropertyImpl <em>Property</em>}' class.
@@ -1290,14 +1277,22 @@ public interface YamlGenDslPackage extends EPackage
     EClass PROPERTY = eINSTANCE.getProperty();
 
     /**
-     * The meta object literal for the '{@link yaml.helper.dsl.yamlGenDsl.impl.KeyImpl <em>Key</em>}' class.
+     * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see yaml.helper.dsl.yamlGenDsl.impl.KeyImpl
-     * @see yaml.helper.dsl.yamlGenDsl.impl.YamlGenDslPackageImpl#getKey()
      * @generated
      */
-    EClass KEY = eINSTANCE.getKey();
+    EAttribute PROPERTY__KEY = eINSTANCE.getProperty_Key();
+
+    /**
+     * The meta object literal for the '{@link yaml.helper.dsl.yamlGenDsl.impl.StringPropertyImpl <em>String Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see yaml.helper.dsl.yamlGenDsl.impl.StringPropertyImpl
+     * @see yaml.helper.dsl.yamlGenDsl.impl.YamlGenDslPackageImpl#getStringProperty()
+     * @generated
+     */
+    EClass STRING_PROPERTY = eINSTANCE.getStringProperty();
 
     /**
      * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -1305,35 +1300,17 @@ public interface YamlGenDslPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute KEY__VALUE = eINSTANCE.getKey_Value();
+    EAttribute STRING_PROPERTY__VALUE = eINSTANCE.getStringProperty_Value();
 
     /**
-     * The meta object literal for the '{@link yaml.helper.dsl.yamlGenDsl.impl.NameImpl <em>Name</em>}' class.
+     * The meta object literal for the '{@link yaml.helper.dsl.yamlGenDsl.impl.ValuesPropertyImpl <em>Values Property</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see yaml.helper.dsl.yamlGenDsl.impl.NameImpl
-     * @see yaml.helper.dsl.yamlGenDsl.impl.YamlGenDslPackageImpl#getName_()
+     * @see yaml.helper.dsl.yamlGenDsl.impl.ValuesPropertyImpl
+     * @see yaml.helper.dsl.yamlGenDsl.impl.YamlGenDslPackageImpl#getValuesProperty()
      * @generated
      */
-    EClass NAME = eINSTANCE.getName_();
-
-    /**
-     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute NAME__VALUE = eINSTANCE.getName_Value();
-
-    /**
-     * The meta object literal for the '{@link yaml.helper.dsl.yamlGenDsl.impl.DefaultImpl <em>Default</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see yaml.helper.dsl.yamlGenDsl.impl.DefaultImpl
-     * @see yaml.helper.dsl.yamlGenDsl.impl.YamlGenDslPackageImpl#getDefault()
-     * @generated
-     */
-    EClass DEFAULT = eINSTANCE.getDefault();
+    EClass VALUES_PROPERTY = eINSTANCE.getValuesProperty();
 
     /**
      * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
@@ -1341,17 +1318,17 @@ public interface YamlGenDslPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference DEFAULT__VALUE = eINSTANCE.getDefault_Value();
+    EReference VALUES_PROPERTY__VALUE = eINSTANCE.getValuesProperty_Value();
 
     /**
-     * The meta object literal for the '{@link yaml.helper.dsl.yamlGenDsl.impl.HintImpl <em>Hint</em>}' class.
+     * The meta object literal for the '{@link yaml.helper.dsl.yamlGenDsl.impl.TypePropertyImpl <em>Type Property</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see yaml.helper.dsl.yamlGenDsl.impl.HintImpl
-     * @see yaml.helper.dsl.yamlGenDsl.impl.YamlGenDslPackageImpl#getHint()
+     * @see yaml.helper.dsl.yamlGenDsl.impl.TypePropertyImpl
+     * @see yaml.helper.dsl.yamlGenDsl.impl.YamlGenDslPackageImpl#getTypeProperty()
      * @generated
      */
-    EClass HINT = eINSTANCE.getHint();
+    EClass TYPE_PROPERTY = eINSTANCE.getTypeProperty();
 
     /**
      * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -1359,25 +1336,15 @@ public interface YamlGenDslPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute HINT__VALUE = eINSTANCE.getHint_Value();
+    EAttribute TYPE_PROPERTY__VALUE = eINSTANCE.getTypeProperty_Value();
 
     /**
-     * The meta object literal for the '{@link yaml.helper.dsl.yamlGenDsl.impl.PermittedValuesImpl <em>Permitted Values</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see yaml.helper.dsl.yamlGenDsl.impl.PermittedValuesImpl
-     * @see yaml.helper.dsl.yamlGenDsl.impl.YamlGenDslPackageImpl#getPermittedValues()
-     * @generated
-     */
-    EClass PERMITTED_VALUES = eINSTANCE.getPermittedValues();
-
-    /**
-     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Help</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference PERMITTED_VALUES__VALUE = eINSTANCE.getPermittedValues_Value();
+    EAttribute TYPE_PROPERTY__HELP = eINSTANCE.getTypeProperty_Help();
 
     /**
      * The meta object literal for the '{@link yaml.helper.dsl.yamlGenDsl.impl.ValuesImpl <em>Values</em>}' class.

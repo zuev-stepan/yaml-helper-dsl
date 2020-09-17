@@ -51,6 +51,15 @@ public interface YamlGenDslFactory extends EFactory
   Import createImport();
 
   /**
+   * Returns a new object of class '<em>Any Field</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Any Field</em>'.
+   * @generated
+   */
+  AnyField createAnyField();
+
+  /**
    * Returns a new object of class '<em>Field</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -87,6 +96,15 @@ public interface YamlGenDslFactory extends EFactory
   Extend createExtend();
 
   /**
+   * Returns a new object of class '<em>Any Nested Field</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Any Nested Field</em>'.
+   * @generated
+   */
+  AnyNestedField createAnyNestedField();
+
+  /**
    * Returns a new object of class '<em>Nested Field</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -114,49 +132,31 @@ public interface YamlGenDslFactory extends EFactory
   Property createProperty();
 
   /**
-   * Returns a new object of class '<em>Key</em>'.
+   * Returns a new object of class '<em>String Property</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Key</em>'.
+   * @return a new object of class '<em>String Property</em>'.
    * @generated
    */
-  Key createKey();
+  StringProperty createStringProperty();
 
   /**
-   * Returns a new object of class '<em>Name</em>'.
+   * Returns a new object of class '<em>Values Property</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Name</em>'.
+   * @return a new object of class '<em>Values Property</em>'.
    * @generated
    */
-  Name createName();
+  ValuesProperty createValuesProperty();
 
   /**
-   * Returns a new object of class '<em>Default</em>'.
+   * Returns a new object of class '<em>Type Property</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Default</em>'.
+   * @return a new object of class '<em>Type Property</em>'.
    * @generated
    */
-  Default createDefault();
-
-  /**
-   * Returns a new object of class '<em>Hint</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Hint</em>'.
-   * @generated
-   */
-  Hint createHint();
-
-  /**
-   * Returns a new object of class '<em>Permitted Values</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Permitted Values</em>'.
-   * @generated
-   */
-  PermittedValues createPermittedValues();
+  TypeProperty createTypeProperty();
 
   /**
    * Returns a new object of class '<em>Values</em>'.

@@ -9,23 +9,24 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import yaml.helper.dsl.yamlGenDsl.Key;
+import yaml.helper.dsl.yamlGenDsl.TypeProperty;
 import yaml.helper.dsl.yamlGenDsl.YamlGenDslPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Key</b></em>'.
+ * An implementation of the model object '<em><b>Type Property</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link yaml.helper.dsl.yamlGenDsl.impl.KeyImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link yaml.helper.dsl.yamlGenDsl.impl.TypePropertyImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link yaml.helper.dsl.yamlGenDsl.impl.TypePropertyImpl#getHelp <em>Help</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class KeyImpl extends PropertyImpl implements Key
+public class TypePropertyImpl extends PropertyImpl implements TypeProperty
 {
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -48,11 +49,31 @@ public class KeyImpl extends PropertyImpl implements Key
   protected String value = VALUE_EDEFAULT;
 
   /**
+   * The default value of the '{@link #getHelp() <em>Help</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getHelp()
+   * @generated
+   * @ordered
+   */
+  protected static final String HELP_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getHelp() <em>Help</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getHelp()
+   * @generated
+   * @ordered
+   */
+  protected String help = HELP_EDEFAULT;
+
+  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected KeyImpl()
+  protected TypePropertyImpl()
   {
     super();
   }
@@ -65,7 +86,7 @@ public class KeyImpl extends PropertyImpl implements Key
   @Override
   protected EClass eStaticClass()
   {
-    return YamlGenDslPackage.Literals.KEY;
+    return YamlGenDslPackage.Literals.TYPE_PROPERTY;
   }
 
   /**
@@ -90,7 +111,32 @@ public class KeyImpl extends PropertyImpl implements Key
     String oldValue = value;
     value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, YamlGenDslPackage.KEY__VALUE, oldValue, value));
+      eNotify(new ENotificationImpl(this, Notification.SET, YamlGenDslPackage.TYPE_PROPERTY__VALUE, oldValue, value));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getHelp()
+  {
+    return help;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setHelp(String newHelp)
+  {
+    String oldHelp = help;
+    help = newHelp;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, YamlGenDslPackage.TYPE_PROPERTY__HELP, oldHelp, help));
   }
 
   /**
@@ -103,8 +149,10 @@ public class KeyImpl extends PropertyImpl implements Key
   {
     switch (featureID)
     {
-      case YamlGenDslPackage.KEY__VALUE:
+      case YamlGenDslPackage.TYPE_PROPERTY__VALUE:
         return getValue();
+      case YamlGenDslPackage.TYPE_PROPERTY__HELP:
+        return getHelp();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -119,8 +167,11 @@ public class KeyImpl extends PropertyImpl implements Key
   {
     switch (featureID)
     {
-      case YamlGenDslPackage.KEY__VALUE:
+      case YamlGenDslPackage.TYPE_PROPERTY__VALUE:
         setValue((String)newValue);
+        return;
+      case YamlGenDslPackage.TYPE_PROPERTY__HELP:
+        setHelp((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -136,8 +187,11 @@ public class KeyImpl extends PropertyImpl implements Key
   {
     switch (featureID)
     {
-      case YamlGenDslPackage.KEY__VALUE:
+      case YamlGenDslPackage.TYPE_PROPERTY__VALUE:
         setValue(VALUE_EDEFAULT);
+        return;
+      case YamlGenDslPackage.TYPE_PROPERTY__HELP:
+        setHelp(HELP_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -153,8 +207,10 @@ public class KeyImpl extends PropertyImpl implements Key
   {
     switch (featureID)
     {
-      case YamlGenDslPackage.KEY__VALUE:
+      case YamlGenDslPackage.TYPE_PROPERTY__VALUE:
         return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+      case YamlGenDslPackage.TYPE_PROPERTY__HELP:
+        return HELP_EDEFAULT == null ? help != null : !HELP_EDEFAULT.equals(help);
     }
     return super.eIsSet(featureID);
   }
@@ -172,8 +228,10 @@ public class KeyImpl extends PropertyImpl implements Key
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (value: ");
     result.append(value);
+    result.append(", help: ");
+    result.append(help);
     result.append(')');
     return result.toString();
   }
 
-} //KeyImpl
+} //TypePropertyImpl
