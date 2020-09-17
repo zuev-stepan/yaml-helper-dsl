@@ -8,7 +8,6 @@ import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 
-//import static extension org.eclipse.xtext.EcoreUtil2.*
 import yaml.helper.dsl.yamlGenDsl.Import
 import yaml.helper.dsl.yamlGenDsl.Field
 import yaml.helper.dsl.yamlGenDsl.Body
@@ -20,6 +19,9 @@ import yaml.helper.dsl.yamlGenDsl.StringProperty
 import yaml.helper.dsl.yamlGenDsl.ValuesProperty
 import yaml.helper.dsl.yamlGenDsl.TypeProperty
 import yaml.helper.dsl.yamlGenDsl.Values
+
+import com.google.common.base.Charsets
+import com.google.common.io.Resources
 
 /**
  * Generates code from your model files on save.
@@ -107,7 +109,16 @@ class YamlGenDslGenerator extends AbstractGenerator {
 
 			«ENDFOR»
 		''')
+		
+		fsa.generateFile("actions.py", Resources.toString(Main.getResource("impl/actions.py"), Charsets.UTF_8))
+		fsa.generateFile("dialogue.py", Resources.toString(Main.getResource("impl/dialogue.py"), Charsets.UTF_8))
+		fsa.generateFile("field.py", Resources.toString(Main.getResource("impl/field.py"), Charsets.UTF_8))
+		fsa.generateFile("main.py", Resources.toString(Main.getResource("impl/main.py"), Charsets.UTF_8))
+		fsa.generateFile("messages.py", Resources.toString(Main.getResource("impl/messages.py"), Charsets.UTF_8))
+		fsa.generateFile("build.sh", Resources.toString(Main.getResource("impl/build.sh"), Charsets.UTF_8))
 	}
+	
+	
 	
 	private def compile(Field field) '''
 		«field.field_name» = wrap(

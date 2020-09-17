@@ -19,7 +19,7 @@ Workflow {
 					enabled = true
 				}
 				eclipsePluginTest = {
-					enabled = true
+					enabled = false
 				}
 				createEclipseMetaData = true
 			}
@@ -43,6 +43,7 @@ Workflow {
 				generateDeprecationValidation = false
 			}
 			generator = {
+				generateJavaMain = true
 				generateXtendStub = true
 			}
 			junitSupport = {

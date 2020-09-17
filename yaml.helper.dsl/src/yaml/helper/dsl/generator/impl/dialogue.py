@@ -37,7 +37,7 @@ class FinalCommand(Command):
             yaml = self.field.get_yaml()
         except Exception as e:
             print(messages.INTERNAL_ERROR, e)
-            exit(1)
+            sys.exit(1)
 
         while True:
             print(messages.CONFIG_FILE_NAME)
@@ -63,7 +63,7 @@ class FinalCommand(Command):
                 print(messages.CANT_SAVE_CONFIG, e)
                 continue
 
-            exit(0)
+            sys.exit(0)
 
     def undo(self):
         pass
@@ -387,7 +387,7 @@ def run_dialogue(root):
         root.initialize()
     except Exception as e:
         print(messages.INTERNAL_ERROR, e)
-        exit(1)
+        sys.exit(1)
 
     while True:
         try:
@@ -401,4 +401,4 @@ def run_dialogue(root):
             continue
         except Exception as e:
             print(messages.INTERNAL_ERROR, e)
-            exit(1)
+            sys.exit(1)

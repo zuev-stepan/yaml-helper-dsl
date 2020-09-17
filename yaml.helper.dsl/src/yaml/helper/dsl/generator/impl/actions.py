@@ -48,7 +48,7 @@ ACTIONS = [
     ],
     [
         messages.QUIT_KEYWORD,
-        lambda field, path: exit(0)
+        lambda field, path: sys.exit(0)
     ]
 ]
 
