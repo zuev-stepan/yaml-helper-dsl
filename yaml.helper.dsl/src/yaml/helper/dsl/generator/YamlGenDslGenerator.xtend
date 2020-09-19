@@ -70,10 +70,6 @@ class YamlGenDslGenerator extends AbstractGenerator {
 		}
 	}
 	
-	private def field_name(Field field) {
-		return field.root ? "root" : field.name
-	}
-	
 	private def field_create_start(AnyField field) {
 		if (field.superField !== null)
 			return "extend_field(" + field.superField.name + ", "
@@ -121,13 +117,16 @@ class YamlGenDslGenerator extends AbstractGenerator {
 	
 	
 	private def compile(Field field) '''
-		«field.field_name» = wrap(
+		«field.name» = wrap(
 			«field.field_create»
 			«FOR help : field.help»
 				.add_help(«help.python_help_string»)
 			«ENDFOR»
 			«field.body.compile»
 		)
+		«IF field.root»
+		root = «field.name»
+		«ENDIF»
 	'''
 	
 	private def compile(Extend extend) '''
