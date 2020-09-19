@@ -11,7 +11,7 @@ SourceElement:
 ;
 	
 Import:
-	'import' path=STRING
+	'import' importURI=STRING
 ;
 
 AnyField:

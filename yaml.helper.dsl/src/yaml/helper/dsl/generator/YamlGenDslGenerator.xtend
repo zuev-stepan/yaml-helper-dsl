@@ -101,7 +101,7 @@ class YamlGenDslGenerator extends AbstractGenerator {
 		fsa.generateFile(file, '''
 			from field import new_field, extend_field, wrap
 			«FOR importStatement : resource.allContents.filter(Import).toIterable»
-				«"from " + importStatement.path.fix_path.replace('/', '.') + " import *"»
+				«"from " + importStatement.importURI.fix_path.replace('/', '.') + " import *"»
 			«ENDFOR»
 
 			«FOR field : resource.allContents.filter(Field).toIterable»

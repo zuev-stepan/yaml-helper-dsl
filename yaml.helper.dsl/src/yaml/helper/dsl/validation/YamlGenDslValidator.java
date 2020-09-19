@@ -3,7 +3,6 @@
  */
 package yaml.helper.dsl.validation;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 
@@ -13,7 +12,6 @@ import yaml.helper.dsl.yamlGenDsl.YamlGenDslPackage;
 
 import yaml.helper.dsl.yamlGenDsl.Body;
 import yaml.helper.dsl.yamlGenDsl.BodyElement;
-import yaml.helper.dsl.yamlGenDsl.Field;
 import yaml.helper.dsl.yamlGenDsl.AnyField;
 import yaml.helper.dsl.yamlGenDsl.AnyNestedField;
 import yaml.helper.dsl.yamlGenDsl.NestedField;
