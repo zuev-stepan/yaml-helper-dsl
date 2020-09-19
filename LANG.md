@@ -4,8 +4,9 @@ Other .yamlgen files can be imported:
 Base object in this language is a field
 
 You can create or extend base field:
-* BaseField {}
-* Field extends BaseField{}
+
+    BaseField {}
+    Field extends BaseField{}
   
 Each field can have these properties:
 * key - Key in generated config
@@ -22,6 +23,7 @@ Each field can have these properties:
   * "regex" for regular expression with optional ("HELP STRING")
 
 Each field can have nested fields:
+
     Field {
       field default {
         key: "test1"
@@ -40,6 +42,7 @@ Nested field type:
 * mandatory - Mandatory field which will be included into default value of containing field
 
 Each field can have a big help message which will be displayed to user:
+
     @ Help line 1
     @ Help line 2
     Field {
@@ -49,6 +52,7 @@ Each field can have a big help message which will be displayed to user:
     }
   
 Nested fields of parent field can be extended too (note that nested field should alway have a unique key/name):
+
     Field {
       field default {
         key: "test1"
@@ -69,6 +73,7 @@ Nested fields of parent field can be extended too (note that nested field should
     }
 
 Each field can have nested field generators (key property is not available for field generator):
+
     Stage {
       field mandatory {
         key: "stage-name"
@@ -82,6 +87,7 @@ Each field can have nested field generators (key property is not available for f
     }
     
 Dialogue starts from root base field:
+
     root Field {}
     
 src-gen/messages.py can be changed to translate dialogue system
