@@ -26,6 +26,7 @@ import yaml.helper.dsl.yamlGenDsl.Extend;
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
 public class YamlGenDslValidator extends AbstractYamlGenDslValidator {
+	public static final String PARENT_CONTAINS_ERRORS = "Parent contains errors";
 	public static final String DUPLICATE_PROPERTY = "Duplicate property";
 	public static final String DUPLICATE_KEY_NAME_PROPERTY = "Field can't have ";
 	public static final String UNNAMED_NESTED_FIELD = "Nested field should have a name or a key";
@@ -93,24 +94,36 @@ public class YamlGenDslValidator extends AbstractYamlGenDslValidator {
 		}
 	}
 	
+	public FieldStructure makeFieldStructure(AnyField field, boolean raiseError) {
+		FieldStructure fieldStructure = null;
+		if (field.getSuperField() != null) {
+			fieldStructure = makeFieldStructure(field.getSuperField(), false);
+			if (fieldStructure == null) {
+				if (raiseError) {
+					error(PARENT_CONTAINS_ERRORS, field, YamlGenDslPackage.Literals.ANY_FIELD__SUPER_FIELD, PARENT_CONTAINS_ERRORS);
+				}
+				else {
+					return null;
+				}
+			}
+		}
+		else {
+			fieldStructure = new FieldStructure();
+			fieldStructure.fields = new HashMap<>();
+		}
+		
+		if (!fieldStructure.processBody(field.getBody(), raiseError)) {
+			return null;
+		}
+		return fieldStructure;			
+	}
+	
 	public class FieldStructure {
 		StringProperty name;
 		HashMap<String, FieldStructure> fields;
+		boolean returnError;
 		
-		FieldStructure(AnyField field) {
-			if (field.getSuperField() != null) {
-				FieldStructure fieldStructure = new FieldStructure(field.getSuperField());
-				name = fieldStructure.name;
-				fields = fieldStructure.fields;
-			}
-			else {
-				fields = new HashMap<>();
-			}
-			
-			processBody(field.getBody());
-		}
-		
-		public void processBody(Body body) {
+		public boolean processBody(Body body, boolean raiseError) {
 			HashMap<String, FieldStructure> conflictingFields = new HashMap<>();
 			
 			for (BodyElement bodyElement : body.getElements()) {
@@ -121,11 +134,18 @@ public class YamlGenDslValidator extends AbstractYamlGenDslValidator {
 						newStructure = fields.remove(extend.getParentSubfieldName());
 					}
 					if (newStructure == null) {
-						error(EXTEND_FIELD_NOT_FOUND, extend, YamlGenDslPackage.Literals.EXTEND__PARENT_SUBFIELD_NAME, EXTEND_FIELD_NOT_FOUND);
+						if (raiseError) {
+							error(EXTEND_FIELD_NOT_FOUND, extend, YamlGenDslPackage.Literals.EXTEND__PARENT_SUBFIELD_NAME, EXTEND_FIELD_NOT_FOUND);							
+						}
+						else {
+							return false;
+						}
 						continue;
 					}
 					
-					newStructure.extend(extend);
+					if (!newStructure.extend(extend, raiseError)) {
+						return false;
+					}
 					if (fields.containsKey(newStructure.name.getValue())) {
 						FieldStructure oldStructure = fields.remove(newStructure.name.getValue());
 						oldStructure.name = newStructure.name; // Remember actual conflicting name for proper error position
@@ -135,15 +155,34 @@ public class YamlGenDslValidator extends AbstractYamlGenDslValidator {
 				}
 			}
 			
-			conflictingFields.forEach(
-				(key, value) -> error(DUPLICATE_NESTED_FIELD_NAME, value.name, YamlGenDslPackage.Literals.STRING_PROPERTY__VALUE, DUPLICATE_NESTED_FIELD_NAME));
-			
+			for (FieldStructure value : conflictingFields.values()) {
+				if (raiseError) {
+					error(DUPLICATE_NESTED_FIELD_NAME, value.name, YamlGenDslPackage.Literals.STRING_PROPERTY__VALUE, DUPLICATE_NESTED_FIELD_NAME);
+				}
+				else {
+					return false;
+				}
+			}
+
 			for (BodyElement bodyElement : body.getElements()) {
 				if (bodyElement instanceof AnyNestedField) {
 					AnyNestedField field = (AnyNestedField) bodyElement;
-					FieldStructure newStructure = new FieldStructure(field);
+					FieldStructure newStructure = makeFieldStructure(field, raiseError);
+					if (newStructure == null) {
+						if (raiseError) {
+							error(PARENT_CONTAINS_ERRORS, field, YamlGenDslPackage.Literals.ANY_FIELD__SUPER_FIELD, PARENT_CONTAINS_ERRORS);
+						}
+						else {
+							return false;
+						}
+					}
 					if (fields.containsKey(newStructure.name.getValue())) {
-						error(DUPLICATE_NESTED_FIELD_NAME, newStructure.name, YamlGenDslPackage.Literals.STRING_PROPERTY__VALUE, DUPLICATE_NESTED_FIELD_NAME);
+						if (raiseError) {
+							error(DUPLICATE_NESTED_FIELD_NAME, newStructure.name, YamlGenDslPackage.Literals.STRING_PROPERTY__VALUE, DUPLICATE_NESTED_FIELD_NAME);
+						}
+						else {
+							return false;
+						}
 					}
 					else {
 						fields.put(newStructure.name.getValue(), newStructure);
@@ -156,15 +195,17 @@ public class YamlGenDslValidator extends AbstractYamlGenDslValidator {
 					}
 				}
 			}
+			
+			return true;
 		}
 
-		public void extend(Extend extend) {
-			processBody(extend.getBody());
+		public boolean extend(Extend extend, boolean raiseError) {
+			return processBody(extend.getBody(), raiseError);
 		}
 	}
 	
 	@Check
 	public void checkField(AnyField field) {
-		new FieldStructure(field);
+		makeFieldStructure(field, true);
 	}
 }
