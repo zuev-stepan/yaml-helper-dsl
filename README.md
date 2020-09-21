@@ -32,4 +32,4 @@
 * Key validation / value validation
 * Default values
 * Multifield generators
-* Users can undo any action
+* Any action can be undone
