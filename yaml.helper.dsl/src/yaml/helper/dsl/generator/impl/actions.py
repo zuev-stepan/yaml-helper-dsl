@@ -44,7 +44,7 @@ ACTIONS = [
     ],
     [
         messages.GUIDE_KEYWORD,
-        lambda field, path: print_message(messages.WELCOME)
+        lambda field, path: print_message(messages.GUIDE)
     ],
     [
         messages.QUIT_KEYWORD,
@@ -55,6 +55,8 @@ ACTIONS = [
 
 def get_answer(field):
     answer = sys.stdin.readline()[:-1]
+    if len(answer) == 0:
+        return [Action.CONTINUE, answer]
     if answer[0] == '\\':
         answer = answer[1:]
         for action in ACTIONS:

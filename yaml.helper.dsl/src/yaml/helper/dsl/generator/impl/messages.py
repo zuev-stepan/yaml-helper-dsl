@@ -12,8 +12,8 @@ HINT_NOT_AVAILABLE = 'Hint not available'
 INCORRECT_PATH = 'Incorrect path to subfield'
 GENERATOR = '(generator)'
 
-WELCOME = f"""Welcome to config generator!
-Type \\{STRUCTURE_KEYWORD} to get structure for current field
+WELCOME = f'Welcome to config generator! Type \\{GUIDE_KEYWORD} for guide'
+GUIDE = f"""Type \\{STRUCTURE_KEYWORD} to get structure for current field
 Type \\{HELP_KEYWORD} to get help for current field
 Type \\{HINT_KEYWORD} instead of help to get shorter message
 You can run these commands for any node in config tree using names and dots
