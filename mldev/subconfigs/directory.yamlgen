@@ -3,14 +3,14 @@ BaseDirectory {
         key: "path"
         hint: "Path to directory"
         default: "./data"
-        type: string
+        validator: string
     }
 
     field mandatory {
-        key: "needsToBeassedAsArg"
+        key: "needsToBePassedAsArg"
         hint: 'Set this to "true" if you need to pass specified directory and files as a parameter for your script'
-        values: ["true" "false"]
-        default: "false"
+        default: false
+        validator: boolean
     }
 }
 
@@ -26,14 +26,15 @@ InputDirectory extends BaseDirectory {
     field mandatory {
         key: "inputFiles"
         default: [
-            "X_train.pickle"
-            "X_dev.pickle"
-            "X_test.pickle"
-            "y_train.pickle"
-            "y_dev.pickle"
+            "X_train.pickle",
+            "X_dev.pickle",
+            "X_test.pickle",
+            "y_train.pickle",
+            "y_dev.pickle",
             "y_test.pickle"       
         ]
         hint: "Input files"
+        validator: list+<string>
     }
 }
 
@@ -49,9 +50,10 @@ OutputDirectory extends BaseDirectory {
     field mandatory {
         key: "outputFiles"
         default: [
-            "model.pickle"
+            "model.pickle",
             "report.csv"         
         ]
         hint: "Output files"
+        validator: list+<string>
     }
 }

@@ -1,8 +1,8 @@
 from copy import deepcopy
 import yaml
-import re
 
 import messages
+import validators
 
 
 class Field:
@@ -13,6 +13,7 @@ class Field:
         self.properties = {}
         self.fields = []
         self.field_generators = []
+        self.validators = []
         self.yaml = None
         self.parent = None
 
@@ -62,6 +63,21 @@ class Field:
                 return field
 
         raise NameError('Extend failed: field with name "{}" not found'.format(name))
+
+    def add_validator(self, name):
+        self.validators.append(validators.new_validator(name))
+        return self
+
+    def add_regex_validator(self, regex):
+        self.validators.append(validators.new_regex_validator(regex))
+        return self
+
+    def add_list_validator(self, not_empty):
+        self.validators.append(validators.new_list_validator(self, not_empty))
+        return self.validators[-1]
+
+    def get_list_validators(self):
+        return validators.get_list_validators(self.validators)
 
     def end_extend(self):
         return self.parent
@@ -142,24 +158,7 @@ class Field:
         return field.help or messages.HELP_NOT_AVAILABLE
 
     def get_type_description(self):
-        if 'values' in self.properties:
-            return messages.ONE_OF_VALUES_DESCRIPTION + ': ' + str(self.properties['values'])
-        if 'type' not in self.properties or self.properties['type'] == 'any':
-            return messages.ANY_VALUE_DESCRIPTION
-        if self.properties['type'] == 'int':
-            return messages.INT_VALUE_DESCRIPTION
-        if self.properties['type'] == 'float':
-            return messages.FLOAT_VALUE_DESCRIPTION
-        if self.properties['type'] == 'string':
-            return messages.STRING_VALUE_DESCRIPTION
-        if self.properties['type'] == 'list':
-            return messages.LIST_VALUE_DESCRIPTION
-
-        res = messages.REGEXP_VALUE_DESCRIPTION + ': "' + self.properties['type'] + '"'
-        if 'type-description' in self.properties:
-            res += '(' + self.properties['type-description'] + ')'
-
-        return res
+        return validators.get_description(self.validators)
 
     def get_structure(self, path=''):
         field = self.traverse(path)
@@ -225,27 +224,7 @@ class Field:
             return '\n' + yaml.dump(self.yaml, default_flow_style=False)
 
     def validate(self, value):
-        if 'type' not in self.properties or self.properties['type'] == 'any':
-            return True
-
-        if self.properties['type'] == 'int':
-            try:
-                int(value)
-                return True
-            except:
-                return False
-        elif self.properties['type'] == 'float':
-            try:
-                float(value)
-                return True
-            except:
-                return False
-        elif self.properties['type'] == 'string':
-            return not isinstance(value, list)
-        elif self.properties['type'] == 'list':
-            return isinstance(value, list)
-        else:
-            return re.fullmatch(self.properties['type'], value)
+        return validators.validate(self.validators, value)
 
     def initialize(self):
         if 'name' not in self.properties and self.parent is not None:

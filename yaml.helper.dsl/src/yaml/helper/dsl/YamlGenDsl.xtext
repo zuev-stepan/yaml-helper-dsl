@@ -50,24 +50,80 @@ NestedFields:
 ;
 
 Property:
-	StringProperty | ValuesProperty | TypeProperty
+	StringProperty | ValueProperty | ValidatorProperty
 ;
 
 StringProperty:
 	key=('key' | 'name' | 'hint')':' value=STRING
 ;
 
-ValuesProperty:
-	key=('default' | 'values')':' value=Values
+ValueProperty:
+	key=('default' | 'values')':' value=Value
 ;
 
-TypeProperty:
-	key='type' ':' value=('int' | 'float' | 'string' | 'list' | 'any' | STRING) ('(' help=STRING ')')?;
+ValidatorProperty:
+	key='validator' ':' value=Validators ('(' help=STRING ')')?;
 
-Values:
-	'[' (values+=Values)+ ']'
+Validators:
+	values+=SingleValidator ('|' values+=SingleValidator)*
+;
+
+SingleValidator:
+	SimpleValidator | RegexValidator | ListValidator
+;
+
+SimpleValidator:
+	value=('int' | 'float' | 'boolean' | 'string')
+;
+
+RegexValidator:
+	value=STRING
+;
+
+ListValidator:
+	value=('list' | 'list+') ('<' elementValidators=Validators '>')?
+;
+
+Value:
+	ListValue | StringValue | LiteralValue
+;
+
+ListValue:
+	'[' values+=Value (',' values+=Value)* ']'
 |
-	string=STRING
+	{ListValue} '[' ']'
 ;
 
-terminal HELP_STRING : '@' !('\n'|'\r')* ('\r'? '\n')?;
+StringValue:
+	value=STRING
+;
+
+LiteralValue:
+	IntValue | FloatValue | BooleanValue
+;
+
+IntValue:
+	value=(HEX | MY_INT)
+;
+
+FloatValue:
+	value=FLOAT
+;
+
+BooleanValue:
+	TrueBooleanValue | FalseBooleanValue
+;
+
+TrueBooleanValue:
+	value=('True' | 'true')
+;
+
+FalseBooleanValue:
+	value=('False' | 'false')
+;
+
+terminal HEX: '0' ('x'|'X')(('0'..'9')|('a'..'f')|('A'..'F'))+;
+terminal MY_INT: INT;
+terminal EXT_INT: MY_INT ('e'|'E')('-'|'+') MY_INT;
+FLOAT hidden(): MY_INT '.' (EXT_INT | MY_INT);
+terminal HELP_STRING: '@' !('\n'|'\r')* ('\r'? '\n')?;

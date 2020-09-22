@@ -16,12 +16,21 @@ import yaml.helper.dsl.yamlGenDsl.AnyField
 import yaml.helper.dsl.yamlGenDsl.NestedField
 import yaml.helper.dsl.yamlGenDsl.NestedFields
 import yaml.helper.dsl.yamlGenDsl.StringProperty
-import yaml.helper.dsl.yamlGenDsl.ValuesProperty
-import yaml.helper.dsl.yamlGenDsl.TypeProperty
-import yaml.helper.dsl.yamlGenDsl.Values
+import yaml.helper.dsl.yamlGenDsl.ValueProperty
+import yaml.helper.dsl.yamlGenDsl.ValidatorProperty
+import yaml.helper.dsl.yamlGenDsl.Value
+import yaml.helper.dsl.yamlGenDsl.StringValue
+import yaml.helper.dsl.yamlGenDsl.BooleanValue
+import yaml.helper.dsl.yamlGenDsl.LiteralValue
+import yaml.helper.dsl.yamlGenDsl.ListValue
+import yaml.helper.dsl.yamlGenDsl.Validators
+import yaml.helper.dsl.yamlGenDsl.SimpleValidator
+import yaml.helper.dsl.yamlGenDsl.RegexValidator
+import yaml.helper.dsl.yamlGenDsl.ListValidator
 
 import com.google.common.base.Charsets
 import com.google.common.io.Resources
+import yaml.helper.dsl.yamlGenDsl.TrueBooleanValue
 
 /**
  * Generates code from your model files on save.
@@ -57,14 +66,20 @@ class YamlGenDslGenerator extends AbstractGenerator {
 		return help.substring(1, help.length - 1).python_string
 	}
 	
-	private def python_values(Values values) {
-		if (values.string !== null) {
-			return values.string.python_string			
+	private def python_value(Value value) {
+		if (value instanceof StringValue) {
+			return (value as StringValue).value.python_string
+		}
+		else if (value instanceof BooleanValue) {
+			return (value instanceof TrueBooleanValue).python_bool
+		}
+		else if (value instanceof LiteralValue) {
+			return (value as LiteralValue).value
 		}
 		else {
 			var res = "["
-			for (nestedValues : values.values) {
-				res+=nestedValues.python_values + ","
+			for (nestedValue : (value as ListValue).values) {
+				res+=nestedValue.python_value + ","
 			}
 			return res + "]"
 		}
@@ -111,6 +126,7 @@ class YamlGenDslGenerator extends AbstractGenerator {
 		fsa.generateFile("field.py", Resources.toString(Main.getResource("impl/field.py"), Charsets.UTF_8))
 		fsa.generateFile("main.py", Resources.toString(Main.getResource("impl/main.py"), Charsets.UTF_8))
 		fsa.generateFile("messages.py", Resources.toString(Main.getResource("impl/messages.py"), Charsets.UTF_8))
+		fsa.generateFile("validators.py", Resources.toString(Main.getResource("impl/validators.py"), Charsets.UTF_8))
 		fsa.generateFile("build.sh", Resources.toString(Main.getResource("impl/build.sh"), Charsets.UTF_8))
 	}
 	
@@ -160,25 +176,41 @@ class YamlGenDslGenerator extends AbstractGenerator {
 		.set_property(«stringProperty.key.python_string», «stringProperty.value.python_string»)
 	'''
 	
-	private def compile(ValuesProperty valuesProperty) '''
-		.set_property(«valuesProperty.key.python_string», «valuesProperty.value.python_values»)
+	private def compile(ValueProperty valueProperty) '''
+		.set_property(«valueProperty.key.python_string», «valueProperty.value.python_value»)
 	'''
 	
-	private def compile(TypeProperty typeProperty) '''
-		.set_property(«typeProperty.key.python_string», «typeProperty.value.python_string»)
-		«IF typeProperty.help !== null»
-			.set_property("type-description", «typeProperty.help.python_string»)
+	private def compile(Validators validators) '''
+		«FOR t : validators.values.filter(SimpleValidator)»
+		.add_validator(«t.value.python_string»)
+		«ENDFOR»
+		«FOR t : validators.values.filter(RegexValidator)»
+		.add_regex_validator(«t.value.python_string»)
+		«ENDFOR»
+		«FOR t : validators.values.filter(ListValidator)»
+		.add_list_validator(«t.value.equals("list+").python_bool»)
+		«IF t.elementValidators !== null»
+		«t.elementValidators.compile»
 		«ENDIF»
+		.end_list_validator()
+		«ENDFOR»
+	'''
+	
+	private def compile(ValidatorProperty validatorProperty) '''
+		«IF validatorProperty.help !== null»
+		.set_property("validator-description", «validatorProperty.help.python_string»)
+		«ENDIF»
+		«validatorProperty.value.compile»
 	'''
 	
 	private def compile(Body body) '''
 		«FOR t : body.elements.filter(StringProperty)»
 		«t.compile»
 		«ENDFOR»
-		«FOR t : body.elements.filter(ValuesProperty)»
+		«FOR t : body.elements.filter(ValueProperty)»
 		«t.compile»
 		«ENDFOR»
-		«FOR t : body.elements.filter(TypeProperty)»
+		«FOR t : body.elements.filter(ValidatorProperty)»
 		«t.compile»
 		«ENDFOR»
 		«FOR t : body.elements.filter(Extend)»

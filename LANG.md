@@ -14,13 +14,17 @@ Each field can have these properties:
 * hint - Short description of this field which will be displayed to user
 * default - Default value
 * values - List with possible values
-* type - Validator for user answer
+* validator - Validator for user answer with optional ("HELP STRING")
   * int for integer number
   * float for floating point number
+  * boolean for boolean
   * string for any string value
   * list for any list value
-  * any for any value
-  * "regex" for regular expression with optional ("HELP STRING")
+  * list+ for any list value
+  * list/list+ <value validator>
+  * "regex" for regular expression
+  * multiple validators available
+    * "validator: list<int | list<boolean>> | boolean" will match list of ints or list of lists of booleans or boolean
 
 Each field can have nested fields:
 
@@ -77,7 +81,7 @@ Each field can have nested field generators (key property is not available for f
     Stage {
       field mandatory {
         key: "stage-name"
-        type: string
+        validator: string ("String")
       }
     }
     Field {

@@ -3,6 +3,7 @@ import os
 
 from actions import Action, get_answer, get_bool_answer
 import messages
+from validators import get_list_validators
 
 
 class StackIsEmpty(Exception):
@@ -169,7 +170,11 @@ class SetLeafValue(Command):
         self.old_yaml = None
 
     def execute(self, stack):
-        self.old_yaml = self.field.set_leaf_value(self.value)
+        typed_value = self.field.validate(self.value)
+        if typed_value is None:
+            raise ValueError('Validation failed')
+
+        self.old_yaml = self.field.set_leaf_value(typed_value)
         print(messages.SUCCESS + self.field.get_name())
         return self.on_success
 
@@ -179,8 +184,9 @@ class SetLeafValue(Command):
 
 
 class ReadArray(Command):
-    def __init__(self, field, array, on_success):
+    def __init__(self, field, validators, array, on_success):
         self.field = field
+        self.validators = validators
         self.array = array
         self.got_value = False
         self.on_success = on_success
@@ -194,18 +200,41 @@ class ReadArray(Command):
             if action == Action.UNDO:
                 return self.go_back(stack)
             elif action == Action.READ_ARRAY:
+                validators = []
+                for validator in self.validators:
+                    validators += validator.get_list_validators()
+                if len(validators) == 0:
+                    print(messages.INCORRECT_VALUE)
+                    continue
                 self.got_value = True
                 self.array.append([])
-                return ReadArray(self.field, self.array[-1], ReadArray(self.field, self.array, self.on_success))
+                return ReadArray(self.field, validators, self.array[-1],
+                                 ReadArray(self.field, self.validators, self.array, self.on_success))
             elif action == Action.END_READ_ARRAY:
+                success = False
+                for validator in self.validators:
+                    if validator.validate(self.array) is not None:
+                        success = True
+                if not success:
+                    print(messages.INCORRECT_VALUE)
+                    continue
                 return self.on_success
             elif action != Action.CONTINUE:
                 print(messages.INCORRECT_ACTION)
                 continue
 
+            next_validators = []
+            for validator in self.validators:
+                if validator.validate([answer]) is not None:
+                    next_validators.append(validator)
+
+            if len(next_validators) == 0:
+                print(messages.INCORRECT_VALUE)
+                continue
+
             self.got_value = True
             self.array.append(answer)
-            return ReadArray(self.field, self.array, self.on_success)
+            return ReadArray(self.field, next_validators, self.array, self.on_success)
 
     def undo(self):
         if self.got_value:
@@ -240,18 +269,24 @@ class ManualFillLeaf(Command):
                     print(messages.INCORRECT_VALUE_IDX)
 
         while True:
-            print(messages.ENTER_VALUE + ' (' + self.field.get_type_description() + '):')
+            print(messages.ALLOWED_VALUES, end=' ')
+            print(self.field.get_type_description())
+            print(messages.ENTER_VALUE)
             action, answer = get_answer(self.field)
             if action == Action.UNDO:
                 return self.go_back(stack)
             elif action == Action.READ_ARRAY:
+                validators = self.field.get_list_validators()
+                if len(validators) == 0:
+                    print(messages.INCORRECT_VALUE)
+                    continue
                 array = []
-                return ReadArray(self.field, array, SetLeafValue(self.field, array, self.on_success))
+                return ReadArray(self.field, validators, array, SetLeafValue(self.field, array, self.on_success))
             elif action != Action.CONTINUE:
                 print(messages.INCORRECT_ACTION)
                 continue
 
-            if not self.field.validate(answer):
+            if self.field.validate(answer) is None:
                 print(messages.INCORRECT_VALUE)
                 continue
 

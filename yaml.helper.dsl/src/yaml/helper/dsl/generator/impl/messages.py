@@ -29,13 +29,15 @@ Type \\{QUIT_KEYWORD} to exit"""
 
 SEPARATOR = '================================================================================'
 
-ONE_OF_VALUES_DESCRIPTION = 'One of values'
+ALLOWED_VALUES = 'Allowed values:'
 ANY_VALUE_DESCRIPTION = 'Any value'
 INT_VALUE_DESCRIPTION = 'Integer number'
 FLOAT_VALUE_DESCRIPTION = 'Floating point number'
+BOOL_VALUE_DESCRIPTION = 'Boolean (True/False/Yes/No/On/Off)'
 STRING_VALUE_DESCRIPTION = 'String'
 LIST_VALUE_DESCRIPTION = 'List'
-REGEXP_VALUE_DESCRIPTION = 'String matching regular expression'
+NOT_EMPTY_LIST_VALUE_DESCRIPTION = 'Not empty list'
+REGEXP_VALUE_DESCRIPTION = 'String matching regular expression: {}'
 
 CONFIG_FILE_NAME = 'Enter config name: '
 CANT_CREATE_DIRECTORY = 'Directory does not exist and can not be created: '
@@ -48,13 +50,13 @@ INCORRECT_BOOL_ANSWER = 'Incorrect answer! Type "yes" for positive answer or "no
 
 SETTING_UP_FIELD = 'Configuring: '
 
-FILL_NOT_MANDATORY_FIELD = 'This field is not mandatory, would you like to use it? (y/n)'
+FILL_NOT_MANDATORY_FIELD = 'This field is not mandatory, would you like to add it? (y/n)'
 KEY_REQUIRED = 'Enter key: '
 KEY_ALREADY_USED = 'This key has been used earlier, you should choose another key'
 AVAILABLE_VALUES = 'Available values:'
 INCORRECT_VALUE_IDX = 'Incorrect value! Please, answer with index, for example: 1'
 
-ENTER_VALUE = 'Enter value'
+ENTER_VALUE = 'Enter value:'
 INCORRECT_VALUE = 'Incorrect value!'
 INCORRECT_ACTION = 'Incorrect action'
 FILLING_ARRAY = 'Filling array, current value:'

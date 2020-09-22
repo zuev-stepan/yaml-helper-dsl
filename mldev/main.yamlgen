@@ -7,7 +7,7 @@ Stage {
         key: "requirements_file_path"
         default: "./Requirements/requiremets.txt"
         hint: "Path to requirements.txt"
-        type: string
+        validator: string
     }
 
     field mandatory extends InputDirectory {}
@@ -18,15 +18,15 @@ Stage {
         key: "scriptPath"
         default: "run.sh"
         hint: "Path to script that will be used in this particular stage"
-        type: string
+        validator: string
     }
 
     @ This parameter is responsible for number for iterations and is used when you need to run exact stage more than one time
     field mandatory {
         key: "numberOfIterations"
-        default: "1"
+        default: 1
         hint: "How many times do you want to run this stage?"
-        type: int
+        validator: int
     }
 
     field extends MonitoringServices {}

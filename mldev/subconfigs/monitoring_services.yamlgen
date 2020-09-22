@@ -16,14 +16,14 @@ Tensorboard {
         key: "logdir"
         default: "log_tb"
         hint: "A directory to keep tensorboard logs in"
-        type: string
+        validator: string
     }
 
     field mandatory {
         key: "port"
-        default: "6006"
+        default: 6006
         hint: "Port for tensorboard"
-        type: string
+        validator: int
     }
 }
 
@@ -38,13 +38,14 @@ Ngrok {
     field mandatory {
         key: "token"
         hint: "Your ngrok token"
-        type: string
+        validator: string
     }
 
     field mandatory {
         key: "ports"
-        default: "6006"
+        default: 6006
         hint: "Ports to expose (your tensorboard port should be here)"
+        validator: int | list<int>
     }
 }
 
@@ -59,13 +60,13 @@ NotificationBot {
     field mandatory {
         key: "token"
         hint: "Your telegram bot token"
-        type: string
+        validator: string
     }
 
     field mandatory {
         key: "warnings"
-        default: "False"
-        values: ["True" "False"]
+        default: false
+        validator: boolean
         hint: "Do you want to receive warnings?"
     }
 }

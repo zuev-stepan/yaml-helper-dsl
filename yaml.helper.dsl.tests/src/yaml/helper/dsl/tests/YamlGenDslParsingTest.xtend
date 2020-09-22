@@ -25,7 +25,6 @@ class YamlGenDslParsingTest {
 	@Test
 	def void simpleTest() {
 		val result = parseHelper.parse('''
-			import "asd"
 			TestField1 {}
 			
 			TestField2 extends TestField1 {
@@ -49,7 +48,7 @@ class YamlGenDslParsingTest {
 				values: "asd"
 			}
 			TestField2 extends TestField1 {
-				values: ["asd" "aaa"]
+				values: ["asd", "aaa"]
 				field mandatory {
 					name: "inline-field"
 					hint: "test"
@@ -67,6 +66,7 @@ class YamlGenDslParsingTest {
 			
 			TestField4 {
 				fields {
+					name: "test"
 				}
 			}
 		''')
@@ -283,7 +283,7 @@ class YamlGenDslParsingTest {
 		errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
 		validationTestHelper.assertError(result,
-			YamlGenDslPackage.Literals.VALUES_PROPERTY,
+			YamlGenDslPackage.Literals.VALUE_PROPERTY,
 			YamlGenDslValidator.DUPLICATE_PROPERTY,
 			YamlGenDslValidator.DUPLICATE_PROPERTY
 		)
@@ -298,7 +298,7 @@ class YamlGenDslParsingTest {
 		errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
 		validationTestHelper.assertError(result,
-			YamlGenDslPackage.Literals.VALUES_PROPERTY,
+			YamlGenDslPackage.Literals.VALUE_PROPERTY,
 			YamlGenDslValidator.DUPLICATE_PROPERTY,
 			YamlGenDslValidator.DUPLICATE_PROPERTY
 		)
@@ -514,6 +514,19 @@ class YamlGenDslParsingTest {
 		''')
 		Assertions.assertNotNull(result)
 		errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+		validationTestHelper.assertNoErrors(result)
+	}
+	
+	@Test
+	def void validatorTest() {
+		var result = parseHelper.parse('''
+			TestField1 {
+				validator: int | float | boolean | string | "test" | list | list+ | list<int | float> | list+<list<int> | string> ("TEST")
+			}
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
 		validationTestHelper.assertNoErrors(result)
 	}
