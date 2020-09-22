@@ -160,6 +160,9 @@ class Field:
     def get_type_description(self):
         return validators.get_description(self.validators)
 
+    def get_short_type_description(self):
+        return validators.get_short_description(self.validators)
+
     def get_structure(self, path=''):
         field = self.traverse(path)
         if field is None:
@@ -169,7 +172,7 @@ class Field:
         for subfield in field.fields:
             res.append(subfield.properties.get('key', subfield.properties['name']) + ':')
             if subfield.is_leaf():
-                res[-1] += ' ' + subfield.get_type_description()
+                res[-1] += ' ' + subfield.get_short_type_description()
                 continue
 
             field_structure = subfield.get_structure()
@@ -179,7 +182,7 @@ class Field:
         for field_generator in field.field_generators:
             res.append(messages.GENERATOR + ' ' + field_generator.properties['name'] + ':')
             if field_generator.is_leaf():
-                res[-1] += field_generator.get_type_description()
+                res[-1] += field_generator.get_short_type_description()
                 continue
 
             field_structure = field_generator.get_structure()
